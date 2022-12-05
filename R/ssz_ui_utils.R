@@ -11,9 +11,15 @@
 #'
 #' @examples
 #' sszDownload("csvDownload", label = "csv")
-sszDownload <- function(outputId, label = "Download"){
-  tags$a(id = outputId, class = "btn btn-default shiny-download-link chipDownload sszDownload", href = "",
-         target = "_blank", download = NA, label)
+sszDownload <- function(outputId, label = "Download") {
+  htmltools::tags$a(
+    id = outputId,
+    class = "btn btn-default shiny-download-link chipDownload sszDownload",
+    href = "",
+    target = "_blank",
+    download = NA,
+    label
+  )
 }
 
 
@@ -33,26 +39,30 @@ sszDownload <- function(outputId, label = "Download"){
 #'
 #' @examples
 #' sszDateRange("DateRange", "Datum:",
-#' start  =  min(data$date), # default start date
-#' end    =  max(data$date), # default end date
-#' min    =  min(data$date), # minimum allowed date
-#' max    =  max(data$date), # maximum allowed date
-#' separator = icon("calendar"))
+#'   start = min(data$date), # default start date
+#'   end = max(data$date), # default end date
+#'   min = min(data$date), # minimum allowed date
+#'   max = max(data$date), # maximum allowed date
+#'   separator = icon("calendar")
+#' )
 #'
-sszDateRange <- function(
-  inputId,
-  label,
-  format = "dd.mm.yyyy",
-  language = "de",
-  ...){
-  html_list <- dateRangeInput(inputId = inputId,
-                              label = label,
-                              format = format,
-                              language = language,
-                              ...)
+sszDateRange <- function(inputId,
+                         label,
+                         format = "dd.mm.yyyy",
+                         language = "de",
+                         ...) {
+  html_list <- shiny::dateRangeInput(
+    inputId = inputId,
+    label = label,
+    format = format,
+    language = language,
+    ...
+  )
   current_label_class <- html_list$children[[1]]$attribs$class
-  html_list$children[[1]]$attribs$class <- paste(current_label_class,
-                                                 "ssz-label")
+  html_list$children[[1]]$attribs$class <- paste(
+    current_label_class,
+    "ssz-label"
+  )
   html_list
 }
 
@@ -71,18 +81,21 @@ sszDateRange <- function(
 #'
 #' @examples
 #' sszSelectInput("select", "Destination:", choices = unique(data$dest), selected = "LAX")
-sszSelectInput <- function(
-  inputId,
-  label,
-  choices,
-  ...){
-  html_list <- selectInput(inputId = inputId,
-                           label = label,
-                           choices = choices,
-                           ...)
+sszSelectInput <- function(inputId,
+                           label,
+                           choices,
+                           ...) {
+  html_list <- shiny::selectInput(
+    inputId = inputId,
+    label = label,
+    choices = choices,
+    ...
+  )
   current_label_class <- html_list$children[[1]]$attribs$class
-  html_list$children[[1]]$attribs$class <- paste(current_label_class,
-                                                 "ssz-label")
+  html_list$children[[1]]$attribs$class <- paste(
+    current_label_class,
+    "ssz-label"
+  )
   html_list
 }
 
@@ -101,13 +114,16 @@ sszSelectInput <- function(
 #' @examples
 #' sszTextInput("suchfeld", "Name:")
 sszTextInput <- function(inputId, label, ...) {
-  html_list <- textInput(inputId = inputId,
-                         label = label,
-                         ...
+  html_list <- shiny::textInput(
+    inputId = inputId,
+    label = label,
+    ...
   )
   current_label_class <- html_list$children[[1]]$attribs$class
-  html_list$children[[1]]$attribs$class <- paste(current_label_class,
-                                                 "ssz-label")
+  html_list$children[[1]]$attribs$class <- paste(
+    current_label_class,
+    "ssz-label"
+  )
   html_list
 }
 
@@ -130,22 +146,27 @@ sszTextInput <- function(inputId, label, ...) {
 #' @export
 #'
 #' @examples
-#' sszRadioButtons(inputId = "ButtonGroupLabel",
-#' label = "Flughafen:",
-#' choices = unique(data$origin),
-#' selected = "JFK" # default value
+#' sszRadioButtons(
+#'   inputId = "ButtonGroupLabel",
+#'   label = "Flughafen:",
+#'   choices = unique(data$origin),
+#'   selected = "JFK" # default value
 #' )
 sszRadioButtons <- function(inputId, label, choices, ...) {
-  html_list <- radioButtons(inputId = inputId,
-                            label = label,
-                            choices = choices,
-                            ...)
+  html_list <- shiny::radioButtons(
+    inputId = inputId,
+    label = label,
+    choices = choices,
+    ...
+  )
   current_class <- html_list$attribs$class
   html_list$attribs$class <- paste(current_class, "sszRadioButton")
 
   current_label_class <- html_list$children[[1]]$attribs$class
-  html_list$children[[1]]$attribs$class <- paste(current_label_class,
-                                                 "sszRadioButton-label")
+  html_list$children[[1]]$attribs$class <- paste(
+    current_label_class,
+    "sszRadioButton-label"
+  )
 
   tags$div(
     class = "radioDiv",
@@ -169,10 +190,12 @@ sszRadioButtons <- function(inputId, label, choices, ...) {
 #' @examples
 #' sszActionButton("ActionButtonId", "Abfrage starten")
 sszActionButton <- function(inputId, label, ...) {
-  actionButton(inputId = inputId,
-               label = label,
-               class = "sszActionButton",
-               ...)
+  shiny::actionButton(
+    inputId = inputId,
+    label = label,
+    class = "sszActionButton",
+    ...
+  )
 }
 
 #' sszOgdDownload
@@ -188,11 +211,15 @@ sszActionButton <- function(inputId, label, ...) {
 #' @export
 #'
 #' @examples
-#' sszOgdDownload(inputId = "ogdDown", label = "OGD",
-#' onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')")
-sszOgdDownload <- function(inputId, label, onclick){
-  actionButton(inputId = inputId,
-               label = label,
-               onclick = onclick,
-               class = "sszDownload")
+#' sszOgdDownload(
+#'   inputId = "ogdDown", label = "OGD",
+#'   onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
+#' )
+sszOgdDownload <- function(inputId, label, onclick) {
+  shiny::actionButton(
+    inputId = inputId,
+    label = label,
+    onclick = onclick,
+    class = "sszDownload"
+  )
 }
