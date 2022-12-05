@@ -37,13 +37,17 @@ Alternatively, you can provide a full filepath (something like "C:/temp/mystylin
 
 #### Download buttons
 
+![csv download](man/pictures/csv.png)
+
 A download button for downloading an excel/csv file can be called with 
 ```{r, eval = FALSE}
 sszDownload("csvDownload", label = "csv")
 ```
 This is the only function not based on a shiny function.
 
-A button for a link to an external site, e.g. an Open Government Data portal, can be used with 
+A button for a link to an external site, e.g. an Open Government Data portal, 
+![ogd](man/pictures/ogd.png)
+can be used with 
 ```{r, eval = FALSE}
 sszOgdDownload(
    inputId = "ogdDown", 
@@ -55,12 +59,16 @@ Provide the appropriate link in the `onclick` parameter. The function wraps arou
 
 #### Select input
 
+![select input](man/pictures/selectInput.png)
+
 ```{r, eval = FALSE}
 sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
 ```
 The function wraps around shiny's `selectInput`.
 
 #### Text input
+
+![text input](man/pictures/textInput.png)
 
 ```{r, eval = FALSE}
 sszTextInput("suchfeld", "Name:")
@@ -69,17 +77,21 @@ The function wraps around shiny's `textInput`.
 
 #### Radio buttons
 
+![radio buttons](man/pictures/radioButtons.png)
+
 ```{r, eval = FALSE}
 sszRadioButtons(
    inputId = "ButtonGroupLabel",
    label = "Flughafen:",
-   choices = c("HOU", "LAX", "JFK", "SEA"),
-   selected = "JFK" # default value
+   choices = c("EWR", "JFK", "LGA"),
+   selected = "JFK"
    )
 ```
-The function wraps around shiny's `radioButtons`.
+The function wraps around shiny's `radioButtons`. Use `inline = TRUE` for horizontal alignment.
 
 #### Date Range
+
+![date range](man/pictures/dateRange.png)
 
 ```{r, eval = FALSE}
 sszDateRange("DateRange", "Datum:",
@@ -92,6 +104,8 @@ sszDateRange("DateRange", "Datum:",
 By default, the language is German and the date format is `dd.mm.yyyy`. This and additional parameters to shiny's `dateRangeInput`  can be passed as parameters. 
 
 #### Action button
+
+![action button](man/pictures/actionbutton.png)
 
 ```{r, eval = FALSE}
 sszActionButton("ActionButtonId", "Abfrage starten")
