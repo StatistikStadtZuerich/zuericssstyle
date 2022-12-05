@@ -12,7 +12,7 @@
 #' @examples
 #' sszDownload("csvDownload", label = "csv")
 sszDownload <- function(outputId, label = "Download") {
-  htmltools::tags$a(
+  tags$a(
     id = outputId,
     class = "btn btn-default shiny-download-link chipDownload sszDownload",
     href = "",
@@ -51,7 +51,7 @@ sszDateRange <- function(inputId,
                          format = "dd.mm.yyyy",
                          language = "de",
                          ...) {
-  html_list <- shiny::dateRangeInput(
+  html_list <- dateRangeInput(
     inputId = inputId,
     label = label,
     format = format,
@@ -85,7 +85,7 @@ sszSelectInput <- function(inputId,
                            label,
                            choices,
                            ...) {
-  html_list <- shiny::selectInput(
+  html_list <- selectInput(
     inputId = inputId,
     label = label,
     choices = choices,
@@ -114,7 +114,7 @@ sszSelectInput <- function(inputId,
 #' @examples
 #' sszTextInput("suchfeld", "Name:")
 sszTextInput <- function(inputId, label, ...) {
-  html_list <- shiny::textInput(
+  html_list <- textInput(
     inputId = inputId,
     label = label,
     ...
@@ -153,7 +153,7 @@ sszTextInput <- function(inputId, label, ...) {
 #'   selected = "JFK" # default value
 #' )
 sszRadioButtons <- function(inputId, label, choices, ...) {
-  html_list <- shiny::radioButtons(
+  html_list <- radioButtons(
     inputId = inputId,
     label = label,
     choices = choices,
@@ -190,7 +190,7 @@ sszRadioButtons <- function(inputId, label, choices, ...) {
 #' @examples
 #' sszActionButton("ActionButtonId", "Abfrage starten")
 sszActionButton <- function(inputId, label, ...) {
-  shiny::actionButton(
+  actionButton(
     inputId = inputId,
     label = label,
     class = "sszActionButton",
@@ -216,7 +216,7 @@ sszActionButton <- function(inputId, label, ...) {
 #'   onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
 #' )
 sszOgdDownload <- function(inputId, label, onclick) {
-  shiny::actionButton(
+  actionButton(
     inputId = inputId,
     label = label,
     onclick = onclick,

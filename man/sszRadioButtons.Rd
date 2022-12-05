@@ -27,9 +27,10 @@ a "sszRadioButton" is added to the output of radioButtons, and a
 wrapped in a div with class "radioDiv"
 }
 \examples{
-sszRadioButtons(inputId = "ButtonGroupLabel",
-label = "Flughafen:",
-choices = unique(data$origin),
-selected = "JFK" # default value
+sszRadioButtons(
+  inputId = "ButtonGroupLabel",
+  label = "Flughafen:",
+  choices = unique(data$origin),
+  selected = "JFK" # default value
 )
 }

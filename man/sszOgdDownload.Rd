@@ -20,6 +20,8 @@ same as the shiny actionButton but with the "sszDownload" added as a class
 function to generate an ssz-themed ogd download button
 }
 \examples{
-sszOgdDownload(inputId = "ogdDown", label = "OGD",
-onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')")
+sszOgdDownload(
+  inputId = "ogdDown", label = "OGD",
+  onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
+)
 }
