@@ -1,0 +1,19 @@
+Package: zuericssstyle
+Title: Statistik Stadt Zürich CSS styling for shiny apps and html
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Sara",
+           "Hänzi",
+           role = c("aut", "cre"),
+           email = "sara.haenzi@zuerich.ch")
+    person("Alessandro",
+           "Feller",
+           role = c("aut"),
+           email = "alessandro.feller@zuerich.ch")
+    )
+Description: Style shiny apps according to the city of Zurich's corporate design.
+License: BSD-3-Clause + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
