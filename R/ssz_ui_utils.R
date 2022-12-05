@@ -39,11 +39,10 @@ sszDownload <- function(outputId, label = "Download") {
 #'
 #' @examples
 #' sszDateRange("DateRange", "Datum:",
-#'   start = min(data$date), # default start date
-#'   end = max(data$date), # default end date
-#'   min = min(data$date), # minimum allowed date
-#'   max = max(data$date), # maximum allowed date
-#'   separator = icon("calendar")
+#'   start  = "2001-01-01",
+#'   end    = "2010-12-31",
+#'   min    = "2001-01-01",
+#'   max    = "2012-12-21"
 #' )
 #'
 sszDateRange <- function(inputId,
@@ -80,7 +79,7 @@ sszDateRange <- function(inputId,
 #' @export
 #'
 #' @examples
-#' sszSelectInput("select", "Destination:", choices = unique(data$dest), selected = "LAX")
+#' sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
 sszSelectInput <- function(inputId,
                            label,
                            choices,
@@ -149,7 +148,7 @@ sszTextInput <- function(inputId, label, ...) {
 #' sszRadioButtons(
 #'   inputId = "ButtonGroupLabel",
 #'   label = "Flughafen:",
-#'   choices = unique(data$origin),
+#'   choices = c("HOU", "LAX", "JFK", "SEA"),
 #'   selected = "JFK" # default value
 #' )
 sszRadioButtons <- function(inputId, label, choices, ...) {

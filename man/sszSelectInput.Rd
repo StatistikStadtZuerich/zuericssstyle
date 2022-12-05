@@ -22,5 +22,5 @@ the same as selectInput with modified label class
 function to generate a selectInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-sszSelectInput("select", "Destination:", choices = unique(data$dest), selected = "LAX")
+sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
 }

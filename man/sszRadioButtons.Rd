@@ -30,7 +30,7 @@ wrapped in a div with class "radioDiv"
 sszRadioButtons(
   inputId = "ButtonGroupLabel",
   label = "Flughafen:",
-  choices = unique(data$origin),
+  choices = c("HOU", "LAX", "JFK", "SEA"),
   selected = "JFK" # default value
 )
 }

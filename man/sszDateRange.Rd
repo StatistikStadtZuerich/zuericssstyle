@@ -25,11 +25,10 @@ function to generate a DateRangeInput with the custom ssz label styling (via "ss
 }
 \examples{
 sszDateRange("DateRange", "Datum:",
-  start = min(data$date), # default start date
-  end = max(data$date), # default end date
-  min = min(data$date), # minimum allowed date
-  max = max(data$date), # maximum allowed date
-  separator = icon("calendar")
+  start  = "2001-01-01",
+  end    = "2010-12-31",
+  min    = "2001-01-01",
+  max    = "2012-12-21"
 )
 
 }
