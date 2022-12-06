@@ -1,3 +1,5 @@
+![zuericssstyle hex image](man/pictures/Hexagon_zuericssstyle.png)
+
 # zuericssstyle
 zuericssstyle is an R-Package, which provides specific css files and styled shiny widgets according to the corporate design of the city of Zurich. The package contains widgets and styling that [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) have used so far for creating shiny apps that conform to the corporate design.
 
