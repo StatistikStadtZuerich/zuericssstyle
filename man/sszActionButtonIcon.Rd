@@ -19,12 +19,12 @@ sszActionButtonIcon(inputId, label, ssz_icon, ...)
 the return of actionButton with "sszActionButton" added as a class
 }
 \description{
-sszActionButtonIcon
+function to generate an action button with an icon and with the custom ssz styling
 }
 \examples{
-\dontrun
-{sszActionButtonIcon("ActionButtonId",
+\dontrun{
+sszActionButtonIcon("ActionButtonId",
 "Abfrage starten",
-ssz_icon = img(icons_ssz$`arrow-right`)
-)}
+ssz_icon = img(icons_ssz$`arrow-right`))
+}
 }
