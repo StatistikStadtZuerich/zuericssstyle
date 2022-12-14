@@ -389,6 +389,10 @@ a:hover {
   transition: 0.7s;
 }
 
+.sszActionButton {
+  stroke: white;
+}
+
 button {
     background-color: #F2F2F2;
     padding: 4px 12px 4px 12px;
@@ -650,6 +654,62 @@ button:active {
 /* Days */
 .day {
   color: #646464;
+}
+
+ /*******************************
+ * Airdatepicker
+ *******************************/
+
+.airdatepicker {
+    background-color: #fff;
+    box-sizing: border-box;
+    font-family:  "HelveticaNeueLTW01_55Roman";
+    font-size: 14px;
+    color: #4a4a4a;
+    width: 237px;
+    position: fixed;
+    left: -100000px;
+    opacity: 0;
+    padding: 16px;
+    margin: 12px 0 0;
+    border-color: rgb(100 100 100);
+    border: 0px solid rgb(100 100 100);
+    border-radius: 2px;
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 24%);
+}
+
+
+.airdatepicker--content {
+    box-sizing: content-box;
+    padding: 0px;
+    height: auto;
+}
+
+.airdatepicker--cell-month,.airdatepicker--cell-year, .airdatepicker--cell.-current- {
+    height: 45px;
+    width: 45px;
+    margin: 1%;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-grid;
+    align-content: center;
+    color: #646464;
+}
+
+.airdatepicker--cell.-selected-, .airdatepicker--cell.-selected-.-current-, .airdatepicker--cell.-selected-.-focus-, .airdatepicker--cell.-focus- {
+    background-color: #0F05A0;
+    border-radius: 50px;
+    height: 45px;
+    margin: 1%;
+    display: inline-grid;
+    align-content: center;
+    color: #fff;
+}
+
+.airdatepicker--nav-title {
+    font-size: 14px;
+    font-family: HelveticaNeueLTW05_85Heavy;
+    color: #646464;
 }
 
 

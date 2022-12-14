@@ -105,6 +105,45 @@ sszDateRange("DateRange", "Datum:",
 ``` 
 By default, the language is German and the date format is `dd.mm.yyyy`. This and additional parameters to shiny's `dateRangeInput`  can be passed as parameters. 
 
+#### Date selection with shinyWidgets::airDatepickerInput
+
+In contrast to the standard `dateRangeInput`, the `airDatepickerInput` allows selection of only years, or years and months, rather than 'only' year-month-day as with the `dateRangeInput`
+
+By default, the language is set to `'de'`, and the `dateFormat` to `"dd.mm.yyyy"`. Both parameters can be overridden by supplying something else.
+
+Additionally, there are options for adding a specific calendar icon. By default, it looks like this, no calendar icon is shown, and internally, `addon` is set to `'none'`.
+
+![airdate picker default](man/pictures/airdatepicker_default.png)
+
+```{r, eval = FALSE}
+sszAirDatepickerInput(
+          inputId = "airMonthStart",
+          label = "Basis Datum",
+          dateFormat = "MM-yyyy",
+          view="years",
+          minView="months",
+          autoClose=TRUE
+        )
+``` 
+
+
+Alternatively, a custom image can be passed to be used instead of the calendar icon, in the form of a `htmltools::tags$img(...)`.
+
+
+![airdate picker with icon](man/pictures/airdatepicker_icon.png)
+
+```{r, eval = FALSE}
+sszAirDatepickerInput(
+          inputId = "airMonthStart2",
+          label = "Basis Datum",
+          dateFormat = "MM-yyyy",
+          view = "years",
+          minView = "months",
+          autoClose = TRUE,
+          ssz_icon = img(icons_ssz("calendar"))
+        )
+```
+
 #### Action button
 
 ![action button](man/pictures/actionbutton.png)
@@ -113,6 +152,17 @@ By default, the language is German and the date format is `dd.mm.yyyy`. This and
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 The function wraps around shiny's `actionButton`.
+
+A separate function exists if an icon/image is to be added to the button (as a `htmltools::tags$img(...)`)
+
+![action button with icon](man/pictures/actionbutton_icon.png)
+
+```{r, eval = FALSE}
+sszActionButtonIcon("ActionButtonId",
+                       "Abfrage starten",
+                       ssz_icon = img(icons_ssz$`arrow-right`)
+                       )
+```
 
 ### CSS file for html
 If you need the css file to e.g. style a html report, use 
