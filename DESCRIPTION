@@ -1,6 +1,6 @@
 Package: zuericssstyle
 Title: Statistik Stadt Zürich CSS styling for shiny apps and html
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: c(
     person("Sara",
            "Hänzi",
