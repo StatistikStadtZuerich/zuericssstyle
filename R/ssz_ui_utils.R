@@ -65,6 +65,70 @@ sszDateRange <- function(inputId,
   html_list
 }
 
+
+#' sszAirDatepickerInput
+#'
+#' @param inputId inputId parameter for airDatepickerInput
+#' @param label label parameter for airDatePickerInput
+#' @param dateFormat optional format parameter for airDatepickerInput, default "dd.mm.yyyy"
+#' @param language optional language parameter for airDatepickerInput, default "de"
+#' @param ssz_icon optional parameter to be used as the calendar icon, a html image tag, e.g. htmltools::tags$img(...)
+#' @param ... further named parameters for airDatepickerInput
+#'
+#' @return the same as dateRangeInput return, with modified label class
+#' @export
+#'
+#' @examples
+#' sszAirDatepickerInput(
+#' inputId = "airMonthStart",
+#' label = "Basis Datum",
+#' language="de",
+#' range = FALSE, multiple=FALSE, clearButton = FALSE,
+#' dateFormat = "MM-yyyy",
+#' view = "years",
+#' minView = "months",
+#' autoClose = TRUE
+#' )
+sszAirDatepickerInput <- function(inputId,
+                                  label,
+                                  dateFormat = "dd.mm.yyyy",
+                                  language = "de",
+                                  ssz_icon = NULL,
+                                  ...){
+  if (is.null(ssz_icon)) {
+    # then get rid of the addon/button with an icon
+    addon = 'none'
+  } else {
+    addon = 'right'
+  }
+
+  html_list <- airDatepickerInput(
+    inputId = inputId,
+    label = label,
+    language = language,
+    dateFormat = dateFormat,
+    addon = addon,
+    ...
+  )
+
+  # add the html class to adjust the label
+  current_label_class <- html_list$children[[1]]$attribs$class
+  html_list$children[[1]]$attribs$class <- paste(
+    current_label_class,
+    "ssz-label"
+  )
+
+  # if an icon is passed, add it at the appropriate place
+  if (!is.null(ssz_icon)) {
+    # add ssz icon
+    html_list$children[[2]]$children[[3]]$children[[1]] <- ssz_icon
+    # take the background and hover away by saying it is not a button
+    html_list$children[[2]]$children[[3]]$attribs$class <- "input-group-addon"
+  }
+
+  html_list
+}
+
 #' sszSelectInput
 #'
 #' @description function to generate a selectInput with the custom ssz label styling (via "ssz-label" class)
@@ -72,6 +136,7 @@ sszDateRange <- function(inputId,
 #' @param inputId inputId parameter for selectInput
 #' @param label label parameter for selectInput
 #' @param choices choices parameter for selectInput,
+#' @param selectize optional selectize parameter, default FALSE as otherwise styling is influenced by other widgets (related to this? https://github.com/rstudio/shiny/issues/3125)
 #' @param ... further named parameters to be passed to selectInput, e.g. selected
 #'
 #' @return the same as selectInput with modified label class
@@ -83,11 +148,13 @@ sszDateRange <- function(inputId,
 sszSelectInput <- function(inputId,
                            label,
                            choices,
+                           selectize = FALSE,
                            ...) {
   html_list <- selectInput(
     inputId = inputId,
     label = label,
     choices = choices,
+    selectize = selectize,
     ...
   )
   current_label_class <- html_list$children[[1]]$attribs$class
@@ -97,6 +164,7 @@ sszSelectInput <- function(inputId,
   )
   html_list
 }
+
 
 #' sszTextInput
 #'
@@ -192,6 +260,36 @@ sszActionButton <- function(inputId, label, ...) {
   actionButton(
     inputId = inputId,
     label = label,
+    class = "sszActionButton",
+    ...
+  )
+}
+
+#' sszActionButtonIcon
+#'
+#' @description function to generate an action button with an icon and with the custom ssz styling
+#'
+#' @param inputId inputId parameter for actionButton
+#' @param label label parameter for actionButton
+#' @param ssz_icon htmltools::tags$img(...) with an icon/image to be used on the button
+#' @param ... further parameters for actionButton
+#'
+#' @return the return of actionButton with "sszActionButton" added as a class
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' sszActionButtonIcon("ActionButtonId",
+#' "Abfrage starten",
+#' ssz_icon = img(icons_ssz$`arrow-right`))
+#' }
+sszActionButtonIcon <- function(inputId, label, ssz_icon, ...) {
+  actionButton(
+    inputId = inputId,
+    label = label,
+    icon = NULL,
+    width = NULL,
+    ssz_icon,
     class = "sszActionButton",
     ...
   )
