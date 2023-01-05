@@ -4,12 +4,14 @@
 \alias{sszAutocompleteInput}
 \title{sszAutocompleteInput}
 \usage{
-sszAutocompleteInput(inputId, label, ...)
+sszAutocompleteInput(inputId, label, options, ...)
 }
 \arguments{
 \item{inputId}{inputId parameter for autocomplete_input}
 
 \item{label}{label parameter for autocomplete_input}
+
+\item{options}{options parameter for autocomplete_input}
 
 \item{...}{further parameters for autocomplete_input}
 }

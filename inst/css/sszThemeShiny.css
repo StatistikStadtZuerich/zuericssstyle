@@ -168,7 +168,7 @@ a:hover {
 .sszRadioButton-label {
   font-family: HelveticaNeueLTW01_55Roman;
   color: #646464;
-  font-weight: 400;
+  font-weight: 750;
   font-size: 12px;
   line-height: 19px;
   letter-spacing: 0.01em;
@@ -176,10 +176,10 @@ a:hover {
 }
 
 /* Control Label (Date Range, select input, text input) */
-.ssz-label.control-label {
+.ssz-label {
     top: 14px;
     font-family: 'HelveticaNeueLTW01_55Roman';
-    font-weight: 400;
+    font-weight: 750;
     font-size: 12px;
     color: #646464;
     line-height: 19px;
@@ -298,8 +298,8 @@ a:hover {
 
 .radio input[type="radio"]::before {
   content: "";
-  width: 0.25em;
-  height: 0.25em;
+  width: 0.5em;
+  height: 0.5em;
   border-radius: 50%;
   transform: scale(0);
   background-color: #646464;
