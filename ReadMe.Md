@@ -166,6 +166,8 @@ sszActionButtonIcon("ActionButtonId",
 
 #### Autocomplete
 
+![autocomplete](man/pictures/autocomplete.png)
+
 ```{r, eval = FALSE}
 sszAutocompleteInput(
             "street",
