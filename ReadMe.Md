@@ -164,6 +164,19 @@ sszActionButtonIcon("ActionButtonId",
                        )
 ```
 
+#### Autocomplete
+
+![autocomplete](man/pictures/autocomplete.png)
+
+```{r, eval = FALSE}
+sszAutocompleteInput(
+            "street",
+            "Geben Sie eine Strasse ein",
+            unique(addresses$StrasseLang)
+          )
+``` 
+This relies on the `autocomplete_input()` function from the [dqshiny](https://github.com/daqana/dqshiny) package.
+
 ### CSS file for html
 If you need the css file to e.g. style a html report, use 
 
