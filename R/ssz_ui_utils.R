@@ -195,6 +195,28 @@ sszTextInput <- function(inputId, label, ...) {
 }
 
 
+#' sszAutocompleteInput
+#'
+#' @param inputId inputId parameter for autocomplete_input
+#' @param label label parameter for autocomplete_input
+#' @param ... further parameters for autocomplete_input
+#'
+#' @return same as autocomplete_input
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' sszAutocompleteInput(
+#'  "street",
+#'  "Geben Sie eine Strasse ein",
+#'  unique(addresses$StrasseLang)
+#' )
+#' }
+sszAutocompleteInput <- function(inputId, label, ...) {
+  dqshiny::autocomplete_input(inputId, label, ...)
+}
+
+
 #' sszRadioButtons
 #'
 #' @description function to generate radioButtons with the custom ssz (label) styling

@@ -350,6 +350,34 @@ a:hover {
 }
 
 /*******************************
+* Autocomplete from daqana/dqshiny
+*******************************/
+
+.autocomplete {
+  color: #0F05A0;
+}
+
+/* Autocomplete Drop Down Menu */
+.autocomplete-items div {
+  font-family: HelveticaNeueLTW01_55Roman;
+  font-size: 14px;
+  padding: 6px 16px 6px 20px;
+  line-height: 26px;
+  border-bottom: 0px;
+ }
+
+.autocomplete-items div:hover {
+  background-color: #F2F2F2;
+  color: #070250;
+  z-index: 100;
+ }
+
+.autocomplete-active {
+  background-color: #F2F2F2 !important;
+  color: #070250;
+}
+
+/*******************************
 * Action Buttons
 *******************************/
 
