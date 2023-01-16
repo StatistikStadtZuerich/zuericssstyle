@@ -161,6 +161,23 @@ a:hover {
 
 
 /*******************************
+* Context Box
+*******************************/
+
+/* Context Box */
+.well {
+  border-radius: 0px;
+  background-color: transparent;
+  box-shadow: none;
+  border: 0 solid #646464;
+  position: relative;
+  z-index: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+
+/*******************************
 * Control Labels
 *******************************/
 
@@ -198,30 +215,21 @@ a:hover {
   font-weight: 100;
 }
 
-/*******************************
-* Context Box
-*******************************/
-
-/* Context Box */
-.well {
-  border-radius: 0px;
-  background-color: transparent;
-  box-shadow: none;
-  border: 0 solid #646464;
-  position: relative;
-  z-index: 0;
-  padding: 0;
-  margin-top: 20px;
-}
-
 
 /*******************************
 * Form Control (Input)
 *******************************/
 
+/* Input field for selectInput and textInput */
 .form-group {
   margin-bottom: 0px;
   margin-top: -10px;
+}
+
+/* Color the Label on input hover */
+.form-group:hover .ssz-label {
+  color: #070250;
+  transition: 0.7s;
 }
 
 
@@ -229,34 +237,35 @@ a:hover {
 * Radio Buttons
 *******************************/
 
-/* Radio Buttons Label */
+/* Div around Radio Buttons */
 .radioDiv {
   margin-top: 18px;
 }
 
+/* SZZ Radio Button */
 .sszRadioButton {
   margin-top: 10px;
 }
 
-
-/* Radio Buttons Text */
+/* Radio Buttons Label */
 .radio span {
-  padding-left: 0.7em;
+  padding-left: 1em;
   display: inline-block;
   font-family: HelveticaNeueLTW01_55Roman;
+  color: #646464;
+}
+
+.radio:hover span {
+  color: #070250;
+  transition: 0.7s;
+}
+
+.radio input[type="radio"]:checked+span {
+  color:#070250;
 }
 
 .radio label {
   color: #646464;
-}
-
-.radio label:hover {
-  color: #030033;
-  transition: 0.7s;
-}
-
-.radio label:active {
-  color: #080490;
 }
 
 /* Radio Buttons Input */
@@ -268,6 +277,7 @@ a:hover {
   border: 0.05em solid #080490;
 }
 
+/* General Radio Button */
 .radio {
   position: relative;
   display: block;
@@ -307,14 +317,15 @@ a:hover {
 
 .radio input[type="radio"]:checked::before {
   transform: scale(1);
-  background-color: #080490;
-  border: 0.03em solid #080490;
+  background-color: #070250;
+  border: 0.03em solid #070250;
 }
 
 .radio input[type="radio"]:focus {
   outline: max(2px, 0.15em) solid transparent;
   outline-offset: max(2px, 0.15em);
 }
+
 
 /*******************************
 * Text Input
@@ -349,6 +360,7 @@ a:hover {
   transition: 0.7s;
 }
 
+
 /*******************************
 * Autocomplete from daqana/dqshiny
 *******************************/
@@ -377,10 +389,12 @@ a:hover {
   color: #070250;
 }
 
+
 /*******************************
 * Action Buttons
 *******************************/
 
+/* General Button */
 .btn {
   background-color: #0F05A0;
   padding: 9px 24px 9px 24px;
@@ -431,6 +445,11 @@ button:active {
   transition: 0.7s;
 }
 
+/* SSZ Button */
+.sszActionButton {
+  stroke: white;
+}
+
 .sszActionButton:active {
   outline-color: transparent;
   outline-style: solid;
@@ -439,8 +458,16 @@ button:active {
   transition: 0.7s;
 }
 
-.sszActionButton {
-  stroke: white;
+/* Button no Outline on Click */
+.btn:active:focus, .btn:focus {
+  outline: transparent;
+}
+
+/* Disable default Shiny Active and Focus Button */
+.btn-default:active:focus {
+  color: white;
+  background-color: #0F05A0;
+  border-color: #0F05A0;
 }
 
 
@@ -470,6 +497,10 @@ button:active {
   position: relative;
   min-width: 0px !important;
   flex: 0;
+}
+
+.rt-tr.rt-tr-group-header {
+  color: #4D4D4D;
 }
 
 /* Table Pagination */
@@ -513,6 +544,7 @@ button:active {
 .rt-th-select {
   display: none;
 }
+
 
 /*******************************
  * Date Range
@@ -686,6 +718,7 @@ button:active {
   color: #646464;
 }
 
+
 /*******************************
  * Airdatepicker
  *******************************/
@@ -707,7 +740,6 @@ button:active {
     border-radius: 2px;
     box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 24%);
 }
-
 
 .airdatepicker--content {
     box-sizing: content-box;
@@ -817,11 +849,12 @@ button:active {
 * Downloads
 *******************************/
 
- /* Donwload Container */
+/* Donwload Container */
 .downloadWrapperDiv {
     margin-top: 16px;
  }
 
+/* SSZ Download */
 .sszDownload {
     text-decoration: none;
     border-radius: 50px;
@@ -857,9 +890,10 @@ button:active {
 *******************************/
 
 .infoDiv {
-  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #F2F2F2;
 }
-
 
 /*******************************
 * SSZ Fonts
