@@ -136,7 +136,7 @@ sszAirDatepickerInput <- function(inputId,
 #' @param inputId inputId parameter for selectInput
 #' @param label label parameter for selectInput
 #' @param choices choices parameter for selectInput,
-#' @param selectize optional selectize parameter, default FALSE as otherwise styling is influenced by other widgets (related to this? https://github.com/rstudio/shiny/issues/3125)
+#' @param selectize optional selectize parameter, default TRUE, but watch out for incluence of other widgets (related to this? https://github.com/rstudio/shiny/issues/3125)
 #' @param ... further named parameters to be passed to selectInput, e.g. selected
 #'
 #' @return the same as selectInput with modified label class

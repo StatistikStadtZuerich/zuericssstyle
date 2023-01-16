@@ -4,7 +4,7 @@
 \alias{sszSelectInput}
 \title{sszSelectInput}
 \usage{
-sszSelectInput(inputId, label, choices, selectize = FALSE, ...)
+sszSelectInput(inputId, label, choices, selectize = TRUE, ...)
 }
 \arguments{
 \item{inputId}{inputId parameter for selectInput}
@@ -13,7 +13,7 @@ sszSelectInput(inputId, label, choices, selectize = FALSE, ...)
 
 \item{choices}{choices parameter for selectInput,}
 
-\item{selectize}{optional selectize parameter, default FALSE as otherwise styling is influenced by other widgets (related to this? https://github.com/rstudio/shiny/issues/3125)}
+\item{selectize}{optional selectize parameter, default TRUE, but watch out for incluence of other widgets (related to this? https://github.com/rstudio/shiny/issues/3125)}
 
 \item{...}{further named parameters to be passed to selectInput, e.g. selected}
 }
