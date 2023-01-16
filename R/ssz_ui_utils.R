@@ -148,7 +148,7 @@ sszAirDatepickerInput <- function(inputId,
 sszSelectInput <- function(inputId,
                            label,
                            choices,
-                           selectize = FALSE,
+                           selectize = TRUE,
                            ...) {
   html_list <- selectInput(
     inputId = inputId,
