@@ -458,6 +458,14 @@ button:active {
   transition: 0.7s;
 }
 
+.sszActionButton:focus {
+  outline-color: transparent;
+  outline-style: solid;
+  background-color: #070250;
+  color: white;
+  transition: 0.7s;
+}
+
 /* Button no Outline on Click */
 .btn:active:focus, .btn:focus {
   outline: transparent;
