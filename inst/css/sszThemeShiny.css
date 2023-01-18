@@ -159,6 +159,11 @@ a:hover {
   }
 }
 
+/* svg (own class because inline css from path overwrites general css) */
+path {
+  stroke: #0F05A0;
+}
+
 
 /*******************************
 * Context Box
@@ -859,38 +864,70 @@ button:active {
 
 /* Donwload Container */
 .downloadWrapperDiv {
-    margin-top: 16px;
+  margin-top: 16px;
+  max-width: 188px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
  }
 
-/* SSZ Download */
+/* General Button Styling */
 .sszDownload {
-    text-decoration: none;
-    border-radius: 50px;
-    background-color: #F2F2F2;
-    padding: 0;
-    height: 24px;
-    width: 50px;
-    font-size: 12px;
-    margin-right: 16px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #7974C2;
     color: #0F05A0;
-    margin-top: 0;
+    font-family: HelveticaNeueLTW01_55Roman;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 2px 6px 2px 6px;
+    text-align: center;
 }
 
+/* Button Hover */
 .sszDownload:hover {
-    text-decoration: none;
-    background-color: rgba(15, 5, 160, 0.08);
-    color: #070250;
-    transition: 0.7s;
- }
-
-.sszDownload:active {
-    text-decoration: none;
-    background-color: #0F05A0;
+    background-color: #070250;
+    border: 1px solid #070250;
     color: white;
-    outline-color: transparent;
-    outline-style: solid;
     transition: 0.7s;
- }
+}
+
+/* Button Focus (for Click) */
+.sszDownload:focus {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #0F05A0;
+  background-color: #0F05A0;
+  color: white;
+}
+
+
+ /* Button Active (for Click) */
+.sszDownload:active {
+  text-decoration: none;
+  background-color: #0F05A0;
+  color: white;
+  transition: 0.7s;
+}
+
+/* Button no Outline on Click */
+.sszDownload:active:focus, .sszDownload:focus {
+  outline: transparent;
+}
+
+
+.sszDownload:hover path {
+  stroke: white;
+  transition: 0.7s;
+}
+
+.sszDownload:focus path {
+  stroke: white;
+}
+
+.sszDownload:active path {
+  stroke: white;
+}
 
 
 /*******************************
