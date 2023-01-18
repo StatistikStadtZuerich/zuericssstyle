@@ -890,6 +890,10 @@ button:active {
     transition: 0.5s;
 }
 
+.sszDownload:focus, .sszDownload:active {
+  text-decoration:none;
+}
+
 .sszDownload path {
   stroke: #0F05A0;
 }
