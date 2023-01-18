@@ -873,6 +873,7 @@ button:active {
 
 /* General Button Styling */
 .sszDownload {
+    text-decoration:none;
     background-color: white;
     border-radius: 3px;
     border: 1px solid #7974C2;
@@ -886,49 +887,17 @@ button:active {
 
 /* Button Hover */
 .sszDownload:hover {
+    text-decoration:none;
     background-color: #070250;
     border: 1px solid #070250;
     color: white;
     transition: 0.7s;
 }
 
-/* Button Focus (for Click) */
-.sszDownload:focus {
-  background-color: white;
-  border-radius: 3px;
-  border: 1px solid #0F05A0;
-  background-color: #0F05A0;
-  color: white;
-}
-
-
- /* Button Active (for Click) */
-.sszDownload:active {
-  text-decoration: none;
-  background-color: #0F05A0;
-  color: white;
-  transition: 0.7s;
-}
-
-/* Button no Outline on Click */
-.sszDownload:active:focus, .sszDownload:focus {
-  outline: transparent;
-}
-
-
 .sszDownload:hover path {
   stroke: white;
   transition: 0.7s;
 }
-
-.sszDownload:focus path {
-  stroke: white;
-}
-
-.sszDownload:active path {
-  stroke: white;
-}
-
 
 /*******************************
 * Info Div

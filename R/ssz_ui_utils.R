@@ -6,7 +6,7 @@
 #' @param label shiny label for the download button
 #' @param image html-i tag with an image/icon to be added before the text; default NULL
 #' @param icon optional icon parameter for downloadButton, default NULL
-#' @param ... optional further named params for downloadButton
+#' @param ... optional further named params for downloadButton (class parameter will be ignored/overwritten)
 #'
 #' @return a downloadButton with class sszDownload and optionally the image added
 #'
@@ -18,9 +18,13 @@ sszDownloadButton <- function(outputId, label, image = NULL, icon = NULL, ...) {
   html_list <- downloadButton(outputId = outputId,
                               label = label,
                               icon = icon,
-                              class = "sszDownload",
                               ...)
-  html_list$children[[1]] <- img
+  # remove the standard classes 8especially btn and btn-default) to avoid style inheritance
+  # keep only shiny-download-link and add the new sszDownload
+  html_list$attribs$class <- "shiny-download-link sszDownload"
+
+  # add image/icon before text label (which is html_list$children[[2]])
+  html_list$children[[1]] <- image
   html_list
 }
 
@@ -359,7 +363,7 @@ sszActionButtonIcon <- function(inputId, label, ssz_icon, ...) {
 #' @param outputId outputId parameter
 #' @param label label parameter (i.e. text to be shown)
 #' @param href link to be opened
-#' @param image optional image/icon in the form of a htmli-i Tag, default NULL
+#' @param image optional image/icon in the form of a html-i Tag, default NULL
 #'
 #' @return tags$a
 #'
@@ -367,17 +371,15 @@ sszActionButtonIcon <- function(inputId, label, ssz_icon, ...) {
 #'
 #' @examples
 #' sszOgdDownload(
-#'   inputId = "ogdDown", label = "OGD",
-#'   onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
+#'   outputId = "ogdDown", label = "OGD",
+#'   href = "https://data.stadt-zuerich.ch"
 #' )
 sszOgdDownload <- function(outputId, href, label, image = NULL) {
   tags$a(id = outputId,
          href = href,
          class = "sszDownload",
-         style = "text-decoration:none;",
          target = "_blank",
          download = NA,
          image,
-         label
-         )
+         label)
 }
