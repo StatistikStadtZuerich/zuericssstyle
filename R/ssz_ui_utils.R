@@ -1,25 +1,31 @@
-#' sszDownload
+#' sszDownloadButton
 #'
-#' @description function to generate a ssz-themed download button for csv and excel
+#' @description function to generate a ssz-themed download button for csv and excel, wraps around downloadButton
 #'
 #' @param outputId shiny outputID for the download button
 #' @param label shiny label for the download button
+#' @param image html-i tag with an image/icon to be added before the text; default NULL
+#' @param icon optional icon parameter for downloadButton, default NULL
+#' @param ... optional further named params for downloadButton (class parameter will be ignored/overwritten)
 #'
-#' @return tag a object
+#' @return a downloadButton with class sszDownload and optionally the image added
 #'
 #' @export
 #'
 #' @examples
-#' sszDownload("csvDownload", label = "csv")
-sszDownload <- function(outputId, label = "Download") {
-  tags$a(
-    id = outputId,
-    class = "btn btn-default shiny-download-link chipDownload sszDownload",
-    href = "",
-    target = "_blank",
-    download = NA,
-    label
-  )
+#' sszDownloadButton("csvDownload", label = "csv")
+sszDownloadButton <- function(outputId, label, image = NULL, icon = NULL, ...) {
+  html_list <- downloadButton(outputId = outputId,
+                              label = label,
+                              icon = icon,
+                              ...)
+  # remove the standard classes 8especially btn and btn-default) to avoid style inheritance
+  # keep only shiny-download-link and add the new sszDownload
+  html_list$attribs$class <- "shiny-download-link sszDownload"
+
+  # add image/icon before text label (which is html_list$children[[2]])
+  html_list$children[[1]] <- image
+  html_list
 }
 
 
@@ -219,6 +225,36 @@ sszAutocompleteInput <- function(inputId, label, options, ...) {
   html_list
 }
 
+#' sszNumericInput
+#'
+#' @description function to generate a numericInput with the custom ssz label styling (via "ssz-label" class)
+#'
+#' @param inputId inputId parameter for numericInput
+#' @param label label parameter for numericInput
+#' @param value value parameter (initial value) for numericInput
+#' @param ... further named parameters to be passed to numericInput (min/max/step/width)
+#'
+#' @return the same as textInput with modified label class
+#' @export
+#'
+#' @examples
+#' sszNumericInput(inputId = "street_numer", label = "Street Number:", value = 1)
+sszNumericInput <- function(inputId, label, value, ...) {
+  html_list <- numericInput(
+    inputId = inputId,
+    label = label,
+    value = value,
+    ...
+  )
+
+  current_label_class <- html_list$children[[1]]$attribs$class
+  html_list$children[[1]]$attribs$class <- paste(
+    current_label_class,
+    "ssz-label"
+  )
+  html_list
+}
+
 
 #' sszRadioButtons
 #'
@@ -324,24 +360,26 @@ sszActionButtonIcon <- function(inputId, label, ssz_icon, ...) {
 #'
 #' @description function to generate an ssz-themed ogd download button
 #'
-#' @param inputId inputId parameter for actionButton
-#' @param label label parameter for actionButton
-#' @param onclick onclick parameter for actionButton
+#' @param outputId outputId parameter
+#' @param label label parameter (i.e. text to be shown)
+#' @param href link to be opened
+#' @param image optional image/icon in the form of a html-i Tag, default NULL
 #'
-#' @return same as the shiny actionButton but with the "sszDownload" added as a class
+#' @return tags$a
 #'
 #' @export
 #'
 #' @examples
 #' sszOgdDownload(
-#'   inputId = "ogdDown", label = "OGD",
-#'   onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
+#'   outputId = "ogdDown", label = "OGD",
+#'   href = "https://data.stadt-zuerich.ch"
 #' )
-sszOgdDownload <- function(inputId, label, onclick) {
-  actionButton(
-    inputId = inputId,
-    label = label,
-    onclick = onclick,
-    class = "sszDownload"
-  )
+sszOgdDownload <- function(outputId, href, label, image = NULL) {
+  tags$a(id = outputId,
+         href = href,
+         class = "sszDownload",
+         target = "_blank",
+         download = NA,
+         image,
+         label)
 }

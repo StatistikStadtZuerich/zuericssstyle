@@ -4,24 +4,26 @@
 \alias{sszOgdDownload}
 \title{sszOgdDownload}
 \usage{
-sszOgdDownload(inputId, label, onclick)
+sszOgdDownload(outputId, href, label, image = NULL)
 }
 \arguments{
-\item{inputId}{inputId parameter for actionButton}
+\item{outputId}{outputId parameter}
 
-\item{label}{label parameter for actionButton}
+\item{href}{link to be opened}
 
-\item{onclick}{onclick parameter for actionButton}
+\item{label}{label parameter (i.e. text to be shown)}
+
+\item{image}{optional image/icon in the form of a html-i Tag, default NULL}
 }
 \value{
-same as the shiny actionButton but with the "sszDownload" added as a class
+tags$a
 }
 \description{
 function to generate an ssz-themed ogd download button
 }
 \examples{
 sszOgdDownload(
-  inputId = "ogdDown", label = "OGD",
-  onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
+  outputId = "ogdDown", label = "OGD",
+  href = "https://data.stadt-zuerich.ch"
 )
 }

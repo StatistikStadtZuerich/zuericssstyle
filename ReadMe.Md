@@ -36,6 +36,14 @@ All widgets need the css to work. Get this written to your local folder with
 get_shiny_css()
 ```
 Alternatively, you can provide a full filepath (something like "C:/temp/mystyling.css") as a parameter.
+Then include it in the UI of the shiny app with `includeCSS("sszThemeShiny.css")`
+
+#### Numeric input
+![numeric input](man/pictures/numericInput.png)
+```{r, eval = FALSE}
+sszNumericInput("number", "Zahl", 4)
+```
+This is based on shiny's `numericInput`.
 
 #### Download buttons
 
@@ -43,21 +51,24 @@ Alternatively, you can provide a full filepath (something like "C:/temp/mystylin
 
 A download button for downloading an excel/csv file can be called with 
 ```{r, eval = FALSE}
-sszDownload("csvDownload", label = "csv")
+sszDownloadButton("csvDownload",
+                        label = "csv",
+                        image = img(icons_ssz("download"))
+                        )
 ```
-This is the only function not based on a shiny function.
+The image parameter is optional; it is based on shiny's `downloadButton`.
 
 A button for a link to an external site, e.g. an Open Government Data portal, 
 ![ogd](man/pictures/ogd.png)
 can be used with 
 ```{r, eval = FALSE}
-sszOgdDownload(
-   inputId = "ogdDown", 
-   label = "OGD",
-   onclick = "window.open('https://data.stadt-zuerich.ch/', '_blank')"
-)
+sszOgdDownload(outputId = "ogdDown",
+                         label = "OGD",
+                         href = "https://data.stadt-zuerich.ch/",
+                         image = img(icons_ssz("external-link"))
+            )
 ```
-Provide the appropriate link in the `onclick` parameter. The function wraps around shiny's `actionButton`.
+Provide the appropriate link in the `href` parameter.
 
 #### Select input
 
@@ -67,15 +78,6 @@ Provide the appropriate link in the `onclick` parameter. The function wraps arou
 sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
 ```
 The function wraps around shiny's `selectInput`.
-
-#### Text input
-
-![text input](man/pictures/textInput.png)
-
-```{r, eval = FALSE}
-sszTextInput("suchfeld", "Name:")
-```
-The function wraps around shiny's `textInput`.
 
 #### Radio buttons
 
@@ -90,6 +92,28 @@ sszRadioButtons(
    )
 ```
 The function wraps around shiny's `radioButtons`. Use `inline = TRUE` for horizontal alignment.
+
+#### Text input
+
+![text input](man/pictures/textInput.png)
+
+```{r, eval = FALSE}
+sszTextInput("suchfeld", "Name:")
+```
+The function wraps around shiny's `textInput`.
+
+#### Autocomplete
+
+![autocomplete](man/pictures/autocomplete.png)
+
+```{r, eval = FALSE}
+sszAutocompleteInput(
+            "street",
+            "Geben Sie eine Strasse ein",
+            unique(addresses$StrasseLang)
+          )
+``` 
+This relies on the `autocomplete_input()` function from the [dqshiny](https://github.com/daqana/dqshiny) package.
 
 #### Date Range
 
@@ -163,19 +187,6 @@ sszActionButtonIcon("ActionButtonId",
                        ssz_icon = img(icons_ssz$`arrow-right`)
                        )
 ```
-
-#### Autocomplete
-
-![autocomplete](man/pictures/autocomplete.png)
-
-```{r, eval = FALSE}
-sszAutocompleteInput(
-            "street",
-            "Geben Sie eine Strasse ein",
-            unique(addresses$StrasseLang)
-          )
-``` 
-This relies on the `autocomplete_input()` function from the [dqshiny](https://github.com/daqana/dqshiny) package.
 
 ### CSS file for html
 If you need the css file to e.g. style a html report, use 
