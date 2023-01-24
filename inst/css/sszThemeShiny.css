@@ -892,7 +892,6 @@ button:active {
 
 .sszDownload:focus, .sszDownload:active {
   text-decoration:none;
-  color: #0F05A0;
 }
 
 .sszDownload path {
@@ -901,6 +900,18 @@ button:active {
 
 .sszDownload:hover path {
   stroke: white;
+  transition: 0.5s;
+}
+
+/*******************************
+* Link
+*******************************/
+
+a:focus {
+  color: #0F05A0;
+}
+
+a:hover {
   transition: 0.5s;
 }
 
