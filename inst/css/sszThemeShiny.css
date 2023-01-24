@@ -892,6 +892,7 @@ button:active {
 
 .sszDownload:focus, .sszDownload:active {
   text-decoration:none;
+  color: #0F05A0;
 }
 
 .sszDownload path {
