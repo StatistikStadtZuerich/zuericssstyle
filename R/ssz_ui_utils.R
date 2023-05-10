@@ -282,6 +282,9 @@ sszSliderInput <- function(inputId, label, value, min, max, ...) {
     ...
   )
 
+  current_class <- html_list$attribs$class
+  html_list$attribs$class <- paste(current_class, "sszSliderInput")
+
   current_label_class <- html_list$children[[1]]$attribs$class
   html_list$children[[1]]$attribs$class <- paste(
     current_label_class,
