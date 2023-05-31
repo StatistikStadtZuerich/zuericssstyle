@@ -102,6 +102,15 @@ sszTextInput("suchfeld", "Name:")
 ```
 The function wraps around shiny's `textInput`.
 
+#### Slider input
+
+![sliderInput](man/pictures/sliderInput.png)
+
+```{r, eval = FALSE}
+sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
+```
+The function wraps around shiny's `sliderInput`.
+
 #### Autocomplete
 
 ![autocomplete](man/pictures/autocomplete.png)
