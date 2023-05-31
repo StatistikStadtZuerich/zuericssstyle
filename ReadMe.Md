@@ -104,7 +104,7 @@ The function wraps around shiny's `textInput`.
 
 #### Slider input
 
-![sliderInput](man/pictures/sliderInput.png)
+![sliderInput](man/pictures/sliderInput.PNG)
 
 ```{r, eval = FALSE}
 sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
