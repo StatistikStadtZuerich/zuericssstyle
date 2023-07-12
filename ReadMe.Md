@@ -102,14 +102,14 @@ sszTextInput("suchfeld", "Name:")
 ```
 The function wraps around shiny's `textInput`.
 
-#### Slider input
+#### Slider input (Styling could change)
 
 ![sliderInput](man/pictures/sliderInput.PNG)
 
 ```{r, eval = FALSE}
 sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
 ```
-The function wraps around shiny's `sliderInput`.
+The function wraps around shiny's `sliderInput`. Currently there is no DESI component for the styling and functionality of the sliderInput. A ticket to create a DESI component for this widget has been made and it will be adapted in the zuericsssytle package when completed. Therefore the styling for the sliderInput might vary slightly at a later point in time (2023-07-12).
 
 #### Autocomplete
 
