@@ -396,14 +396,9 @@ a:hover {
   bottom: 17px;
   z-index: 1;
 }
-/*
-.irs-grid-pol {
-  display: none;
-}
-*/
+
 .irs-max {
   font-family: HelveticaNeueLTW01_55Roman;
-/*  font-size: 14px !important;*/
   color: #646464;
 }
 .irs-min {
@@ -419,11 +414,6 @@ a:hover {
   color: white;
   background: #0F05A0;
 }
-/*.irs-slider {
-  width: 20px;
-  height: 20px;
-  top: 22px;
-}*/
 
 
 /*******************************
@@ -673,7 +663,6 @@ button:active {
     float: left;
     min-width: 160px;
     padding: 16px;
-    margin: 12px 0 0;
     font-size: 14px;
     text-align: left;
     list-style: none;
@@ -791,60 +780,174 @@ button:active {
   color: #646464;
 }
 
+.dow {
+  font-family: HelveticaNeueLTW05_85Heavy;
+}
+
 
 /*******************************
  * Airdatepicker
  *******************************/
 
-.airdatepicker {
-    background-color: #fff;
-    box-sizing: border-box;
-    font-family:  "HelveticaNeueLTW01_55Roman";
-    font-size: 14px;
-    color: #4a4a4a;
-    width: 237px;
-    position: fixed;
-    left: -100000px;
-    opacity: 0;
+ .air-datepicker {
+	font-family:  "HelveticaNeueLTW01_55Roman";
+    position: absolute;
+    z-index: 1000;
+    float: left;
+    max-width: 200px;
     padding: 16px;
-    margin: 12px 0 0;
-    border-color: rgb(100 100 100);
-    border: 0px solid rgb(100 100 100);
-    border-radius: 2px;
-    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 24%);
-}
-
-.airdatepicker--content {
-    box-sizing: content-box;
-    padding: 0px;
-    height: auto;
-}
-
-.airdatepicker--cell-month,.airdatepicker--cell-year, .airdatepicker--cell.-current- {
-    height: 45px;
-    width: 45px;
-    margin: 1%;
-    cursor: pointer;
-    border-radius: 50px;
-    display: inline-grid;
-    align-content: center;
-    color: #646464;
-}
-
-.airdatepicker--cell.-selected-, .airdatepicker--cell.-selected-.-current-, .airdatepicker--cell.-selected-.-focus-, .airdatepicker--cell.-focus- {
-    background-color: #0F05A0;
-    border-radius: 50px;
-    height: 45px;
-    margin: 1%;
-    display: inline-grid;
-    align-content: center;
-    color: #fff;
-}
-
-.airdatepicker--nav-title {
     font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-color: #646464;
+    border: 0 solid #646464;
+    border-radius: 2px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
+    --adp-cell-background-color-selected: #0F05A0;
+    --adp-cell-background-color-selected-hover: #0F05A0;
+    --adp-cell-background-color-in-range: #0F05A0;
+    --adp-cell-background-color-in-range-hover: #0F05A0;
+    --adp-color-current-date: white;
+    --adp-background-color-selected-other-month-focused: #0F05A0;
+    --adp-background-color-selected-other-month: #0F05A0;
+    --adp-cell-border-radius: 50px;
+    --adp-day-name-color: #646464;
+    --adp-day-name-color-hover: #0F05A0;
+
+
+ }
+
+.air-datepicker-body--cells {
+  display: grid;
+  min-height: 100px;
+
+  &.-days- {
+    grid-template-columns: repeat(7, 0.5fr);
+    grid-auto-rows: 28px;
+    row-gap: 2.5%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  &.-months- {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 45px;
+    column-gap: 2.5%;
+    row-gap: 2.5%;
+    margin: 0.2%;
+  }
+
+  &.-years- {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 45px;
+    row-gap: 2.5%;
+    column-gap: 2.5%;
+    margin: 0.2%;
+  }
+}
+
+.air-datepicker-body--day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 0.5fr);
+  margin: 0.2%;
+}
+
+.air-datepicker-body--day-name {
+  font-family: HelveticaNeueLTW05_85Heavy;
+  color: black;
+  margin-top: 10px;
+}
+
+.air-datepicker-cell {
+  color: #646464
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  &:hover {
+    color: #0F05A0;
+    background: rgba(15, 5, 160, 0.08);
+  }
+
+  &.-selected- {
+    color: white;
+    background: #0F05A0;
+
+    &.-focus- {
+    color: white;
+  }
+ }
+}
+
+ .air-datepicker-nav--action {
     font-family: HelveticaNeueLTW05_85Heavy;
-    color: #646464;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    user-select: none;
+
+   &:hover {
+    color: #070250;
+  }
+
+
+  path {
+    fill: none;
+    stroke: #333;
+    stroke-width: 2px;
+  }
+ }
+
+.air-datepicker-nav--title {
+  font-family: HelveticaNeueLTW05_85Heavy;
+
+  &:hover {
+    color: #070250;
+    background: white;
+  }
+
+   &:active {
+    color: #070250;
+    background: white;
+  }
+}
+
+.air-datepicker-button {
+    display: inline-flex;
+    color: #0F05A0;
+    border-radius: 3px;
+    border: none;
+    background: white;
+
+  &:hover {
+    color: white;
+    background: #070250;
+  }
+
+  &:focus {
+    color: #0F05A0;
+    background: rgba(15, 5, 160, 0.08);
+    outline: none;
+  }
+
+  &:active {
+    background: #070250;
+  }
+
+  span {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 
