@@ -815,8 +815,6 @@ button:active {
     --adp-cell-border-radius: 50px;
     --adp-day-name-color: #646464;
     --adp-day-name-color-hover: #0F05A0;
-
-
  }
 
 .air-datepicker-body--cells {
@@ -1017,8 +1015,57 @@ button:active {
   transition: 0.5s;
 }
 
+
+.selectize-input.focus {
+   padding-left: 9px;
+   padding-right: 9px;
+   border-color: #646464;
+   outline: 0;
+   border-radius: 2px;
+   box-shadow: none;
+   font-family: 'HelveticaNeueLTW01_55Roman';
+   line-height: 26px;
+   font-size: 14px;
+   padding: 6px 16px 6px 16px;
+   height: 40px;
+}
+
 .selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
-  padding: 9px 20px;
+   padding: 9px 20px;
+}
+
+
+/* Selectize Multiple */
+.selectize-control.multi .selectize-input.has-items {
+    padding-left: 9px;
+    padding-right: 9px;
+    border-color: #646464;
+    outline: 0;
+    border-radius: 2px;
+    box-shadow: none;
+    font-family: 'HelveticaNeueLTW01_55Roman';
+    line-height: 26px;
+    font-size: 14px;
+    padding: 6px 16px 6px 16px;
+    height: 40px;
+}
+
+.selectize-control.multi .selectize-input.has-items .item {
+    background-color: #F2F2F2;
+    color: #0F05A0;
+    font-size: 12px;
+    position: relative;
+    z-index: 100;
+    padding: 0px 12px 0px 12px;
+    border-radius: 12px;
+    margin-top: 2px;
+}
+
+.selectize-control.multi .selectize-input.has-items .item:hover {
+    background-color: rgba(15, 5, 160, 0.16);
+    border: rgba(15, 5, 160, 0.16);
+    color: #070250;
+    transition: 0.5s;
 }
 
 
