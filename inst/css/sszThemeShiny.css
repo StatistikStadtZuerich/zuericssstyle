@@ -1034,6 +1034,16 @@ button:active {
    padding: 9px 20px;
 }
 
+.selectize-dropdown .selected {
+    background-color: white;
+    color: #262626;
+}
+
+.selectize-dropdown .selected:hover {
+    background-color: #f5f5f5;
+    color: #262626;
+}
+
 
 /* Selectize Multiple */
 .selectize-control.multi .selectize-input.has-items {
