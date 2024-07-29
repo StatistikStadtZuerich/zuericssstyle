@@ -12,8 +12,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
+#' @examples inst/examples/sszSelectInput/app.R
 sszSelectInput <- function(inputId,
                            label,
                            choices,
