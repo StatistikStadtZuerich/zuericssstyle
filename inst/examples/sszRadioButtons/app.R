@@ -2,11 +2,11 @@ library(shiny)
 ui <- fluidPage(
   includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
   h1("Widget demo"),
-  sszSelectInput(
-    "select",
-    "Destination",
-    choices = c("HOU", "LAX", "JFK", "SEA"),
-    selected = "LAX"
+  sszRadioButtons(
+    inputId = "ButtonGroupLabel",
+    label = "Flughafen",
+    choices = c("HOU", "LAX", "JFK"),
+    selected = "JFK" # default value
   ),
   br(),
   h1("Selected"),
@@ -15,7 +15,6 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   # Our dataset
-  output$choice <- renderText(input$select)
+  output$choice <- renderText(input$ButtonGroupLabel)
 }
 shinyApp(ui, server)
-
