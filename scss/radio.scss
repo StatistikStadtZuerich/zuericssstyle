@@ -1,0 +1,82 @@
+/* Div around Radio Buttons */
+.radioDiv {
+  margin-top: 18px;
+}
+
+/* SZZ Radio Button */
+.sszRadioButton {
+  margin-top: 10px;
+}
+
+radio {
+  position: relative;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1.15em;
+
+  /* Radio Buttons Label */
+  span {
+    padding-left: 1em;
+    display: inline-block;
+    font-family: $main-font;
+    color: $text-color;
+  }
+  &:hover {
+     span {
+      color: $dark-blue;
+      transition: 0.5s;
+    }
+  }
+
+  label {
+    color: $text-color;
+  }
+
+  /* Radio Buttons Input */
+  input[type="radio"] {
+    margin: 0px 0 0 ;
+    display: inline-grid;
+    margin-left: -1.25em;
+    margin-top: 2px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: white;
+    font: inherit;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.03em solid $text-color;
+    border-radius: 50%;
+    transform: translateY(-0.15em);
+    display: grid;
+    place-content: center;
+
+    &:hover {
+      border: 0.05em solid #030033;
+    }
+
+    &:focus {
+      border: 0.05em solid #080490;
+      outline: max(2px, 0.15em) solid transparent;
+      outline-offset: max(2px, 0.15em);
+    }
+
+    &::before {
+      content: "";
+      width: 0.5em;
+      height: 0.5em;
+      //border-radius: 50%;
+      transform: scale(0);
+      background-color: $text-color;
+    }
+
+    &:checked+span {
+      color:$dark-blue;
+    }
+
+    &:checked::before {
+      transform: scale(1);
+      background-color: $dark-blue;
+      border: 0.03em solid $dark-blue;
+    }
+  }
+}
