@@ -1,0 +1,165 @@
+/*******************************
+ * Date Range
+ *******************************/
+
+/* Date Picker Input Styling */
+.input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+/* Date Range first Date Input*/
+.input-daterange input:first-child {
+    border-radius: 2px 2px 2px 2px;
+}
+
+.input-group .form-control:first-child {
+  text-align: left;
+  padding-left: 16px;
+}
+
+/* Date Range second Date Input*/
+.input-daterange input:last-child {
+    border-radius: 2px 2px 2px 2px;
+}
+
+.input-group .form-control:last-child {
+  text-align: left;
+  padding-left: 16px;
+}
+
+/* Calendar Icon */
+.input-group-addon {
+    background-color:transparent;
+    border: 0;
+    color:  $dark-blue;
+}
+
+/* Date Range Dropdown */
+.dropdown-menu {
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 16px;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-color: $text-color;
+    border: 0 solid $text-color;
+    border-radius: 2px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
+}
+
+.datepicker-dropdown:before {
+    content: '';
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: transparent;
+    border-top: 0;
+    border-bottom-color: transparent;
+    position: absolute;
+}
+
+.datepicker-dropdown:after {
+    content: '';
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: transparent;
+    border-top: 0;
+    border-bottom-color: transparent;
+    position: absolute;
+}
+
+.datepicker-switch {
+  font-size: 14px;
+  font-family: $title-font;
+  color: $text-color;
+}
+
+.datepicker .datepicker-switch:hover {
+  color: $dark-blue;
+  background: transparent;
+  transition: 0.5s;
+}
+
+/* Active Day, Month, Year  */
+.datepicker table tr td.active.active {
+  background-color: $zueriblau;
+  border-radius: 99999px;
+}
+
+.datepicker table tr td span.active.active {
+    background-color: $zueriblau;
+    height: 45px;
+    margin: 1%;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-grid;
+    align-content: center;
+    &:hover {
+      background-color: $zueriblau;
+      &:hover {
+        background-color: $zueriblau;
+      }
+      
+  }
+}
+
+.datepicker table tr td span {
+    height: 45px;
+    margin: 1%;
+    cursor: pointer;
+    border-radius: 50px;
+    display: inline-grid;
+    align-content: center;
+}
+
+.datepicker table tr td span:hover, .datepicker table tr td span.focused {
+    color: $zueriblau;
+    background: rgba(15, 5, 160, 0.08);
+}
+
+.datepicker table tr td.active.active:hover {
+  background-color: $zueriblau;
+}
+
+.datepicker table tr td span.active.active:hover {
+  background-color: $zueriblau;
+}
+
+/* Disable Century*/
+.datepicker table tr td span.active.disabled.active {
+   background-color: $zueriblau;
+}
+
+.datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:focus, .datepicker table tr td span.active.disabled.focus, .datepicker table tr td span.active[disabled]:hover, .datepicker table tr td span.active[disabled]:focus, .datepicker table tr td span.active.focus[disabled], fieldset[disabled] .datepicker table tr td span.active:hover, fieldset[disabled] .datepicker table tr td span.active:focus, fieldset[disabled] .datepicker table tr td span.active.focus, .datepicker table tr td span.active.disabled:hover:hover, .datepicker table tr td span.active.disabled:hover:focus, .datepicker table tr td span.active.disabled.focus:hover, .datepicker table tr td span.active[disabled]:hover:hover, .datepicker table tr td span.active[disabled]:hover:focus, .datepicker table tr td span.active.focus[disabled]:hover, fieldset[disabled] .datepicker table tr td span.active:hover:hover, fieldset[disabled] .datepicker table tr td span.active:hover:focus, fieldset[disabled] .datepicker table tr td span.active.focus:hover, .datepicker table tr td span.active.disabled.disabled:hover, .datepicker table tr td span.active.disabled.disabled:focus, .datepicker table tr td span.active.disabled.disabled.focus, .datepicker table tr td span.active.disabled[disabled]:hover, .datepicker table tr td span.active.disabled[disabled]:focus, .datepicker table tr td span.active.disabled.focus[disabled], fieldset[disabled] .datepicker table tr td span.active.disabled:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:focus, fieldset[disabled] .datepicker table tr td span.active.disabled.focus, .datepicker table tr td span.active.disabled.disabled:hover:hover, .datepicker table tr td span.active.disabled.disabled:hover:focus, .datepicker table tr td span.active.disabled.disabled.focus:hover, .datepicker table tr td span.active.disabled[disabled]:hover:hover, .datepicker table tr td span.active.disabled[disabled]:hover:focus, .datepicker table tr td span.active.disabled.focus[disabled]:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:focus, fieldset[disabled] .datepicker table tr td span.active.disabled.focus:hover {
+    background-color: $zueriblau;
+}
+
+/* Inactive Day */
+.datepicker table tr td.day:hover {
+  color: $zueriblau;
+  background: rgba(15, 5, 160, 0.08);
+  border-radius: 99999px;
+}
+
+/* Old Day */
+.datepicker table tr td.old, .datepicker table tr td.new {
+    color: #BFBFBF;
+}
+
+/* Days */
+.day {
+  color: $text-color;
+}
+
+.dow {
+  font-family: $title-font;
+}
