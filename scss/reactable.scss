@@ -1,0 +1,71 @@
+/*******************************
+* Reactable
+*******************************/
+
+.rt-select {
+  visibility:hidden;
+}
+
+.rt-tbody {
+  font-family: $main-font;
+}
+
+/* Table */
+.rt-table {
+  font-size: 11px;
+  color: $text-color;
+  border: 0px;
+}
+
+ /* Table Header */
+.rt-thead {
+  color: $zueriblau;
+  font-family: $title-font;
+  position: relative;
+  min-width: 0px !important;
+  flex: 0;
+}
+
+.rt-tr.rt-tr-group-header {
+  color: $h3-color-grey;
+}
+
+/* Table Pagination */
+.rt-pagination {
+  font-size: 12px;
+  color: $text-color
+}
+
+.rt-expander-button {
+  &:hover {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 2px;
+    padding: 0;
+  }
+
+  &:active {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline-color: transparent;
+  }
+
+  :focus {
+    background: none;
+    border: none;
+    outline-color: transparent;
+  }
+}
+
+/* Activate Background-color and pointer on hover */
+.ReactTable .rt-tr:hover .rt-td {
+  background: $bg-color-light;
+  cursor: pointer;
+}
+
+/* Delete row select */
+.rt-td-select, .rt-th-select {
+  display: none;
+}
