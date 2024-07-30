@@ -56,8 +56,9 @@ radio {
 
     &:focus {
       border: 0.05em solid #080490;
-      outline: max(2px, 0.15em) solid transparent;
-      outline-offset: max(2px, 0.15em);
+      //outline: max(2px, 0.15em) solid transparent;
+      //outline-offset: max(2px, 0.15em);
+      //max with two different units does not work with scss, todo adjust
     }
 
     &::before {

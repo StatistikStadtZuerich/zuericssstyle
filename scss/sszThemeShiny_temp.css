@@ -8,34 +8,7 @@
 * Text Input
 *******************************/
 
-/* Input */
-.form-control {
-  border-color: $text-color;
-  outline: 0;
-  border-radius: 2px;
-  height: 40px;
-  box-shadow: none;
-  font-family: $main-font;
-  font-size: 14px;
-  line-height: 26px;
-  padding: 6px 16px 6px 16px;
-}
 
-.form-control:hover {
-  background-color: white;
-  color:  $dark-blue;
-  border-color: $dark-blue;
-  padding: 6px 16px 6px 16px;
-  transition: 0.5s;
-}
-
-.form-control:focus {
-  color: $dark-blue;
-  box-shadow: none;
-  border-color: $dark-blue;
-  padding: 6px 16px 6px 16px;
-  transition: 0.5s;
-}
 
 
 /*******************************
