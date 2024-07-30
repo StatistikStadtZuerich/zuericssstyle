@@ -1,0 +1,93 @@
+/*******************************
+* General Settings
+*******************************/
+
+
+/* Ruler */
+hr {
+  height: 0.2px;
+  background-color: #DEDEDE;
+  border: none;
+  margin-top: 16px;
+  margin-bottom: 25px;
+}
+
+/* h1 */
+h1 {
+  font-family: HelveticaNeueLTW05_85Heavy;
+  color: $zueriblau;
+  font-size: 22px;
+  line-height: 31px;
+  font-weight: 750;
+  margin-top: 28px;
+}
+
+/* h2 Font */
+h2 {
+  font-family: HelveticaNeueLTW05_85Heavy;
+  color: $zueriblau;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 750;
+}
+
+/* h3 Font */
+h3 {
+  font-family: HelveticaNeueLTW05_85Heavy;
+  color: $h3-color-grey;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 750;
+}
+
+/* h4 Font */
+h4 {
+  font-family: HelveticaNeueLTW05_85Heavy;
+  color: $zueriblau;
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: 750;
+}
+
+/* Paragraph Text */
+p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  font-family: HelveticaNeueLTW01_55Roman;
+  color: $text-color;
+}
+
+/* Lists */
+ol {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+  font-family: HelveticaNeueLTW01_55Roman;
+  color: $text-color;
+}
+
+li::marker {
+  font-size: 14px;
+  line-height: 23px;
+  font-family: HelveticaNeueLTW01_55Roman;
+  color: $text-color;
+}
+
+/* Code */
+code {
+  background-color: $bg-color-light;
+  color: $zueriblau;
+}
+
+/* Links */
+a {
+  text-decoration: underline;
+  color: $zueriblau;
+}
+
+a:hover {
+  color: $dark-blue;
+}
