@@ -2,7 +2,6 @@
 * General Settings
 *******************************/
 
-
 /* Ruler */
 hr {
   height: 0.2px;
@@ -14,7 +13,7 @@ hr {
 
 /* h1 */
 h1 {
-  font-family: HelveticaNeueLTW05_85Heavy;
+  font-family: $title-font;
   color: $zueriblau;
   font-size: 22px;
   line-height: 31px;
@@ -24,7 +23,7 @@ h1 {
 
 /* h2 Font */
 h2 {
-  font-family: HelveticaNeueLTW05_85Heavy;
+  font-family: $title-font;
   color: $zueriblau;
   font-size: 20px;
   line-height: 28px;
@@ -33,7 +32,7 @@ h2 {
 
 /* h3 Font */
 h3 {
-  font-family: HelveticaNeueLTW05_85Heavy;
+  font-family: $title-font;
   color: $h3-color-grey;
   font-size: 18px;
   line-height: 25px;
@@ -42,7 +41,7 @@ h3 {
 
 /* h4 Font */
 h4 {
-  font-family: HelveticaNeueLTW05_85Heavy;
+  font-family: $title-font;
   color: $zueriblau;
   font-size: 14px;
   line-height: 23px;
@@ -55,7 +54,7 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 23px;
-  font-family: HelveticaNeueLTW01_55Roman;
+  font-family: $main-font;
   color: $text-color;
 }
 
@@ -65,14 +64,14 @@ ol {
   font-weight: 400;
   font-size: 14px;
   line-height: 23px;
-  font-family: HelveticaNeueLTW01_55Roman;
+  font-family: $main-font;
   color: $text-color;
 }
 
 li::marker {
   font-size: 14px;
   line-height: 23px;
-  font-family: HelveticaNeueLTW01_55Roman;
+  font-family: $main-font;
   color: $text-color;
 }
 
@@ -86,8 +85,8 @@ code {
 a {
   text-decoration: underline;
   color: $zueriblau;
-}
 
-a:hover {
-  color: $dark-blue;
+  &:hover {
+    color: $dark-blue;
+  }
 }
