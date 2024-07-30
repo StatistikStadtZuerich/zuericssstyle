@@ -15,13 +15,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszRadioButtons(
-#'   inputId = "ButtonGroupLabel",
-#'   label = "Flughafen:",
-#'   choices = c("HOU", "LAX", "JFK", "SEA"),
-#'   selected = "JFK" # default value
-#' )
+#' @examples inst/examples/sszRadioButtons/app.r
 sszRadioButtons <- function(inputId, label, choices, ...) {
   html_list <- radioButtons(
     inputId = inputId,
