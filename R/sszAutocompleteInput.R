@@ -8,14 +8,7 @@
 #' @return same as autocomplete_input
 #' @export
 #'
-#' @examples
-#' \dontrun{
-#' sszAutocompleteInput(
-#'  "street",
-#'  "Geben Sie eine Strasse ein",
-#'  unique(addresses$StrasseLang)
-#' )
-#' }
+#' @example inst/examples/sszAutocompleteInput/app.r
 sszAutocompleteInput <- function(inputId, label, options, ...) {
   html_list <- dqshiny::autocomplete_input(inputId, label, options, ...)
   html_list$children[[1]]$attribs$class <- "ssz-label"

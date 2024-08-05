@@ -10,17 +10,7 @@
 #' @return the same as dateRangeInput return, with modified label class
 #' @export
 #'
-#' @examples
-#' sszAirDatepickerInput(
-#' inputId = "airMonthStart",
-#' label = "Basis Datum",
-#' language="de",
-#' range = FALSE, multiple=FALSE, clearButton = FALSE,
-#' dateFormat = "MM-yyyy",
-#' view = "years",
-#' minView = "months",
-#' autoClose = TRUE
-#' )
+#' @example inst/examples/sszAirDatepickerInput/app.r
 sszAirDatepickerInput <- function(inputId,
                                   label,
                                   dateFormat = "dd.mm.yyyy",

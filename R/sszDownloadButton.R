@@ -12,8 +12,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszDownloadButton("csvDownload", label = "csv")
+#' @example inst/examples/sszDownloadButton/app.r
 sszDownloadButton <- function(outputId, label, image = NULL, icon = NULL, ...) {
   html_list <- downloadButton(outputId = outputId,
                               label = label,

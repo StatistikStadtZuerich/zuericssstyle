@@ -10,8 +10,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszActionButton("ActionButtonId", "Abfrage starten")
+#' @example inst/examples/sszActionButton/app.r
 sszActionButton <- function(inputId, label, ...) {
   actionButton(
     inputId = inputId,

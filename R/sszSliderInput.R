@@ -12,8 +12,7 @@
 #' @return the same as textInput with modified label class
 #' @export
 #'
-#' @examples
-#' sszSliderInput(inputId = "grade_number", label = "Grade:", value = 5, min = 1, max = 6)
+#' @example inst/examples/sszSliderInput/app.r
 sszSliderInput <- function(inputId, label, value, min, max, ...) {
   html_list <- sliderInput(
     inputId = inputId,

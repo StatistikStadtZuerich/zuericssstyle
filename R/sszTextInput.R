@@ -10,8 +10,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszTextInput("suchfeld", "Name:")
+#' @example inst/examples/sszTextInput/app.r
 sszTextInput <- function(inputId, label, ...) {
   html_list <- textInput(
     inputId = inputId,

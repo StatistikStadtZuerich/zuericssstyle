@@ -12,14 +12,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszDateRange("DateRange", "Datum:",
-#'   start  = "2001-01-01",
-#'   end    = "2010-12-31",
-#'   min    = "2001-01-01",
-#'   max    = "2012-12-21"
-#' )
-#'
+#' @example inst/examples/sszDateRange/app.r
 sszDateRange <- function(inputId,
                          label,
                          format = "dd.mm.yyyy",
@@ -39,3 +32,4 @@ sszDateRange <- function(inputId,
   )
   html_list
 }
+

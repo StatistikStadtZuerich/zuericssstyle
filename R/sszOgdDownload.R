@@ -11,11 +11,7 @@
 #'
 #' @export
 #'
-#' @examples
-#' sszOgdDownload(
-#'   outputId = "ogdDown", label = "OGD",
-#'   href = "https://data.stadt-zuerich.ch"
-#' )
+#' @example inst/examples/sszOgdDownload/app.r
 sszOgdDownload <- function(outputId, href, label, image = NULL) {
   tags$a(id = outputId,
          href = href,

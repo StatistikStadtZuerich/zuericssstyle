@@ -10,8 +10,7 @@
 #' @return the same as textInput with modified label class
 #' @export
 #'
-#' @examples
-#' sszNumericInput(inputId = "street_numer", label = "Street Number:", value = 1)
+#' @example inst/examples/sszNumericInput/app.r
 sszNumericInput <- function(inputId, label, value, ...) {
   html_list <- numericInput(
     inputId = inputId,
