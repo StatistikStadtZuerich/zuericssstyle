@@ -1,0 +1,20 @@
+library(shiny)
+
+ui <- fluidPage(
+  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
+  h1("Widget demo"),
+  sszSliderInput("choose_number",
+                 "Input:",
+                 value = 30,
+                 min = 0,
+                 max = 100),
+  br(),
+  h1("Input"),
+  textOutput("input")
+)
+
+server <- function(input, output, session) {
+  # Our dataset
+  output$input <- renderText(input$choose_number)
+}
+shinyApp(ui, server)
