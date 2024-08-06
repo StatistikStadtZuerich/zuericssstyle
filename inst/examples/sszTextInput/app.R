@@ -14,4 +14,5 @@ server <- function(input, output, session) {
   # Our dataset
   output$input <- renderText(input$suchfeld)
 }
+
 shinyApp(ui, server)

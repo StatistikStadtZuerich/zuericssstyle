@@ -23,4 +23,5 @@ server <- function(input, output, session) {
     output$choice <- renderText(format(input$airMonth, "%m-%Y"))
   })
 }
+
 shinyApp(ui, server)

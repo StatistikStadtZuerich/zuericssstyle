@@ -1,4 +1,5 @@
 library(shiny)
+
 ui <- fluidPage(
   includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
   h1("Widget demo"),
@@ -17,5 +18,6 @@ server <- function(input, output, session) {
   # Our dataset
   output$choice <- renderText(input$select)
 }
+
 shinyApp(ui, server)
 

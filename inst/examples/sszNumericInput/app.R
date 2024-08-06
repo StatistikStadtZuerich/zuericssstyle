@@ -15,4 +15,5 @@ server <- function(input, output, session) {
   # Our dataset
   output$input <- renderText(input$number)
 }
+
 shinyApp(ui, server)

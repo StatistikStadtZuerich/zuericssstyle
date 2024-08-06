@@ -1,8 +1,6 @@
 library(shiny)
-library(icons)
-library(here)
 
-icons_ssz <- icon_set(here("man/icons"))
+icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
 
 ui <- fluidPage(
   includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
@@ -23,4 +21,5 @@ server <- function(input, output, session) {
   # Our dataset
   output$choice <- renderText(format(input$DateRange, "%d.%m.%Y"))
 }
+
 shinyApp(ui, server)
