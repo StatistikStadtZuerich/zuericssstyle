@@ -23,10 +23,8 @@ function to generate an ssz-themed ogd download button
 }
 \examples{
 library(shiny)
-library(icons)
-library(here)
 
-icons_ssz <- icon_set(file.path(here(), "man/icons"))
+icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
 
 ui <- fluidPage(
   includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
@@ -44,5 +42,6 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
 }
+
 shinyApp(ui, server)
 }

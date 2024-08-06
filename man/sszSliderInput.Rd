@@ -33,7 +33,7 @@ ui <- fluidPage(
   h1("Widget demo"),
   sszSliderInput("choose_number",
                  "Input:",
-                 value = 30,
+                 value = c(30, 60),
                  min = 0,
                  max = 100),
   br(),
@@ -45,5 +45,6 @@ server <- function(input, output, session) {
   # Our dataset
   output$input <- renderText(input$choose_number)
 }
+
 shinyApp(ui, server)
 }
