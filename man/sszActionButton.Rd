@@ -22,16 +22,17 @@ function to generate an action button with the custom ssz styling
 \examples{
 library(shiny)
 
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
-  h1("Widget demo"),
-  sszActionButton(
-    "action",
-    "Abfrage starten",
-  ),
-  br(),
-  h1("Action"),
-  textOutput("action")
+ui <- add_zcss_deps(
+  fluidPage(
+    h1("Widget demo"),
+    sszActionButton(
+      "action",
+      "Abfrage starten",
+    ),
+    br(),
+    h1("Action"),
+    textOutput("action")
+  )
 )
 
 server <- function(input, output, session) {
