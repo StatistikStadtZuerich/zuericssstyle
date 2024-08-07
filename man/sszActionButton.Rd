@@ -20,29 +20,5 @@ the return of actionButton with "sszActionButton" added as a class
 function to generate an action button with the custom ssz styling
 }
 \examples{
-library(shiny)
-
-ui <- add_zcss_deps(
-  fluidPage(
-    h1("Widget demo"),
-    sszActionButton(
-      "action",
-      "Abfrage starten",
-    ),
-    br(),
-    h1("Action"),
-    textOutput("action")
-  )
-)
-
-server <- function(input, output, session) {
-  # Observe the action button press
-  observeEvent(input$action, {
-    output$action <- renderText({
-      "Abfrage gestartet"
-    })
-  })
-}
-
-shinyApp(ui, server)
+\dontrun{inst/examples/sszActionButton/app.r}
 }

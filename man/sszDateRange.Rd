@@ -24,29 +24,5 @@ the same as dateRangeInput return, with modified label class
 function to generate a DateRangeInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-library(shiny)
-
-icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
-
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
-  h1("Widget demo"),
-  sszDateRange("DateRange", "Datum:",
-               start  = "2001-01-01",
-               end    = "2010-12-31",
-               min    = "2001-01-01",
-               max    = "2012-12-21",
-               separator = icons_ssz("calendar")
-  ),
-  br(),
-  h1("Selected"),
-  textOutput("choice")
-)
-
-server <- function(input, output, session) {
-  # Our dataset
-  output$choice <- renderText(format(input$DateRange, "\%d.\%m.\%Y"))
-}
-
-shinyApp(ui, server)
+\dontrun{inst/examples/sszDateRange/app.r}
 }

@@ -15,7 +15,8 @@
 #'
 #' @export
 #'
-#' @example inst/examples/sszRadioButtons/app.r
+#' @examples
+#' \dontrun{inst/examples/sszRadioButtons/app.r}
 sszRadioButtons <- function(inputId, label, choices, ...) {
   html_list <- radioButtons(
     inputId = inputId,

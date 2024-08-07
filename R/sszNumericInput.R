@@ -10,7 +10,8 @@
 #' @return the same as textInput with modified label class
 #' @export
 #'
-#' @example inst/examples/sszNumericInput/app.r
+#' @examples
+#' \dontrun{inst/examples/sszNumericInput/app.r}
 sszNumericInput <- function(inputId, label, value, ...) {
   html_list <- numericInput(
     inputId = inputId,

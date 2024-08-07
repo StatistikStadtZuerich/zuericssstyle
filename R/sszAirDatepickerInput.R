@@ -10,7 +10,8 @@
 #' @return the same as dateRangeInput return, with modified label class
 #' @export
 #'
-#' @example inst/examples/sszAirDatepickerInput/app.r
+#' @examples
+#' \dontrun{inst/examples/sszAirDatepickerInput/app.r}
 sszAirDatepickerInput <- function(inputId,
                                   label,
                                   dateFormat = "dd.mm.yyyy",

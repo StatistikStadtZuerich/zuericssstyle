@@ -12,7 +12,8 @@
 #'
 #' @export
 #'
-#' @examples inst/examples/sszSelectInput/app.R
+#' @examples
+#' \dontrun{inst/examples/sszSelectInput/app.R}
 sszSelectInput <- function(inputId,
                            label,
                            choices,

@@ -11,7 +11,8 @@
 #'
 #' @export
 #'
-#' @example inst/examples/sszOgdDownload/app.r
+#' @examples
+#' \dontrun{inst/examples/sszOgdDownload/app.r}
 sszOgdDownload <- function(outputId, href, label, image = NULL) {
   tags$a(id = outputId,
          href = href,

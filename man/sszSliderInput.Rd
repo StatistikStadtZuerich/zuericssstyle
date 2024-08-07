@@ -26,25 +26,5 @@ the same as textInput with modified label class
 function to generate a sliderInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-library(shiny)
-
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
-  h1("Widget demo"),
-  sszSliderInput("choose_number",
-                 "Input:",
-                 value = c(30, 60),
-                 min = 0,
-                 max = 100),
-  br(),
-  h1("Input"),
-  textOutput("input")
-)
-
-server <- function(input, output, session) {
-  # Our dataset
-  output$input <- renderText(input$choose_number)
-}
-
-shinyApp(ui, server)
+\dontrun{inst/examples/sszSliderInput/app.r}
 }

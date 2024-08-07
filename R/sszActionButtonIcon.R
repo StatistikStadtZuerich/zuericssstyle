@@ -10,7 +10,8 @@
 #' @return the return of actionButton with "sszActionButton" added as a class
 #' @export
 #'
-#' @example inst/examples/sszActionButtonIcon/app.r
+#' @examples
+#' \dontrun{inst/examples/sszActionButtonIcon/app.r}
 sszActionButtonIcon <- function(inputId, label, ssz_icon, ...) {
   dot_args <- list(...)
   actionButton(

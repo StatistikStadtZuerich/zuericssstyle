@@ -12,7 +12,8 @@
 #'
 #' @export
 #'
-#' @example inst/examples/sszDownloadButton/app.r
+#' @examples
+#' \dontrun{inst/examples/sszDownloadButton/app.r}
 sszDownloadButton <- function(outputId, label, image = NULL, icon = NULL, ...) {
   html_list <- downloadButton(outputId = outputId,
                               label = label,

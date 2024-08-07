@@ -10,7 +10,8 @@
 #'
 #' @export
 #'
-#' @example inst/examples/sszTextInput/app.r
+#' @examples
+#' \dontrun{inst/examples/sszTextInput/app.r}
 sszTextInput <- function(inputId, label, ...) {
   html_list <- textInput(
     inputId = inputId,

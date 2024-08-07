@@ -22,23 +22,5 @@ the same as textInput with modified label class
 function to generate a numericInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-library(shiny)
-
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
-  h1("Widget demo"),
-  sszNumericInput("number",
-                  "Zahl",
-                  4),
-  br(),
-  h1("Input"),
-  textOutput("input")
-)
-
-server <- function(input, output, session) {
-  # Our dataset
-  output$input <- renderText(input$number)
-}
-
-shinyApp(ui, server)
+\dontrun{inst/examples/sszNumericInput/app.r}
 }
