@@ -5,7 +5,9 @@
 #' @return fluidPage/tag with ssz css dependencies added
 #' @export
 #'
-#' @examples inst/examples/sszActionButton/app.r
+#' @examples
+#' \dontrun{inst/examples/ssz_deps_with_bootstrap/app.r}
+#'
 add_zcss_deps <- function(tag) {
   shiny::tagList(
     htmltools::htmlDependency(

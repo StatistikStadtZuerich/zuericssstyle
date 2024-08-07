@@ -1,6 +1,8 @@
 library(shiny)
+# this example app has the ssz css stuff added but unlike the ssz_page has the
+# bootstrap css still there
 
-ui <- ssz_page(
+ui <- add_zcss_deps(shiny::fluidPage(
   h1("Widget demo"),
   sszActionButton(
     "action",
@@ -9,8 +11,7 @@ ui <- ssz_page(
   br(),
   h1("Action"),
   textOutput("action")
-)
-
+))
 
 server <- function(input, output, session) {
   # Observe the action button press

@@ -16,5 +16,6 @@ fluidPage/tag with ssz css dependencies added
 add_zcss_deps
 }
 \examples{
-inst/examples/sszActionButton/app.r
+\dontrun{inst/examples/ssz_deps_with_bootstrap/app.r}
+
 }
