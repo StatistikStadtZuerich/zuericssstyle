@@ -12,13 +12,14 @@
 #'
 #' @example inst/examples/sszActionButtonIcon/app.r
 sszActionButtonIcon <- function(inputId, label, ssz_icon, ...) {
+  dot_args <- list(...)
   actionButton(
     inputId = inputId,
     label = label,
     icon = NULL,
     width = NULL,
-    ssz_icon,
     class = "sszActionButton",
-    ...
+    disabled = FALSE,
+    c(ssz_icon, dot_args)
   )
 }
