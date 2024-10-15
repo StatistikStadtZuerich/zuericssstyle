@@ -1,9 +1,9 @@
 library(shiny)
+# OGD button demo
 
 icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
 
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
+ui <- ssz_page(
   h1("Widget demo"),
   tags$div(
     id = "downloadWrapperId",

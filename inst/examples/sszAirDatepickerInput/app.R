@@ -1,8 +1,8 @@
 library(shiny)
 library(shinyWidgets)
+# airdatepicker demo
 
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
+ui <- ssz_page(
   h1("Widget demo"),
   sszAirDatepickerInput(
     inputId = "airMonth",

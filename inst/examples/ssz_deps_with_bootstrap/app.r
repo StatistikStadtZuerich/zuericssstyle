@@ -2,7 +2,7 @@ library(shiny)
 # this example app has the ssz css stuff added but unlike the ssz_page has the
 # bootstrap css still there
 
-ui <- add_zcss_deps(shiny::fluidPage(
+ui <- add_zcss_deps(fluidPage(
   h1("Widget demo"),
   sszActionButton(
     "action",

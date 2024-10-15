@@ -1,8 +1,9 @@
 library(shiny)
+# date range demo
 
 icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
 
-ui <- fluidPage(
+ui <- ssz_page(
   includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
   h1("Widget demo"),
   sszDateRange("DateRange", "Datum:",

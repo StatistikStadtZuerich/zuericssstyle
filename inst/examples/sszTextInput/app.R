@@ -1,7 +1,7 @@
 library(shiny)
+# text input demo
 
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
+ui <- ssz_page(
   h1("Widget demo"),
   sszTextInput("suchfeld",
                "Name:"),

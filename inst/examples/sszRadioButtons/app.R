@@ -1,7 +1,7 @@
 library(shiny)
+# radio button demo
 
-ui <- fluidPage(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
+ui <- ssz_page(
   h1("Widget demo"),
   sszRadioButtons(
     inputId = "ButtonGroupLabel",
