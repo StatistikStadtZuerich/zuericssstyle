@@ -23,7 +23,8 @@ Imports:
     htmltools,
     icons (>= 0.2.0),
     shiny,
-    shinyWidgets
-Remotes:  
+    shinyWidgets,
+    utils
+Remotes: 
     github::daqana/dqshiny,
     mitchelloharawild/icons
