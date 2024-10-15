@@ -186,17 +186,6 @@ sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 The function wraps around shiny's `actionButton`.
 
-A separate function exists if an icon/image is to be added to the button (as a `htmltools::tags$img(...)`)
-
-![action button with icon](man/pictures/actionbutton_icon.png)
-
-```{r, eval = FALSE}
-sszActionButtonIcon("ActionButtonId",
-                       "Abfrage starten",
-                       ssz_icon = img(icons_ssz$`arrow-right`)
-                       )
-```
-
 ### CSS file for html
 If you need the css file to e.g. style a html report, use 
 
@@ -208,4 +197,4 @@ to get the css file written to your local folder. Alternatively, you can provide
 
 ## Getting help
 
-If you encounter a bug, please contact statistik@zuerich.ch.
+If you encounter a bug, please open an issue or contact statistik@zuerich.ch.
