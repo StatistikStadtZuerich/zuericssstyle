@@ -10,13 +10,13 @@
 #'
 add_zcss_deps <- function(tag) {
   shiny::tagList(
+    tag,
     htmltools::htmlDependency(
       "zuericssstyle",
       packageVersion("zuericssstyle"),
       src = c(file = "css"),
       stylesheet = c("sszTheme.css", "sszThemeShiny.css"),
       package = "zuericssstyle"
-    ),
-    tag
+    )
   )
 }
