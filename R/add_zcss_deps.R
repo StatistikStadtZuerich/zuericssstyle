@@ -15,7 +15,7 @@ add_zcss_deps <- function(tag) {
       "zuericssstyle",
       packageVersion("zuericssstyle"),
       src = c(file = "css"),
-      stylesheet = c("sszTheme.css", "sszThemeShiny.css"),
+      stylesheet = c("ssz.css", "ssz_shiny.min.css"),
       package = "zuericssstyle"
     )
   )

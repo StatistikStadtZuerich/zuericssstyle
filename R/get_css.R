@@ -2,14 +2,14 @@
 #'
 #' @description function to create a css file for the generic styling of html/shiny
 #'
-#' @param destination_filepath optional, defaults to "sszTheme.css" in the local
+#' @param destination_filepath optional, defaults to "ssz.css" in the local
 #' folder. if provided, give full path and filename, like "path/folder/file.css"
 #'
 #' @export
 #'
 #' @examples get_generic_css()
-get_generic_css <- function(destination_filepath = "sszTheme.css") {
-  origin <- "css/sszTheme.css"
+get_generic_css <- function(destination_filepath = "ssz.css") {
+  origin <- "css/ssz.css"
   get_css_core(origin, destination_filepath)
 }
 
@@ -17,14 +17,14 @@ get_generic_css <- function(destination_filepath = "sszTheme.css") {
 #'
 #' @description creates a css file for html and shiny widget styling
 #'
-#' @param destination_filepath optional, defaults to "sszThemeShiny.css" in the local
+#' @param destination_filepath optional, defaults to "ssz_shiny.min.css" in the local
 #' folder. if provided, give full path and filename, like "path/folder/file.css"
 #'
 #' @export
 #'
 #' @examples get_shiny_css()
-get_shiny_css <- function(destination_filepath = "sszThemeShiny.css") {
-  origin <- "css/sszThemeShiny.css"
+get_shiny_css <- function(destination_filepath = "ssz_shiny.min.css") {
+  origin <- "css/ssz_shiny.min.css"
   get_css_core(origin, destination_filepath)
 
 }
