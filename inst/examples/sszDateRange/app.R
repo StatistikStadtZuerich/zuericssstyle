@@ -4,7 +4,6 @@ library(shiny)
 icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
 
 ui <- ssz_page(
-  includeCSS(here::here("inst", "css", "sszThemeShiny.css")),
   h1("Widget demo"),
   sszDateRange("DateRange", "Datum:",
                start  = "2001-01-01",
