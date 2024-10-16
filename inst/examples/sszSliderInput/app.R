@@ -4,10 +4,11 @@ library(shiny)
 ui <- ssz_page(
   h1("Widget demo"),
   sszSliderInput("choose_number",
-                 "Input:",
-                 value = c(30, 60),
-                 min = 0,
-                 max = 100),
+    "Input:",
+    value = c(30, 60),
+    min = 0,
+    max = 100
+  ),
   br(),
   h1("Input"),
   textOutput("input")

@@ -1,11 +1,13 @@
 library(shiny)
-#numeric input demo
+# numeric input demo
 
 ui <- ssz_page(
   h1("Widget demo"),
-  sszNumericInput("number",
-                  "Zahl",
-                  4),
+  sszNumericInput(
+    "number",
+    "Zahl",
+    4
+  ),
   br(),
   h1("Input"),
   textOutput("input")
