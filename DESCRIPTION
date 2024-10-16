@@ -29,4 +29,6 @@ Remotes:
     github::daqana/dqshiny,
     mitchelloharawild/icons
 Suggests: 
-    devtools
+    devtools,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
