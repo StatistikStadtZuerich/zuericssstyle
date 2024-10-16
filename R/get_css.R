@@ -13,23 +13,6 @@ get_generic_css <- function(destination_filepath = "ssz.css") {
   get_css_core(origin, destination_filepath)
 }
 
-#' get_shiny_css
-#'
-#' @description creates a css file for html and shiny widget styling according to the CI/CD of the city of Zurich;
-#' not recommended, use ssz_page for a styled fluid page, or add add_zcss_deps around your ui
-#'
-#' @param destination_filepath optional, defaults to "ssz_shiny.min.css" in the local
-#' folder. if provided, give full path and filename, like "path/folder/file.css"
-#'
-#' @export
-#'
-#' @examples get_shiny_css()
-get_shiny_css <- function(destination_filepath = "ssz_shiny.min.css") {
-  origin <- "css/ssz_shiny.min.css"
-  get_css_core(origin, destination_filepath)
-
-}
-
 #' get_css_core
 #'
 #' @description checks if destination filepath is valid and copies chosen css file to destination

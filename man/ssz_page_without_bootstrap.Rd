@@ -15,6 +15,3 @@ ui with ssz styling applied
 \description{
 Function to use instead of fluidPage that has the ssz css styling applied and the bootstrap css removed
 }
-\examples{
-\dontrun{inst/examples/sszActionButton/app.r}
-}

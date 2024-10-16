@@ -4,14 +4,14 @@
 \alias{get_generic_css}
 \title{get_generic_css}
 \usage{
-get_generic_css(destination_filepath = "sszTheme.css")
+get_generic_css(destination_filepath = "ssz.css")
 }
 \arguments{
-\item{destination_filepath}{optional, defaults to "sszTheme.css" in the local
+\item{destination_filepath}{optional, defaults to "ssz.css" in the local
 folder. if provided, give full path and filename, like "path/folder/file.css"}
 }
 \description{
-function to create a css file for the generic styling of html/shiny
+function to create a css file for the generic styling of html/shiny according to the CI/CD of the city of Zurich
 }
 \examples{
 get_generic_css()
