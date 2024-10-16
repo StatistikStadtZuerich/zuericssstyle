@@ -33,5 +33,7 @@ the same as dateRangeInput return, with modified label class
 sszAirDatepickerInput
 }
 \examples{
-\dontrun{inst/examples/sszAirDatepickerInput/app.r}
+\dontrun{
+inst / examples / sszAirDatepickerInput / app.r
+}
 }

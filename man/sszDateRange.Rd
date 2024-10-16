@@ -24,5 +24,7 @@ the same as dateRangeInput return, with modified label class
 function to generate a DateRangeInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-\dontrun{inst/examples/sszDateRange/app.r}
+\dontrun{
+inst / examples / sszDateRange / app.r
+}
 }

@@ -12,5 +12,4 @@ test_that("get_generic_css writes a file", {
 
   # remove the file for cleanup; ensures at the same time proper accessibility handling
   expect_equal(file.remove(temp_file), TRUE)
-
 })

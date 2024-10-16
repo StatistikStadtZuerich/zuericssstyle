@@ -22,10 +22,13 @@ get_generic_css <- function(destination_filepath = "ssz.css") {
 get_css_core <- function(origin, destination_filepath) {
   # check if directory exists
   if (!(file.exists(dirname(destination_filepath)))) {
-    stop("no valid destination filename provided, ",
-         "use something like: path/folder/file.css")
+    stop(
+      "no valid destination filename provided, ",
+      "use something like: path/folder/file.css"
+    )
   }
-  file.copy(from = system.file(origin, package = "zuericssstyle"),
-            to = destination_filepath)
-
+  file.copy(
+    from = system.file(origin, package = "zuericssstyle"),
+    to = destination_filepath
+  )
 }

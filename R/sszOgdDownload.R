@@ -12,13 +12,17 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszOgdDownload/app.r}
+#' \dontrun{
+#' inst / examples / sszOgdDownload / app.r
+#' }
 sszOgdDownload <- function(outputId, href, label, image = NULL) {
-  tags$a(id = outputId,
-         href = href,
-         class = "sszDownload",
-         target = "_blank",
-         download = NA,
-         image,
-         label)
+  tags$a(
+    id = outputId,
+    href = href,
+    class = "sszDownload",
+    target = "_blank",
+    download = NA,
+    image,
+    label
+  )
 }

@@ -11,18 +11,20 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszAirDatepickerInput/app.r}
+#' \dontrun{
+#' inst / examples / sszAirDatepickerInput / app.r
+#' }
 sszAirDatepickerInput <- function(inputId,
                                   label,
                                   dateFormat = "dd.mm.yyyy",
                                   language = "de",
                                   ssz_icon = NULL,
-                                  ...){
+                                  ...) {
   if (is.null(ssz_icon)) {
     # then get rid of the addon/button with an icon
-    addon = 'none'
+    addon <- "none"
   } else {
-    addon = 'right'
+    addon <- "right"
   }
 
   html_list <- airDatepickerInput(

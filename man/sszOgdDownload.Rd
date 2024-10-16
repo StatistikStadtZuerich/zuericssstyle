@@ -22,5 +22,7 @@ tags$a
 function to generate an ssz-themed ogd download button
 }
 \examples{
-\dontrun{inst/examples/sszOgdDownload/app.r}
+\dontrun{
+inst / examples / sszOgdDownload / app.r
+}
 }

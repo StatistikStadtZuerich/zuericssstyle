@@ -9,7 +9,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszActionButton/app.r}
+#' \dontrun{
+#' inst / examples / sszActionButton / app.r
+#' }
 ssz_page <- function(...) {
   add_zcss_deps(shiny::fluidPage(...))
 }

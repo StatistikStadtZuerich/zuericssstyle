@@ -26,5 +26,7 @@ the same as textInput with modified label class
 function to generate a sliderInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-\dontrun{inst/examples/sszSliderInput/app.r}
+\dontrun{
+inst / examples / sszSliderInput / app.r
+}
 }

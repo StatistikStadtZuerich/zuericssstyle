@@ -20,5 +20,7 @@ the return of actionButton with "sszActionButton" added as a class
 function to generate an action button with the custom ssz styling
 }
 \examples{
-\dontrun{inst/examples/sszActionButton/app.r}
+\dontrun{
+inst / examples / sszActionButton / app.r
+}
 }

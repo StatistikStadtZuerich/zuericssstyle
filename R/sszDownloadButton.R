@@ -13,12 +13,16 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszDownloadButton/app.r}
+#' \dontrun{
+#' inst / examples / sszDownloadButton / app.r
+#' }
 sszDownloadButton <- function(outputId, label, image = NULL, icon = NULL, ...) {
-  html_list <- downloadButton(outputId = outputId,
-                              label = label,
-                              icon = icon,
-                              ...)
+  html_list <- downloadButton(
+    outputId = outputId,
+    label = label,
+    icon = icon,
+    ...
+  )
   # remove the standard classes 8especially btn and btn-default) to avoid style inheritance
   # keep only shiny-download-link and add the new sszDownload
   html_list$attribs$class <- "shiny-download-link sszDownload"
