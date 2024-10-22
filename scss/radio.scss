@@ -56,16 +56,16 @@
 
     &:focus {
       border: 0.05em solid #080490;
-      //outline: max(2px, 0.15em) solid transparent;
-      //outline-offset: max(2px, 0.15em);
-      //max with two different units does not work with scss, todo adjust
+      outline: 0.15em solid transparent;
+      outline-offset: 0.15em;
+      //max(2px, 0.15em) with two different units does not work with scss, todo adjust
     }
 
     &::before {
       content: "";
       width: 0.5em;
       height: 0.5em;
-      //border-radius: 50%;
+      border-radius: 50%;
       transform: scale(0);
       background-color: $text-color;
     }
