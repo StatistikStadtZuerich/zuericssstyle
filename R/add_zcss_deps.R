@@ -2,7 +2,7 @@
 #'
 #' @param tag tag/tagList, e.g. a fluidPage
 #'
-#' @return fluidPage/tag with ssz css dependencies added
+#' @return fluidPage/tag with ssz css dependencies added, including shiny widget stylings
 #' @export
 #'
 #' @examples
@@ -17,7 +17,7 @@ add_zcss_deps <- function(tag) {
       "zuericssstyle",
       packageVersion("zuericssstyle"),
       src = c(file = "css"),
-      stylesheet = c("ssz.css", "ssz_shiny.min.css"),
+      stylesheet = "ssz_shiny.min.css",
       package = "zuericssstyle"
     )
   )

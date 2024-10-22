@@ -10,7 +10,7 @@ add_zcss_deps(tag)
 \item{tag}{tag/tagList, e.g. a fluidPage}
 }
 \value{
-fluidPage/tag with ssz css dependencies added
+fluidPage/tag with ssz css dependencies added, including shiny widget stylings
 }
 \description{
 add_zcss_deps
