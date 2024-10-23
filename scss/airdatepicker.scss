@@ -18,16 +18,17 @@
     border: 0 solid $text-color;
     border-radius: 2px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
-    --adp-cell-background-color-selected: $zueriblau;
-    --adp-cell-background-color-selected-hover: $zueriblau;
-    --adp-cell-background-color-in-range: $zueriblau;
-    --adp-cell-background-color-in-range-hover: $zueriblau;
-    --adp-color-current-date: white;
-    --adp-background-color-selected-other-month-focused: $zueriblau;
-    --adp-background-color-selected-other-month: $zueriblau;
+    // these are custom properties, needs different syntax to work in scss
+    --adp-cell-background-color-selected: #{$zueriblau};
+    --adp-cell-background-color-selected-hover: #{$zueriblau};
+    --adp-cell-background-color-in-range: #{$zueriblau};
+    --adp-cell-background-color-in-range-hover: #{$zueriblau};
+    --adp-color-current-date: #{$zueriblau};
+    --adp-background-color-selected-other-month: #{$zueriblau};
+    --adp-background-color-selected-other-month-focused: #{$zueriblau};
     --adp-cell-border-radius: 50px;
-    --adp-day-name-color: $text-color;
-    --adp-day-name-color-hover: $zueriblau;
+    --adp-day-name-color: #{$text-color};
+    --adp-day-name-color-hover: #{$zueriblau};
  }
 
 .air-datepicker-body--cells {
