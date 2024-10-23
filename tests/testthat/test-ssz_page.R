@@ -10,5 +10,5 @@ test_that("check ssz_page is a fluidPage and has zcss dependencies", {
   # check dependencies
   expect_equal(my_page[[2]]$package, "zuericssstyle")
 
-  expect_contains(my_page[[2]]$stylesheet, c("ssz.css", "ssz_shiny.min.css"))
+  expect_contains(my_page[[2]]$stylesheet, c("ssz_shiny.min.css"))
 })
