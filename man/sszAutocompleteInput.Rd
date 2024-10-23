@@ -22,5 +22,7 @@ same as autocomplete_input
 sszAutocompleteInput
 }
 \examples{
-\dontrun{inst/examples/sszAutocompleteInput/app.r}
+\dontrun{
+inst / examples / sszAutocompleteInput / app.r
+}
 }

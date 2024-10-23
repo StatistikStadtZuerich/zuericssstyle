@@ -1,2 +1,9 @@
 .Rproj.user
 .Rhistory
+
+# sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+.sass_cache_keys

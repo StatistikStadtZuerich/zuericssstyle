@@ -24,5 +24,7 @@ the same as selectInput with modified label class
 function to generate a selectInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-\dontrun{inst/examples/sszSelectInput/app.R}
+\dontrun{
+inst / examples / sszSelectInput / app.R
+}
 }

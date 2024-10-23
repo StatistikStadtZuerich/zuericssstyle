@@ -1,0 +1,28 @@
+
+/*******************************
+* Autocomplete from daqana/dqshiny
+*******************************/
+
+.autocomplete {
+  color: $zueriblau;
+}
+
+/* Autocomplete Drop Down Menu */
+.autocomplete-items div {
+  font-family: $main-font;
+  font-size: 14px;
+  padding: 6px 16px 6px 20px;
+  line-height: 26px;
+  border-bottom: 0px;
+
+  &:hover {
+    background-color: $bg-color-light;
+    color: $dark-blue;
+    z-index: 100;
+  }
+ }
+
+.autocomplete-active {
+  background-color: $bg-color-light !important;
+  color: $dark-blue;
+}

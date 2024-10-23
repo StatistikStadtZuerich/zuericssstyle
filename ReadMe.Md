@@ -30,13 +30,16 @@ A number of functions wrap around the original shiny functions to provide stylin
 
 ### Styled shiny widgets
 
-All widgets need the css to work. Get this written to your local folder with
+All widgets need the css to work. This is added as an html dependency when using the `ssz_page` or the `add_zcss_deps` functions. Use `ssz_page` as a styled drop-in replacement of shiny's `fluidPage`:
 
 ```{r, eval = FALSE}
-get_shiny_css()
+ui <- ssz_page(...)
 ```
-Alternatively, you can provide a full filepath (something like "C:/temp/mystyling.css") as a parameter.
-Then include it in the UI of the shiny app with `includeCSS("sszThemeShiny.css")`
+
+Alternatively, if you are not using a fluid page, wrap your ui (e.g. `fixedPage` or whatever you fancy) in `add_zcss_deps`:
+```{r, eval = FALSE}
+ui <- add_zcss_deps(fixedPage(...))
+```
 
 #### Numeric input
 ![numeric input](man/pictures/numericInput.png)
@@ -109,7 +112,7 @@ The function wraps around shiny's `textInput`.
 ```{r, eval = FALSE}
 sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
 ```
-The function wraps around shiny's `sliderInput`. Currently there is no DESI component for the styling and functionality of the sliderInput. A ticket to create a DESI component for this widget has been made and it will be adapted in the zuericsssytle package when completed. Therefore the styling for the sliderInput might vary slightly at a later point in time (2023-07-12).
+The function wraps around shiny's `sliderInput`. Currently this is not officially part of the city's CI/CD. Therefore the styling for the sliderInput might vary slightly at a later point in time (as of 2024-10-16).
 
 #### Autocomplete
 

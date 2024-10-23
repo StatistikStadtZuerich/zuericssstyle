@@ -11,7 +11,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszActionButton/app.r}
+#' \dontrun{
+#' inst / examples / sszActionButton / app.r
+#' }
 sszActionButton <- function(inputId, label, ...) {
   actionButton(
     inputId = inputId,

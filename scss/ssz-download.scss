@@ -1,0 +1,48 @@
+/*******************************
+* Downloads
+*******************************/
+
+/* Donwload Container */
+.downloadWrapperDiv {
+  margin-top: 16px;
+  max-width: 188px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+ }
+
+/* General Button Styling */
+.sszDownload {
+    text-decoration:none;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid $zueriblau;
+    color: $zueriblau;
+    font-family: $main-font;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 2px 6px 2px 6px;
+    text-align: center;
+    stroke: $zueriblau;
+
+    &:focus, &:active {
+    text-decoration:none;
+    color: $zueriblau;
+  }
+    &:hover {
+      text-decoration:none;
+      background-color: $dark-blue;
+      border: 1px solid $dark-blue;
+      color: white;
+      transition: 0.5s;
+
+      path {
+        stroke: white;
+        transition: 0.5s;
+      }
+    }
+
+  path {
+    stroke: $zueriblau;
+  }
+}

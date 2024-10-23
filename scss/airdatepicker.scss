@@ -1,0 +1,163 @@
+/*******************************
+ * Airdatepicker
+ *******************************/
+
+ .air-datepicker {
+	font-family:  $main-font;
+    position: absolute;
+    z-index: 1000;
+    float: left;
+    max-width: 200px;
+    padding: 16px;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-color: $text-color;
+    border: 0 solid $text-color;
+    border-radius: 2px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
+    // these are custom properties, needs different syntax to work in scss
+    --adp-cell-background-color-selected: #{$zueriblau};
+    --adp-cell-background-color-selected-hover: #{$zueriblau};
+    --adp-cell-background-color-in-range: #{$zueriblau};
+    --adp-cell-background-color-in-range-hover: #{$zueriblau};
+    --adp-color-current-date: #{$zueriblau};
+    --adp-background-color-selected-other-month: #{$zueriblau};
+    --adp-background-color-selected-other-month-focused: #{$zueriblau};
+    --adp-cell-border-radius: 50px;
+    --adp-day-name-color: #{$text-color};
+    --adp-day-name-color-hover: #{$zueriblau};
+ }
+
+.air-datepicker-body--cells {
+  display: grid;
+  min-height: 100px;
+
+  &.-days- {
+    grid-template-columns: repeat(7, 0.5fr);
+    grid-auto-rows: 28px;
+    row-gap: 2.5%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  &.-months- {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 45px;
+    column-gap: 2.5%;
+    row-gap: 2.5%;
+    margin: 0.2%;
+  }
+
+  &.-years- {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 45px;
+    row-gap: 2.5%;
+    column-gap: 2.5%;
+    margin: 0.2%;
+  }
+}
+
+.air-datepicker-body--day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 0.5fr);
+  margin: 0.2%;
+}
+
+.air-datepicker-body--day-name {
+  font-family: $title-font;
+  color: black;
+  margin-top: 10px;
+}
+
+.air-datepicker-cell {
+  color: $text-color;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+
+  &:hover {
+    color: $zueriblau;
+    background: rgba(15, 5, 160, 0.08);
+  }
+
+  &.-selected- {
+    color: white;
+    background: $zueriblau;
+
+    &.-focus- {
+    color: white;
+  }
+ }
+}
+
+ .air-datepicker-nav--action {
+    font-family: $title-font;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    user-select: none;
+
+   &:hover {
+    color: $dark-blue;
+  }
+
+
+  path {
+    fill: none;
+    stroke: #333;
+    stroke-width: 2px;
+  }
+ }
+
+.air-datepicker-nav--title {
+  font-family: $title-font;
+
+  &:hover {
+    color: $dark-blue;
+    background: white;
+  }
+
+   &:active {
+    color: $dark-blue;
+    background: white;
+  }
+}
+
+.air-datepicker-button {
+    display: inline-flex;
+    color: $zueriblau;
+    border-radius: 3px;
+    border: none;
+    background: white;
+
+  &:hover {
+    color: white;
+    background: $dark-blue;
+  }
+
+  &:focus {
+    color: $zueriblau;
+    background: rgba(15, 5, 160, 0.08);
+    outline: none;
+  }
+
+  &:active {
+    background: $dark-blue;
+  }
+
+  span {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,88 @@
+/*******************************
+* Action Buttons
+*******************************/
+
+/* General Button */
+.btn {
+  background-color: $zueriblau;
+  padding: 9px 24px 9px 24px;
+  border-radius: 3px;
+  border: 0 solid;
+  height: 40px;
+  color: white;
+  font-family: $main-font;
+  font-size: 14px;
+  line-height: 22px;
+  margin-top: 32px;
+
+  &:hover {
+    background-color: $dark-blue;
+    color: white;
+    transition: 0.5s;
+  }
+
+  &:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    outline: transparent;
+    background-color: $dark-blue;
+    color: white;
+  }
+
+  /* Button no Outline on Click */
+  &:active:focus {
+    outline: transparent;
+  }
+}
+
+/* Disable default Shiny Active and Focus Button */
+.btn-default:active:focus {
+  color: white;
+  background-color: $zueriblau;
+  border-color: $zueriblau;
+}
+
+button {
+  background-color: $bg-color-light;
+  padding: 4px 12px 4px 12px;
+  border-radius: 30px;
+  border: 0 solid;
+  color: $zueriblau;
+  font-family: $main-font;
+  font-size: 12px;
+  line-height: 22px;
+
+  &:hover {
+    background-color: rgba(15, 5, 160, 0.08);
+    color: $dark-blue;
+    transition: 0.5s;
+  }
+
+  &:active {
+    background-color: $zueriblau;
+    color: white;
+    outline-color: transparent;
+    transition: 0.5s;
+  }
+}
+
+/* SSZ Button */
+.sszActionButton {
+  stroke: white;
+
+  &:active {
+    outline-color: transparent;
+    outline-style: solid;
+    background-color: $dark-blue;
+    color: white;
+    transition: 0.5s;
+  }
+
+  :focus {
+    outline-color: transparent;
+    outline-style: solid;
+    background-color: $dark-blue;
+    color: white;
+    transition: 0.5s;
+  }
+}

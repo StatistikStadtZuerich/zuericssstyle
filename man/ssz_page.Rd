@@ -16,5 +16,7 @@ ui with ssz styling applied
 Function to use instead of fluidPage that has the ssz css styling applied
 }
 \examples{
-\dontrun{inst/examples/sszActionButton/app.r}
+\dontrun{
+inst / examples / sszActionButton / app.r
+}
 }

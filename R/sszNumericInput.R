@@ -11,7 +11,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszNumericInput/app.r}
+#' \dontrun{
+#' inst / examples / sszNumericInput / app.r
+#' }
 sszNumericInput <- function(inputId, label, value, ...) {
   html_list <- numericInput(
     inputId = inputId,

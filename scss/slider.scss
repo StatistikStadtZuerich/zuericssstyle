@@ -1,0 +1,60 @@
+
+/*******************************
+* Slider Input
+*******************************/
+
+/* Div around slider*/
+.sliderDiv {
+  margin-top: 18px;
+}
+
+.sszSliderInput {
+  margin-top: 10px;
+}
+.irs-bar {
+  width: 100%;
+  height: 25px;
+}
+.irs--shiny .irs-bar {
+  border-top: 1px solid $zueriblau;
+  border-bottom: 1px solid $zueriblau;
+  background: $zueriblau;
+}
+.irs-bar-edge {
+  background: black;
+  border: 1px solid black;
+  height: 25px;
+  border-radius: 0px;
+  width: 20px;
+
+}
+.irs-line {
+  border: 1px solid black;
+  height: 25px;
+  border-radius: 0px;
+}
+.irs-grid-text {
+  font-family: $main-font;
+  font-size: 12px;
+  color: $text-color;
+  bottom: 17px;
+  z-index: 1;
+}
+
+.irs-max {
+  font-family: $main-font;
+  color: $text-color;
+}
+.irs-min {
+  font-family: $main-font;
+  font-size: 12px !important;
+  color: $text-color;
+}
+.irs-single {
+  font-family: $main-font;
+  font-size: 12px !important;
+}
+.irs--shiny .irs-from, .irs--shiny .irs-to, .irs--shiny .irs-single {
+  color: white;
+  background: $zueriblau;
+}

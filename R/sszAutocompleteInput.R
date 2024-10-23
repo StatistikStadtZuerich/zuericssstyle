@@ -9,7 +9,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszAutocompleteInput/app.r}
+#' \dontrun{
+#' inst / examples / sszAutocompleteInput / app.r
+#' }
 sszAutocompleteInput <- function(inputId, label, options, ...) {
   html_list <- dqshiny::autocomplete_input(inputId, label, options, ...)
   html_list$children[[1]]$attribs$class <- "ssz-label"

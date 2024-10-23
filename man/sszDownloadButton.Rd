@@ -24,5 +24,7 @@ a downloadButton with class sszDownload and optionally the image added
 function to generate a ssz-themed download button for csv and excel, wraps around downloadButton
 }
 \examples{
-\dontrun{inst/examples/sszDownloadButton/app.r}
+\dontrun{
+inst / examples / sszDownloadButton / app.r
+}
 }

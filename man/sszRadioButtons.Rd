@@ -27,5 +27,7 @@ a "sszRadioButton" is added to the output of radioButtons, and a
 wrapped in a div with class "radioDiv"
 }
 \examples{
-\dontrun{inst/examples/sszRadioButtons/app.r}
+\dontrun{
+inst / examples / sszRadioButtons / app.r
+}
 }

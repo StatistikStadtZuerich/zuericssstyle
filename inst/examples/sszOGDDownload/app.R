@@ -8,10 +8,11 @@ ui <- ssz_page(
   tags$div(
     id = "downloadWrapperId",
     class = "downloadWrapperDiv",
-    sszOgdDownload(outputId = "ogdDown",
-                   label = "OGD",
-                   href = "https://data.stadt-zuerich.ch/",
-                   image = img(icons_ssz("external-link"))
+    sszOgdDownload(
+      outputId = "ogdDown",
+      label = "OGD",
+      href = "https://data.stadt-zuerich.ch/",
+      image = img(icons_ssz("external-link"))
     )
   )
 )

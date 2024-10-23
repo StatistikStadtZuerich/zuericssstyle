@@ -13,7 +13,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszSliderInput/app.r}
+#' \dontrun{
+#' inst / examples / sszSliderInput / app.r
+#' }
 sszSliderInput <- function(inputId, label, value, min, max, ...) {
   html_list <- sliderInput(
     inputId = inputId,

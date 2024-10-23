@@ -22,5 +22,7 @@ the same as textInput with modified label class
 function to generate a numericInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-\dontrun{inst/examples/sszNumericInput/app.r}
+\dontrun{
+inst / examples / sszNumericInput / app.r
+}
 }

@@ -20,5 +20,7 @@ the same as textInput with modified label class
 function to generate a textInput with the custom ssz label styling (via "ssz-label" class)
 }
 \examples{
-\dontrun{inst/examples/sszTextInput/app.r}
+\dontrun{
+inst / examples / sszTextInput / app.r
+}
 }

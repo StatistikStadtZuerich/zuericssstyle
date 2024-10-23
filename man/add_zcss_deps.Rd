@@ -10,12 +10,14 @@ add_zcss_deps(tag)
 \item{tag}{tag/tagList, e.g. a fluidPage}
 }
 \value{
-fluidPage/tag with ssz css dependencies added
+fluidPage/tag with ssz css dependencies added, including shiny widget stylings
 }
 \description{
 add_zcss_deps
 }
 \examples{
-\dontrun{inst/examples/ssz_deps_with_bootstrap/app.r}
+\dontrun{
+inst / examples / ssz_deps_with_bootstrap / app.r
+}
 
 }

@@ -13,7 +13,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszDateRange/app.r}
+#' \dontrun{
+#' inst / examples / sszDateRange / app.r
+#' }
 sszDateRange <- function(inputId,
                          label,
                          format = "dd.mm.yyyy",
@@ -33,4 +35,3 @@ sszDateRange <- function(inputId,
   )
   html_list
 }
-

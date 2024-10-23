@@ -9,8 +9,8 @@ ui <- ssz_page(
     id = "downloadWrapperId",
     class = "downloadWrapperDiv",
     sszDownloadButton("csvDownload",
-                      label = "csv",
-                      image = img(icons_ssz("download"))
+      label = "csv",
+      image = img(icons_ssz("download"))
     )
   )
 )
@@ -27,7 +27,6 @@ server <- function(input, output, session) {
       write.csv(data, file)
     }
   )
-
 }
 
 shinyApp(ui, server)

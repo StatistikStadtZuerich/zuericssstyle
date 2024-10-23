@@ -3,8 +3,10 @@ library(shiny)
 
 ui <- ssz_page(
   h1("Widget demo"),
-  sszTextInput("suchfeld",
-               "Name:"),
+  sszTextInput(
+    "suchfeld",
+    "Name:"
+  ),
   br(),
   h1("Input"),
   textOutput("input")

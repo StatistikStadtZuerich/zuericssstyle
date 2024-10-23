@@ -9,7 +9,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{inst/examples/sszActionButton/app.r}
+#' \dontrun{
+#' inst / examples / sszActionButton / app.r
+#' }
 ssz_page <- function(...) {
   add_zcss_deps(shiny::fluidPage(...))
 }
@@ -26,8 +28,6 @@ ssz_page <- function(...) {
 #' @return ui with ssz styling applied
 #' @export
 #'
-#' @examples
-#' \dontrun{inst/examples/sszActionButton/app.r}
 ssz_page_without_bootstrap <- function(...) {
   ui <- shiny::fluidPage(...)
   deps <- htmltools::findDependencies(ui)

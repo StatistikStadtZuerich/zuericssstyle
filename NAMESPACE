@@ -2,9 +2,7 @@
 
 export(add_zcss_deps)
 export(get_generic_css)
-export(get_shiny_css)
 export(sszActionButton)
-export(sszActionButtonIcon)
 export(sszAirDatepickerInput)
 export(sszAutocompleteInput)
 export(sszDateRange)
