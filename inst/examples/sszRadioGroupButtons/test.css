@@ -4,6 +4,15 @@
   background-color: green;
 }
 
-.btn-group-toggle>.btn,.active {
-  background-color: black;
-  }
+.ssz-radiogroup-1 {
+  border-radius: 0px;
+  background-color: yellow;
+}
+
+.ssz-radiogroup-2 {
+  border-radius: 0px;
+}
+
+.ssz-radiogroup-3 {
+  border-radius: 0px;
+}

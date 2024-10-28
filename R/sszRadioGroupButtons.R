@@ -28,9 +28,18 @@ sszRadioGroupButtons <- function(inputId, label = NULL, choices = NULL, selected
     ...
   )
 
-  current_class <- html_list$attribs$class
+  current_class_1 <- html_list$attribs$class
   # add ssz-radiogroup class
-  html_list$attribs$class <- paste(current_class, "ssz-radiogroup")
+  html_list$attribs$class <- paste(current_class_1, "ssz-radiogroup-1")
+
+  current_class_2 <- html_list$children[[3]]$attribs$class
+  html_list$children[[3]]$attribs$class <- paste(current_class_2, "ssz-radiogroup-2")
+
+  current_class_3 <- html_list$children[[3]]$children[[1]]$attribs$class
+  html_list$children[[3]]$children[[1]]$attribs$class <- paste(current_class_3, "ssz-radiogroup-3")
+
+
+  html_list
 
 
   # htmltools::tagQuery(a)$find("something...")
