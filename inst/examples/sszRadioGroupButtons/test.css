@@ -1,18 +1,26 @@
 
-
-.btn-group-toggle>.btn {
+/* individual choice buttons, not selected*/
+.btn-group-toggle>.btn-default {
   background-color: green;
 }
 
+/* individual choice button selected*/s
+.btn-default.active {
+  background-color: red;
+}
+
+/*outermost div*/
 .ssz-radiogroup-1 {
   border-radius: 0px;
   background-color: yellow;
 }
 
+/*div one layer down*/
 .ssz-radiogroup-2 {
   border-radius: 0px;
 }
 
+/*div two layers down*/
 .ssz-radiogroup-3 {
   border-radius: 0px;
 }
