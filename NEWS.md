@@ -1,3 +1,7 @@
+# zuericssstyle 0.2.1
+
+* new function `sszRadioGroupButtons`, generating styled `shinyWidgets::radioGroupButtons`
+
 # zuericssstyle 0.2.0
 
 * major refactoring of the css into separate scss files, which can then be compiled into larger css files
