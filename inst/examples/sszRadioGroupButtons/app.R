@@ -15,7 +15,7 @@ ui <- ssz_page(
 
 server <- function(input, output, session) {
   # Our dataset
-  output$choice <- renderText(input$ButtonGroupLabel)
+  output$choice <- renderText(input$years)
 }
 
 shinyApp(ui, server)
