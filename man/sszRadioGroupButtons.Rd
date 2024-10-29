@@ -13,26 +13,26 @@ sszRadioGroupButtons(
 )
 }
 \arguments{
-\item{inputId}{inputId parameter for radioButtons}
+\item{inputId}{inputId parameter for radioGroupButtons}
 
-\item{label}{label parameter for radioButtons, default NULL}
+\item{label}{label parameter for radioGroupButtons, default NULL; leave NULL for button above chart (i.e. no label)}
 
-\item{choices}{choices parameter for radioButtons, default NULL}
+\item{choices}{choices parameter for radioGroupButtons, default NULL}
 
 \item{selected}{initially selected value, default NULL}
 
 \item{...}{further named parameters for shinyWidget::radioGroupButtons}
 }
 \value{
-the return of radioGroupButtons with modified labels
+the return of radioGroupButtons with modified html classes
 }
 \description{
-function to generate radioButtons with the custom ssz (label) styling
+function to generate radioGroupButtons from shinyWidgets with the custom ssz (label) styling
 }
 \details{
-a "sszRadioButton" is added to the output of radioButtons, and a
-"sszRadioButton-label" class is added to the appropriate child. the whole thing is
-wrapped in a div with class "radioDiv"
+classes ssz-radiogroup-1, ssz-radiogroup-2, and ssz-radiogroup-3 are added
+(starting from outermost div, moving down 1 step at a time); though currently these are not used for styling;
+only .btn-group-toggle>.btn-default and .btn-default.active are used for the styling
 }
 \examples{
 \dontrun{

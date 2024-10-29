@@ -32,18 +32,3 @@
   border: 1px solid #070250;
   color: white;
 }
-
-/*outermost div*/
-.ssz-radiogroup-1 {
-  border-radius: 0px;
-}
-
-/*div one layer down*/
-.ssz-radiogroup-2 {
-  border-radius: 0px;
-}
-
-/*div two layers down*/
-.ssz-radiogroup-3 {
-  border-radius: 0px;
-}
