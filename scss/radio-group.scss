@@ -1,0 +1,34 @@
+
+/* individual choice buttons, not selected*/
+.btn-group-toggle>.btn-default {
+  background-color: white;
+  color: $zueriblau;
+  border: 1px solid $zueriblau;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.btn-group-toggle>.btn-default:hover {
+  background-color: $dark-blue;
+  border: 1px solid $dark-blue;
+  color: white;
+}
+
+/* individual choice button selected*/
+.btn-default.active {
+  background-color: $zueriblau;
+  border: 1px solid $zueriblau;
+  color: white;
+}
+
+.btn-default.active:focus {
+  background-color: $zueriblau;
+  border: 1px solid $zueriblau;
+  color: white;
+}
+
+.btn-default.active:hover {
+  background-color: $dark-blue;
+  border: 1px solid $dark-blue;
+  color: white;
+}
