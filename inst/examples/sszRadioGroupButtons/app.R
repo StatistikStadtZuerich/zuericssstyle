@@ -2,7 +2,6 @@ library(shiny)
 # radio group button demo (from shinyWidgets)
 
 ui <- ssz_page(
-  includeCSS("test.css"),
   h1("Widget demo"),
   sszRadioGroupButtons(
     inputId = "years",

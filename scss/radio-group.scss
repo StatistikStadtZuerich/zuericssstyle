@@ -2,33 +2,33 @@
 /* individual choice buttons, not selected*/
 .btn-group-toggle>.btn-default {
   background-color: white;
-  color: #0F05A0;
-  border: 1px solid #0F05A0;
+  color: $zueriblau;
+  border: 1px solid $zueriblau;
   cursor: pointer;
   transition: all 0.5s;
 }
 
 .btn-group-toggle>.btn-default:hover {
-  background-color: #070250;
-  border: 1px solid #070250;
+  background-color: $dark-blue;
+  border: 1px solid $dark-blue;
   color: white;
 }
 
 /* individual choice button selected*/
 .btn-default.active {
-  background-color: #0F05A0;
-  border: 1px solid #0F05A0;
+  background-color: $zueriblau;
+  border: 1px solid $zueriblau;
   color: white;
 }
 
 .btn-default.active:focus {
-  background-color: #0F05A0;
-  border: 1px solid #0F05A0;
+  background-color: $zueriblau;
+  border: 1px solid $zueriblau;
   color: white;
 }
 
 .btn-default.active:hover {
-  background-color: #070250;
-  border: 1px solid #070250;
+  background-color: $dark-blue;
+  border: 1px solid $dark-blue;
   color: white;
 }
