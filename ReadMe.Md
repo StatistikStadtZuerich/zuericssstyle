@@ -48,6 +48,82 @@ sszNumericInput("number", "Zahl", 4)
 ```
 This is based on shiny's `numericInput`.
 
+#### Select input
+
+![select input](man/pictures/selectInput.png)
+
+```{r, eval = FALSE}
+sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
+```
+The function wraps around shiny's `selectInput`.
+
+#### Radio buttons
+
+![radio buttons](man/pictures/radioButtons.png)
+
+```{r, eval = FALSE}
+sszRadioButtons(
+   inputId = "ButtonGroupLabel",
+   label = "Flughafen:",
+   choices = c("EWR", "JFK", "LGA"),
+   selected = "JFK"
+   )
+```
+The function wraps around shiny's `radioButtons`. Use `inline = TRUE` for horizontal alignment.
+
+#### Radio Group Buttons
+
+![radio group buttons](man/pictures/radioGroupButtons.png)
+
+```{r, eval = FALSE}
+sszRadioGroupButtons(
+    inputId = "years",
+    choices = 2022:2024,
+    selected = 2022 # default value
+  )
+```
+The function wraps around `shinyWidgets::radioGroupButtons`.
+
+#### Text input
+
+![text input](man/pictures/textInput.png)
+
+```{r, eval = FALSE}
+sszTextInput("suchfeld", "Name:")
+```
+The function wraps around shiny's `textInput`.
+
+#### Autocomplete
+
+![autocomplete](man/pictures/autocomplete.png)
+
+```{r, eval = FALSE}
+sszAutocompleteInput(
+            "street",
+            "Geben Sie eine Strasse ein",
+            unique(addresses$StrasseLang)
+          )
+``` 
+This relies on the `autocomplete_input()` function from the [dqshiny](https://github.com/daqana/dqshiny) package.
+
+#### Slider input (Styling could change)
+
+![sliderInput](man/pictures/sliderInput.png)
+
+```{r, eval = FALSE}
+sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
+```
+The function wraps around shiny's `sliderInput`. Currently this is not officially part of the city's CI/CD. Therefore the styling for the sliderInput might vary slightly at a later point in time (as of 2024-10-16).
+
+#### Action button
+
+![action button](man/pictures/actionbutton.png)
+
+```{r, eval = FALSE}
+sszActionButton("ActionButtonId", "Abfrage starten")
+```
+The function wraps around shiny's `actionButton`.
+
 #### Download buttons
 
 ![csv download](man/pictures/csv.png)
@@ -72,60 +148,6 @@ sszOgdDownload(outputId = "ogdDown",
             )
 ```
 Provide the appropriate link in the `href` parameter.
-
-#### Select input
-
-![select input](man/pictures/selectInput.png)
-
-```{r, eval = FALSE}
-sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
-```
-The function wraps around shiny's `selectInput`.
-
-#### Radio buttons
-
-![radio buttons](man/pictures/radioButtons.png)
-
-```{r, eval = FALSE}
-sszRadioButtons(
-   inputId = "ButtonGroupLabel",
-   label = "Flughafen:",
-   choices = c("EWR", "JFK", "LGA"),
-   selected = "JFK"
-   )
-```
-The function wraps around shiny's `radioButtons`. Use `inline = TRUE` for horizontal alignment.
-
-#### Text input
-
-![text input](man/pictures/textInput.png)
-
-```{r, eval = FALSE}
-sszTextInput("suchfeld", "Name:")
-```
-The function wraps around shiny's `textInput`.
-
-#### Slider input (Styling could change)
-
-![sliderInput](man/pictures/sliderInput.png)
-
-```{r, eval = FALSE}
-sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
-```
-The function wraps around shiny's `sliderInput`. Currently this is not officially part of the city's CI/CD. Therefore the styling for the sliderInput might vary slightly at a later point in time (as of 2024-10-16).
-
-#### Autocomplete
-
-![autocomplete](man/pictures/autocomplete.png)
-
-```{r, eval = FALSE}
-sszAutocompleteInput(
-            "street",
-            "Geben Sie eine Strasse ein",
-            unique(addresses$StrasseLang)
-          )
-``` 
-This relies on the `autocomplete_input()` function from the [dqshiny](https://github.com/daqana/dqshiny) package.
 
 #### Date Range
 
@@ -179,15 +201,6 @@ sszAirDatepickerInput(
           ssz_icon = img(icons_ssz("calendar"))
         )
 ```
-
-#### Action button
-
-![action button](man/pictures/actionbutton.png)
-
-```{r, eval = FALSE}
-sszActionButton("ActionButtonId", "Abfrage starten")
-```
-The function wraps around shiny's `actionButton`.
 
 ### CSS file for html
 If you need the css file to e.g. style a html report, use 
