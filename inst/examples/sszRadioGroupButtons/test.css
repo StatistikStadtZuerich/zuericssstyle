@@ -1,18 +1,41 @@
 
 /* individual choice buttons, not selected*/
 .btn-group-toggle>.btn-default {
-  background-color: green;
+  background-color: white;
+  color: #0F05A0;
+  border: 1px solid #0F05A0;
+  cursor: pointer;
+  transition: all 0.5s;
 }
 
-/* individual choice button selected*/s
+.btn-group-toggle>.btn-default:hover {
+  background-color: #070250;
+  border: 1px solid #070250;
+  color: white;
+}
+
+/* individual choice button selected*/
 .btn-default.active {
-  background-color: red;
+  background-color: #0F05A0;
+  border: 1px solid #0F05A0;
+  color: white;
+}
+
+.btn-default.active:focus {
+  background-color: #0F05A0;
+  border: 1px solid #0F05A0;
+  color: white;
+}
+
+.btn-default.active:hover {
+  background-color: #070250;
+  border: 1px solid #070250;
+  color: white;
 }
 
 /*outermost div*/
 .ssz-radiogroup-1 {
   border-radius: 0px;
-  background-color: yellow;
 }
 
 /*div one layer down*/
