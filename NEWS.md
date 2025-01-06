@@ -1,3 +1,9 @@
+# zuericssstyle 0.2.2
+
+* no functional changes!
+* update packages 
+* add GitLab Pipeline for automatic code publication to GitLab
+
 # zuericssstyle 0.2.1
 
 * new function `sszRadioGroupButtons`, generating styled `shinyWidgets::radioGroupButtons`
