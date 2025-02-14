@@ -1,9 +1,11 @@
-<img src='man/pictures/Hexagon_zuericssstyle.png' align="right" height="138.5" />
+<img src="man/pictures/Hexagon_zuericssstyle.png" align="right" height="138.5"/>
 
 # zuericssstyle
+
 zuericssstyle is an R-Package, which provides specific css files and styled shiny widgets according to the corporate design of the city of Zurich. The package contains widgets and styling that [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) have used so far for creating shiny apps that conform to the corporate design.
 
 ## Installation
+
 The easiest way to get zuericssstyle is to install it from this repo:
 
 ```{r, eval = FALSE}
@@ -18,6 +20,7 @@ remotes::install_local("<path_to_location>/zuericssstyle-main")
 ```
 
 ## Version
+
 To check your version of zuericssstyle, run:
 
 ```{r, eval = FALSE}
@@ -37,15 +40,19 @@ ui <- ssz_page(...)
 ```
 
 Alternatively, if you are not using a fluid page, wrap your ui (e.g. `fixedPage` or whatever you fancy) in `add_zcss_deps`:
+
 ```{r, eval = FALSE}
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
 #### Numeric input
+
 ![numeric input](man/pictures/numericInput.png)
+
 ```{r, eval = FALSE}
 sszNumericInput("number", "Zahl", 4)
 ```
+
 This is based on shiny's `numericInput`.
 
 #### Select input
@@ -55,6 +62,7 @@ This is based on shiny's `numericInput`.
 ```{r, eval = FALSE}
 sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
 ```
+
 The function wraps around shiny's `selectInput`.
 
 #### Radio buttons
@@ -69,11 +77,12 @@ sszRadioButtons(
    selected = "JFK"
    )
 ```
+
 The function wraps around shiny's `radioButtons`. Use `inline = TRUE` for horizontal alignment.
 
 #### Radio Group Buttons
 
-![radio group buttons](man/pictures/radioGroupButtons.png)
+![radio group buttons](man/pictures/radioGroupButtons.png){width="266"}
 
 ```{r, eval = FALSE}
 sszRadioGroupButtons(
@@ -82,6 +91,7 @@ sszRadioGroupButtons(
     selected = 2022 # default value
   )
 ```
+
 The function wraps around `shinyWidgets::radioGroupButtons`.
 
 #### Text input
@@ -91,6 +101,7 @@ The function wraps around `shinyWidgets::radioGroupButtons`.
 ```{r, eval = FALSE}
 sszTextInput("suchfeld", "Name:")
 ```
+
 The function wraps around shiny's `textInput`.
 
 #### Autocomplete
@@ -103,7 +114,8 @@ sszAutocompleteInput(
             "Geben Sie eine Strasse ein",
             unique(addresses$StrasseLang)
           )
-``` 
+```
+
 This relies on the `autocomplete_input()` function from the [dqshiny](https://github.com/daqana/dqshiny) package.
 
 #### Slider input (Styling could change)
@@ -113,6 +125,7 @@ This relies on the `autocomplete_input()` function from the [dqshiny](https://gi
 ```{r, eval = FALSE}
 sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
 ```
+
 The function wraps around shiny's `sliderInput`. Currently this is not officially part of the city's CI/CD. Therefore the styling for the sliderInput might vary slightly at a later point in time (as of 2024-10-16).
 
 #### Action button
@@ -122,24 +135,26 @@ The function wraps around shiny's `sliderInput`. Currently this is not officiall
 ```{r, eval = FALSE}
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
+
 The function wraps around shiny's `actionButton`.
 
 #### Download buttons
 
 ![csv download](man/pictures/csv.png)
 
-A download button for downloading an excel/csv file can be called with 
+A download button for downloading an excel/csv file can be called with
+
 ```{r, eval = FALSE}
 sszDownloadButton("csvDownload",
                         label = "csv",
                         image = img(icons_ssz("download"))
                         )
 ```
+
 The image parameter is optional; it is based on shiny's `downloadButton`.
 
-A button for a link to an external site, e.g. an Open Government Data portal, 
-![ogd](man/pictures/ogd.png)
-can be used with 
+A button for a link to an external site, e.g. an Open Government Data portal, ![ogd](man/pictures/ogd.png) can be used with
+
 ```{r, eval = FALSE}
 sszOgdDownload(outputId = "ogdDown",
                          label = "OGD",
@@ -147,6 +162,7 @@ sszOgdDownload(outputId = "ogdDown",
                          image = img(icons_ssz("external-link"))
             )
 ```
+
 Provide the appropriate link in the `href` parameter.
 
 #### Date Range
@@ -160,8 +176,9 @@ sszDateRange("DateRange", "Datum:",
    min    = "2001-01-01",
    max    = "2012-12-21"
    )
-``` 
-By default, the language is German and the date format is `dd.mm.yyyy`. This and additional parameters to shiny's `dateRangeInput`  can be passed as parameters. 
+```
+
+By default, the language is German and the date format is `dd.mm.yyyy`. This and additional parameters to shiny's `dateRangeInput` can be passed as parameters.
 
 #### Date selection with shinyWidgets::airDatepickerInput
 
@@ -169,24 +186,7 @@ In contrast to the standard `dateRangeInput`, the `airDatepickerInput` allows se
 
 By default, the language is set to `'de'`, and the `dateFormat` to `"dd.mm.yyyy"`. Both parameters can be overridden by supplying something else.
 
-Additionally, there are options for adding a specific calendar icon. By default, it looks like this, no calendar icon is shown, and internally, `addon` is set to `'none'`.
-
-![airdate picker default](man/pictures/airdatepicker_default.png)
-
-```{r, eval = FALSE}
-sszAirDatepickerInput(
-          inputId = "airMonthStart",
-          label = "Basis Datum",
-          dateFormat = "MM-yyyy",
-          view="years",
-          minView="months",
-          autoClose=TRUE
-        )
-``` 
-
-
-Alternatively, a custom image can be passed to be used instead of the calendar icon, in the form of a `htmltools::tags$img(...)`.
-
+There are options for adding a specific calendar icon. It can be passed to be used instead of the default Shiny calendar icon in the form of a `htmltools::tags$img(...)`.
 
 ![airdate picker with icon](man/pictures/airdatepicker_icon.png)
 
@@ -202,8 +202,11 @@ sszAirDatepickerInput(
         )
 ```
 
+The version of `sszAirDatepickerInput()` with no calendar icon is not styled according to the corporate design of the city of Zurich.
+
 ### CSS file for html
-If you need the css file to e.g. style a html report, use 
+
+If you need the css file to e.g. style a html report, use
 
 ```{r, eval = FALSE}
 get_generic_css()
@@ -213,4 +216,4 @@ to get the css file written to your local folder. Alternatively, you can provide
 
 ## Getting help
 
-If you encounter a bug, please open an issue or contact statistik@zuerich.ch.
+If you encounter a bug, please open an issue or contact [statistik\@zuerich.ch](mailto:statistik@zuerich.ch){.email}.
