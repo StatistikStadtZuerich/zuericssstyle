@@ -15,4 +15,3 @@ publish-main-to-github:
 r-devtools-check:
   extends:
     - .r-devtools-check
-
