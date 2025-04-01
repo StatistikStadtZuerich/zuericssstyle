@@ -8,10 +8,14 @@ include:
     ref: "main"
     file: "r-check-and-build-packages.yml"
 
-publish-main-to-github:
-  extends:
-    - .publish-main-to-github
+stages:
+  - test
+  - deploy-prod
 
 r-devtools-check:
   extends:
     - .r-devtools-check
+
+publish-main-to-github:
+  extends:
+    - .publish-main-to-github
