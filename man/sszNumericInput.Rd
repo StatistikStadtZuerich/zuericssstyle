@@ -26,3 +26,18 @@ function to generate a numericInput with the custom ssz label styling (via "ssz-
 inst / examples / sszNumericInput / app.r
 }
 }
+\seealso{
+Other shiny_widgets: 
+\code{\link{sszActionButton}()},
+\code{\link{sszAirDatepickerInput}()},
+\code{\link{sszAutocompleteInput}()},
+\code{\link{sszDateRange}()},
+\code{\link{sszDownloadButton}()},
+\code{\link{sszOgdDownload}()},
+\code{\link{sszRadioButtons}()},
+\code{\link{sszRadioGroupButtons}()},
+\code{\link{sszSelectInput}()},
+\code{\link{sszSliderInput}()},
+\code{\link{sszTextInput}()}
+}
+\concept{shiny_widgets}

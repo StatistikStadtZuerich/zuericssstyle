@@ -10,6 +10,7 @@
 #' @return tags$a
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{

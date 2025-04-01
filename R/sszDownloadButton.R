@@ -11,6 +11,7 @@
 #' @return a downloadButton with class sszDownload and optionally the image added
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{

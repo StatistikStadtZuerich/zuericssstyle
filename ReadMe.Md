@@ -1,4 +1,4 @@
-<img src="man/pictures/Hexagon_zuericssstyle.png" align="right" height="138.5"/>
+<img src="man/figures/Hexagon_zuericssstyle.png" align="right" height="138.5" width="138.5"/>
 
 # zuericssstyle
 
@@ -8,14 +8,14 @@ zuericssstyle is an R-Package, which provides specific css files and styled shin
 
 The easiest way to get zuericssstyle is to install it from this repo:
 
-```{r, eval = FALSE}
+``` r
 # install.packages("devtools")
 devtools::install_github("StatistikStadtZuerich/zuericssstyle")
 ```
 
 Alternatively, download the files (by clicking 'Clone or download' / 'Download Zip'), extract it to any location on your computer, e.g. to your Desktop and then run:
 
-```{r, eval = FALSE}
+``` r
 remotes::install_local("<path_to_location>/zuericssstyle-main")
 ```
 
@@ -23,7 +23,7 @@ remotes::install_local("<path_to_location>/zuericssstyle-main")
 
 To check your version of zuericssstyle, run:
 
-```{r, eval = FALSE}
+``` r
 packageVersion("zuericssstyle")
 ```
 
@@ -35,21 +35,21 @@ A number of functions wrap around the original shiny functions to provide stylin
 
 All widgets need the css to work. This is added as an html dependency when using the `ssz_page` or the `add_zcss_deps` functions. Use `ssz_page` as a styled drop-in replacement of shiny's `fluidPage`:
 
-```{r, eval = FALSE}
+``` r
 ui <- ssz_page(...)
 ```
 
 Alternatively, if you are not using a fluid page, wrap your ui (e.g. `fixedPage` or whatever you fancy) in `add_zcss_deps`:
 
-```{r, eval = FALSE}
+``` r
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
 #### Numeric input
 
-![numeric input](man/pictures/numericInput.png)
+![numeric input](man/figures/numericInput.png)
 
-```{r, eval = FALSE}
+``` r
 sszNumericInput("number", "Zahl", 4)
 ```
 
@@ -57,9 +57,9 @@ This is based on shiny's `numericInput`.
 
 #### Select input
 
-![select input](man/pictures/selectInput.png)
+![select input](man/figures/selectInput.png)
 
-```{r, eval = FALSE}
+``` r
 sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
 ```
 
@@ -67,9 +67,9 @@ The function wraps around shiny's `selectInput`.
 
 #### Radio buttons
 
-![radio buttons](man/pictures/radioButtons.png)
+![radio buttons](man/figures/radioButtons.png)
 
-```{r, eval = FALSE}
+``` r
 sszRadioButtons(
    inputId = "ButtonGroupLabel",
    label = "Flughafen:",
@@ -82,9 +82,9 @@ The function wraps around shiny's `radioButtons`. Use `inline = TRUE` for horizo
 
 #### Radio Group Buttons
 
-![radio group buttons](man/pictures/radioGroupButtons.png){width="266"}
+![radio group buttons](man/figures/radioGroupButtons.png){width="266"}
 
-```{r, eval = FALSE}
+``` r
 sszRadioGroupButtons(
     inputId = "years",
     choices = 2022:2024,
@@ -96,9 +96,9 @@ The function wraps around `shinyWidgets::radioGroupButtons`.
 
 #### Text input
 
-![text input](man/pictures/textInput.png)
+![text input](man/figures/textInput.png)
 
-```{r, eval = FALSE}
+``` r
 sszTextInput("suchfeld", "Name:")
 ```
 
@@ -106,9 +106,9 @@ The function wraps around shiny's `textInput`.
 
 #### Autocomplete
 
-![autocomplete](man/pictures/autocomplete.png)
+![autocomplete](man/figures/autocomplete.png)
 
-```{r, eval = FALSE}
+``` r
 sszAutocompleteInput(
             "street",
             "Geben Sie eine Strasse ein",
@@ -120,9 +120,9 @@ This relies on the `autocomplete_input()` function from the [dqshiny](https://gi
 
 #### Slider input (Styling could change)
 
-![sliderInput](man/pictures/sliderInput.png)
+![sliderInput](man/figures/sliderInput.png)
 
-```{r, eval = FALSE}
+``` r
 sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
 ```
 
@@ -130,9 +130,9 @@ The function wraps around shiny's `sliderInput`. Currently this is not officiall
 
 #### Action button
 
-![action button](man/pictures/actionbutton.png)
+![action button](man/figures/actionbutton.png)
 
-```{r, eval = FALSE}
+``` r
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 
@@ -140,11 +140,11 @@ The function wraps around shiny's `actionButton`.
 
 #### Download buttons
 
-![csv download](man/pictures/csv.png)
+![csv download](man/figures/csv.png)
 
 A download button for downloading an excel/csv file can be called with
 
-```{r, eval = FALSE}
+``` r
 sszDownloadButton("csvDownload",
                         label = "csv",
                         image = img(icons_ssz("download"))
@@ -153,9 +153,9 @@ sszDownloadButton("csvDownload",
 
 The image parameter is optional; it is based on shiny's `downloadButton`.
 
-A button for a link to an external site, e.g. an Open Government Data portal, ![ogd](man/pictures/ogd.png) can be used with
+A button for a link to an external site, e.g. an Open Government Data portal, ![ogd](man/figures/ogd.png) can be used with
 
-```{r, eval = FALSE}
+``` r
 sszOgdDownload(outputId = "ogdDown",
                          label = "OGD",
                          href = "https://data.stadt-zuerich.ch/",
@@ -167,9 +167,9 @@ Provide the appropriate link in the `href` parameter.
 
 #### Date Range
 
-![date range](man/pictures/dateRange.png)
+![date range](man/figures/dateRange.png)
 
-```{r, eval = FALSE}
+``` r
 sszDateRange("DateRange", "Datum:",
    start  = "2001-01-01",
    end    = "2010-12-31",
@@ -188,9 +188,9 @@ By default, the language is set to `'de'`, and the `dateFormat` to `"dd.mm.yyyy"
 
 There are options for adding a specific calendar icon. It can be passed to be used instead of the default Shiny calendar icon in the form of a `htmltools::tags$img(...)`.
 
-![airdate picker with icon](man/pictures/airdatepicker_icon.png)
+![airdate picker with icon](man/figures/airdatepicker_icon.png)
 
-```{r, eval = FALSE}
+``` r
 sszAirDatepickerInput(
           inputId = "airMonthStart2",
           label = "Basis Datum",
@@ -208,7 +208,7 @@ The version of `sszAirDatepickerInput()` with no calendar icon is not styled acc
 
 If you need the css file to e.g. style a html report, use
 
-```{r, eval = FALSE}
+``` r
 get_generic_css()
 ```
 

@@ -7,6 +7,7 @@
 #'
 #' @return same as autocomplete_input
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{

@@ -24,3 +24,18 @@ function to generate a textInput with the custom ssz label styling (via "ssz-lab
 inst / examples / sszTextInput / app.r
 }
 }
+\seealso{
+Other shiny_widgets: 
+\code{\link{sszActionButton}()},
+\code{\link{sszAirDatepickerInput}()},
+\code{\link{sszAutocompleteInput}()},
+\code{\link{sszDateRange}()},
+\code{\link{sszDownloadButton}()},
+\code{\link{sszNumericInput}()},
+\code{\link{sszOgdDownload}()},
+\code{\link{sszRadioButtons}()},
+\code{\link{sszRadioGroupButtons}()},
+\code{\link{sszSelectInput}()},
+\code{\link{sszSliderInput}()}
+}
+\concept{shiny_widgets}

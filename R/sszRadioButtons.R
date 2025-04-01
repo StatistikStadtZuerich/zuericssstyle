@@ -14,6 +14,7 @@
 #' @return the return of radioButtons with modified labels, wrapped in a div with class "radioDiv"
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{

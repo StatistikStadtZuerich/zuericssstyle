@@ -9,6 +9,7 @@
 #' @return the same as textInput with modified label class
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{
