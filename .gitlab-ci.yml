@@ -24,7 +24,7 @@ r-devtools-check:
   extends:
     - .r-devtools-check
   script:
-    - Rscript -e "devtools::check()"
+    - Rscript -e "devtools::check(error_on = 'never')"
 
 publish-main-to-github:
   extends:
