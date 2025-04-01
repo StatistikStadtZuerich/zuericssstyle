@@ -3,3 +3,16 @@ include:
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
     ref: "main"
     file: "publish-main-to-github.yml"
+  # use template for gitlab pipeline to check and build
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: "main"
+    file: "r-check-and-build-packages.yml"
+
+publish-main-to-github:
+  extends:
+    - .publish-main-to-github
+
+r-devtools-check:
+  extends:
+    - .r-devtools-check
+
