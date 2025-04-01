@@ -12,9 +12,19 @@ stages:
   - test
   - deploy-prod
 
+# run tests separately
+r-testthat-test:
+  extends:
+    - .r-testthat-test
+
+# run check but do not fail on error, as devtools::check fails with tests while
+# devtools::test or testthat::test passes; issue of internal code files not
+# being found
 r-devtools-check:
   extends:
     - .r-devtools-check
+  script:
+    - Rscript -e "devtools::check()"
 
 publish-main-to-github:
   extends:
