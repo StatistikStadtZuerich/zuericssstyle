@@ -2,3 +2,4 @@
 ^renv\.lock$
 ^zuericssstyle\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
