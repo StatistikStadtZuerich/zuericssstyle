@@ -1,6 +1,6 @@
 test_that("css files can be generated based on scss", {
 
-  # print(here())
+  print(here())
   # shiny css
   temp_file <- "temp.css"
   expect_no_error(
