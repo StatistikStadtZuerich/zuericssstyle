@@ -11,8 +11,7 @@ Authors@R: c(
            role = c("aut"),
            email = "alessandro.feller@zuerich.ch"
     ),
-    person(
-    "Statistik stadt Zürich", ,
+    person("Statistik stadt Zürich",
     email = "statistik@zuerich.ch",
     role = c("cph", "fnd")
     )
