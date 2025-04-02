@@ -9,7 +9,13 @@ Authors@R: c(
     person("Alessandro",
            "Feller",
            role = c("aut"),
-           email = "alessandro.feller@zuerich.ch")
+           email = "alessandro.feller@zuerich.ch"
+    ),
+    person(
+    "Statistik stadt Zürich", ,
+    email = "statistik@zuerich.ch",
+    role = c("cph", "fnd")
+    )
     )
 Description: Style shiny apps according to the city of Zurich's corporate design.
 License: MIT + file LICENSE

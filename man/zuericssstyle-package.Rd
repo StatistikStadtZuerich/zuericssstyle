@@ -16,5 +16,10 @@ Authors:
   \item Alessandro Feller \email{alessandro.feller@zuerich.ch}
 }
 
+Other contributors:
+\itemize{
+  \item Statistik stadt Zürich \email{statistik@zuerich.ch} [copyright holder, funder]
+}
+
 }
 \keyword{internal}
