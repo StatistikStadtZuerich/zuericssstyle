@@ -8,12 +8,24 @@
 \description{
 Style shiny apps according to the city of Zurich's corporate design.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/StatistikStadtZuerich/zuericssstyle}
+}
+
+}
 \author{
 \strong{Maintainer}: Sara Hänzi \email{sara.haenzi@zuerich.ch}
 
 Authors:
 \itemize{
   \item Alessandro Feller \email{alessandro.feller@zuerich.ch}
+}
+
+Other contributors:
+\itemize{
+  \item Statistik stadt Zürich \email{statistik@zuerich.ch} [copyright holder, funder]
 }
 
 }

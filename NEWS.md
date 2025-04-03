@@ -1,3 +1,10 @@
+# zuericssstyle 0.2.3
+
+* no functional changes!
+* create pkgdown site
+* update packages
+* various minor changes re. documentation and package development
+
 # zuericssstyle 0.2.2
 
 * no functional changes!

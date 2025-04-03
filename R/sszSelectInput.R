@@ -11,6 +11,7 @@
 #' @return the same as selectInput with modified label class
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{

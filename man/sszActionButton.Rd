@@ -24,3 +24,18 @@ function to generate an action button with the custom ssz styling
 inst / examples / sszActionButton / app.r
 }
 }
+\seealso{
+Other shiny_widgets: 
+\code{\link{sszAirDatepickerInput}()},
+\code{\link{sszAutocompleteInput}()},
+\code{\link{sszDateRange}()},
+\code{\link{sszDownloadButton}()},
+\code{\link{sszNumericInput}()},
+\code{\link{sszOgdDownload}()},
+\code{\link{sszRadioButtons}()},
+\code{\link{sszRadioGroupButtons}()},
+\code{\link{sszSelectInput}()},
+\code{\link{sszSliderInput}()},
+\code{\link{sszTextInput}()}
+}
+\concept{shiny_widgets}

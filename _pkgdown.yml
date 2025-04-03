@@ -1,0 +1,19 @@
+url: https://github.com/StatistikStadtZuerich/zuericssstyle
+template:
+  bootstrap: 5
+
+reference:
+- title: "Get CSS files"
+  desc: >
+    Functions for getting css files
+  contents:
+  - starts_with("get_")
+- title: "Shiny pages and html dependencies"
+  desc: "Functions creating shiny pages with zuericssstyle and to add html dependency for any html object"
+  contents:
+  - starts_with("ssz_page")
+  - "add_zcss_deps"
+- title: "Shiny widgets"
+  desc: "Styled shiny widgets"
+  contents:
+  - has_concept("shiny_widgets")

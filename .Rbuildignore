@@ -2,3 +2,10 @@
 ^renv\.lock$
 ^zuericssstyle\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^\.github$
+.gitlab-ci.yml
+_pkgdown.yml
+^docs$
+^dev$
+^scss$

@@ -39,3 +39,18 @@ only .btn-group-toggle>.btn-default and .btn-default.active are used for the sty
 inst / examples / sszRadioGroupButtons / app.r
 }
 }
+\seealso{
+Other shiny_widgets: 
+\code{\link{sszActionButton}()},
+\code{\link{sszAirDatepickerInput}()},
+\code{\link{sszAutocompleteInput}()},
+\code{\link{sszDateRange}()},
+\code{\link{sszDownloadButton}()},
+\code{\link{sszNumericInput}()},
+\code{\link{sszOgdDownload}()},
+\code{\link{sszRadioButtons}()},
+\code{\link{sszSelectInput}()},
+\code{\link{sszSliderInput}()},
+\code{\link{sszTextInput}()}
+}
+\concept{shiny_widgets}

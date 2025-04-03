@@ -28,3 +28,18 @@ function to generate a selectInput with the custom ssz label styling (via "ssz-l
 inst / examples / sszSelectInput / app.R
 }
 }
+\seealso{
+Other shiny_widgets: 
+\code{\link{sszActionButton}()},
+\code{\link{sszAirDatepickerInput}()},
+\code{\link{sszAutocompleteInput}()},
+\code{\link{sszDateRange}()},
+\code{\link{sszDownloadButton}()},
+\code{\link{sszNumericInput}()},
+\code{\link{sszOgdDownload}()},
+\code{\link{sszRadioButtons}()},
+\code{\link{sszRadioGroupButtons}()},
+\code{\link{sszSliderInput}()},
+\code{\link{sszTextInput}()}
+}
+\concept{shiny_widgets}

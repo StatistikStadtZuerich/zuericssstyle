@@ -9,6 +9,7 @@
 #' @return the return of actionButton with "sszActionButton" added as a class
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{

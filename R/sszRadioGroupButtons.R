@@ -15,6 +15,7 @@
 #' @return the return of radioGroupButtons with modified html classes
 #'
 #' @export
+#' @family shiny_widgets
 #'
 #' @examples
 #' \dontrun{
