@@ -5,7 +5,8 @@
 ^LICENSE\.md$
 ^\.github$
 .gitlab-ci.yml
-_pkgdown.yml
 ^docs$
 ^dev$
 ^scss$
+^_pkgdown\.yml$
+^pkgdown$

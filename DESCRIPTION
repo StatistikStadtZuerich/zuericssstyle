@@ -1,6 +1,6 @@
 Package: zuericssstyle
 Title: Statistik Stadt Zürich CSS styling for shiny apps and html
-Version: 0.2.3
+Version: 1.0.0
 Authors@R: c(
     person("Sara",
            "Hänzi",
@@ -11,14 +11,14 @@ Authors@R: c(
            role = c("aut"),
            email = "alessandro.feller@zuerich.ch"
     ),
-    person("Statistik stadt Zürich",
+    person("Statistik Stadt Zürich (SSZ)",
     email = "statistik@zuerich.ch",
     role = c("cph", "fnd")
     )
     )
 Description: Style shiny apps according to the city of Zurich's corporate design.
 License: MIT + file LICENSE
-URL: https://github.com/StatistikStadtZuerich/zuericssstyle
+URL: https://statistikstadtzuerich.github.io/zuericssstyle/, https://github.com/StatistikStadtZuerich/zuericssstyle
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

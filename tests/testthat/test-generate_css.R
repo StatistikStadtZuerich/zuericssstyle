@@ -1,8 +1,6 @@
 test_that("css files can be generated based on scss", {
-
-  print(here())
   # shiny css
-  temp_file <- "temp.css"
+  temp_file <- file.path(Sys.getenv("TEMP"), "temp.css")
   expect_no_error(
     # css for shiny apps including all widgets
     sass::sass(
@@ -15,7 +13,7 @@ test_that("css files can be generated based on scss", {
     )
   )
   expect_true(file.exists(temp_file))
-  file.remove(temp_file)
+  expect_true(file.remove(temp_file))
 
   # general css
   temp_file <- "temp.css"
@@ -30,5 +28,5 @@ test_that("css files can be generated based on scss", {
     )
   )
   expect_true(file.exists(temp_file))
-  file.remove(temp_file)
+  expect_true(file.remove(temp_file))
 })
