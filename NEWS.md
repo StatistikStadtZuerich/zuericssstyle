@@ -1,6 +1,13 @@
+# zuericssstyle 1.0.0
+
+* no functional changes
+* improve pkgdown site
+* add GitHub and GitLab badges
+* everything ready for publication on [swissstatsr](https://swissstatsr.org/)
+
 # zuericssstyle 0.2.3
 
-* no functional changes!
+* no functional changes
 * create pkgdown site
 * update packages
 * various minor changes re. documentation and package development

@@ -11,6 +11,7 @@ Style shiny apps according to the city of Zurich's corporate design.
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://statistikstadtzuerich.github.io/zuericssstyle/}
   \item \url{https://github.com/StatistikStadtZuerich/zuericssstyle}
 }
 
@@ -25,7 +26,7 @@ Authors:
 
 Other contributors:
 \itemize{
-  \item Statistik stadt Zürich \email{statistik@zuerich.ch} [copyright holder, funder]
+  \item Statistik Stadt Zürich (SSZ) \email{statistik@zuerich.ch} [copyright holder, funder]
 }
 
 }

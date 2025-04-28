@@ -1,6 +1,10 @@
-<img src="man/figures/Hexagon_zuericssstyle.png" align="right" height="138.5" width="138.5"/>
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/zuericssstyle)](https://CRAN.R-project.org/package=zuericssstyle)
+[![R-CMD-check](https://github.com/StatistikStadtZuerich/zuericssstyle/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StatistikStadtZuerich/zuericssstyle/actions/workflows/R-CMD-check.yaml)
+[![GitLab Pipeline](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/libraries/zueriverse/zuericssstyle/badges/main/pipeline.svg?key_text=GitlabPipeline&key_width=100)](https://cmp-sdlc.stzh.ch/OE-7035/ssz-da/libraries/zueriverse/zuericssstyle/badges/main/pipeline.svg?key_text=GitLabPipeline&key_width=100)
+<!-- badges: end -->
 
-# zuericssstyle
+# zuericssstyle <img src="man/figures/Hexagon_zuericssstyle.png" alt="Hexagon logo for zuericssstyle R package" align="right" height="138.5" width="138.5"/>
 
 zuericssstyle is an R-Package, which provides specific css files and styled shiny widgets according to the corporate design of the city of Zurich. The package contains widgets and styling that [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) have used so far for creating shiny apps that conform to the corporate design.
 
@@ -216,4 +220,4 @@ to get the css file written to your local folder. Alternatively, you can provide
 
 ## Getting help
 
-If you encounter a bug, please open an issue or contact [statistik\@zuerich.ch](mailto:statistik@zuerich.ch){.email}.
+If you encounter a bug, please open an issue or contact [statistik\@zuerich.ch](mailto:statistik@zuerich.ch).

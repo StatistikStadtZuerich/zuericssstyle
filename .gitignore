@@ -7,3 +7,4 @@
 *.sass.map
 *.scss.map
 .sass_cache_keys
+docs
