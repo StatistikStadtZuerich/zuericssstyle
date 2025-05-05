@@ -13,22 +13,12 @@ stages:
   - build
   - deploy-prod
 
-# run tests separately
-r-testthat-test:
-  extends:
-    - .r-testthat-test
-
 r-pkgdown-build-no-commit:
   extends: ".r-pkgdown-build-no-commit"
 
-# run check but do not fail on error, as devtools::check fails with tests while
-# devtools::test or testthat::test passes; issue of internal code files not
-# being found
 r-devtools-check:
   extends:
     - .r-devtools-check
-  script:
-    - Rscript -e "devtools::check(error_on = 'never')"
 
 publish-main-to-github:
   extends:
