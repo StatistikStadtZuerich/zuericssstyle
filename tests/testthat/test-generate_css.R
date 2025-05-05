@@ -1,9 +1,12 @@
 test_that("css files can be generated based on scss", {
-  # file writing not work in the pipeline on all os - skip if run in pipeline/action
-  skip_on_ci()
+  # these tests fail with devtools::check but succeed with devtools::test, the
+  # reason being that the place of execution is different and the scc file can
+  # not be accessed from devtools::check (?)
+  # therefore skip if the scss file cannot be found
+  skip_if_not(file.exists(here("scss", "main_shiny.scss")))
 
   # shiny css
-  temp_file <- file.path(Sys.getenv("TEMP"), "temp.css")
+  temp_file <- file.path(tempdir(), "temp.css")
   expect_no_error(
     # css for shiny apps including all widgets
     sass::sass(
@@ -19,7 +22,7 @@ test_that("css files can be generated based on scss", {
   expect_true(file.remove(temp_file))
 
   # general css
-  temp_file <- file.path(Sys.getenv("TEMP"), "temp.css")
+  temp_file <- file.path(tempdir(), "temp.css")
   expect_no_error(
     # css for shiny apps including all widgets
     sass::sass(
