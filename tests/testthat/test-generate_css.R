@@ -1,15 +1,9 @@
-gettmpdir <- function() {
-  tm <- Sys.getenv(c('TMPDIR', 'TMP', 'TEMP'))
-  d <- which(file.info(tm)$isdir & file.access(tm, 2) == 0)
-  if (length(d) > 0)
-    tm[[d[1]]]
-  else
-    tempdir()
-}
-
 test_that("css files can be generated based on scss", {
+  # file writing not work in the pipeline on all os - skip if run in pipeline/action
+  skip_on_ci()
+
   # shiny css
-  temp_file <- file.path(gettmpdir(), "temp.css")
+  temp_file <- file.path(Sys.getenv("TEMP"), "temp.css")
   expect_no_error(
     # css for shiny apps including all widgets
     sass::sass(
@@ -25,7 +19,7 @@ test_that("css files can be generated based on scss", {
   expect_true(file.remove(temp_file))
 
   # general css
-  temp_file <- file.path(gettmpdir(), "temp.css")
+  temp_file <- file.path(Sys.getenv("TEMP"), "temp.css")
   expect_no_error(
     # css for shiny apps including all widgets
     sass::sass(
