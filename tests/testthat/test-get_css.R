@@ -1,5 +1,5 @@
 test_that("get_generic_css writes a file", {
-  temp_file <- file.path(Sys.getenv("TEMP"), "temp.css")
+  temp_file <- file.path("temp.css")
 
   get_generic_css(temp_file)
   fi <- file.info(temp_file)
