@@ -35,6 +35,26 @@ packageVersion("zuericssstyle")
 
 A number of functions wrap around the original shiny functions to provide styling. All functions allow additional parameters of the original shiny function to be used and passed along.
 
+### bslib cards
+
+[bslib cards](https://rstudio.github.io/bslib/articles/cards) can be used in a shiny app but also in other html outputs. Both the "general" css (see below) as well as the shiny css contain the css properties for the bslib cards.
+
+We recommend using a heading in the `card_header` like this:
+
+``` r
+library(bslib)
+card(
+  card_header(h5("A header")),
+  card_body(
+    markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")
+  ),
+  card_footer("a footer")
+)
+```
+
+![bslib card](man/figures/bslib-card.png)
+
+
 ### Styled shiny widgets
 
 All widgets need the css to work. This is added as an html dependency when using the `ssz_page` or the `add_zcss_deps` functions. Use `ssz_page` as a styled drop-in replacement of shiny's `fluidPage`:

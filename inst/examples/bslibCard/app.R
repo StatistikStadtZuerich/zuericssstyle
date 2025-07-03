@@ -2,7 +2,7 @@ library(bslib)
 library(shiny)
 # bslib cards demo
 one_card <- card(
-  card_header("A header"),
+  card_header(h5("A header")),
   card_body(
     markdown("Some text with a [link](https://github.com)")
   ),
