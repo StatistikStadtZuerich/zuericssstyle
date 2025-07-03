@@ -1,3 +1,7 @@
+# zuericssstyle 1.1.0
+
+* new: minimal styling for bslib cards
+
 # zuericssstyle 1.0.0
 
 * no functional changes
