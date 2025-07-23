@@ -60,3 +60,40 @@
     margin-bottom: 16px;
   }
 }
+
+/* bslib specific */
+/* For screens 768px and larger (tablets and above) */
+@media (min-width: 768px) {
+  .bslib-card {
+    width: 100%;
+    margin-top: 20px;  /* Keep consistent top margin for larger screens */
+  }
+}
+
+
+/* For screens between 481px and 768px (larger phones and small tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .bslib-card {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 20px;  /* Adjust top margin for medium devices */
+  }
+
+  .bslib-grid {
+    row-gap: 0rem;
+  }
+}
+
+/* For screens 480px or smaller (small phones) */
+@media (max-width: 480px) {
+  .bslib-card {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 20px;  /* Adjust top margin for small devices */
+  }
+
+  .bslib-grid {
+    row-gap: 0rem;
+  }
+}
+
