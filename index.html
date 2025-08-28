@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">zuericssstyle</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,13 +74,31 @@
 </h2>
 <p>A number of functions wrap around the original shiny functions to provide styling. All functions allow additional parameters of the original shiny function to be used and passed along.</p>
 <div class="section level3">
+<h3 id="bslib-cards">bslib cards<a class="anchor" aria-label="anchor" href="#bslib-cards"></a>
+</h3>
+<p><a href="https://rstudio.github.io/bslib/articles/cards" class="external-link">bslib cards</a> can be used in a shiny app but also in other html outputs. Both the “general” css (see below) as well as the shiny css contain the css properties for the bslib cards.</p>
+<p>We recommend using a heading in the <code>card_header</code> like this:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="fu">h5</span><span class="op">(</span><span class="st">"A header"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_body</a></span><span class="op">(</span></span>
+<span>    <span class="fu">markdown</span><span class="op">(</span><span class="st">"Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_footer</a></span><span class="op">(</span><span class="st">"a footer"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="float">
+<img src="reference/figures/bslib-card.png" alt="bslib card"><div class="figcaption">bslib card</div>
+</div>
+</div>
+<div class="section level3">
 <h3 id="styled-shiny-widgets">Styled shiny widgets<a class="anchor" aria-label="anchor" href="#styled-shiny-widgets"></a>
 </h3>
 <p>All widgets need the css to work. This is added as an html dependency when using the <code>ssz_page</code> or the <code>add_zcss_deps</code> functions. Use <code>ssz_page</code> as a styled drop-in replacement of shiny’s <code>fluidPage</code>:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ssz_page.html">ssz_page</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, if you are not using a fluid page, wrap your ui (e.g. <code>fixedPage</code> or whatever you fancy) in <code>add_zcss_deps</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/add_zcss_deps.html">add_zcss_deps</a></span><span class="op">(</span><span class="fu">fixedPage</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="numeric-input">Numeric input<a class="anchor" aria-label="anchor" href="#numeric-input"></a>
@@ -88,7 +106,7 @@
 <div class="float">
 <img src="reference/figures/numericInput.png" alt="numeric input"><div class="figcaption">numeric input</div>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszNumericInput.html">sszNumericInput</a></span><span class="op">(</span><span class="st">"number"</span>, <span class="st">"Zahl"</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <p>This is based on shiny’s <code>numericInput</code>.</p>
 </div>
@@ -98,7 +116,7 @@
 <div class="float">
 <img src="reference/figures/selectInput.png" alt="select input"><div class="figcaption">select input</div>
 </div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszSelectInput.html">sszSelectInput</a></span><span class="op">(</span><span class="st">"select"</span>, <span class="st">"Destination:"</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HOU"</span>, <span class="st">"LAX"</span>, <span class="st">"JFK"</span>, <span class="st">"SEA"</span><span class="op">)</span>, selected <span class="op">=</span> <span class="st">"LAX"</span><span class="op">)</span></span></code></pre></div>
 <p>The function wraps around shiny’s <code>selectInput</code>.</p>
 </div>
@@ -108,7 +126,7 @@
 <div class="float">
 <img src="reference/figures/radioButtons.png" alt="radio buttons"><div class="figcaption">radio buttons</div>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszRadioButtons.html">sszRadioButtons</a></span><span class="op">(</span></span>
 <span>   inputId <span class="op">=</span> <span class="st">"ButtonGroupLabel"</span>,</span>
 <span>   label <span class="op">=</span> <span class="st">"Flughafen:"</span>,</span>
@@ -123,7 +141,7 @@
 <div class="float">
 <img src="reference/figures/radioGroupButtons.png" width="266" alt="radio group buttons"><div class="figcaption">radio group buttons</div>
 </div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszRadioGroupButtons.html">sszRadioGroupButtons</a></span><span class="op">(</span></span>
 <span>    inputId <span class="op">=</span> <span class="st">"years"</span>,</span>
 <span>    choices <span class="op">=</span> <span class="fl">2022</span><span class="op">:</span><span class="fl">2024</span>,</span>
@@ -137,7 +155,7 @@
 <div class="float">
 <img src="reference/figures/textInput.png" alt="text input"><div class="figcaption">text input</div>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszTextInput.html">sszTextInput</a></span><span class="op">(</span><span class="st">"suchfeld"</span>, <span class="st">"Name:"</span><span class="op">)</span></span></code></pre></div>
 <p>The function wraps around shiny’s <code>textInput</code>.</p>
 </div>
@@ -147,7 +165,7 @@
 <div class="float">
 <img src="reference/figures/autocomplete.png" alt="autocomplete"><div class="figcaption">autocomplete</div>
 </div>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszAutocompleteInput.html">sszAutocompleteInput</a></span><span class="op">(</span></span>
 <span>            <span class="st">"street"</span>,</span>
 <span>            <span class="st">"Geben Sie eine Strasse ein"</span>,</span>
@@ -161,7 +179,7 @@
 <div class="float">
 <img src="reference/figures/sliderInput.png" alt="sliderInput"><div class="figcaption">sliderInput</div>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszSliderInput.html">sszSliderInput</a></span><span class="op">(</span>inputId <span class="op">=</span> <span class="st">"choose_number"</span>, label <span class="op">=</span> <span class="st">"sliderInput:"</span>, value <span class="op">=</span> <span class="fl">30</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code></pre></div>
 <p>The function wraps around shiny’s <code>sliderInput</code>. Currently this is not officially part of the city’s CI/CD. Therefore the styling for the sliderInput might vary slightly at a later point in time (as of 2024-10-16).</p>
 </div>
@@ -171,7 +189,7 @@
 <div class="float">
 <img src="reference/figures/actionbutton.png" alt="action button"><div class="figcaption">action button</div>
 </div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszActionButton.html">sszActionButton</a></span><span class="op">(</span><span class="st">"ActionButtonId"</span>, <span class="st">"Abfrage starten"</span><span class="op">)</span></span></code></pre></div>
 <p>The function wraps around shiny’s <code>actionButton</code>.</p>
 </div>
@@ -182,14 +200,14 @@
 <img src="reference/figures/csv.png" alt="csv download"><div class="figcaption">csv download</div>
 </div>
 <p>A download button for downloading an excel/csv file can be called with</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"csvDownload"</span>,</span>
 <span>                        label <span class="op">=</span> <span class="st">"csv"</span>,</span>
 <span>                        image <span class="op">=</span> <span class="fu">img</span><span class="op">(</span><span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span><span class="op">)</span></span>
 <span>                        <span class="op">)</span></span></code></pre></div>
 <p>The image parameter is optional; it is based on shiny’s <code>downloadButton</code>.</p>
 <p>A button for a link to an external site, e.g. an Open Government Data portal, <img src="reference/figures/ogd.png" alt="ogd"> can be used with</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszOgdDownload.html">sszOgdDownload</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"ogdDown"</span>,</span>
 <span>                         label <span class="op">=</span> <span class="st">"OGD"</span>,</span>
 <span>                         href <span class="op">=</span> <span class="st">"https://data.stadt-zuerich.ch/"</span>,</span>
@@ -203,7 +221,7 @@
 <div class="float">
 <img src="reference/figures/dateRange.png" alt="date range"><div class="figcaption">date range</div>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszDateRange.html">sszDateRange</a></span><span class="op">(</span><span class="st">"DateRange"</span>, <span class="st">"Datum:"</span>,</span>
 <span>   start  <span class="op">=</span> <span class="st">"2001-01-01"</span>,</span>
 <span>   end    <span class="op">=</span> <span class="st">"2010-12-31"</span>,</span>
@@ -221,7 +239,7 @@
 <div class="float">
 <img src="reference/figures/airdatepicker_icon.png" alt="airdate picker with icon"><div class="figcaption">airdate picker with icon</div>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszAirDatepickerInput.html">sszAirDatepickerInput</a></span><span class="op">(</span></span>
 <span>          inputId <span class="op">=</span> <span class="st">"airMonthStart2"</span>,</span>
 <span>          label <span class="op">=</span> <span class="st">"Basis Datum"</span>,</span>
@@ -238,7 +256,7 @@
 <h3 id="css-file-for-html">CSS file for html<a class="anchor" aria-label="anchor" href="#css-file-for-html"></a>
 </h3>
 <p>If you need the css file to e.g. style a html report, use</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/get_generic_css.html">get_generic_css</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>to get the css file written to your local folder. Alternatively, you can provide a full filepath (something like “C:/temp/mystyling.css” as a parameter.)</p>
 </div>
