@@ -33,7 +33,7 @@ Imports:
     utils
 Remotes: 
     github::daqana/dqshiny,
-    mitchelloharawild/icons
+    github::mitchelloharawild/icons
 Suggests: 
     devtools,
     pkgdown,
