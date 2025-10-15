@@ -228,6 +228,27 @@ sszAirDatepickerInput(
 
 The version of `sszAirDatepickerInput()` with no calendar icon is not styled according to the corporate design of the city of Zurich.
 
+### Other styling options
+
+#### Div for chart buttons
+
+We provide a class `ssz-chart-buttons` which can be used with a div to provide flex display, centered content and a bottom margin.
+
+Example usage:
+``` r
+div(
+      class = "ssz-chart-buttons",
+      sszRadioGroupButtons(
+        inputId = "choice_year",
+        choices = c(2022, 2023, 2024)
+      )
+    )
+```
+
+#### Tooltip
+
+We provide also classes for tooltip styling (`tooltip-container`, `tooltip-title`, `tooltip-content`, `tooltip-row`). For an example usage, please see `inst/examples/tooltip/app.R`, though note that this only demonstrates the usage of the CSS classes but does not provide a graph that is styled according to the styling guidelines of the city of Zurich. For the latter, please consult the zueriplots documentation.
+
 ### CSS file for html
 
 If you need the css file to e.g. style a html report, use
