@@ -17,14 +17,18 @@ stages:
 r-testthat-test:
   extends:
     - .r-testthat-test
+  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
 
 r-pkgdown-build-no-commit:
   extends: ".r-pkgdown-build-no-commit"
+  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
 
 r-devtools-check:
   extends:
     - .r-devtools-check
+  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
 
 publish-main-to-github:
   extends:
     - .publish-main-to-github
+  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
