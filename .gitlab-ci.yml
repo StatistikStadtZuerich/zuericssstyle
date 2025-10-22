@@ -1,34 +1,29 @@
 # use template for gitlab pipeline to push main to github
 include:
+  # use template for all stages
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
-    ref: "main"
+    ref: "feature-r-version"
+    file: "stages.yml"
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: "reature-r-version"
     file: "publish-to-github.yml"
   # use template for gitlab pipeline to check and build
   - project: "OE-7035/ssz-da/templates/pipeline-templates"
-    ref: "main"
+    ref: "feature-r-version"
     file: "r-check-and-build-packages.yml"
-
-stages:
-  - test
-  - build
-  - deploy-prod
 
 # run tests separately: here none of the tests are skipped (unlike in the R CMD check)
 r-testthat-test:
   extends:
     - .r-testthat-test
-  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
 
 r-pkgdown-build-no-commit:
   extends: ".r-pkgdown-build-no-commit"
-  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
 
 r-devtools-check:
   extends:
     - .r-devtools-check
-  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
 
 publish-main-to-github:
   extends:
     - .publish-main-to-github
-  image: $CI_REGISTRY/docker-hub-proxy/rocker/tidyverse:4.5.1
