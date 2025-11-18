@@ -1,6 +1,6 @@
 Package: zuericssstyle
 Title: Statistik Stadt Zürich CSS styling for shiny apps and html
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
     person("Sara",
            "Hänzi",
@@ -33,7 +33,7 @@ Imports:
     utils
 Remotes: 
     github::daqana/dqshiny,
-    mitchelloharawild/icons
+    github::mitchelloharawild/icons
 Suggests: 
     devtools,
     pkgdown,

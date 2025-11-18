@@ -1,3 +1,8 @@
+# zuericssstyle 1.1.1
+
+* new: css classes for tooltip styling and chart-button div
+* fix dependency declaration for icons package
+
 # zuericssstyle 1.1.0
 
 * new: minimal styling for bslib cards
