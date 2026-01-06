@@ -1,59 +1,121 @@
-/*******************************
-* Action Buttons
-*******************************/
+/************************************************************
+ * Button Interaction Model (.btn)
+ *
+ * This button implements a fully controlled interaction
+ * model for mouse and keyboard input.
+ *
+ * Design goals:
+ * 1. Default state is $zueriblau
+ * 2. Hover and click (mouse) use $light-blue
+ * 3. Mouse clicks must NOT leave a “sticky” focus state
+ * 4. Keyboard focus must be clearly visible (accessibility)
+ * 5. Keyboard focus + mouse hover behaves like hover
+ *
+ * State precedence (highest → lowest):
+ *   :active  >  :hover  >  :focus-visible  >  :focus
+ *
+ * Important concepts:
+ * - :hover and :active are transient mouse states
+ * - :focus is persistent and applies after mouse clicks
+ * - :focus-visible represents keyboard intent only
+ * - Mouse interaction must override keyboard visuals
+ ************************************************************/
 
 /* General Button */
 .btn {
+  /* Default (resting) state */
   background-color: $zueriblau;
-  padding: 9px 24px 9px 24px;
-  border-radius: 3px;
+  padding: 8px 24px 8px 24px;
   border: 0 solid;
-  height: 40px;
+  height: 56px;
   color: white;
-  font-family: $main-font;
-  font-size: 14px;
+  font-family: $title-font;
+  font-size: $base-font-size;
   line-height: 22px;
-  margin-top: 32px;
+  margin: 16px;
+  border-radius: 0px;
 
+  /* ---------------------------------
+   * Mouse hover
+   * Applies whenever the cursor is over
+   * the button (including after click)
+   * --------------------------------- */
   &:hover {
-    background-color: $dark-blue;
+    background-color: $light-blue;
     color: white;
     transition: 0.5s;
   }
 
-  &:focus {
-    outline-color: transparent;
-    outline-style: solid;
-    outline: transparent;
-    background-color: $dark-blue;
+  /* ---------------------------------
+   * Mouse active (click / press)
+   * Only applies while mouse button
+   * is held down
+   * --------------------------------- */
+  &:active {
+    background-color: $light-blue; // optional press effect
+  }
+
+  /* ---------------------------------
+   * Mouse focus reset
+   * After a mouse click, browsers apply
+   * :focus. This rule prevents the
+   * button from staying in a focused
+   * visual state when focus came from
+   * the mouse.
+   * --------------------------------- */
+  &:focus:not(:hover):not(:active):not(:focus-visible) {
+    outline: none;
+    background-color: $zueriblau;
     color: white;
   }
 
-  /* Button no Outline on Click */
+  /* ---------------------------------
+   * Active + focus (during mouse click)
+   * Ensures no outline is shown while
+   * clicking
+   * --------------------------------- */
   &:active:focus {
     outline: transparent;
+    background-color: $light-blue;
+    color: white;
   }
+
+  /* ---------------------------------
+   * Keyboard focus (accessibility)
+   * Only applies when focus was set via
+   * keyboard navigation (Tab key)
+   * --------------------------------- */
+  &:focus-visible {
+    background-color: $zueriblau;
+    outline: 2px solid $light-blue;
+    outline-offset: 2px;
+    color: white;
+  }
+
+  /* ---------------------------------
+   * Keyboard focus + mouse hover
+   * When a keyboard-focused button is
+   * hovered with the mouse, hover takes
+   * visual precedence
+   * --------------------------------- */
+  &:focus-visible:hover {
+  background-color: $light-blue;
+  }
+
 }
 
-/* Disable default Shiny Active and Focus Button */
-.btn-default:active:focus {
-  color: white;
-  background-color: $zueriblau;
-  border-color: $zueriblau;
-}
 
 button {
   background-color: $bg-color-light;
-  padding: 4px 12px 4px 12px;
-  border-radius: 30px;
+  padding: 8px 24px 8px 24px;
   border: 0 solid;
   color: $zueriblau;
-  font-family: $main-font;
-  font-size: 12px;
+  font-family: $title-font;
+  font-size: $base-font-size;
   line-height: 22px;
 
   &:hover {
-    background-color: rgba(15, 5, 160, 0.08);
+    background-color: $light-blue;
     color: $dark-blue;
     transition: 0.5s;
   }
@@ -73,7 +135,7 @@ button {
   &:active {
     outline-color: transparent;
     outline-style: solid;
-    background-color: $dark-blue;
+    background-color: $light-blue;
     color: white;
     transition: 0.5s;
   }
@@ -81,7 +143,7 @@ button {
   :focus {
     outline-color: transparent;
     outline-style: solid;
-    background-color: $dark-blue;
+    background-color: $light-blue;
     color: white;
     transition: 0.5s;
   }
