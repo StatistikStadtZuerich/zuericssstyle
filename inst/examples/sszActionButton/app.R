@@ -12,7 +12,6 @@ ui <- ssz_page(
   textOutput("action")
 )
 
-
 server <- function(input, output, session) {
   # Observe the action button press
   observeEvent(input$action, {
