@@ -104,7 +104,6 @@
 
 }
 
-
 button {
   background-color: $bg-color-light;
   padding: 8px 24px 8px 24px;
@@ -123,7 +122,6 @@ button {
   &:active {
     background-color: $zueriblau;
     color: white;
-    outline-color: transparent;
     transition: 0.5s;
   }
 }
