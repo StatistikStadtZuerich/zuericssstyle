@@ -1,34 +1,79 @@
+/************************************************************
+ * INDIVIDUAL CHOICE BUTTONS - SHINY / BOOTSTRAP
+ * This CSS styles buttons inside a btn-group-toggle
+ * for Shiny apps. It handles normal, hover, active,
+ * and keyboard focus states.
+ ************************************************************/
 
-/* individual choice buttons, not selected*/
+/* -----------------------------
+ * Default / unselected button
+ * ----------------------------- */
 .btn-group-toggle>.btn-default {
   background-color: white;
   color: $zueriblau;
   border: 1px solid $zueriblau;
   cursor: pointer;
   transition: all 0.5s;
+  margin: 0;
 }
 
+/* Hover state for unselected buttons */
 .btn-group-toggle>.btn-default:hover {
   background-color: $dark-blue;
   border: 1px solid $dark-blue;
   color: white;
 }
 
-/* individual choice button selected*/
+/* -----------------------------
+ * Selected / active button
+ *----------------------------- */
 .btn-default.active {
   background-color: $zueriblau;
   border: 1px solid $zueriblau;
   color: white;
 }
 
+/* Active button + mouse hover */
+.btn-default.active:hover {
+  background-color: $dark-blue;
+  border: 1px solid $dark-blue;
+  color: white;
+}
+
+/* Active button + focus (keyboard or mouse) */
 .btn-default.active:focus {
   background-color: $zueriblau;
   border: 1px solid $zueriblau;
   color: white;
 }
 
-.btn-default.active:hover {
-  background-color: $dark-blue;
-  border: 1px solid $dark-blue;
-  color: white;
+/* -----------------------------
+ * Keyboard focus (for accessibility)
+ * Handles the case when the user tabs to a radio button.
+ * Focus is applied to the hidden input, but the visible label
+ * is outlined to indicate keyboard focus.
+ * ----------------------------- */
+.btn-group-toggle input:focus-visible {
+  outline: none; /* hide default browser focus */
 }
+
+/* Apply outline to the visible button when its input is focused */
+.btn-group-toggle input:focus-visible + label.btn-default,
+.btn-group-toggle label.btn-default:has(input:focus-visible) {
+  outline: 3px solid $dark-blue; /* visible focus outline */
+  outline-offset: 2px;
+}
+
+/* -----------------------------
+ * Remove spacing between buttons in the group
+ * ----------------------------- */
+.btn-group-toggle > .btn-default {
+  margin-left: -1px; /* collapse borders between buttons */
+}
+
+/* Optional: remove border-radius on first/last if you want a flat group */
+.btn-group-toggle > .btn-default:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
