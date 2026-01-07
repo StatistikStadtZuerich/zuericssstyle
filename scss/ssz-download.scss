@@ -1,48 +1,142 @@
-/*******************************
-* Downloads
-*******************************/
+/************************************************************
+ * Download Button Interaction Model (.sszDownload)
+ *
+ * This component implements a controlled interaction model
+ * for download links rendered via shiny::downloadButton().
+ *
+ * The button is built as an <a> element containing:
+ * - an inline SVG icon (Font Awesome / custom SVG)
+ * - a text label wrapped in a <span>
+ *
+ * Design goals:
+ * 1. Fixed-height button (56px) with centered content
+ * 2. Icon + label aligned via flexbox (no baseline alignment)
+ * 3. No inherited Bootstrap button styles
+ * 4. Mouse hover and keyboard focus are clearly distinguished
+ * 5. SVG icons do not shrink or shift vertically
+ * 6. Keyboard focus is visible and accessible
+ *
+ * State precedence (highest → lowest):
+ *   :active  >  :hover  >  :focus-visible  >  :focus  >  default
+ *
+ * Important concepts:
+ * - The download button is an <a>, not a <button>
+ * - Inline SVGs may include baseline alignment styles
+ * - Font Awesome icons often inject `top: 0.1em` inline
+ * - Flexbox alignment overrides text-baseline behavior
+ * - Inline styles must be explicitly neutralized
+ ************************************************************/
 
-/* Donwload Container */
+/* ----------------------------------------------------------
+ * Download container
+ *
+ * Wraps multiple download buttons horizontally with spacing
+ * ---------------------------------------------------------- */
 .downloadWrapperDiv {
   margin-top: 16px;
-  max-width: 188px;
   display: flex;
-  flex-direction: column;
-  row-gap: 8px;
+  flex-direction: row;
+  column-gap: 8px;
  }
 
-/* General Button Styling */
+/* ----------------------------------------------------------
+ * General download button styling
+ *
+ * Applied to the <a> element created by downloadButton()
+ * ---------------------------------------------------------- */
 .sszDownload {
-    text-decoration:none;
-    background-color: white;
-    border-radius: 3px;
-    border: 1px solid $zueriblau;
+    text-decoration: none;
+    background-color: $secondary-blue;
+    height: 56px;
     color: $zueriblau;
-    font-family: $main-font;
-    font-size: 14px;
-    line-height: 22px;
-    padding: 2px 6px 2px 6px;
-    text-align: center;
-    stroke: $zueriblau;
+    font-family: $title-font;
+    font-size: $base-font-size;
+    padding: 8px 24px 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 8px;
+    min-width: 80px;
 
+    /* --------------------------------------------------------
+     * Mouse focus / active reset
+     *
+     * Browsers apply :focus after mouse clicks on <a> elements.
+     * This rule prevents a persistent focus appearance when
+     * the interaction originated from the mouse.
+     * -------------------------------------------------------- */
     &:focus, &:active {
-    text-decoration:none;
+    text-decoration: none;
     color: $zueriblau;
-  }
+    }
+
+    /* --------------------------------------------------------
+     * Keyboard focus (accessibility)
+     *
+     * Applies only when focus was set via keyboard navigation
+     * (Tab key). Mouse interaction does not trigger this state.
+     * -------------------------------------------------------- */
+    &:focus-visible {
+      outline: 3px solid $secondary-dark-blue;
+      outline-offset: 2px;
+    }
+
+    /* --------------------------------------------------------
+     * Mouse hover
+     *
+     * Applies whenever the cursor is over the button,
+     * including after mouse click.
+     * -------------------------------------------------------- */
     &:hover {
       text-decoration:none;
-      background-color: $dark-blue;
-      border: 1px solid $dark-blue;
-      color: white;
+      background-color: $secondary-dark-blue;
+      color: $zueriblau;
       transition: 0.5s;
 
+      /* Icon hover styling */
       path {
-        stroke: white;
+        stroke: $zueriblau;
         transition: 0.5s;
       }
     }
 
+  /* --------------------------------------------------------
+   * Default SVG path styling
+   * -------------------------------------------------------- */
   path {
     stroke: $zueriblau;
+    stroke-width: 3;
   }
+}
+
+/* ----------------------------------------------------------
+ * Text label normalization
+ *
+ * downloadButton() wraps the label in a <span>. Inline spans
+ * introduce baseline alignment which interferes with flexbox.
+ *
+ * This removes baseline metrics and ensures true centering.
+ * ---------------------------------------------------------- */
+.sszDownload > span {
+  display: block;
+  line-height: 1;
+}
+
+/* ----------------------------------------------------------
+ * SVG icon normalization
+ *
+ * Font Awesome and inline SVG icons often inject:
+ *   position: relative;
+ *   top: 0.1em;
+ *
+ * These rules are intended for inline text alignment and
+ * must be neutralized when using flexbox layouts.
+ *
+ * The !important flags are intentional and scoped.
+ * ---------------------------------------------------------- */
+.sszDownload svg {
+  position: relative;
+  top: 0 !important;
+  display: block;
+  flex-shrink: 0;
 }
