@@ -15,10 +15,6 @@ ui <- ssz_page(
     sszDownloadButton("excelDownload",
       label = "XLSX",
       image = img(icons_ssz("download"))
-    ),
-    sszDownloadButton("ogdDownload",
-      label = "Open Data",
-      image = img(icons_ssz("download"))
     )
   )
 )
