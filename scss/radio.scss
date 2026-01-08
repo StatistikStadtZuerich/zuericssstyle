@@ -8,76 +8,103 @@
   margin-top: 10px;
 }
 
+.sszRadioButton-label {
+  font-family: $title-font;
+  color: $zueriblau;
+  margin: 0px 0px 6px;
+  font-size: 0.875rem;
+}
+
 .radio {
   position: relative;
   display: block;
   margin-top: 1em;
-  margin-bottom: 1.15em;
+  margin-bottom: 1.5em;
 
-  /* Radio Buttons Label */
   span {
-    padding-left: 1em;
-    display: inline-block;
-    font-family: $main-font;
-    color: $text-color;
-  }
-  &:hover {
-     span {
-      color: $dark-blue;
-      transition: 0.5s;
-    }
+    margin-left: 14px;
   }
 
   label {
-    color: $text-color;
+    font-family: $medium-font;
+    font-weight: 500;
+    color: $black;
+    display: flex;
+    align-items: center;
   }
 
   /* Radio Buttons Input */
   input[type="radio"] {
-    margin: 0px 0 0 ;
-    display: inline-grid;
-    margin-left: -1.25em;
-    margin-top: 2px;
-    -webkit-appearance: none;
     appearance: none;
-    background-color: white;
-    font: inherit;
-    width: 1.5em;
-    height: 1.5em;
-    border: 0.03em solid $text-color;
-    border-radius: 50%;
-    transform: translateY(-0.15em);
+    outline: none;          // remove default outline
+    -webkit-appearance: none; // Safari
+    -moz-appearance: none;    // Firefox
     display: grid;
     place-content: center;
+    margin-top: 0px;
 
-    &:hover {
-      border: 0.05em solid #030033;
-    }
-
-    &:focus {
-      border: 0.05em solid #080490;
-      outline: 0.15em solid transparent;
-      outline-offset: 0.15em;
-      //max(2px, 0.15em) with two different units does not work with scss, todo adjust
-    }
+    width: $radio-size;
+    height: $radio-size;
+    border: 2px solid $black;
+    border-radius: 50%;
+    background-color: white;
 
     &::before {
       content: "";
-      width: 0.5em;
-      height: 0.5em;
+      width: $radio-dot-size;
+      height: $radio-dot-size;
       border-radius: 50%;
-      transform: scale(0);
-      background-color: $text-color;
-    }
-
-    &:checked+span {
-      color:$dark-blue;
-    }
-
-    &:checked::before {
-      transform: scale(1);
       background-color: $dark-blue;
-      border: 0.03em solid $dark-blue;
+      transform: scale(0);
+    }
+
+    /* Checked / Selected */
+    &:checked {
+      border-color: $zueriblau;
+
+      &::before {
+        transform: scale(1);
+        background-color: $zueriblau;
+      }
+
+      + span {
+        color: $zueriblau;
+      }
+
+      &:hover {
+        border-color: $dark-blue;
+
+        &::before {
+          background-color: $dark-blue;
+        }
+
+        + span {
+          color: $dark-blue;
+        }
+      }
+    }
+
+    /* Hover on not checked */
+    &:not(:checked):hover {
+      border-color: $zueriblau;
+
+      &::before {
+        background-color: $zueriblau;
+      }
+
+      + span {
+        color: $zueriblau;
+      }
+    }
+
+    /* Active state */
+    &:active {
+      border-color: $zueriblau;
+    }
+
+    /* Keyboard focus */
+    &:focus-visible {
+      outline: none;
     }
   }
 }
