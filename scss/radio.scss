@@ -1,3 +1,27 @@
+/************************************************************
+ * Radio Button Interaction Model (.radio input[type="radio"])
+ *
+ * This radio button implements a fully controlled interaction
+ * model for mouse input.
+ *
+ * Design goals:
+ * 1. Default state (not selected) is black border and label.
+ * 2. Hover (mouse) highlights border, dot, and label in $zueriblau.
+ * 3. Selected state highlights border, dot, and label in $zueriblau.
+ * 4. Hover on selected state changes border, dot, and label to $dark-blue.
+ * 5. Active state (mouse press) highlights border and dot in $zueriblau.
+ *
+ * State precedence (highest → lowest):
+ *   :active > :hover > :checked > :focus-visible
+ *
+ * Important concepts:
+ * - :hover and :active are transient mouse states
+ * - :checked represents the selected state
+ * - :focus-visible represents keyboard intent only
+ * - Mouse interaction overrides keyboard visuals
+ * - + span selects the label text adjacent to the radio input
+ ************************************************************/
+
 /* Div around Radio Buttons */
 .radioDiv {
   margin-top: 18px;
@@ -8,6 +32,7 @@
   margin-top: 10px;
 }
 
+/* SZZ Radio Button Label */
 .sszRadioButton-label {
   font-family: $title-font;
   color: $zueriblau;
@@ -15,6 +40,10 @@
   font-size: 0.875rem;
 }
 
+/* ---------------------------------
+ * Default / unchecked
+ * Black border, no dot, label black
+ * --------------------------------- */
 .radio {
   position: relative;
   display: block;
@@ -58,7 +87,10 @@
       transform: scale(0);
     }
 
-    /* Checked / Selected */
+    /* ---------------------------------
+     * Checked / Selected State
+     * Border, dot, and label become $zueriblau
+     * --------------------------------- */
     &:checked {
       border-color: $zueriblau;
 
@@ -71,6 +103,10 @@
         color: $zueriblau;
       }
 
+      /* ---------------------------------
+       * Hover on Checked
+       * Border, dot, and label become $dark-blue
+       * --------------------------------- */
       &:hover {
         border-color: $dark-blue;
 
@@ -84,7 +120,10 @@
       }
     }
 
-    /* Hover on not checked */
+    /* ---------------------------------
+     * Hover on Not Checked
+     * Border, dot, and label become $zueriblau
+     * --------------------------------- */
     &:not(:checked):hover {
       border-color: $zueriblau;
 
@@ -97,7 +136,11 @@
       }
     }
 
-    /* Active state */
+    /* ---------------------------------
+     * Active State (Mouse Press)
+     * Only applies while mouse button is held down
+     * Border and dot remain $zueriblau
+     * --------------------------------- */
     &:active {
       border-color: $zueriblau;
     }
