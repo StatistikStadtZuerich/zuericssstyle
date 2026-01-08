@@ -9,6 +9,12 @@ ui <- ssz_page(
     choices = c("HOU", "LAX", "JFK", "SEA"),
     selected = "LAX"
   ),
+  sszSelectInput(
+    "select1",
+    "Destination (Multiple)",
+    choices = c("HOU", "LAX", "JFK", "SEA"),
+    multiple = TRUE
+  ),
   br(),
   h1("Selected"),
   textOutput("choice")
