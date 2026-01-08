@@ -2,6 +2,10 @@
 * General Settings
 *******************************/
 
+html {
+  font-size: $base-font-size;
+}
+
 /* Ruler */
 hr {
   height: 0.2px;
@@ -72,7 +76,7 @@ h6 {
 p {
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 23px;
   font-family: $main-font;
   color: $text-color;
