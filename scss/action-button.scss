@@ -30,7 +30,7 @@
   height: 56px;
   color: white;
   font-family: $title-font;
-  font-size: $base-font-size;
+  font-size: $button-font-size;
   line-height: 22px;
   border-radius: 0px;
 
@@ -109,7 +109,7 @@ button {
   border: 0 solid;
   color: $zueriblau;
   font-family: $title-font;
-  font-size: $base-font-size;
+  font-size: $button-font-size;
   line-height: 22px;
 
   &:hover {
