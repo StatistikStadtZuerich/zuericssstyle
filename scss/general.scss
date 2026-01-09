@@ -6,6 +6,10 @@ html {
   font-size: $base-font-size;
 }
 
+.form-group.shiny-input-container {
+  width: 100% !important;
+}
+
 /* Ruler */
 hr {
   height: 0.2px;
