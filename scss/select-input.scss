@@ -1,27 +1,27 @@
-/*******************************
- * Select Input (Selectize)
- *******************************/
+/************************************************************
+ * Select Input Interaction Model (Selectize)
+ *
+ * This component defines a controlled interaction model
+ * for Selectize inputs (single and multi) in Shiny.
+ *
+ * Design goals:
+ * 1. Neutral default appearance aligned with the design system
+ * 2. Clear hover and focus states without layout changes
+ * 3. Consistent dropdown hover and keyboard navigation
+ * 4. Multi-select values rendered as removable chips
+ * 5. Mouse interaction must NOT trigger blue focus artifacts
+ *    from Bootstrap / bslib (e.g. #0353dc)
+ *
+ * State precedence (highest → lowest):
+ *   :active  >  :hover  >  :focus-visible  >  :focus
+ *
+ * Notes:
+ * - Selectize internal `.active` / `.selected` states are
+ *   normalized to avoid visual conflicts
+ * - Chip focus styles are intentionally neutralized while
+ *   preserving keyboard functionality
+ ************************************************************/
 
-/* ---------------------------------
- * Base select wrapper (.selectize)
- * --------------------------------- */
-.selectize {
-  border-color: $text-color;
-  outline: 0;
-  border-radius: 0px;
-  box-shadow: none;
-  font-family: $medium-font;
-  font-size: $base-font-size;
-  line-height: 26px;
-  padding: 6px 16px;
-
-  /* Hover effect for input wrapper */
-  &:hover {
-    background-color: $bg-color-light;
-    color: $dark-blue;
-    transition: 0.5s;
-  }
-}
 
 /* ---------------------------------
  * Control wrapper (.selectize-control)
@@ -141,46 +141,100 @@
 }
 
 /* ---------------------------------
- * Multi Select Input (.has-items)
+ * Multi Select Input Wrapper
  * --------------------------------- */
-.selectize-control.multi .selectize-input.has-items {
+.selectize-control.multi .selectize-input {
   display: flex;
-  flex-wrap: wrap;              // wrap multiple tags
-  align-items: center;          // vertical centering
-  min-height: 3.5rem;           // match single select
-  padding: 0 16px;
-  padding-right: 2.5rem;        // space for arrow if needed
+  flex-wrap: wrap;
+  align-items: center;
+
+  min-height: 3.5rem;
+  padding: 6px 16px;
+  padding-right: 2.5rem;
+
   font-family: $medium-font;
   font-size: $base-font-size;
   font-weight: 500;
-  line-height: 3.5rem;
+
   background-color: white;
   border: 0.125rem solid $border-grey;
   border-radius: 0px;
   box-shadow: none;
-  color: $light-blue;
+
+  line-height: 1.5;
+  cursor: text;
 }
 
-/* Selected tag/item inside multi-select */
-.selectize-control.multi .selectize-input.has-items .item {
-  height: 3.5rem;               // same as input
-  line-height: 3.5rem;          // vertical centering
-  margin: 2px 4px 2px 0;
+/* Hover state */
+.selectize-control.multi .selectize-input:hover {
+  border-color: $hover-border-blue;
+}
+
+/* Focus state */
+.selectize-control.multi .selectize-input.focus {
+  border-color: $hover-border-blue;
+  background-color: $focus-background-blue;
+  box-shadow: none;
+}
+
+/* ---------------------------------
+ * Selected Chip (.item)
+ * --------------------------------- */
+.selectize-control.multi .selectize-input .item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 2.25rem;
   padding: 0 12px;
-  background-color: yellow;
+  background-color: $chip-blue;
   color: $zueriblau;
   font-family: $medium-font;
-  font-size: $base-font-size;
+  font-size: 0.875rem;
   font-weight: 500;
-  //border-radius: 12px;
-  display: inline-flex;          // prevent jumping
-  align-items: center;
-  user-select: none;             // prevent text selection
+  border-radius: 1rem; /* chip look */
+  line-height: 1;
+  cursor: default;
+  user-select: none;
 }
 
-/* Hover effect for tags in multi-select */
-.selectize-control.multi .selectize-input.has-items .item:hover {
-  background-color: $selected-grey;
+/* Hover state for chip */
+.selectize-control.multi .selectize-input .item:hover {
+  background-color: $hover-chip-blue;
   color: $black;
-  transition: 0.5s;
+}
+
+/* ---------------------------------
+ * Remove Button (×)
+ * --------------------------------- */
+.selectize-control.multi .selectize-input .item .remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $zueriblau;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto; /* REQUIRED for mouse click */
+}
+
+/* Hover state for remove */
+.selectize-control.multi .selectize-input .item .remove:hover {
+  color: $black;
+}
+
+/* ---------------------------------
+ * Disable Bootstrap / bslib blue focus on selectize chips
+ * --------------------------------- */
+.selectize-control.multi .selectize-input .item:focus,
+.selectize-control.multi .selectize-input .item:focus-visible,
+.selectize-control.multi .selectize-input .item:active,
+.selectize-control.multi .selectize-input .item.active {
+  background-color: $selected-grey !important;
+  color: $zueriblau !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
