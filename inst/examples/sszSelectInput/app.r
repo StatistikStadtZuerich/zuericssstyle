@@ -10,19 +10,21 @@ ui <- ssz_page(
     selected = "LAX"
   ),
   sszSelectInput(
-    "select1",
+    "selectmultiple",
     "Destination (Multiple)",
     choices = c("HOU", "LAX", "JFK", "SEA"),
     multiple = TRUE
   ),
   br(),
   h1("Selected"),
-  textOutput("choice")
+  textOutput("choice"),
+  textOutput("choicemultiple")
 )
 
 server <- function(input, output, session) {
   # Our dataset
   output$choice <- renderText(input$select)
+  output$choicemultiple <- renderText(input$selectmultiple)
 }
 
 shinyApp(ui, server)
