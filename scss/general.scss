@@ -2,12 +2,18 @@
 * General Settings
 *******************************/
 
+/* General font size */
 html {
   font-size: $base-font-size;
 }
 
+/* Application width */
 .form-group.shiny-input-container {
   width: 100% !important;
+}
+
+.container-fluid {
+  max-width: 888px;
 }
 
 /* Ruler */
@@ -67,6 +73,14 @@ p {
   margin: 0px 0px 12px;
 }
 
+/* Text Output */
+.shiny-text-output, .shiny-bound-output {
+  font-size: 1.125rem;
+  font-family: $medium-font;
+  color: $black;
+  line-height: 1.5;
+}
+
 /* Lists */
 ol {
   font-family: $medium-font;
@@ -96,14 +110,6 @@ a {
     color: $dark-blue;
     transition: 0.5s;
   }
-}
-
-/* Text Output */
-.shiny-text-output, .shiny-bound-output {
-  font-size: 1.125rem;
-  font-family: $medium-font;
-  color: $black;
-  line-height: 1.5;
 }
 
 /* Context Box */
