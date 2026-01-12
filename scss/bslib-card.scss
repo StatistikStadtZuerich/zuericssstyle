@@ -11,6 +11,10 @@
  * - Paragraph rules are scoped to card bodies
  * - Shiny text outputs (`div`) are not affected
  ******************************************************/
+
+/* ---------------------------------
+ * Card Container (.bslib-card)
+ * --------------------------------- */
 .bslib-card {
   background-color: $bg-color-light;
   padding: 24px;
@@ -18,10 +22,16 @@
   overflow: hidden;
 }
 
+/* ---------------------------------
+ * Grid Layout (.bslib-grid)
+ * --------------------------------- */
 .bslib-grid {
   gap: 1rem;
 }
 
+/* ---------------------------------
+ * Card Header (.card-header)
+ * --------------------------------- */
 .card-header {
   font-size: 1.5rem;
   font-family: $title-font;
@@ -29,6 +39,9 @@
   letter-spacing: -0.01em;
 }
 
+/* ---------------------------------
+ * Card Body (.bslib-card-body)
+ * --------------------------------- */
 .bslib-card-body {
   line-height: 1;
   padding-top: 10px;
