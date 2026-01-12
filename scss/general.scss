@@ -23,90 +23,68 @@ hr {
 h1 {
   font-family: $title-font;
   color: $zueriblau;
-  font-size: 22px;
-  line-height: 31px;
-  font-weight: 750;
-  margin-top: 28px;
+  font-size: 1.75rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0px 0px 24px;
 }
 
 /* h2 Font */
 h2 {
   font-family: $title-font;
   color: $zueriblau;
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 20px 0px 4px;
   font-weight: 750;
 }
 
 /* h3 Font */
 h3 {
   font-family: $title-font;
-  color: $h3-color-grey;
-  font-size: 18px;
-  line-height: 25px;
-  font-weight: 750;
+  color: $zueriblau;
+  font-size: 1.25rem;
+  margin: 12px 0px 4px;
+  line-height: 1.5;
 }
 
 /* h4 Font */
 h4 {
   font-family: $title-font;
   color: $zueriblau;
-  font-size: 16px;
-  line-height: 23px;
-  font-weight: 750;
-}
-
-/* h5 Font */
-h5 {
-  font-family: $title-font;
-  color: $zueriblau;
-  font-size: 14px;
-  line-height: 25px;
-  font-weight: 750;
-}
-
-/* h6 Font */
-h6 {
-  font-family: $title-font;
-  color: $h3-color-grey;
-  font-size: 12px;
-  line-height: 23px;
-  font-weight: 750;
-  /*margin-top: -1px;
-  margin-bottom: -0.5px;*/
+  font-size: 1.125rem;
+  line-height: 1.2;
+  margin: 12px 0px 4px;
 }
 
 /* Paragraph Text */
 p {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 23px;
-  font-family: $main-font;
-  color: $text-color;
+  font-family: $medium-font;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $black;
+  margin: 0px 0px 12px;
 }
 
 /* Lists */
 ol {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 23px;
-  font-family: $main-font;
-  color: $text-color;
+  font-family: $medium-font;
+  color: $black;
+  font-size: 18px;
 }
 
 li::marker {
-  font-size: 14px;
-  line-height: 23px;
-  font-family: $main-font;
-  color: $text-color;
+  font-family: $medium-font;
+  color: $black;
+  font-size: 18px;
 }
 
 /* Code */
 code {
   background-color: $bg-color-light;
   color: $zueriblau;
+  font-size: 18px;
 }
 
 /* Links */
@@ -118,6 +96,14 @@ a {
     color: $dark-blue;
     transition: 0.5s;
   }
+}
+
+/* Text Output */
+.shiny-text-output, .shiny-bound-output {
+  font-size: 1.125rem;
+  font-family: $medium-font;
+  color: $black;
+  line-height: 1.5;
 }
 
 /* Context Box */
