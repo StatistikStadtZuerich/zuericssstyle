@@ -8,7 +8,7 @@ ui <- ssz_page(
     "Abfrage starten",
   ),
   br(),
-  h1("Action"),
+  h2("Action"),
   textOutput("action")
 )
 
