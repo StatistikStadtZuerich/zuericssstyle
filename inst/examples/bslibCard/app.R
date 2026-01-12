@@ -2,7 +2,7 @@ library(bslib)
 library(shiny)
 # bslib cards demo
 one_card <- card(
-  card_header(h5("A header")),
+  card_header("Allgemeine Informationen"),
   card_body(
     markdown("Some text with a [link](https://github.com)")
   ),
@@ -10,15 +10,15 @@ one_card <- card(
 )
 ui <- ssz_page(
   h1("Cards demo"),
-  h2("one card"),
+  h2("One card"),
   one_card,
   br(),
-  h2("two cards"),
+  h2("Two cards"),
   layout_column_wrap(
     one_card,
     one_card,
   ),
-  h2("three cards"),
+  h2("Three cards"),
   layout_column_wrap(
     one_card,
     one_card,
