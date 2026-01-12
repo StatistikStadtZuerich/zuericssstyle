@@ -33,6 +33,7 @@ Other shiny_widgets:
 \code{\link{sszActionButton}()},
 \code{\link{sszAirDatepickerInput}()},
 \code{\link{sszAutocompleteInput}()},
+\code{\link{sszContextBox}()},
 \code{\link{sszDownloadButton}()},
 \code{\link{sszNumericInput}()},
 \code{\link{sszOgdDownload}()},
