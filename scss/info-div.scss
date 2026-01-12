@@ -1,9 +1,69 @@
-/*******************************
-* Info Div
-*******************************/
+/************************************************************
+ * Context Box Component (.info-div, .header-bar, .content-box, .info-text)
+ *
+ * Styles the context/info box used in sszContextBox components.
+ * Provides a structured layout with a header bar and content area.
+ *
+ * Design goals:
+ * 1. Clear visual separation with distinct header and content backgrounds
+ * 2. Header uses strong blue background with padding and readable typography
+ * 3. Content area uses light blue background with comfortable padding
+ * 4. Icon and text arranged in a flex row with spacing
+ * 5. Icon sized consistently and prevented from shrinking in flex layouts
+ *
+ * Layout details:
+ * - .info-div: container margin spacing
+ * - .header-bar: flex column layout with horizontal padding and colored background
+ * - .header-bar h2: typography with controlled margins, font size, and line height
+ * - .content-box: background and padding for main content area
+ * - .info-text: flex row container aligning icon and text, with gap spacing
+ * - .info-text svg: fixed icon size (32px), display block, no shrink in flexbox
+ ************************************************************/
 
-.infoDiv {
+/* ---------------------------------
+ * Context Box Container (.info-div)
+ * --------------------------------- */
+.info-div {
   margin-top: 40px;
-  padding: 20px;
-  background-color: $bg-color-light;
+}
+
+/* ---------------------------------
+ * Header Bar (.header-bar and h2)
+ * --------------------------------- */
+.header-bar {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: $context-blue;
+  color: $zueriblau;
+}
+
+.header-bar h2 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+/* ---------------------------------
+ * Content Area (.content-box and .info-text)
+ * --------------------------------- */
+.content-box {
+  background-color: $chip-blue;
+  padding: 23px;
+}
+
+.info-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-text svg {
+  width: 32px !important;
+  height: 32px !important;
+  flex-shrink: 0;
+  display: block;
 }
