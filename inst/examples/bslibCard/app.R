@@ -2,7 +2,7 @@ library(bslib)
 library(shiny)
 # bslib cards demo
 one_card <- card(
-  card_header("Allgemeine Informationen"),
+  card_header("A random header"),
   card_body(
     markdown("Some text with a [link](https://github.com)")
   ),
