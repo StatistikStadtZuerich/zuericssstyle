@@ -1,0 +1,53 @@
+/************************************************************
+ * info Box Component (.info-box-div, .info-box-header-bar, .info-box, .info-box-text)
+ *
+ * Styles the info/info box used in sszinfoBox components.
+ * Provides a structured layout with a header bar and info area.
+ *
+ * Design goals:
+ * 1. Clear visual separation with distinct header and info backgrounds
+ * 2. Header uses strong blue background with padding and readable typography
+ * 3. info area uses light blue background with comfortable padding
+ * 4. Icon and text arranged in a flex row with spacing
+ * 5. Icon sized consistently and prevented from shrinking in flex layouts
+ *
+ * Layout details:
+ * - .info-box-div: container margin spacing
+ * - .header-bar: flex column layout with horizontal padding and colored background
+ * - .header-bar h2: typography with controlled margins, font size, and line height
+ * - .info-box: background and padding for main info area
+ * - .info-text: flex row container aligning icon and text, with gap spacing
+ * - .info-text svg: fixed icon size (32px), display block, no shrink in flexbox
+ ************************************************************/
+.info-box-div {
+  margin-top: 40px;
+}
+
+.info-box-content {
+  background-color: $selected-grey;
+  padding: 16px 32px 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.info-box-text p:first-child {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-weight: 900;
+  color: $info-title-grey;
+  font-family: $title-font;
+}
+
+.info-box-text p:last-child {
+  margin: 0;
+  color: $info-text-grey;
+}
+
+.info-box-content svg {
+  height: 2rem !important;
+  flex-shrink: 0;
+  display: block;
+  color: $icon-grey;
+}

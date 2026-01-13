@@ -36,7 +36,7 @@ sszContextBox <- function(title, text, icon = NULL) {
 
     # Content box with icon + text
     tags$div(
-      class = "content-box context-box-text",
+      class = "context-box context-box-text",
 
       # Icon (optional)
       if (!is.null(icon)) icon,
