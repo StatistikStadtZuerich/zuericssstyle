@@ -54,8 +54,6 @@
     padding: 8px 24px 8px 24px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    column-gap: 8px;
     min-width: 80px;
 
     /* --------------------------------------------------------
@@ -92,21 +90,7 @@
       background-color: $secondary-dark-blue;
       color: $zueriblau;
       transition: 0.5s;
-
-      /* Icon hover styling */
-      path {
-        stroke: $zueriblau;
-        transition: 0.5s;
-      }
     }
-
-  /* --------------------------------------------------------
-   * Default SVG path styling
-   * -------------------------------------------------------- */
-  path {
-    stroke: $zueriblau;
-    stroke-width: 3;
-  }
 }
 
 /* ----------------------------------------------------------
@@ -135,8 +119,11 @@
  * The !important flags are intentional and scoped.
  * ---------------------------------------------------------- */
 .sszDownload svg {
+  margin-right: 8px;   // ← controls icon ↔ text gap
+  margin-left: 0;
   position: relative;
   top: 0 !important;
   display: block;
   flex-shrink: 0;
+  height: 1.5rem !important;
 }
