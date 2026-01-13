@@ -1,7 +1,7 @@
 /************************************************************
  * Context Box Component (.context-box-div, .context-box-header-bar, .context-box, .context-box-text)
  *
- * Styles the context/info box used in sszContextBox components.
+ * Styles the context used in sszContextBox components.
  * Provides a structured layout with a header bar and context area.
  *
  * Design goals:
@@ -16,8 +16,8 @@
  * - .header-bar: flex column layout with horizontal padding and colored background
  * - .header-bar h2: typography with controlled margins, font size, and line height
  * - .context-box: background and padding for main context area
- * - .info-text: flex row container aligning icon and text, with gap spacing
- * - .info-text svg: fixed icon size (32px), display block, no shrink in flexbox
+ * - .context-box-text: flex row container aligning icon and text, with gap spacing
+ * - .context-box-text svg: fixed icon size (32px), display block, no shrink in flexbox
  ************************************************************/
 
 /* ---------------------------------
