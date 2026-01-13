@@ -1,0 +1,96 @@
+/************************************************************
+ * Info Box Component (.info-box-div, .info-box-content, .info-box-text)
+ *
+ * Styles the info/warning box used in sszInfoBox and sszWarningBox components.
+ * Provides a flexible layout with icon and text aligned in a row,
+ * supporting variant modifiers (e.g. warning) for color changes.
+ *
+ * Design goals:
+ * 1. Distinct background and padding for clear visual separation
+ * 2. Flexible row layout with consistent spacing between icon and text
+ * 3. Icon sized consistently and prevented from shrinking in flex layouts
+ * 4. Text styles differentiated: bold large first paragraph (title),
+ *    normal-weight second paragraph (body)
+ * 5. Warning variant overrides background and text colors appropriately,
+ *    including forcing the first paragraph text to be red
+ *
+ * Layout details:
+ * - .info-box-div: container margin spacing for vertical rhythm
+ * - .info-box-content: flex container for icon and text with padding and gap
+ * - .info-box-text p:first-child: styled as bold, large title with specific font and color
+ * - .info-box-text p:last-child: styled as normal body text with default color
+ * - svg inside .info-box-content: fixed height, no shrink, and consistent icon color
+ * - .info-box--warning modifier: background and icon color overrides
+ * - .info-box--warning .info-box-text p:first-child: overrides first paragraph color to warning red
+ ************************************************************/
+
+/* ---------------------------------
+ * Outer container
+ * Adds vertical spacing between info boxes
+ * --------------------------------- */
+.info-box-div {
+  margin-top: 40px;
+}
+
+/* ---------------------------------
+ * Content area
+ * Flex container for icon + text with background and padding
+ * --------------------------------- */
+.info-box-content {
+  background-color: $selected-grey;
+  padding: 16px 32px 16px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* ---------------------------------
+ * Title paragraph (first p)
+ * Bold, larger font, line height, font family
+ * --------------------------------- */
+.info-box-text p:first-child {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-weight: 900;
+  color: $info-title-grey;
+  font-family: $title-font;
+}
+
+/* ---------------------------------
+ * Body paragraph (last p)
+ * Normal weight, default color, no extra margin
+ * --------------------------------- */
+.info-box-text p:last-child {
+  margin: 0;
+  color: $info-text-grey;
+}
+
+/* ---------------------------------
+ * Icon inside info box
+ * Fixed height, no shrinking in flex layout, consistent color
+ * --------------------------------- */
+.info-box-content svg {
+  height: 2rem !important;
+  flex-shrink: 0;
+  display: block;
+  color: $icon-grey;
+}
+
+/* ---------------------------------
+ * Warning variant
+ * Overrides background, icon color, and first paragraph color
+ * --------------------------------- */
+.info-box--warning .info-box-content {
+  background-color: $warning-bg-red;
+}
+
+.info-box--warning svg {
+  color: $warning-icon-red;
+}
+
+/* First paragraph title in warning box is red */
+.info-box--warning .info-box-text p:first-child {
+  color: $warning-title-red !important;
+}
+
