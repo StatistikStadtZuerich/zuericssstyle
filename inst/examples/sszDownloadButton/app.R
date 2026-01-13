@@ -1,4 +1,5 @@
 library(shiny)
+library(openxlsx)
 # download demo
 
 icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
@@ -13,7 +14,7 @@ ui <- ssz_page(
       image = img(icons_ssz("download"))
     ),
     sszDownloadButton("excelDownload",
-      label = "XLSX",
+      label = "Excel",
       image = img(icons_ssz("download"))
     )
   )
@@ -29,6 +30,15 @@ server <- function(input, output, session) {
     },
     content = function(file) {
       write.csv(data, file)
+    }
+  )
+
+  output$excelDownload <- downloadHandler(
+    filename = function() {
+      paste("data-", Sys.Date(), ".xlsx", sep = " ")
+    },
+    content = function(file) {
+      write.xlsx(data, file)
     }
   )
 }
