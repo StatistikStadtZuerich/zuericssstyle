@@ -6,7 +6,7 @@ ui <- ssz_page(
   sszActionButton(
     "action",
     "Abfrage starten",
-  ),
+  )
   br(),
   h2("Action"),
   textOutput("action")
