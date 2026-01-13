@@ -31,6 +31,7 @@ Other shiny_widgets:
 \code{\link{sszContextBox}()},
 \code{\link{sszDateRange}()},
 \code{\link{sszDownloadButton}()},
+\code{\link{sszInfoBox}()},
 \code{\link{sszNumericInput}()},
 \code{\link{sszOgdDownload}()},
 \code{\link{sszRadioButtons}()},

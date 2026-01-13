@@ -35,6 +35,7 @@ Other shiny_widgets:
 \code{\link{sszAutocompleteInput}()},
 \code{\link{sszContextBox}()},
 \code{\link{sszDateRange}()},
+\code{\link{sszInfoBox}()},
 \code{\link{sszNumericInput}()},
 \code{\link{sszOgdDownload}()},
 \code{\link{sszRadioButtons}()},
