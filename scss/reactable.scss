@@ -1,71 +1,150 @@
-/*******************************
-* Reactable
-*******************************/
+/************************************************************
+ * Reactable Table Component (.ReactTable, .rt-thead, .rt-td-inner, .rt-th-inner, .rt-pagination, .rt-page-button, etc.)
+ *
+ * Styles for Reactable tables.
+ * Provides a clean, borderless, and visually structured table with
+ * customized pagination and zebra striping.
+ *
+ * Design goals:
+ * 1. Clean and minimal look: no borders, subtle zebra stripes for readability
+ * 2. Custom typography for table header and body
+ * 3. Prev/Next buttons and page numbers styled consistently, including disabled state
+ * 5. Hover effects on rows and buttons for better interaction feedback
+ *
+ ************************************************************/
 
-.rt-select {
-  visibility:hidden;
+/* ---------------------------------
+ * Table Container (.ReactTable)
+ * --------------------------------- */
+.ReactTable {
+  font-family: $medium-font;
+  font-size: $base-font-size !important;
+  line-height: 24px !important;
+  color: $black;
 }
 
-.rt-tbody {
-  font-family: $main-font;
-}
-
-/* Table */
-.rt-table {
-  font-size: 11px;
-  color: $text-color;
-  border: 0px;
-}
-
- /* Table Header */
+/* ---------------------------------
+ * Table Header (.rt-thead)
+ * --------------------------------- */
 .rt-thead {
   color: $zueriblau;
   font-family: $title-font;
-  position: relative;
-  min-width: 0px !important;
-  flex: 0;
 }
 
-.rt-tr.rt-tr-group-header {
-  color: $h3-color-grey;
+/* ---------------------------------
+ * Table Cells (.rt-td-inner, .rt-th-inner)
+ * --------------------------------- */
+.rt-td-inner, .rt-th-inner {
+  padding: 12px 16px;
+  line-height: 1.5;
 }
 
-/* Table Pagination */
+/* ---------------------------------
+ * Table Pagination Container (.rt-pagination)
+ * --------------------------------- */
 .rt-pagination {
-  font-size: 12px;
-  color: $text-color
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.5rem;
+  border: 0px;
 }
 
-.rt-expander-button {
-  &:hover {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin: 0 2px;
-    padding: 0;
-  }
-
-  &:active {
-    background: none;
-    border: none;
-    cursor: pointer;
-    outline-color: transparent;
-  }
-
-  :focus {
-    background: none;
-    border: none;
-    outline-color: transparent;
-  }
+/* Page Input Box (.rt-page-input) */
+.rt-page-input {
+  order: 1;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0;
+  text-align: center;
+  font-weight: 600;
+  background: white;
 }
 
-/* Activate Background-color and pointer on hover */
-.ReactTable .rt-tr:hover .rt-td {
-  background: $bg-color-light;
+/* Prev / Next Buttons Normal State */
+button.rt-prev-button.rt-page-button,
+button.rt-next-button.rt-page-button {
+  color: $zueriblau;
+}
+
+/* Disabled Arrows (first/last page) */
+button.rt-prev-button.rt-page-button:disabled,
+button.rt-next-button.rt-page-button:disabled {
+  color: $border-grey !important;
+  opacity: 1 !important;
+  cursor: not-allowed;
+}
+
+/* Page Number Buttons */
+/* First page button (after prev arrow) */
+.rt-page-button:first-of-type {
+  order: 2;
+  background: none;
+  border: none;
+  font-size: 28px;
   cursor: pointer;
+  line-height: 1;
 }
 
-/* Delete row select */
+/* Last page button (before next arrow) */
+.rt-page-button:last-of-type {
+  order: 3;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Hover Effects for Page Buttons */
+.rt-page-button:hover {
+  background-color: $focus-background-blue;
+  border-radius: 0px;
+}
+
+/* Page Numbers Container */
+.rt-page-numbers {
+  margin: 0 1.5rem 0 0;
+}
+
+/* Hide Pagination Info */
+.rt-page-info {
+  display: none !important;
+}
+
+/* Flex alignment for all pagination children */
+.rt-pagination * {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------------------------------
+ * Remove All Borders
+ * --------------------------------- */
+.ReactTable,
+.ReactTable .rt-table,
+.ReactTable .rt-thead,
+.ReactTable .rt-tbody,
+.ReactTable .rt-th,
+.ReactTable .rt-td {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------------------------------
+ * Zebra Stripes (.rt-tr-group)
+ * --------------------------------- */
+.ReactTable .rt-tbody .rt-tr-group:nth-child(even) {
+  background-color: $bg-color-light;
+}
+
+.ReactTable .rt-tbody .rt-tr-group:nth-child(odd) {
+  background-color: white;
+}
+
+/* ---------------------------------
+ * Delete Row Select (.rt-td-select, .rt-th-select)
+ * --------------------------------- */
 .rt-td-select, .rt-th-select {
   display: none;
 }
