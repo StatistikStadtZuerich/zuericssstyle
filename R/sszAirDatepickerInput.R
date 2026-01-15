@@ -44,12 +44,14 @@ sszAirDatepickerInput <- function(inputId,
     "ssz-label"
   )
 
-  # if an icon is passed, add it at the appropriate place
+  # if an icon is passed, replace default addon with wrapped icon
   if (!is.null(ssz_icon)) {
-    # add ssz icon
-    html_list$children[[2]]$children[[3]]$children[[1]] <- ssz_icon
-    # take the background and hover away by saying it is not a button
-    html_list$children[[2]]$children[[3]]$attribs$class <- "input-group-addon"
+    icon_wrapper <- htmltools::tags$span(
+      class = "ssz-input-icon",
+      ssz_icon
+    )
+
+    html_list$children[[2]]$children[[3]]$children <- list(icon_wrapper)
   }
 
   html_list
