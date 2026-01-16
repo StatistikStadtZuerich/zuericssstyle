@@ -13,7 +13,7 @@ ui <- ssz_page(
     view = "years",
     minView = "months",
     autoClose = TRUE,
-    ssz_icon = icons_ssz("download")
+    ssz_icon = icons_ssz("calendar")
   ),
   br(),
   h1("Selected"),
