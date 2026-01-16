@@ -2,10 +2,22 @@
  * Airdatepicker
  *******************************/
 /* remove addon visuals */
-.dp-addon.action-button {
+.dp-addon {
   display: none !important;
 }
 
+.input-group {
+  width: 100%;
+  position: relative;
+}
+
+.input-group > .form-control {
+  width: 100% !important;
+  display: block;
+}
+
+
+/* Style for the icon */
 .ssz-input-icon {
   position: absolute;
   right: 12px;
@@ -13,45 +25,52 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  padding: 0;
-  pointer-events: none; /* clicks go to input */
+  padding: 0px 4px 0px 0px;
+  z-index: 5;
+  pointer-events: none;
   display: flex;
   align-items: center;
+  color: $zueriblau;
+
+  & svg {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    cursor: pointer;
+  }
 }
 
 /* make room inside input */
 .sw-air-picker.form-control {
+  position: relative;
+  z-index: 1;
   padding-right: 2.75rem;
 }
 
 
- .air-datepicker {
-	font-family:  $main-font;
-    position: absolute;
-    z-index: 1000;
-    float: left;
-    max-width: 200px;
-    padding: 16px;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border-color: $text-color;
-    border: 0 solid $text-color;
-    border-radius: 2px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
-    // these are custom properties, needs different syntax to work in scss
-    --adp-cell-background-color-selected: #{$zueriblau};
-    --adp-cell-background-color-selected-hover: #{$zueriblau};
-    --adp-cell-background-color-in-range: #{$zueriblau};
-    --adp-cell-background-color-in-range-hover: #{$zueriblau};
-    --adp-color-current-date: #{$zueriblau};
-    --adp-background-color-selected-other-month: #{$zueriblau};
-    --adp-background-color-selected-other-month-focused: #{$zueriblau};
-    --adp-cell-border-radius: 50px;
-    --adp-day-name-color: #{$text-color};
-    --adp-day-name-color-hover: #{$zueriblau};
+.air-datepicker {
+	font-family:  $medium-font;
+  position: absolute;
+  z-index: 1000;
+  float: left;
+  max-width: 240px;
+  padding: 0.75rem 0.5rem;
+  font-size: $base-font-size;
+  text-align: left;
+  list-style: none;
+  background-color: $bg-color-light;
+  border-radius: 0px;
+
+  // these are custom properties, needs different syntax to work in scss
+  --adp-cell-background-color-selected: #{$zueriblau};
+  --adp-cell-background-color-selected-hover: #{$zueriblau};
+  --adp-cell-background-color-in-range: #{$zueriblau};
+  --adp-cell-background-color-in-range-hover: #{$zueriblau};
+  --adp-color-current-date: #{$zueriblau};
+  --adp-background-color-selected-other-month: #{$zueriblau};
+  --adp-background-color-selected-other-month-focused: #{$zueriblau};
+  --adp-cell-border-radius: 50px;
+  --adp-day-name-color: #{$black};
+  --adp-day-name-color-hover: #{$zueriblau};
  }
 
 .air-datepicker-body--cells {
@@ -91,12 +110,12 @@
 
 .air-datepicker-body--day-name {
   font-family: $title-font;
-  color: black;
+  color: $black;
   margin-top: 10px;
 }
 
 .air-datepicker-cell {
-  color: $text-color;
+  color: $black;
   box-sizing: border-box;
   cursor: pointer;
   display: flex;
@@ -120,38 +139,45 @@
  }
 }
 
- .air-datepicker-nav--action {
-    font-family: $title-font;
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-    user-select: none;
+.air-datepicker-nav {
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $black;
 
-   &:hover {
-    color: $dark-blue;
+  &--title {
+    &:hover {
+      background: $selected-grey;
+      border-radius: 0px;
+    }
   }
 
+  &--action {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $zueriblau;
 
-  path {
-    fill: none;
-    stroke: #333;
-    stroke-width: 2px;
-  }
- }
+    &:hover {
+      background: $selected-grey;
+      border-radius: 0px;
+    }
 
-.air-datepicker-nav--title {
-  font-family: $title-font;
-
-  &:hover {
-    color: $dark-blue;
-    background: white;
-  }
-
-   &:active {
-    color: $dark-blue;
-    background: white;
+    path {
+      stroke: currentColor;
+      stroke-width: 2;
+    }
   }
 }
+
+
+
+
 
 .air-datepicker-button {
     display: inline-flex;
