@@ -17,13 +17,27 @@
 #' \dontrun{
 #' inst / examples / sszDownloadButton / app.r
 #' }
-sszDownloadButton <- function(outputId, label, image = NULL, icon = NULL, ...) {
+sszDownloadButton <- function(outputId, label = NULL, image = NULL, icon = NULL, ...) {
+  # Set default label
+  if (is.null(label)) {
+    label <- "Download"
+  } else {
+    # Enforce allowed labels, case-sensitive
+    label_upper <- toupper(label)
+    if (!label_upper %in% c("CSV", "XLSX")) {
+      stop("sszDownloadButton: 'label' must be either 'CSV' or 'XLSX'.")
+    }
+    label <- ifelse(label_upper == "CSV", "CSV", "XLSX")
+  }
+
+  # Make html list
   html_list <- downloadButton(
     outputId = outputId,
     label = label,
     icon = icon,
     ...
   )
+
   # remove the standard classes 8especially btn and btn-default) to avoid style inheritance
   # keep only shiny-download-link and add the new sszDownload
   html_list$attribs$class <- "shiny-download-link sszDownload"
