@@ -9,21 +9,21 @@ ui <- ssz_page(
   sszAirDatepickerInput(
     inputId = "airMonth",
     label = "Beispiel",
-    dateFormat = "MM-yyyy",
-    view = "years",
-    minView = "months",
+    value = Sys.Date(),
+    dateFormat = "dd-MM-yyyy",
+    view = "days",
+    minView = "days",
     autoClose = TRUE,
     ssz_icon = icons_ssz("calendar")
   ),
   br(),
-  h1("Selected"),
   textOutput("choice")
 )
 
 server <- function(input, output, session) {
   # Our dataset
   observeEvent(input$airMonth, {
-    output$choice <- renderText(format(input$airMonth, "%m-%Y"))
+    output$choice <- renderText(format(input$airMonth, "%d-%m-%Y"))
   })
 }
 
