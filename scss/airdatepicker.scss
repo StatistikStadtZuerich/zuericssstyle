@@ -1,21 +1,46 @@
-/*******************************
- * Airdatepicker
- *******************************/
+/************************************************************
+ * Air Datepicker Component (.air-datepicker, .air-datepicker-cell, .air-datepicker-nav)
+ *
+ * Styles the Air Datepicker input and dropdown calendar used in sszPage forms.
+ * Provides a clean, modern calendar with consistent typography, spacing,
+ * colors, and hover/selected states, along with input icons and form-group support.
+ *
+ * Design goals:
+ * 1. Flat, minimal style with no pointer triangle or default shadows
+ * 2. Consistent font, size, and height for cells, including days, months, and years
+ * 3. Highlight selected day with distinct background and text colors
+ * 4. Smooth hover states for navigation arrows and selectable cells
+ * 5. Flexible grid layout for calendar body, supporting proper spacing and alignment
+ * 6. Input icons positioned absolutely without interfering with form-control interactions
+ *
+ * Layout details:
+ * - .input-group: relative container for input and calendar positioning
+ * - .ssz-input-icon: positioned on the right inside input, non-interactive, aligned vertically
+ * - .sw-air-picker.form-control: padding to accommodate input icon
+ * - .air-datepicker: main calendar container, uses CSS custom properties for colors, padding, and dimensions
+ * - .air-datepicker-body--cells: grid layout for days, months, and years with adjustable gap
+ * - .air-datepicker-cell: flex layout, centered text, hover and selected styles, handles current day and other-month/year states
+ * - .air-datepicker-nav: flex container for navigation arrows and title, hover styles applied
+ * - .air-datepicker--pointer: removed for flat design
+ ************************************************************/
+
+/* -------------------------------
+ * Input group and icon
+ * ------------------------------- */
+.input-group {
+  width: 100%;
+  position: relative; // anchor for absolute calendar
+
+  > .form-control {
+    width: 100% !important;
+    display: block;
+  }
+}
+
 /* remove addon visuals */
 .dp-addon {
   display: none !important;
 }
-
-.input-group {
-  width: 100%;
-  position: relative;
-}
-
-.input-group > .form-control {
-  width: 100% !important;
-  display: block;
-}
-
 
 /* Style for the icon */
 .ssz-input-icon {
@@ -46,117 +71,107 @@
   padding-right: 2.75rem;
 }
 
-
 .air-datepicker {
-	font-family:  $medium-font;
-  position: absolute;
-  z-index: 1000;
-  float: left;
-  max-width: 240px;
   padding: 0.75rem 0.5rem;
   font-size: $base-font-size;
-  text-align: left;
-  list-style: none;
-  background-color: $bg-color-light;
+  font-family:  $medium-font;
   border-radius: 0px;
+  box-shadow: none;
+  background-color: $bg-color-light;
 
-  // these are custom properties, needs different syntax to work in scss
-  --adp-cell-background-color-selected: #{$zueriblau};
-  --adp-cell-background-color-selected-hover: #{$zueriblau};
-  --adp-cell-background-color-in-range: #{$zueriblau};
-  --adp-cell-background-color-in-range-hover: #{$zueriblau};
-  --adp-color-current-date: #{$zueriblau};
-  --adp-background-color-selected-other-month: #{$zueriblau};
-  --adp-background-color-selected-other-month-focused: #{$zueriblau};
-  --adp-cell-border-radius: 50px;
+  /* Custom properties */
+  --adp-padding: 12px 8px;
+  --adp-width: 326px;
+  --adp-background-color-hover: #{$selected-grey};
+  --adp-border-color: #{transparent};
+  --adp-border-color-inner: #{transparent};
   --adp-day-name-color: #{$black};
-  --adp-day-name-color-hover: #{$zueriblau};
  }
 
+/* ---------------------------------
+ * Cell grid layout
+ * --------------------------------- */
 .air-datepicker-body--cells {
   display: grid;
   min-height: 100px;
+  gap: 6px;
 
   &.-days- {
-    grid-template-columns: repeat(7, 0.5fr);
-    grid-auto-rows: 28px;
-    row-gap: 2.5%;
-    margin-bottom: 15px;
-    margin-top: 10px;
+    grid-template-columns: repeat(7, 1fr);
   }
 
   &.-months- {
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 45px;
-    column-gap: 2.5%;
-    row-gap: 2.5%;
-    margin: 0.2%;
   }
 
   &.-years- {
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 45px;
-    row-gap: 2.5%;
-    column-gap: 2.5%;
-    margin: 0.2%;
   }
 }
 
-.air-datepicker-body--day-names {
-  display: grid;
-  grid-template-columns: repeat(7, 0.5fr);
-  margin: 0.2%;
-}
-
-.air-datepicker-body--day-name {
-  font-family: $title-font;
-  color: $black;
-  margin-top: 10px;
-}
-
+/* ---------------------------------
+ * Cell Styling
+ * --------------------------------- */
 .air-datepicker-cell {
-  color: $black;
-  box-sizing: border-box;
-  cursor: pointer;
+  border-radius: 0;
+  font-family: $medium-font;
+  font-size: $base-font-size;
   display: flex;
-  position: relative;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  height: 34px;
 
-  &:hover {
-    color: $zueriblau;
-    background: rgba(15, 5, 160, 0.08);
+  /* Color for current day */
+  &.-current- {
+    color: $black;
   }
 
+  /* Selected Cell */
   &.-selected- {
-    color: white;
-    background: $zueriblau;
-
-    &.-focus- {
-    color: white;
+    background-color: $secondary-blue !important;
+    color: $zueriblau !important;
   }
- }
+
+  /* Other Days and Decades */
+  &.-day-.-other-month-,
+  &.-year-.-other-decade- {
+    color: $other-month-grey;
+
+    &:hover {
+      cursor: default;
+      background-color: $bg-color-light;
+      color: $other-month-grey;
+    }
+  }
 }
 
+/* ---------------------------------
+ * Navigation
+ * --------------------------------- */
 .air-datepicker-nav {
-  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: $black;
 
+  /* Navigation Title */
   &--title {
+    color: $light-blue;
+
+    &.-disabled- {
+      margin-top: 4px;
+    }
+
+    & i {
+      color: $light-blue;
+    }
+
     &:hover {
-      background: $selected-grey;
-      border-radius: 0px;
+      background-color: transparent;
     }
   }
 
+  /* Arrow buttons */
   &--action {
-    width: 1rem;
-    height: 1rem;
-    border-radius: 0px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -164,49 +179,17 @@
     color: $zueriblau;
 
     &:hover {
-      background: $selected-grey;
+      background: $focus-background-blue;
       border-radius: 0px;
     }
 
-    path {
+    svg path {
       stroke: currentColor;
-      stroke-width: 2;
     }
   }
 }
 
-
-
-
-
-.air-datepicker-button {
-    display: inline-flex;
-    color: $zueriblau;
-    border-radius: 3px;
-    border: none;
-    background: white;
-
-  &:hover {
-    color: white;
-    background: $dark-blue;
-  }
-
-  &:focus {
-    color: $zueriblau;
-    background: rgba(15, 5, 160, 0.08);
-    outline: none;
-  }
-
-  &:active {
-    background: $dark-blue;
-  }
-
-  span {
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
+/* Remove pointer triangle */
+.air-datepicker--pointer {
+  display: none;
 }
