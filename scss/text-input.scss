@@ -14,7 +14,9 @@
  * State precedence:
  *   :focus  >  :hover  > default
  ************************************************************/
-.form-control {
+.form-control,
+.input-group-sm > .form-control,
+.input-group .form-control:first-child {
   position: relative;
   display: flex;
   height: 3.5rem;
@@ -29,6 +31,7 @@
   box-shadow: none;
   color: $light-blue;
   line-height: 3.5rem;
+  text-align: left;
 
   &:hover {
     background-color: white;
