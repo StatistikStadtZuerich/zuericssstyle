@@ -3,7 +3,7 @@
 #' @description function to generate a ssz-themed download button for csv and excel, wraps around downloadButton
 #'
 #' @param outputId shiny outputID for the download button
-#' @param label shiny label for the download button
+#' @param label character string specifying the button label. Must be one of "CSV", "XLSX" or "none". If "none" the label is omitted.
 #' @param image html-i tag with an image/icon to be added before the text; default NULL
 #' @param icon optional icon parameter for downloadButton, default NULL
 #' @param ... optional further named params for downloadButton (class parameter will be ignored/overwritten)
