@@ -18,16 +18,9 @@
 #' inst / examples / sszDownloadButton / app.r
 #' }
 sszDownloadButton <- function(outputId, label = NULL, image = NULL, icon = NULL, ...) {
-  # Set default label
-  if (is.null(label)) {
-    label <- "Download"
-  } else {
-    # Enforce allowed labels, case-sensitive
-    label_upper <- toupper(label)
-    if (!label_upper %in% c("CSV", "XLSX")) {
-      stop("sszDownloadButton: 'label' must be either 'CSV' or 'XLSX'.")
-    }
-    label <- ifelse(label_upper == "CSV", "CSV", "XLSX")
+  # Validate label if provided
+  if (!is.null(label)) {
+    label <- match.arg(label, choices = c("CSV", "XLSX"))
   }
 
   # Make html list
