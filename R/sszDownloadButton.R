@@ -17,10 +17,12 @@
 #' \dontrun{
 #' inst / examples / sszDownloadButton / app.r
 #' }
-sszDownloadButton <- function(outputId, label = NULL, image = NULL, icon = NULL, ...) {
-  # Validate label if provided
-  if (!is.null(label)) {
-    label <- match.arg(label, choices = c("CSV", "XLSX"))
+sszDownloadButton <- function(outputId, label = c("CSV", "XLSX", "none"), image = NULL, icon = NULL, ...) {
+  # Enforce allowed labels + no label
+  label <- match.arg(label)
+
+  if (label == "none") {
+    label <- NULL
   }
 
   # Make html list
