@@ -9,7 +9,15 @@ ui <- ssz_page(
     id = "downloadWrapperId",
     class = "downloadWrapperDiv",
     sszDownloadButton("csvDownload",
-      label = "csv",
+      label = "CSV",
+      image = img(icons_ssz("download"))
+    ),
+    sszDownloadButton("excelDownload",
+      label = "XLSX",
+      image = img(icons_ssz("download"))
+    ),
+    sszDownloadButton("excelDownload",
+      label = "none",
       image = img(icons_ssz("download"))
     )
   )
