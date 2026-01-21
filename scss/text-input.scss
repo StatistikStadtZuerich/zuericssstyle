@@ -16,7 +16,8 @@
  ************************************************************/
 .form-control,
 .input-group-sm > .form-control,
-.input-group .form-control:first-child {
+.input-group .form-control:first-child,
+.input-daterange input:last-child {
   position: relative;
   display: flex;
   height: 3.5rem;
