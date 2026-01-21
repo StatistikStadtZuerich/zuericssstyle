@@ -1,140 +1,316 @@
-/*******************************
- * Date Range
- *******************************/
+/************************************************************
+ * Shiny Datepicker Component (.datepicker, .datepicker-days, .datepicker-months, .datepicker-years)
+ *
+ * Styles the Shiny dateRangeInput / dateInput calendar
+ * Provides a clean, modern calendar with consistent typography, spacing,
+ * colors, and hover/selected states, along with input addon icons.
+ *
+ * Design goals:
+ * 1. Flat, minimal style with no default Bootstrap arrows or hover backgrounds interfering
+ * 2. Consistent font, size, and height for cells, including days, months, and years
+ * 3. Highlight selected day or range with distinct background and text colors
+ * 4. Smooth hover states for navigation arrows and selectable cells
+ * 5. Flexible table/grid layout for calendar body, supporting proper spacing and alignment
+ * 6. Input calendar icons positioned inside .input-group-addon without interfering with input
+ *
+ * Layout details:
+ * - .input-group-addon: contains calendar icon, styled for spacing and color
+ * - .datepicker.dropdown-menu: main calendar container, fixed width, hides default Bootstrap orientation arrows
+ * - table.table-condensed: layout for calendar cells, separate border spacing
+ * - th.dow: weekday header cells, uppercase and consistent font size
+ * - .datepicker-switch: month/year/decade header, clickable with hover effect
+ * - .prev / .next: navigation arrows with custom pseudo-element styling
+ * - td.day / td.old / td.new: day cells, clickable or disabled for other months
+ * - td.active / td.range: selected day or date range styling
+ * - .datepicker-months / .datepicker-years / .datepicker-decades / .datepicker-centuries: cells for month/year/decade selection, flex layout with hover and active states
+ * - Background clipping fixes applied to maintain hover and active visual consistency
+ *
+ * Notes:
+ * - Removes default Bootstrap text shadows and hover effects where needed
+ * - Ensures vertical spacing between headers and body rows
+ * - Compatible with Shiny's dateRangeInput and dateInput components
+ ************************************************************/
 
-
-
-/* Calendar Icon */
+/* ---------------------------------
+ * Input addon (calendar icon)
+ * --------------------------------- */
 .input-group-addon {
     background-color:transparent;
     border: 0;
     color:  $dark-blue;
+    padding: 0px 4px 0px 0px;
+
+    & svg {
+      width: 1.5rem !important;
+      height: 1.5rem !important;
+    }
 }
 
-/* Date Range Dropdown */
-.dropdown-menu {
-    position: absolute;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 160px;
-    padding: 16px;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border-color: $text-color;
-    border: 0 solid $text-color;
-    border-radius: 2px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
+/* ---------------------------------
+ * Datepicker container
+ * --------------------------------- */
+/* Styles for the main datepicker dropdown */
+.datepicker.dropdown-menu {
+  width: 342px;
 }
 
-.datepicker-dropdown:before {
-    content: '';
-    display: inline-block;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: transparent;
-    border-top: 0;
-    border-bottom-color: transparent;
-    position: absolute;
+/* Remove default Bootstrap arrows for orientation indicators */
+.datepicker-dropdown.datepicker-orient-bottom:before,
+.datepicker-dropdown.datepicker-orient-top:before {
+  display: none !important;
 }
 
-.datepicker-dropdown:after {
-    content: '';
-    display: inline-block;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
-    border-bottom: transparent;
-    border-top: 0;
-    border-bottom-color: transparent;
-    position: absolute;
+/* ---------------------------------
+ * Tables
+ * --------------------------------- */
+/* Base table styling for datepicker */
+.datepicker table.table-condensed {
+  width: 100% !important;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
-.datepicker-switch {
-  font-size: 14px;
-  font-family: $title-font;
-  color: $text-color;
+/* Header and cell styling */
+.datepicker table th,
+.datepicker table td {
+  text-align: center;
+  height: 34px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
 }
 
-.datepicker .datepicker-switch:hover {
-  color: $dark-blue;
-  background: transparent;
-  transition: 0.5s;
+/* ---------------------------------
+ * Header / navigation
+ * --------------------------------- */
+/* Unified header for days, months, years, decades */
+.datepicker thead tr:first-child,
+.datepicker .datepicker-months thead tr:first-child,
+.datepicker .datepicker-years thead tr:first-child,
+.datepicker .datepicker-decades thead tr:first-child,
+.datepicker .datepicker-centuries thead tr:first-child{
+  color: $light-blue;
 }
 
-/* Active Day, Month, Year  */
-.datepicker table tr td.active.active {
-  background-color: $zueriblau;
-  border-radius: 99999px;
-}
+/* Switch buttons (month/year/decade) */
+.datepicker .datepicker-switch,
+.datepicker .datepicker-months .datepicker-switch,
+.datepicker .datepicker-years .datepicker-switch,
+.datepicker .datepicker-decades .datepicker-switch,
+.datepicker .datepicker-centuries .datepicker-switch {
+  font-weight: normal;
+  color: $light-blue;
+  padding: 8px 0; /* same padding as days header */
+  margin: 0;
+  text-align: center;
 
-.datepicker table tr td span.active.active {
-    background-color: $zueriblau;
-    height: 45px;
-    margin: 1%;
+  &:hover {
+    background: transparent;
+    color: $light-blue;
     cursor: pointer;
-    border-radius: 50px;
-    display: inline-grid;
-    align-content: center;
-    &:hover {
-      background-color: $zueriblau;
-      &:hover {
-        background-color: $zueriblau;
-      }
-
   }
 }
 
-.datepicker table tr td span {
-    height: 45px;
-    margin: 1%;
-    cursor: pointer;
-    border-radius: 50px;
-    display: inline-grid;
-    align-content: center;
+/* Day names */
+.datepicker thead tr:last-child th {
+  font-weight: normal;
+  color: $black;
 }
 
-.datepicker table tr td span:hover, .datepicker table tr td span.focused {
-    color: $zueriblau;
-    background: rgba(15, 5, 160, 0.08);
+/* Remove Bootstrap hover effect for arrows and switch */
+.datepicker .prev:hover,
+.datepicker .next:hover {
+  background: transparent !important;
+  color: $zueriblau !important;
+  cursor: pointer;
 }
 
-.datepicker table tr td.active.active:hover {
-  background-color: $zueriblau;
+.datepicker .datepicker-switch:hover {
+  background: transparent !important;
+  color: $light-blue !important;
 }
 
-.datepicker table tr td span.active.active:hover {
-  background-color: $zueriblau;
+/* Base styling for prev/next arrows */
+.datepicker .prev,
+.datepicker .next {
+  font-size: 0;
+  width: auto;
+  position: relative;
+  height: 36px;
+  cursor: pointer;
+  background: transparent;
 }
 
-/* Disable Century*/
-.datepicker table tr td span.active.disabled.active {
-   background-color: $zueriblau;
+/* Force 25% width for navigation in larger views */
+.datepicker .datepicker-months .prev,
+.datepicker .datepicker-months .next,
+.datepicker .datepicker-years .prev,
+.datepicker .datepicker-years .next,
+.datepicker .datepicker-decades .prev,
+.datepicker .datepicker-decades .next,
+.datepicker .datepicker-centuries .prev,
+.datepicker .datepicker-centuries .next{
+  width: 25%;
 }
 
-.datepicker table tr td span.active.disabled:hover, .datepicker table tr td span.active.disabled:focus, .datepicker table tr td span.active.disabled.focus, .datepicker table tr td span.active[disabled]:hover, .datepicker table tr td span.active[disabled]:focus, .datepicker table tr td span.active.focus[disabled], fieldset[disabled] .datepicker table tr td span.active:hover, fieldset[disabled] .datepicker table tr td span.active:focus, fieldset[disabled] .datepicker table tr td span.active.focus, .datepicker table tr td span.active.disabled:hover:hover, .datepicker table tr td span.active.disabled:hover:focus, .datepicker table tr td span.active.disabled.focus:hover, .datepicker table tr td span.active[disabled]:hover:hover, .datepicker table tr td span.active[disabled]:hover:focus, .datepicker table tr td span.active.focus[disabled]:hover, fieldset[disabled] .datepicker table tr td span.active:hover:hover, fieldset[disabled] .datepicker table tr td span.active:hover:focus, fieldset[disabled] .datepicker table tr td span.active.focus:hover, .datepicker table tr td span.active.disabled.disabled:hover, .datepicker table tr td span.active.disabled.disabled:focus, .datepicker table tr td span.active.disabled.disabled.focus, .datepicker table tr td span.active.disabled[disabled]:hover, .datepicker table tr td span.active.disabled[disabled]:focus, .datepicker table tr td span.active.disabled.focus[disabled], fieldset[disabled] .datepicker table tr td span.active.disabled:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:focus, fieldset[disabled] .datepicker table tr td span.active.disabled.focus, .datepicker table tr td span.active.disabled.disabled:hover:hover, .datepicker table tr td span.active.disabled.disabled:hover:focus, .datepicker table tr td span.active.disabled.disabled.focus:hover, .datepicker table tr td span.active.disabled[disabled]:hover:hover, .datepicker table tr td span.active.disabled[disabled]:hover:focus, .datepicker table tr td span.active.disabled.focus[disabled]:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:hover, fieldset[disabled] .datepicker table tr td span.active.disabled:hover:focus, fieldset[disabled] .datepicker table tr td span.active.disabled.focus:hover {
-    background-color: $zueriblau;
+/* Create arrow shapes using ::before pseudo-element */
+.datepicker .prev::before,
+.datepicker .next::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-bottom: 2px solid $zueriblau;
 }
 
-/* Inactive Day */
-.datepicker table tr td.day:hover {
-  color: $zueriblau;
-  background: rgba(15, 5, 160, 0.08);
-  border-radius: 99999px;
+.datepicker .prev::before {
+  border-left: 2px solid $zueriblau;
+  transform: rotate(45deg);
 }
 
-/* Old Day */
-.datepicker table tr td.old, .datepicker table tr td.new {
-    color: #BFBFBF;
+.datepicker .next::before {
+  border-right: 2px solid $zueriblau;
+  transform: rotate(-45deg);
 }
 
-/* Days */
-.day {
-  color: $text-color;
+/* Add vertical spacing between header and body for days, months, years */
+.datepicker table.table-condensed thead tr:last-child th {
+  padding-top: 24px;  // increase space below header
 }
 
-.dow {
-  font-family: $title-font;
+/* Weekday header style */
+th.dow {
+   text-transform: uppercase;
+   font-size: 0.875rem;
+}
+
+/* --------------------------
+ * Months / Years / Decades spacing
+ * -------------------------- */
+ /* Spacing between header and first row of body for all views */
+.datepicker .datepicker-months table.table-condensed tbody tr:first-child td,
+.datepicker .datepicker-years table.table-condensed tbody tr:first-child td,
+.datepicker .datepicker-decades table.table-condensed tbody tr:first-child td,
+.datepicker .datepicker-centuries table.table-condensed tbody tr:first-child td{
+  padding-top: 12px; // space between header and first row of body
+  padding-bottom: 16px;
+}
+
+/* ---------------------------------
+ * Days view
+ * --------------------------------- */
+.datepicker .datepicker-days {
+  padding: 12px 8px;
+}
+
+/* Clickable day cells */
+.datepicker td.day,
+.datepicker td.old,
+.datepicker td.new {
+  background-clip: content-box;
+  height: 34px;
+  line-height: 34px;
+  font-family: $medium-font;
+  font-size: $base-font-size;
+  cursor: pointer;
+}
+
+/* Hover effect for active days */
+.datepicker td.day:hover {
+  background: $selected-grey;
+}
+
+/* Active / selected day */
+.datepicker td.active,
+.datepicker td.active:hover {
+  background-color: $secondary-blue !important;
+  color: $zueriblau !important;
+}
+
+/* Range selection support */
+.datepicker td.range,
+.datepicker td.range:hover {
+  background-color: $selected-grey;
+}
+
+/* Hover, active, range, and keyboard focus: keep clipped background */
+.datepicker table tr td.day:hover,
+.datepicker table tr td.day:focus,
+.datepicker table tr td.day:focus-within,
+.datepicker table tr td.day.active,
+.datepicker table tr td.day.active:hover,
+.datepicker table tr td.range,
+.datepicker table tr td.range:hover,
+.datepicker table tr td.range:focus,
+.datepicker table tr td.range:focus-within {
+  background-clip: content-box !important;
+}
+
+/* Old / new (other month) days — disable hover & pointer */
+.datepicker td.old,
+.datepicker td.new {
+  color: $other-month-grey;
+  background: $bg-color-light;
+  background-clip: content-box;
+  cursor: default;
+}
+
+/* Neutralize Bootstrap hover effect for old/new days */
+.datepicker td.old:hover,
+.datepicker td.new:hover {
+  background: $bg-color-light !important;
+  color: $other-month-grey !important;
+  cursor: default !important;
+}
+
+/* Override Bootstrap text color for other-month days */
+.datepicker table tr td.old,
+.datepicker table tr td.new {
+  color: $other-month-grey;
+}
+
+/* Remove text shadow from active days */
+.datepicker table tr td.active,
+.datepicker table tr td.active.highlighted,
+.datepicker table tr td span.active {
+  text-shadow: none;
+}
+
+/* Condensed table cell padding */
+.table-condensed>tbody>tr>td {
+  padding: 3px;
+}
+
+/* Remove border radius for all cells */
+.datepicker table tr td {
+  border-radius: 0;
+}
+
+/* ---------------------------------
+ * Months / years / decades views
+ * --------------------------------- */
+ /* Style for selectable cells in month/year/decade views */
+.datepicker .datepicker-months td span,
+.datepicker .datepicker-years td span,
+.datepicker .datepicker-decades td span,
+.datepicker .datepicker-centuries td span{
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: calc(25% - 8px) !important;
+  height: 34px !important;
+  margin: 8px 4px;
+  font-family: $medium-font;
+  font-size: $base-font-size;
+  border-radius: 0 !important;
+  cursor: pointer;
+
+  &:hover {
+    background: $selected-grey;
+  }
+
+  &.active {
+    background-color: $secondary-blue !important;
+    color: $zueriblau !important;
+  }
 }
