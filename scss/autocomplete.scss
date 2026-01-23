@@ -1,28 +1,83 @@
+/************************************************************
+ * Autocomplete Input & Dropdown (.autocomplete)
+ *
+ * Styles the base input and dropdown for dqshiny/daqana
+ * autocomplete to match Selectize inputs.
+ *
+ * Design goals:
+ * 1. Input height, font, and padding consistent with Selectize
+ * 2. Hover and focus states clearly visible
+ * 3. Dropdown items have consistent background, font, and spacing
+ * 4. Active / hover / selected items follow design system colors
+ * 5. No borders between dropdown items for a clean look
+ *
+ * State precedence:
+ *   :active  >  :hover  >  :focus-visible  >  :focus
+ ************************************************************/
 
-/*******************************
-* Autocomplete from daqana/dqshiny
-*******************************/
-
-.autocomplete {
-  color: $zueriblau;
-}
-
-/* Autocomplete Drop Down Menu */
-.autocomplete-items div {
-  font-family: $main-font;
-  font-size: 14px;
-  padding: 6px 16px 6px 20px;
-  line-height: 26px;
-  border-bottom: 0px;
+/* ---------------------------------
+ * Autocomplete Drop Down Menu
+ * --------------------------------- */
+.autocomplete-items {
+  z-index: 100;
+  background-color: $bg-color-light;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 8px;       // spacing from input
+  padding-top: 0;
+  padding-bottom: 0;
+  position: absolute;
+  width: 100%;           // full width of input
 
   &:hover {
     background-color: $bg-color-light;
-    color: $dark-blue;
+    color: $black;
     z-index: 100;
   }
  }
 
-.autocomplete-active {
-  background-color: $bg-color-light !important;
-  color: $dark-blue;
+ /* ---------------------------------
+  * Individual items inside autocomplete
+  * --------------------------------- */
+.autocomplete-items div {
+  box-sizing: border-box;
+  height: 48px;
+  padding: 12px 20px;
+  line-height: 24px;
+  font-family: $medium-font;
+  font-weight: 500;
+  font-size: $base-font-size;
+  color: $black;
+  background-color: $bg-color-light;
+  cursor: pointer;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none;
+}
+
+ /* ---------------------------------
+  * Hover or active highlight
+  * --------------------------------- */
+.autocomplete-items div:hover,
+.autocomplete-items div.active {
+  background-color: $selected-grey;
+  color: $black;
+}
+
+ /* ---------------------------------
+  * Selected item (if any selection logic exists)
+  * --------------------------------- */
+.autocomplete-items .selected {
+  background-color: $selected-grey;
+  color: $zueriblau;
+  font-family: $medium-font;
+  font-weight: 500;
+}
+
+ /* ---------------------------------
+  * Hover effect for selected items
+  * --------------------------------- */
+.autocomplete-items .selected:hover {
+  background-color: $selected-grey !important;
+  color: $black !important;
 }

@@ -5,7 +5,7 @@ ui <- ssz_page(
   h1("Widget demo"),
   sszTextInput(
     "suchfeld",
-    "Name:"
+    "Name"
   ),
   br(),
   h1("Input"),

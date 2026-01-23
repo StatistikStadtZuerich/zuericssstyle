@@ -1,28 +1,54 @@
-/* Input */
+/************************************************************
+ * Form Input (.form-control)
+ *
+ * Styles the base input fields for consistent sizing, font,
+ * and color across the application.
+ *
+ * Design goals:
+ * 1. Fixed height and padding for visual consistency
+ * 2. Neutral default border and background
+ * 3. Hover highlights border without affecting layout
+ * 4. Focus state visually distinct for accessibility
+ * 5. Smooth transitions on hover for better UX
+ *
+ * State precedence:
+ *   :focus  >  :hover  > default
+ ************************************************************/
 .form-control {
-  border-color: $text-color;
+  position: relative;
+  display: flex;
+  height: 3.5rem;
+  padding: 0 16px;
+  padding-right: 2.5rem;
+  font-family: $medium-font;
+  font-size: $base-font-size;
+  background-color: white;
+  border: 0.125rem solid $border-grey;
+  border-radius: 0px;
   outline: 0;
-  border-radius: 2px;
-  height: 40px;
   box-shadow: none;
-  font-family: $main-font;
-  font-size: 14px;
-  line-height: 26px;
-  padding: 6px 16px 6px 16px;
+  color: $light-blue;
+  line-height: 3.5rem;
 
   &:hover {
     background-color: white;
-    color:  $dark-blue;
-    border-color: $dark-blue;
-    //padding: 6px 16px 6px 16px;
-    transition: 0.5s;
+    color: $light-blue;
+    border-color: $hover-border-blue;
+    transition: 0.3s;
   }
 
   &:focus {
-    color: $dark-blue;
+    border-color: $hover-border-blue;
+    background-color: $focus-background-blue;
+    color: $black;
     box-shadow: none;
-    border-color: $dark-blue;
-    //padding: 6px 16px 6px 16px;
-    transition: 0.5s;
   }
+}
+
+.form-control::selection {
+  background-color: $secondary-blue;
+}
+
+.form-control::-moz-selection {
+  background-color: $secondary-blue;
 }
