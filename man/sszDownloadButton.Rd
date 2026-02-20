@@ -4,12 +4,18 @@
 \alias{sszDownloadButton}
 \title{sszDownloadButton}
 \usage{
-sszDownloadButton(outputId, label, image = NULL, icon = NULL, ...)
+sszDownloadButton(
+  outputId,
+  label = c("CSV", "XLSX", "none"),
+  image = NULL,
+  icon = NULL,
+  ...
+)
 }
 \arguments{
 \item{outputId}{shiny outputID for the download button}
 
-\item{label}{shiny label for the download button}
+\item{label}{character string specifying the button label. Must be one of "CSV", "XLSX" or "none". If "none" the label is omitted.}
 
 \item{image}{html-i tag with an image/icon to be added before the text; default NULL}
 

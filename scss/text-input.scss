@@ -34,7 +34,7 @@
     background-color: white;
     color: $light-blue;
     border-color: $hover-border-blue;
-    transition: 0.5s;
+    transition: 0.3s;
   }
 
   &:focus {
@@ -43,4 +43,12 @@
     color: $black;
     box-shadow: none;
   }
+}
+
+.form-control::selection {
+  background-color: $secondary-blue;
+}
+
+.form-control::-moz-selection {
+  background-color: $secondary-blue;
 }

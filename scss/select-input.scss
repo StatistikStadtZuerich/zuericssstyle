@@ -122,7 +122,7 @@
 .selectize-dropdown [data-selectable].active,
 .selectize-dropdown [data-selectable]:hover {
   background-color: $selected-grey;
-  color: $zueriblau;
+  color: $black;
 }
 
 /* Selected item */
@@ -133,11 +133,11 @@
   font-weight: 500;
 }
 
-/* Hover effect for all items (including selected) */
-.selectize-dropdown [data-selectable]:hover,
-.selectize-dropdown .selected:hover {
-  background-color: $selected-grey !important;
-  color: $black !important;
+/* Previously selected, not hovered or active */
+.selectize-dropdown .selected:not(.active):not(:hover) {
+  background-color: $bg-color-light !important; /* reset background */
+  /* keep text color as $zueriblau */
+  color: $zueriblau !important;
 }
 
 /* ---------------------------------
