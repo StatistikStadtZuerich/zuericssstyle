@@ -37,7 +37,7 @@
 #'   icon  = icons_ssz("important-warning-filled")
 #' )
 #' }
-sszWarningBox <- function(title = NULL, text, link = NULL, icon = NULL) {
+sszWarningBox <- function(title = NULL, text, icon = NULL) {
   html_list <- tags$div(
     class = "info-box-div info-box--warning",
 

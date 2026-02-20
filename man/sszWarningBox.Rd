@@ -4,7 +4,7 @@
 \alias{sszWarningBox}
 \title{sszWarningBox}
 \usage{
-sszWarningBox(title = NULL, text, link = NULL, icon = NULL)
+sszWarningBox(title = NULL, text, icon = NULL)
 }
 \arguments{
 \item{title}{Character string for the warning title.}
