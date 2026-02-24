@@ -39,19 +39,8 @@ sszInfoBox(
 }
 }
 \seealso{
-Other shiny_widgets: 
-\code{\link{sszActionButton}()},
-\code{\link{sszAirDatepickerInput}()},
-\code{\link{sszAutocompleteInput}()},
+Other html_elements: 
 \code{\link{sszContextBox}()},
-\code{\link{sszDateRange}()},
-\code{\link{sszDownloadButton}()},
-\code{\link{sszNumericInput}()},
-\code{\link{sszOgdDownload}()},
-\code{\link{sszRadioButtons}()},
-\code{\link{sszRadioGroupButtons}()},
-\code{\link{sszSelectInput}()},
-\code{\link{sszSliderInput}()},
-\code{\link{sszTextInput}()}
+\code{\link{sszWarningBox}()}
 }
-\concept{shiny_widgets}
+\concept{html_elements}
