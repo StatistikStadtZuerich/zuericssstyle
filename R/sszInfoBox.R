@@ -19,7 +19,7 @@
 #' @return A `shiny.tag` object representing the info box, suitable for
 #'   direct inclusion in a Shiny UI.
 #' @export
-#' @family shiny_widgets
+#' @family html_elements
 #'
 #' @examples
 #' \dontrun{

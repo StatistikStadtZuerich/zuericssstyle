@@ -11,7 +11,7 @@
 #'
 #' @return A `shiny.tag` object representing the context box, ready to include in Shiny UI.
 #' @export
-#' @family shiny_widgets
+#' @family html_elements
 #'
 #' @examples
 #' \dontrun{
