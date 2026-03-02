@@ -11,7 +11,7 @@ sszWarningBox(title = NULL, text, icon = NULL)
 
 \item{text}{Character string for the warning message body.}
 
-\item{icon}{Optional HTML tag for an icon (SVG or Font Awesome).}
+\item{icon}{Optional HTML tag for an icon. If \code{NULL} (default value), no icon is displayed.}
 }
 \value{
 A \code{shiny.tag} object representing the info box, suitable for

@@ -11,7 +11,7 @@ sszContextBox(title, text, icon = NULL)
 
 \item{text}{A character string for the body text of the context box.}
 
-\item{icon}{Optional HTML tag for an icon. If \code{NULL}, no icon is displayed.}
+\item{icon}{Optional HTML tag for an icon. If \code{NULL} (default value), no icon is displayed.}
 }
 \value{
 A \code{shiny.tag} object representing the context box, ready to include in Shiny UI.

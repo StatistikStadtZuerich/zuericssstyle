@@ -8,7 +8,7 @@
 #'
 #' @param title Character string for the warning title.
 #' @param text Character string for the warning message body.
-#' @param icon Optional HTML tag for an icon (SVG or Font Awesome).
+#' @param icon Optional HTML tag for an icon. If `NULL` (default value), no icon is displayed.
 #'
 #' @return A `shiny.tag` object representing the info box, suitable for
 #'   direct inclusion in a Shiny UI.
