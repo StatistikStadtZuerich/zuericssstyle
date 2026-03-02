@@ -14,7 +14,7 @@ ui <- ssz_page(
       image = icons_ssz("download")
     ),
     sszDownloadButton("excelDownload",
-      label = "Excel",
+      label = "XLSX",
       image = icons_ssz("download")
     ),
     sszDownloadButton("excelDownload",
