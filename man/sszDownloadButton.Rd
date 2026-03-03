@@ -9,7 +9,7 @@ sszDownloadButton(outputId, label = NULL, image = NULL, icon = NULL, ...)
 \arguments{
 \item{outputId}{shiny outputID for the download button}
 
-\item{label}{character string specifying the button label. Must be one of "CSV" or "XLSX".}
+\item{label}{character string specifying the button label. Must be one of "CSV" or "XLSX", default NULL}
 
 \item{image}{html-i tag with an image/icon to be added before the text; default NULL}
 
