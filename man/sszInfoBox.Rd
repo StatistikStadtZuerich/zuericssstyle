@@ -12,7 +12,7 @@ sszInfoBox(title = NULL, text, icon = NULL)
 
 \item{text}{A character string containing the body text of the info box.}
 
-\item{iconicon}{Optional HTML tag for an icon. If \code{NULL} (default value), no icon is displayed.}
+\item{icon}{icon Optional HTML tag for an icon. If \code{NULL} (default value), no icon is displayed.}
 }
 \value{
 A \code{shiny.tag} object representing the info box, suitable for
