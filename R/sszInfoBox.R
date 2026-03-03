@@ -13,7 +13,7 @@
 #' @param title A character string for the heading of the info box
 #'   (rendered as an h6 element). If `NULL`, no title is shown.
 #' @param text A character string containing the body text of the info box.
-#' @param iconicon Optional HTML tag for an icon. If `NULL` (default value), no icon is displayed.
+#' @param icon icon Optional HTML tag for an icon. If `NULL` (default value), no icon is displayed.
 #'
 #' @return A `shiny.tag` object representing the info box, suitable for
 #'   direct inclusion in a Shiny UI.
