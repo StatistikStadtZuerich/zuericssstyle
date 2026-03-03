@@ -3,9 +3,9 @@
 #' @description function to generate an ssz-themed ogd download button
 #'
 #' @param outputId outputId parameter
-#' @param label label parameter (i.e. text to be shown)
+#' @param label label parameter (i.e. text to be shown), default is "OGD"
 #' @param href link to be opened
-#' @param image optional image/icon in the form of a html-i Tag, default NULL
+#' @param image optional image/icon in the form of a html-i Tag, default is icons_ssz("external-link")
 #'
 #' @return tags$a
 #'
@@ -16,7 +16,7 @@
 #' \dontrun{
 #' inst / examples / sszOgdDownload / app.r
 #' }
-sszOgdDownload <- function(outputId, href, label, image = NULL) {
+sszOgdDownload <- function(outputId, href, label = "OGD", image = icons_ssz("external-link")) {
   tags$a(
     id = outputId,
     href = href,
