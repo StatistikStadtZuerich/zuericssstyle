@@ -3,7 +3,7 @@
 #' @description function to generate a ssz-themed download button for csv and excel, wraps around downloadButton
 #'
 #' @param outputId shiny outputID for the download button
-#' @param label character string specifying the button label. Must be one of "CSV" or "XLSX", default NULL
+#' @param label character string specifying the button label. Must be one of "Download", "CSV" or "XLSX", default is "Download"
 #' @param image html-i tag with an image/icon to be added before the text; default NULL
 #' @param icon optional icon parameter for downloadButton, default NULL
 #' @param ... optional further named params for downloadButton (class parameter will be ignored/overwritten)
@@ -17,14 +17,9 @@
 #' \dontrun{
 #' inst / examples / sszDownloadButton / app.r
 #' }
-sszDownloadButton <- function(outputId, label = NULL, image = NULL, icon = NULL, ...) {
-  # Default if missing or NULL
-  if (is.null(label)) {
-    label <- "Download"
-  } else {
-    # Only allow CSV or XLSX if label is provided
-    label <- match.arg(label, choices = c("CSV", "XLSX"))
-  }
+sszDownloadButton <- function(outputId, label = c("Download", "CSV", "XLSX"), image = NULL, icon = NULL, ...) {
+  # Only allow given labels
+  label <- match.arg(label, choices = c("Download", "CSV", "XLSX"))
 
   # Make html list
   html_list <- downloadButton(

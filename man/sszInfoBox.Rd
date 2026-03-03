@@ -8,7 +8,7 @@ sszInfoBox(title = NULL, text, icon = NULL)
 }
 \arguments{
 \item{title}{A character string for the heading of the info box
-(rendered as an h6 element). If \code{NULL}, no title is shown.}
+(rendered as an h6 element). If \code{NULL} (default value), no title is shown.}
 
 \item{text}{A character string containing the body text of the info box.}
 
