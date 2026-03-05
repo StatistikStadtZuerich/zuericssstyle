@@ -1,32 +1,32 @@
 /************************************************************
- * Air Datepicker Component (.air-datepicker, .air-datepicker-cell, .air-datepicker-nav)
- *
- * Styles the Air Datepicker input and dropdown calendar used in sszPage forms.
- * Provides a clean, modern calendar with consistent typography, spacing,
- * colors, and hover/selected states, along with input icons and form-group support.
- *
- * Design goals:
- * 1. Flat, minimal style with no pointer triangle or default shadows
- * 2. Consistent font, size, and height for cells, including days, months, and years
- * 3. Highlight selected day with distinct background and text colors
- * 4. Smooth hover states for navigation arrows and selectable cells
- * 5. Flexible grid layout for calendar body, supporting proper spacing and alignment
- * 6. Input icons positioned absolutely without interfering with form-control interactions
- *
- * Layout details:
- * - .input-group: relative container for input and calendar positioning
- * - .ssz-input-icon: positioned on the right inside input, non-interactive, aligned vertically
- * - .sw-air-picker.form-control: padding to accommodate input icon
- * - .air-datepicker: main calendar container, uses CSS custom properties for colors, padding, and dimensions
- * - .air-datepicker-body--cells: grid layout for days, months, and years with adjustable gap
- * - .air-datepicker-cell: flex layout, centered text, hover and selected styles, handles current day and other-month/year states
- * - .air-datepicker-nav: flex container for navigation arrows and title, hover styles applied
- * - .air-datepicker--pointer: removed for flat design
- ************************************************************/
+* Air Datepicker Component (.air-datepicker, .air-datepicker-cell, .air-datepicker-nav)
+*
+* Styles the Air Datepicker input and dropdown calendar used in sszPage forms.
+* Provides a clean, modern calendar with consistent typography, spacing,
+* colors, and hover/selected states, along with input icons and form-group support.
+*
+* Design goals:
+* 1. Flat, minimal style with no pointer triangle or default shadows
+* 2. Consistent font, size, and height for cells, including days, months, and years
+* 3. Highlight selected day with distinct background and text colors
+* 4. Smooth hover states for navigation arrows and selectable cells
+* 5. Flexible grid layout for calendar body, supporting proper spacing and alignment
+* 6. Input icons positioned absolutely without interfering with form-control interactions
+*
+* Layout details:
+* - .input-group: relative container for input and calendar positioning
+* - .ssz-input-icon: positioned on the right inside input, non-interactive, aligned vertically
+* - .sw-air-picker.form-control: padding to accommodate input icon
+* - .air-datepicker: main calendar container, uses CSS custom properties for colors, padding, and dimensions
+* - .air-datepicker-body--cells: grid layout for days, months, and years with adjustable gap
+* - .air-datepicker-cell: flex layout, centered text, hover and selected styles, handles current day and other-month/year states
+* - .air-datepicker-nav: flex container for navigation arrows and title, hover styles applied
+* - .air-datepicker--pointer: removed for flat design
+************************************************************/
 
 /* -------------------------------
- * Input group and icon
- * ------------------------------- */
+* Input group and icon
+* ------------------------------- */
 .input-group {
   width: 100%;
   position: relative; // anchor for absolute calendar
@@ -84,7 +84,6 @@
   transform: translateY(8px);
 
 
-
   /* Custom properties */
   --adp-padding: 12px 8px;
   --adp-width: 326px;
@@ -92,11 +91,11 @@
   --adp-border-color: #{transparent};
   --adp-border-color-inner: #{transparent};
   --adp-day-name-color: #{$black};
- }
+}
 
 /* ---------------------------------
- * Cell grid layout
- * --------------------------------- */
+* Cell grid layout
+* --------------------------------- */
 .air-datepicker-body--cells {
   display: grid;
   min-height: 100px;
@@ -116,8 +115,8 @@
 }
 
 /* ---------------------------------
- * Cell Styling
- * --------------------------------- */
+* Cell Styling
+* --------------------------------- */
 .air-datepicker-cell {
   border-radius: 0;
   font-family: $medium-font;
@@ -128,19 +127,19 @@
   height: 34px;
 
   /* Color for current day */
-  &.-current- {
+&.-current- {
     color: $black;
   }
 
   /* Selected Cell */
-  &.-selected- {
+&.-selected- {
     background-color: $secondary-blue !important;
     color: $zueriblau !important;
   }
 
   /* Other Days and Decades */
-  &.-day-.-other-month-,
-  &.-year-.-other-decade- {
+&.-day-.-other-month-,
+&.-year-.-other-decade- {
     color: $other-month-grey;
 
     &:hover {
@@ -152,15 +151,15 @@
 }
 
 /* ---------------------------------
- * Navigation
- * --------------------------------- */
+* Navigation
+* --------------------------------- */
 .air-datepicker-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   /* Navigation Title */
-  &--title {
+&--title {
     color: $light-blue;
 
     &.-disabled- {
@@ -177,7 +176,7 @@
   }
 
   /* Arrow buttons */
-  &--action {
+&--action {
     cursor: pointer;
     display: flex;
     align-items: center;
