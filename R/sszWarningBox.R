@@ -1,21 +1,6 @@
 #' sszWarningBox
 #'
 #' @description
-#' Creates a styled warning message box with an optional title, message text,
-#' optional link, and icon. Layout and structure are shared with other
-#' message boxes (info, error) for consistent behavior.
-#'
-#' @param title Character string for the warning title.
-#' @param text Character string for the warning message body.
-#' @param icon Optional HTML tag for an icon (SVG or Font Awesome).
-#'
-#' @return A `shiny.tag` object.
-#' @export
-#'
-#'
-#' sszWarningBox
-#'
-#' @description
 #' Function to generate a styled warning box for explanatory
 #' messages. The warning box optionally displays a title, descriptive text,
 #' and an icon. Layout and structure are shared with other
@@ -23,11 +8,12 @@
 #'
 #' @param title Character string for the warning title.
 #' @param text Character string for the warning message body.
-#' @param icon Optional HTML tag for an icon (SVG or Font Awesome).
+#' @param icon Optional HTML tag for an icon. If `NULL` (default value), no icon is displayed.
 #'
 #' @return A `shiny.tag` object representing the info box, suitable for
 #'   direct inclusion in a Shiny UI.
 #' @export
+#' @family html_elements
 #'
 #' @examples
 #' \dontrun{
@@ -37,7 +23,7 @@
 #'   icon  = icons_ssz("important-warning-filled")
 #' )
 #' }
-sszWarningBox <- function(title = NULL, text, link = NULL, icon = NULL) {
+sszWarningBox <- function(title = NULL, text, icon = NULL) {
   html_list <- tags$div(
     class = "info-box-div info-box--warning",
 

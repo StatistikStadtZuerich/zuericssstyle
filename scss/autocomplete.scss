@@ -31,7 +31,7 @@
 
   &:hover {
     background-color: $bg-color-light;
-    color: $dark-blue;
+    color: $black;
     z-index: 100;
   }
  }
@@ -61,7 +61,7 @@
 .autocomplete-items div:hover,
 .autocomplete-items div.active {
   background-color: $selected-grey;
-  color: $zueriblau;
+  color: $black;
 }
 
  /* ---------------------------------

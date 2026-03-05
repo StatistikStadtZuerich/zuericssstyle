@@ -7,11 +7,11 @@
 #'
 #' @param title A character string for the heading of the context box (displayed as h6).
 #' @param text A character string for the body text of the context box.
-#' @param icon Optional HTML tag for an icon. If `NULL`, no icon is displayed.
+#' @param icon Optional HTML tag for an icon. If `NULL` (default value), no icon is displayed.
 #'
 #' @return A `shiny.tag` object representing the context box, ready to include in Shiny UI.
 #' @export
-#' @family shiny_widgets
+#' @family html_elements
 #'
 #' @examples
 #' \dontrun{

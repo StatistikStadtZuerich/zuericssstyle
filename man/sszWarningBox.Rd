@@ -4,26 +4,20 @@
 \alias{sszWarningBox}
 \title{sszWarningBox}
 \usage{
-sszWarningBox(title = NULL, text, link = NULL, icon = NULL)
+sszWarningBox(title = NULL, text, icon = NULL)
 }
 \arguments{
 \item{title}{Character string for the warning title.}
 
 \item{text}{Character string for the warning message body.}
 
-\item{icon}{Optional HTML tag for an icon (SVG or Font Awesome).}
+\item{icon}{Optional HTML tag for an icon. If \code{NULL} (default value), no icon is displayed.}
 }
 \value{
-A \code{shiny.tag} object.
-
 A \code{shiny.tag} object representing the info box, suitable for
 direct inclusion in a Shiny UI.
 }
 \description{
-Creates a styled warning message box with an optional title, message text,
-optional link, and icon. Layout and structure are shared with other
-message boxes (info, error) for consistent behavior.
-
 Function to generate a styled warning box for explanatory
 messages. The warning box optionally displays a title, descriptive text,
 and an icon. Layout and structure are shared with other
@@ -38,3 +32,9 @@ sszWarningBox(
 )
 }
 }
+\seealso{
+Other html_elements: 
+\code{\link{sszContextBox}()},
+\code{\link{sszInfoBox}()}
+}
+\concept{html_elements}

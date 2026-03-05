@@ -8,12 +8,11 @@ sszInfoBox(title = NULL, text, icon = NULL)
 }
 \arguments{
 \item{title}{A character string for the heading of the info box
-(rendered as an h6 element). If \code{NULL}, no title is shown.}
+(rendered as an h6 element). If \code{NULL} (default value), no title is shown.}
 
 \item{text}{A character string containing the body text of the info box.}
 
-\item{icon}{Optional HTML tag for an icon (e.g. SVG or Font Awesome).
-If \code{NULL}, the box is rendered without an icon.}
+\item{icon}{icon Optional HTML tag for an icon. If \code{NULL} (default value), no icon is displayed.}
 }
 \value{
 A \code{shiny.tag} object representing the info box, suitable for
@@ -39,19 +38,8 @@ sszInfoBox(
 }
 }
 \seealso{
-Other shiny_widgets: 
-\code{\link{sszActionButton}()},
-\code{\link{sszAirDatepickerInput}()},
-\code{\link{sszAutocompleteInput}()},
+Other html_elements: 
 \code{\link{sszContextBox}()},
-\code{\link{sszDateRange}()},
-\code{\link{sszDownloadButton}()},
-\code{\link{sszNumericInput}()},
-\code{\link{sszOgdDownload}()},
-\code{\link{sszRadioButtons}()},
-\code{\link{sszRadioGroupButtons}()},
-\code{\link{sszSelectInput}()},
-\code{\link{sszSliderInput}()},
-\code{\link{sszTextInput}()}
+\code{\link{sszWarningBox}()}
 }
-\concept{shiny_widgets}
+\concept{html_elements}

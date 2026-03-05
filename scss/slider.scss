@@ -10,8 +10,6 @@
  * 2. Handles fully styled with fixed color in all states
  * 3. Track visible but non-intrusive (neutral background)
  * 4. Grid labels and value labels styled consistently
- * 5. No unexpected handle color changes when interacting with
- *    span.irs-from / span.irs-to
  *
  * Notes:
  * - Handles are square and aligned with the bar
@@ -48,11 +46,13 @@
   top: 26px;
   height: 22px;
   border: none;
+  z-index: 2;
 }
 
 /* Single value bar border-radius removed */
 .irs--shiny .irs-bar--single {
   border-radius: 0px;
+  z-index: -1;
 }
 
 /* ---------------------------------
@@ -64,7 +64,12 @@
   border: 1px solid $border-grey;
   border-radius: 0px;
   overflow: visible;
+  z-index: 1;
+  padding-left: 11px;  /* half handle width (22px / 2) */
+  padding-right: 11px;
+  box-sizing: border-box;
 }
+
 
 /* ---------------------------------
  * Handles
@@ -73,16 +78,16 @@
   top: 26px;
   width: 22px;
   height: 22px;
-  border: none;
+  border: none !important; /* Disable ion.rangeSlider default border completely */
+  border-left: 1px solid $border-grey !important;
+  border-right: 1px solid $border-grey !important;
   background-color: $secondary-dark-blue;
   box-shadow: none;
   border-radius: 0px;
+  z-index: 3;
 
   /* Ensure hover and active states do not change color */
-  &:hover {
-    background-color: $secondary-dark-blue;
-  }
-
+  &:hover,
   &:active {
     background-color: $secondary-dark-blue;
   }

@@ -11,11 +11,17 @@ ui <- ssz_page(
     class = "downloadWrapperDiv",
     sszDownloadButton("csvDownload",
       label = "CSV",
-      image = img(icons_ssz("download"))
+      image = icons_ssz("download")
     ),
     sszDownloadButton("excelDownload",
-      label = "Excel",
-      image = img(icons_ssz("download"))
+      label = "XLSX",
+      image = icons_ssz("download")
+    ),
+    sszDownloadButton("downloadDownload",
+      image = icons_ssz("download")
+    ),
+    sszOgdDownload("ogdDownload",
+      href = "https://data.stadt-zuerich.ch/"
     )
   )
 )
@@ -34,6 +40,15 @@ server <- function(input, output, session) {
   )
 
   output$excelDownload <- downloadHandler(
+    filename = function() {
+      paste("data-", Sys.Date(), ".xlsx", sep = " ")
+    },
+    content = function(file) {
+      write.xlsx(data, file)
+    }
+  )
+
+  output$downloadDownload <- downloadHandler(
     filename = function() {
       paste("data-", Sys.Date(), ".xlsx", sep = " ")
     },

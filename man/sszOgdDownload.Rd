@@ -4,16 +4,21 @@
 \alias{sszOgdDownload}
 \title{sszOgdDownload}
 \usage{
-sszOgdDownload(outputId, href, label, image = NULL)
+sszOgdDownload(
+  outputId,
+  href,
+  label = "OGD",
+  image = icons_ssz("external-link")
+)
 }
 \arguments{
 \item{outputId}{outputId parameter}
 
 \item{href}{link to be opened}
 
-\item{label}{label parameter (i.e. text to be shown)}
+\item{label}{label parameter (i.e. text to be shown), default is "OGD"}
 
-\item{image}{optional image/icon in the form of a html-i Tag, default NULL}
+\item{image}{optional image/icon in the form of a html-i Tag, default is icons_ssz("external-link")}
 }
 \value{
 tags$a
@@ -31,10 +36,8 @@ Other shiny_widgets:
 \code{\link{sszActionButton}()},
 \code{\link{sszAirDatepickerInput}()},
 \code{\link{sszAutocompleteInput}()},
-\code{\link{sszContextBox}()},
 \code{\link{sszDateRange}()},
 \code{\link{sszDownloadButton}()},
-\code{\link{sszInfoBox}()},
 \code{\link{sszNumericInput}()},
 \code{\link{sszRadioButtons}()},
 \code{\link{sszRadioGroupButtons}()},

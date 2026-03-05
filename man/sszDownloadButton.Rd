@@ -4,12 +4,18 @@
 \alias{sszDownloadButton}
 \title{sszDownloadButton}
 \usage{
-sszDownloadButton(outputId, label, image = NULL, icon = NULL, ...)
+sszDownloadButton(
+  outputId,
+  label = c("Download", "CSV", "XLSX"),
+  image = NULL,
+  icon = NULL,
+  ...
+)
 }
 \arguments{
 \item{outputId}{shiny outputID for the download button}
 
-\item{label}{shiny label for the download button}
+\item{label}{character string specifying the button label. Must be one of "Download", "CSV" or "XLSX", default is "Download"}
 
 \item{image}{html-i tag with an image/icon to be added before the text; default NULL}
 
@@ -33,9 +39,7 @@ Other shiny_widgets:
 \code{\link{sszActionButton}()},
 \code{\link{sszAirDatepickerInput}()},
 \code{\link{sszAutocompleteInput}()},
-\code{\link{sszContextBox}()},
 \code{\link{sszDateRange}()},
-\code{\link{sszInfoBox}()},
 \code{\link{sszNumericInput}()},
 \code{\link{sszOgdDownload}()},
 \code{\link{sszRadioButtons}()},
