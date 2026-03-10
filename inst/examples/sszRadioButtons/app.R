@@ -7,7 +7,7 @@ ui <- ssz_page(
     inputId = "ButtonGroupLabel",
     label = "Flughafen",
     choices = c("HOU", "LAX", "JFK"),
-    selected = "JFK" # default value
+    selected = "JFK"
   ),
   br(),
   h1("Selected"),
