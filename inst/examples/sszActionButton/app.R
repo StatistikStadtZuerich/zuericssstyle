@@ -8,10 +8,9 @@ ui <- ssz_page(
     "Abfrage starten",
   ),
   br(),
-  h1("Action"),
+  h2("Action"),
   textOutput("action")
 )
-
 
 server <- function(input, output, session) {
   # Observe the action button press

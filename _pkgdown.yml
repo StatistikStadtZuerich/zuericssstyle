@@ -17,3 +17,7 @@ reference:
   desc: "Styled shiny widgets"
   contents:
   - has_concept("shiny_widgets")
+- title: "HTML elements"
+  desc: "Styled HTML elements"
+  contents:
+  - has_concept("html_elements")

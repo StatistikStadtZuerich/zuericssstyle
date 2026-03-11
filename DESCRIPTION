@@ -1,6 +1,6 @@
 Package: zuericssstyle
 Title: Statistik Stadt Zürich CSS styling for shiny apps and html
-Version: 1.1.1
+Version: 2.0.0
 Authors@R: c(
     person("Sara",
            "Hänzi",
@@ -22,7 +22,7 @@ URL: https://statistikstadtzuerich.github.io/zuericssstyle/, https://github.com/
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: 
     dqshiny (>= 0.0.5),
     here,

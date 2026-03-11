@@ -4,7 +4,7 @@ sass(
   sass_file("scss/main_shiny.scss"),
   "inst/css/ssz_shiny.min.css",
   options = sass_options(
-    output_style = "compressed",
+    output_style = "compact",
     source_map_embed = TRUE
   )
 )

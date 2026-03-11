@@ -5,12 +5,13 @@ icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
 
 ui <- ssz_page(
   h1("Widget demo"),
-  sszDateRange("DateRange", "Datum:",
+  sszDateRange("DateRange", "Datum",
     start = "2001-01-01",
     end = "2010-12-31",
     min = "2001-01-01",
     max = "2012-12-21",
-    separator = icons_ssz("calendar")
+    separator = icons_ssz("calendar"),
+    weekstart = 1
   ),
   br(),
   h1("Selected"),

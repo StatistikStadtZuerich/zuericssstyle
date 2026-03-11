@@ -1,9 +1,26 @@
+/************************************************************
+ * Slider Input Interaction MOdel (ion.rangeSlider / Shiny)
+ *
+ * This component customizes Shiny's sliderInput() which uses
+ * ion.rangeSlider. The goal is a flat, rectangular slider
+ * with consistent handle, bar, and label behavior.
+ *
+ * Design goals:
+ * 1. Thicker, clearly visible slider bar aligned with handles
+ * 2. Handles fully styled with fixed color in all states
+ * 3. Track visible but non-intrusive (neutral background)
+ * 4. Grid labels and value labels styled consistently
+ *
+ * Notes:
+ * - Handles are square and aligned with the bar
+ * - Active/hover/focus states are fully locked to avoid
+ *   white flashes
+ * - Bar and line are inset slightly to prevent handle overlap
+ ************************************************************/
 
-/*******************************
-* Slider Input
-*******************************/
-
-/* Div around slider*/
+/* ---------------------------------
+ * Wrapper spacing
+ * --------------------------------- */
 .sliderDiv {
   margin-top: 18px;
 }
@@ -11,50 +28,128 @@
 .sszSliderInput {
   margin-top: 10px;
 }
-.irs-bar {
-  width: 100%;
-  height: 25px;
-}
-.irs--shiny .irs-bar {
-  border-top: 1px solid $zueriblau;
-  border-bottom: 1px solid $zueriblau;
-  background: $zueriblau;
-}
-.irs-bar-edge {
-  background: black;
-  border: 1px solid black;
-  height: 25px;
-  border-radius: 0px;
-  width: 20px;
 
+/* ---------------------------------
+ * Slider container
+ * --------------------------------- */
+ /* Increase total container height to accommodate
+   thicker bar, handle, grid and value labels */
+.irs--shiny.irs-with-grid {
+    height: 75px;
 }
-.irs-line {
-  border: 1px solid black;
-  height: 25px;
+
+/* ---------------------------------
+ * Filled bar (selected value)
+ * --------------------------------- */
+.irs--shiny .irs-bar {
+  background: $secondary-blue;
+  top: 26px;
+  height: 22px;
+  border: none;
+  z-index: 2;
+}
+
+/* Single value bar border-radius removed */
+.irs--shiny .irs-bar--single {
   border-radius: 0px;
+  z-index: -1;
 }
+
+/* ---------------------------------
+ * Slider track (unfilled line)
+ * --------------------------------- */
+.irs--shiny .irs-line {
+  height: 24px;
+  background: none !important; /* removes background */
+  border: 1px solid $border-grey;
+  border-radius: 0px;
+  overflow: visible;
+  z-index: 1;
+  padding-left: 11px;  /* half handle width (22px / 2) */
+  padding-right: 11px;
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------
+ * Handles
+ * --------------------------------- */
+.irs--shiny .irs-handle {
+  top: 26px;
+  width: 22px;
+  height: 22px;
+  border: none !important; /* Disable ion.rangeSlider default border completely */
+  border-left: 1px solid $border-grey !important;
+  border-right: 1px solid $border-grey !important;
+  background-color: $secondary-dark-blue;
+  box-shadow: none;
+  border-radius: 0px;
+  z-index: 3;
+
+  /* Ensure hover and active states do not change color */
+  &:hover,
+  &:active {
+    background-color: $secondary-dark-blue;
+  }
+}
+
+/* Inner handle <i> element and ::before pseudo-element
+   are forced to match the handle color to prevent
+   white flash when interacting with irs-from / irs-to */
+.irs--shiny .irs-handle,
+.irs--shiny .irs-handle i,
+.irs--shiny .irs-handle::before {
+  background-color: $secondary-dark-blue !important;
+  box-shadow: none !important;
+}
+
+/* Active/hover/focus states on handle and inner elements */
+.irs--shiny .irs-handle.state_hover,
+.irs--shiny .irs-handle.state_active,
+.irs--shiny .irs-handle.state_hover i,
+.irs--shiny .irs-handle.state_active i,
+.irs--shiny .irs-handle.state_hover::before,
+.irs--shiny .irs-handle.state_active::before,
+.irs--shiny .irs-handle:focus,
+.irs--shiny .irs-handle:focus i,
+.irs--shiny .irs-handle:focus::before {
+  background-color: $secondary-dark-blue !important;
+  box-shadow: none !important;
+}
+
+/* ---------------------------------
+ * Grid labels
+ * --------------------------------- */
 .irs-grid-text {
-  font-family: $main-font;
-  font-size: 12px;
-  color: $text-color;
+  font-family: $medium-font;
+  font-size: $base-font-size;
+  color: $black;
   bottom: 17px;
   z-index: 1;
 }
 
-.irs-max {
-  font-family: $main-font;
-  color: $text-color;
+.irs--shiny .irs-grid-pol {
+  background-color: $border-grey;
 }
+
+/* ---------------------------------
+ * Min/Max value labels
+ * --------------------------------- */
+.irs-max,
 .irs-min {
-  font-family: $main-font;
-  font-size: 12px !important;
-  color: $text-color;
+  display: none; /* hide default min/max labels */
 }
-.irs-single {
-  font-family: $main-font;
-  font-size: 12px !important;
-}
-.irs--shiny .irs-from, .irs--shiny .irs-to, .irs--shiny .irs-single {
-  color: white;
-  background: $zueriblau;
+
+
+/* ---------------------------------
+ * Value labels (from/to/single)
+ * --------------------------------- */
+.irs--shiny .irs-from,
+.irs--shiny .irs-to,
+.irs--shiny .irs-single {
+  color: white;                       /* text color */
+  background: $secondary-dark-blue;   /* label background */
+  font-family: $medium-font;
+  font-size: $base-font-size !important;
+  border-radius: 0px;
 }

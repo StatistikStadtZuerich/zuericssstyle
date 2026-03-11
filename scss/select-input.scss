@@ -1,128 +1,240 @@
-/*******************************
-* Select Input
-*******************************/
+/************************************************************
+ * Select Input Interaction Model (Selectize)
+ *
+ * This component defines a controlled interaction model
+ * for Selectize inputs (single and multi) in Shiny.
+ *
+ * Design goals:
+ * 1. Neutral default appearance aligned with the design system
+ * 2. Clear hover and focus states without layout changes
+ * 3. Consistent dropdown hover and keyboard navigation
+ * 4. Multi-select values rendered as removable chips
+ * 5. Mouse interaction must NOT trigger blue focus artifacts
+ *    from Bootstrap / bslib (e.g. #0353dc)
+ *
+ * State precedence (highest → lowest):
+ *   :active  >  :hover  >  :focus-visible  >  :focus
+ *
+ * Notes:
+ * - Selectize internal `.active` / `.selected` states are
+ *   normalized to avoid visual conflicts
+ * - Chip focus styles are intentionally neutralized while
+ *   preserving keyboard functionality
+ ************************************************************/
 
-/* Input */
-.selectize {
-  border-color: $text-color;
-  outline: 0;
-  border-radius: 2px;
-  box-shadow: none;
-  font-family: $main-font;
-  font-size: 14px;
-  line-height: 26px;
-  padding: 6px 16px 6px 16px;
 
-  &:hover {
-    background-color: $bg-color-light;
-    color: $dark-blue;
-    transition: 0.5s;
-  }
-}
-
+/* ---------------------------------
+ * Control wrapper (.selectize-control)
+ * --------------------------------- */
 .selectize-control {
   margin-bottom: 0;
 }
 
-.selectize-dropdown {
-  z-index: 100;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
-  border-radius: 3px;
-}
-
-.selectize-dropdown-content {
-  background: white;
-  color: $text-color;
-  font-family: $main-font;
-}
-
-.selectize-input.full{
-  border-color: $text-color;
+/* ---------------------------------
+ * Input (single & full)
+ * --------------------------------- */
+.selectize-input,
+.selectize-input.full {
+  position: relative;
+  display: flex;
+  height: 3.5rem;
+  padding: 0 16px;
+  padding-right: 2.5rem;
+  font-family: $medium-font;
+  font-size: $base-font-size;
+  background-color: white;
+  border: 0.125rem solid $border-grey;
+  border-radius: 0px;
   outline: 0;
-  border-radius: 2px;
   box-shadow: none;
-  font-family: $main-font;
-  font-size: 14px;
-  line-height: 26px;
-  padding: 6px 16px 6px 16px;
-  height: 40px;
+  color: $light-blue;
+  line-height: 3.5rem;
 
+  /* Hover state */
   &:hover {
     background-color: white;
-    color:  $dark-blue;
-    border-color: $dark-blue;
-    //padding: 6px 16px 6px 16px;
+    color: $light-blue;
+    border-color: $hover-border-blue;
     transition: 0.5s;
   }
-
-  &:focus {
-    color: $dark-blue;
-    //box-shadow: none;
-    border-color: $dark-blue;
-    //padding: 6px 16px 6px 16px;
-    transition: 0.5s;
-  }
-
 }
 
+/* ---------------------------------
+ * Selected item inside input (.item)
+ * --------------------------------- */
+.selectize-input .item {
+  height: 3.5rem;
+  line-height: 3.5rem;
+}
+
+/* ---------------------------------
+ * Focus state (.focus)
+ * --------------------------------- */
 .selectize-input.focus {
-   padding-left: 9px;
-   padding-right: 9px;
-   border-color: $text-color;
-   outline: 0;
-   border-radius: 2px;
-   box-shadow: none;
-   font-family: $main-font;
-   line-height: 26px;
-   font-size: 14px;
-   padding: 6px 16px 6px 16px;
-   height: 40px;
+  border-color: $hover-border-blue;
+  background-color: $focus-background-blue;
+  color: $black;
+  box-shadow: none;
 }
 
-.selectize-dropdown [data-selectable], .selectize-dropdown .optgroup-header {
-   padding: 9px 20px;
+/* ---------------------------------
+ * Dropdown container (.selectize-dropdown)
+ * --------------------------------- */
+.selectize-dropdown {
+  z-index: 100;
+  background-color: $bg-color-light;
+  border: none !important;
+  box-shadow: none !important;
+  margin-top: 8px; // keep your spacing
+  padding-top: 0;   // remove extra padding at top
+  padding-bottom: 0; // remove extra padding at bottom
 }
 
+/* ---------------------------------
+ * Dropdown content (.selectize-dropdown-content)
+ * --------------------------------- */
+.selectize-dropdown-content {
+  background: $bg-color-light;
+  color: $black;
+  font-family: $medium-font;
+  font-weight: 500;
+  padding-top: 0;   // remove internal top padding
+  padding-bottom: 0; // remove internal bottom padding
+
+}
+
+/* ---------------------------------
+ * Dropdown items ([data-selectable])
+ * --------------------------------- */
+.selectize-dropdown [data-selectable] {
+  box-sizing: border-box;
+  height: 48px;
+  padding: 12px 20px;
+  line-height: 24px;
+  font-size: $base-font-size;
+  font-weight: 500;
+  color: $black;
+  background-color: $bg-color-light;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover or keyboard highlight */
+.selectize-dropdown [data-selectable].active,
+.selectize-dropdown [data-selectable]:hover {
+  background-color: $selected-grey;
+  color: $zueriblau;
+}
+
+/* Selected item */
 .selectize-dropdown .selected {
-    background-color: white;
-    color: #262626;
+  background-color: $selected-grey;
+  color: $zueriblau;
+  font-family: $medium-font;
+  font-weight: 500;
 }
 
+/* Hover effect for all items (including selected) */
+.selectize-dropdown [data-selectable]:hover,
 .selectize-dropdown .selected:hover {
-    background-color: #f5f5f5;
-    color: #262626;
+  background-color: $selected-grey !important;
+  color: $black !important;
 }
 
+/* ---------------------------------
+ * Multi Select Input Wrapper
+ * --------------------------------- */
+.selectize-control.multi .selectize-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 
-/* Selectize Multiple */
-.selectize-control.multi .selectize-input.has-items {
-    padding-left: 9px;
-    padding-right: 9px;
-    border-color: $text-color;
-    outline: 0;
-    border-radius: 2px;
-    box-shadow: none;
-    font-family: $main-font;
-    line-height: 26px;
-    font-size: 14px;
-    padding: 6px 16px 6px 16px;
-    height: 40px;
+  min-height: 3.5rem;
+  padding: 6px 16px;
+  padding-right: 2.5rem;
+
+  font-family: $medium-font;
+  font-size: $base-font-size;
+  font-weight: 500;
+
+  background-color: white;
+  border: 0.125rem solid $border-grey;
+  border-radius: 0px;
+  box-shadow: none;
+
+  line-height: 1.5;
+  cursor: text;
 }
 
-.selectize-control.multi .selectize-input.has-items .item {
-    background-color: $bg-color-light;
-    color: $zueriblau;
-    font-size: 12px;
-    position: relative;
-    z-index: 100;
-    padding: 0px 12px 0px 12px;
-    border-radius: 12px;
-    margin-top: 2px;
+/* Hover state */
+.selectize-control.multi .selectize-input:hover {
+  border-color: $hover-border-blue;
 }
 
-.selectize-control.multi .selectize-input.has-items .item:hover {
-    background-color: rgba(15, 5, 160, 0.16);
-    border: rgba(15, 5, 160, 0.16);
-    color: $dark-blue;
-    transition: 0.5s;
+/* Focus state */
+.selectize-control.multi .selectize-input.focus {
+  border-color: $hover-border-blue;
+  background-color: $focus-background-blue;
+  box-shadow: none;
+}
+
+/* ---------------------------------
+ * Selected Chip (.item)
+ * --------------------------------- */
+.selectize-control.multi .selectize-input .item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 2.25rem;
+  padding: 0 12px;
+  background-color: $chip-blue;
+  color: $zueriblau;
+  font-family: $medium-font;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 1rem; /* chip look */
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+}
+
+/* Hover state for chip */
+.selectize-control.multi .selectize-input .item:hover {
+  background-color: $hover-chip-blue;
+  color: $black;
+}
+
+/* ---------------------------------
+ * Remove Button (×)
+ * --------------------------------- */
+.selectize-control.multi .selectize-input .item .remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  color: $zueriblau;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto; /* REQUIRED for mouse click */
+}
+
+/* Hover state for remove */
+.selectize-control.multi .selectize-input .item .remove:hover {
+  color: $black;
+}
+
+/* ---------------------------------
+ * Disable Bootstrap / bslib blue focus on selectize chips
+ * --------------------------------- */
+.selectize-control.multi .selectize-input .item:focus,
+.selectize-control.multi .selectize-input .item:focus-visible,
+.selectize-control.multi .selectize-input .item:active,
+.selectize-control.multi .selectize-input .item.active {
+  background-color: $selected-grey !important;
+  color: $zueriblau !important;
+  box-shadow: none !important;
+  outline: none !important;
 }

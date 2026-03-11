@@ -1,4 +1,5 @@
 library(shiny)
+library(openxlsx)
 # download demo
 
 icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
@@ -9,8 +10,18 @@ ui <- ssz_page(
     id = "downloadWrapperId",
     class = "downloadWrapperDiv",
     sszDownloadButton("csvDownload",
-      label = "csv",
-      image = img(icons_ssz("download"))
+      label = "CSV",
+      image = icons_ssz("download")
+    ),
+    sszDownloadButton("excelDownload",
+      label = "XLSX",
+      image = icons_ssz("download")
+    ),
+    sszDownloadButton("downloadDownload",
+      image = icons_ssz("download")
+    ),
+    sszOgdDownload("ogdDownload",
+      href = "https://data.stadt-zuerich.ch/"
     )
   )
 )
@@ -25,6 +36,24 @@ server <- function(input, output, session) {
     },
     content = function(file) {
       write.csv(data, file)
+    }
+  )
+
+  output$excelDownload <- downloadHandler(
+    filename = function() {
+      paste("data-", Sys.Date(), ".xlsx", sep = " ")
+    },
+    content = function(file) {
+      write.xlsx(data, file)
+    }
+  )
+
+  output$downloadDownload <- downloadHandler(
+    filename = function() {
+      paste("data-", Sys.Date(), ".xlsx", sep = " ")
+    },
+    content = function(file) {
+      write.xlsx(data, file)
     }
   )
 }
