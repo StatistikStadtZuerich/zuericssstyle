@@ -11,7 +11,7 @@ ui <- ssz_page(
     min = "2001-01-01",
     max = "2012-12-21",
     separator = icons_ssz("calendar"),
-    weekstart = 6
+    weekstart = 1
   ),
   br(),
   h1("Selected"),
