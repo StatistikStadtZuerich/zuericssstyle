@@ -49,3 +49,14 @@ Styled shiny widgets
   : sszSliderInput
 - [`sszTextInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszTextInput.md)
   : sszTextInput
+
+## HTML elements
+
+Styled HTML elements
+
+- [`sszContextBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszContextBox.md)
+  : sszContextBox
+- [`sszInfoBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszInfoBox.md)
+  : sszInfoBox
+- [`sszWarningBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszWarningBox.md)
+  : sszWarningBox

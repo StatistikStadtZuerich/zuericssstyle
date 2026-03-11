@@ -1,24 +1,29 @@
 # zuericssstyle ![Hexagon logo for zuericssstyle R package](reference/figures/Hexagon_zuericssstyle.png)
 
-zuericssstyle is an R-Package, which provides specific css files and
-styled shiny widgets according to the corporate design of the city of
-Zurich. The package contains widgets and styling that [Statistik Stadt
-Zürich](https://www.stadt-zuerich.ch/prd/de/index/statistik.html) have
-used so far for creating shiny apps that conform to the corporate
-design.
+`zuericssstyle` is an R package that provides CSS styles and styled
+[Shiny](https://shiny.posit.co/) components aligned with the corporate
+design of the City of Zurich. The package includes reusable styling
+utilities and widgets that enable the development of Shiny applications
+consistent with the visual identity guidelines of the City of Zurich.
+
+The components included in this package are base on styling and widgets
+previously developed and used by [Statistik Stadt
+Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html)
+for building Shiny applications.
 
 ## Installation
 
-The easiest way to get zuericssstyle is to install it from this repo:
+You can install the latest version of `zuericssstyle` directly from this
+repository:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("StatistikStadtZuerich/zuericssstyle")
 ```
 
-Alternatively, download the files (by clicking ‘Clone or download’ /
-‘Download Zip’), extract it to any location on your computer, e.g. to
-your Desktop and then run:
+Alternatively, you can download the repository as a ZIP archive. After
+extracting the files to a local directory (e.g. your Desktop), install
+the package using:
 
 ``` r
 remotes::install_local("<path_to_location>/zuericssstyle-main")
@@ -26,7 +31,7 @@ remotes::install_local("<path_to_location>/zuericssstyle-main")
 
 ## Version
 
-To check your version of zuericssstyle, run:
+To check the currently installed version of `zuericssstyle`, run:
 
 ``` r
 packageVersion("zuericssstyle")
@@ -34,23 +39,27 @@ packageVersion("zuericssstyle")
 
 ## Usage
 
-A number of functions wrap around the original shiny functions to
-provide styling. All functions allow additional parameters of the
-original shiny function to be used and passed along.
+`zuericssstyle` provides a set of wrapper functions around widgets from
+Shiny to apply styling consistent with the corporate design of the City
+of Zurich. These wrapper functions extend the original widgets while
+allowing additional arguments to be passed through the underlying Shiny
+functions.
 
 ### bslib cards
 
-[bslib cards](https://rstudio.github.io/bslib/articles/cards) can be
-used in a shiny app but also in other html outputs. Both the “general”
-css (see below) as well as the shiny css contain the css properties for
-the bslib cards.
+Cards from
+[bslib](https://rstudio.github.io/bslib/articles/cards/index.html) can
+be used both in Shiny applications and in other HTML outputs. The CSS
+included in `zuericssstyle` (both the general CSS and the Shiny-specific
+CSS, see below) provides styling for these card components.
 
-We recommend using a heading in the `card_header` like this:
+When creating cards, we recommend using a heading element inside
+`card_header` to ensure consistent typography and spacing.
 
 ``` r
 library(bslib)
 card(
-  card_header(h5("A header")),
+  card_header(h5("A random header")),
   card_body(
     markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")
   ),
@@ -58,56 +67,80 @@ card(
 )
 ```
 
-![bslib card](reference/figures/bslib-card.png)
+![](images/clipboard-2729486096.png)
 
-bslib card
+### Styled Shiny Widgets
 
-### Styled shiny widgets
+All widgets styled by `zuericssstyle` require the package’s CSS to be
+loaded. The CSS is automatically included in the HTML dependency when
+using either
+[`ssz_page()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/ssz_page.md)
+or
+[`add_zcss_deps()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/add_zcss_deps.md).
 
-All widgets need the css to work. This is added as an html dependency
-when using the `ssz_page` or the `add_zcss_deps` functions. Use
-`ssz_page` as a styled drop-in replacement of shiny’s `fluidPage`:
+The recommended approach is to use ssz_page() as a styled drop-in
+replacement for `fluidPage()` from Shiny:
 
 ``` r
 ui <- ssz_page(...)
 ```
 
-Alternatively, if you are not using a fluid page, wrap your ui
-(e.g. `fixedPage` or whatever you fancy) in `add_zcss_deps`:
+If your application uses a different page layout (e.g. `fixedPage()`),
+you can instead wrap the UI definition with
+[`add_zcss_deps()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/add_zcss_deps.md)
+to include the required CSS dependencies:
 
 ``` r
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
-#### Numeric input
+This ensures that all `zuericssstyle` widgets are rendered with the
+correct styling. All additional arguments supported by the underlying
+Shiny functions can be passed to the corresponding `ssz*` functions.
 
-![numeric input](reference/figures/numericInput.png)
+#### Numeric Input
 
-numeric input
+[`sszNumericInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszNumericInput.md)
+provides a styled numeric input field based on `numericInput()` from
+Shiny.
 
 ``` r
 sszNumericInput("number", "Zahl", 4)
 ```
 
-This is based on shiny’s `numericInput`.
+![](images/clipboard-4032079306.png)
 
-#### Select input
+#### Select Input
 
-![select input](reference/figures/selectInput.png)
-
-select input
+[`sszSelectInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszSelectInput.md)
+provides a styled version of `selectInput()` from Shiny.
 
 ``` r
-sszSelectInput("select", "Destination:", choices = c("HOU", "LAX", "JFK", "SEA"), selected = "LAX")
+sszSelectInput(
+    "select",
+    "Destination",
+    choices = c("HOU", "LAX", "JFK", "SEA"),
+    selected = "LAX"
+  )
+
+sszSelectInput(
+    "selectmultiple",
+    "Destination (Multiple)",
+    choices = c("HOU", "LAX", "JFK", "SEA"),
+    multiple = TRUE
+  )
 ```
 
-The function wraps around shiny’s `selectInput`.
+![](images/clipboard-2461214830.png)
 
-#### Radio buttons
+#### Radio Buttons
 
-![radio buttons](reference/figures/radioButtons.png)
+[`sszRadioButtons()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszRadioButtons.md)
+provides a styled version of `radioButtons()` from Shiny.
 
-radio buttons
+In the current version of `zuericssstyle`, horizontally aligned radio
+buttons (`inline = TRUE`) are not styled and will appear with the
+default Shiny styling.
 
 ``` r
 sszRadioButtons(
@@ -118,14 +151,13 @@ sszRadioButtons(
    )
 ```
 
-The function wraps around shiny’s `radioButtons`. Use `inline = TRUE`
-for horizontal alignment.
+![](images/clipboard-2593440718.png)
 
 #### Radio Group Buttons
 
-![radio group buttons](reference/figures/radioGroupButtons.png)
-
-radio group buttons
+[`sszRadioGroupButtons()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszRadioGroupButtons.md)
+provides a styled version of `radioGroupButtons()` from
+[`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/).
 
 ``` r
 sszRadioGroupButtons(
@@ -135,132 +167,145 @@ sszRadioGroupButtons(
   )
 ```
 
-The function wraps around
-[`shinyWidgets::radioGroupButtons`](https://dreamrs.github.io/shinyWidgets/reference/radioGroupButtons.html).
+![](images/clipboard-3615184813.png)
 
-#### Text input
+#### Text Input
 
-![text input](reference/figures/textInput.png)
-
-text input
+[`sszTextInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszTextInput.md)
+provides a styled version of `textInput()` from Shiny.
 
 ``` r
 sszTextInput("suchfeld", "Name:")
 ```
 
-The function wraps around shiny’s `textInput`.
+![](images/clipboard-1341357100.png)
 
 #### Autocomplete
 
-![autocomplete](reference/figures/autocomplete.png)
-
-autocomplete
+[`sszAutocompleteInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszAutocompleteInput.md)
+provides an autocomplete-enabled text input based on
+`autocomplete_input()` from the
+[`dqshiny`](https://github.com/daqana/dqshiny) package.
 
 ``` r
 sszAutocompleteInput(
-            "street",
-            "Geben Sie eine Strasse ein",
-            unique(addresses$StrasseLang)
+            "name",
+            "Geben Sie einen Namen ein",
+            options = c("aoqiheu", "acdzvxp", "aqneluk", "aeloxch")
           )
 ```
 
-This relies on the `autocomplete_input()` function from the
-[dqshiny](https://github.com/daqana/dqshiny) package.
+![](images/clipboard-3511585519.png)
 
-#### Slider input (Styling could change)
+#### Slider Input
 
-![sliderInput](reference/figures/sliderInput.png)
-
-sliderInput
+[`sszSliderInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszSliderInput.md)
+provides a styled version of `sliderInput()` from Shiny. *Note*: As of
+2024-10-16, the slider styling is not officially part of the corporate
+design guidelines. Therefore, the appearance of this widget may change
+in future versions of this package.
 
 ``` r
-sszSliderInput(inputId = "choose_number", label = "sliderInput:", value = 30, min = 0, max = 100)
+sszSliderInput("choose_numbers",
+    "Input",
+    value = c(30, 60),
+    min = 0,
+    max = 100
+  )
+
+sszSliderInput("choose_number",
+    "Single Input",
+    value = c(30),
+    min = 0,
+    max = 100
+  )
 ```
 
-The function wraps around shiny’s `sliderInput`. Currently this is not
-officially part of the city’s CI/CD. Therefore the styling for the
-sliderInput might vary slightly at a later point in time (as of
-2024-10-16).
+![](images/clipboard-361065387.png)
 
-#### Action button
+#### Action Button
 
-![action button](reference/figures/actionbutton.png)
-
-action button
+[`sszActionButton()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszActionButton.md)
+provides a styled version of `actionButton()` from Shiny.
 
 ``` r
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 
-The function wraps around shiny’s `actionButton`.
+![](images/clipboard-3026723700.png)
 
-#### Download buttons
+#### Download Buttons
 
-![csv download](reference/figures/csv.png)
-
-csv download
-
-A download button for downloading an excel/csv file can be called with
+[`sszDownloadButton()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszDownloadButton.md)
+provides a styled download button based on `downloadButton()` from
+Shiny.
 
 ``` r
 sszDownloadButton("csvDownload",
-                        label = "csv",
-                        image = img(icons_ssz("download"))
-                        )
+      label = "CSV",
+      image = icons_ssz("download")
+    )
+    
+sszDownloadButton("excelDownload",
+      label = "XLSX",
+      image = icons_ssz("download")
+    )
+
+sszDownloadButton("downloadDownload",
+      image = icons_ssz("download")
+    )
+
+sszOgdDownload("ogdDownload",
+      href = "https://data.stadt-zuerich.ch/"
+    )
 ```
 
-The image parameter is optional; it is based on shiny’s
-`downloadButton`.
+![](images/clipboard-78545742.png)
 
-A button for a link to an external site, e.g. an Open Government Data
-portal, ![ogd](reference/figures/ogd.png) can be used with
+The `label` argument specifies the text displayed on the button. It must
+be one of `"Download"`, `"CSV"`, or `"XLSX"`. The default value is
+`"Download"`.
 
-``` r
-sszOgdDownload(outputId = "ogdDown",
-                         label = "OGD",
-                         href = "https://data.stadt-zuerich.ch/",
-                         image = img(icons_ssz("external-link"))
-            )
-```
+The `image` argument allows an icon or image to be displayed before the
+button text. It should be supplied as an HTML `<i>` or `<img>` tag. The
+default is `NULL`, meaning no icon is shown.
 
-Provide the appropriate link in the `href` parameter.
+A button linking to an external resource can be createt using
+[`sszOgdDownload()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszOgdDownload.md).
+Provide the appropriate link in the `href` parameter
 
 #### Date Range
 
-![date range](reference/figures/dateRange.png)
-
-date range
+[`sszDateRange()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszDateRange.md)
+provides a styled version of `dateRangeInput()` from Shiny. By default,
+the language is German and the date format is `dd.mm.yyyy`. This and
+additional parameters to Shiny’s `dateRangeInput` can be passed as
+parameters.
 
 ``` r
-sszDateRange("DateRange", "Datum:",
-   start  = "2001-01-01",
-   end    = "2010-12-31",
-   min    = "2001-01-01",
-   max    = "2012-12-21"
-   )
+sszDateRange("DateRange", "Datum",
+    start = "2001-01-01",
+    end = "2010-12-31",
+    min = "2001-01-01",
+    max = "2012-12-21",
+    separator = icons_ssz("calendar"),
+    weekstart = 1
+  )
 ```
 
-By default, the language is German and the date format is `dd.mm.yyyy`.
-This and additional parameters to shiny’s `dateRangeInput` can be passed
-as parameters.
+![](images/clipboard-2720832605.png)
 
-#### Date selection with shinyWidgets::airDatepickerInput
+#### Date Selection with Air Datepicker
 
-In contrast to the standard `dateRangeInput`, the `airDatepickerInput`
-allows selection of only years, or years and months, rather than ‘only’
-year-month-day as with the `dateRangeInput`
+[`sszAirDatepickerInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszAirDatepickerInput.md)
+provides a styled wrapper around `airDatepickerInput()` from
+[`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike
+`dateRangeInput()`, it allows selecting years only or years and months,
+in addition to full dates. By default, the language is German and the
+date format is `dd.mm.yyyy`.
 
-By default, the language is set to `'de'`, and the `dateFormat` to
-`"dd.mm.yyyy"`. Both parameters can be overridden by supplying something
-else.
-
-There are options for adding a specific calendar icon. It can be passed
-to be used instead of the default Shiny calendar icon in the form of a
-`htmltools::tags$img(...)`.
-
-![airdate picker with icon](reference/figures/airdatepicker_icon.png)
-
-airdate picker with icon
+You can optionally supply a custom calendar icon using an HTML image tag
+with `htmltools::tags$img(...)`.
 
 ``` r
 sszAirDatepickerInput(
@@ -274,52 +319,142 @@ sszAirDatepickerInput(
         )
 ```
 
-The version of
-[`sszAirDatepickerInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszAirDatepickerInput.md)
-with no calendar icon is not styled according to the corporate design of
-the city of Zurich.
+![](images/clipboard-2174351199.png)
 
-### Other styling options
+### Other Styling Options
 
-#### Div for chart buttons
+#### Tables
 
-We provide a class `ssz-chart-buttons` which can be used with a div to
-provide flex display, centered content and a bottom margin.
+`zuericssstyle` provides CSS classes to style `reactable` tables in a
+way that is consistent with the corporate design. The styling includes
+borderless, minimal design with subtle striped background for
+readability.
+
+``` r
+reactable(iris,
+    paginationType = "simple",
+    language = reactableLang(
+      noData = "Keine Einträge gefunden",
+      pageNumbers = "{page} von {pages}",
+      pagePrevious = "\u276e",
+      pageNext = "\u276f"
+    )
+  )
+```
+
+![](images/clipboard-2656917351.png)
+
+#### Context Box
+
+[`sszContextBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszContextBox.md)
+provides a styled box for additional contextual information, such as
+definitions, explanations, or glossary entries. It is intended to give
+users background or context information without indicating a warning
+(see
+[`sszWarningBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszWarningBox.md)).
+
+The layout uses a flexible container to align the icon and text, and
+applies package-specific CSS classes to ensure consistent styling.
+
+The `icon` argument allows an icon or image to be displayed before the
+text. The default is `NULL`, meaning no icon is shown.
+
+``` r
+ sszContextBox(
+    title = "Information mit Icon",
+    text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim.",
+    icon = icons_ssz("info-help-filled")
+  )
+ 
+  sszContextBox(
+    title = "Informationen ohne Icon",
+    text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim."
+  )
+```
+
+![](images/clipboard-247762437.png)
+
+#### Info and Warning Box
+
+[`sszInfoBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszInfoBox.md)
+provides a styled box for query-related informational messages, such as
+summaries or explanations about the current results. It is meant to
+convey neutral information regarding the query itself, rather than
+warnings or general context.
+
+[`sszWarningBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszWarningBox.md)
+provides a styled warning box to alert users to potential issues,
+errors, or important considerations regarding the query or its results.
+
+The layout uses a flexible container to align the icon and text, and
+applies package-specific CSS classes to ensure consistent styling.
+[`sszInfoBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszInfoBox.md)
+and
+[`sszWarningBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszWarningBox.md)
+use both the same CSS classes.
+
+The `icon` argument allows an icon or image to be displayed before the
+text. The default is `NULL`, meaning no icon is shown.
+
+``` r
+sszInfoBox(
+    title = "A message with the wrong sender will not be answered and will be deleted.",
+    text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim.",
+    icon = icons_ssz("info-help-filled")
+  )
+
+sszWarningBox(
+    title = "Title Error",
+    text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim.",
+    icon = icons_ssz("important-warning-filled")
+  )
+```
+
+![](images/clipboard-3299720732.png)
+
+#### Div for Chart Buttons
+
+The `.ssz-chart-buttons` CSS class can be applied to a `<div>` to create
+a flexible layout with centered content and a buttom margin, suitable
+for grouping chart-related buttons.
 
 Example usage:
 
 ``` r
 div(
-      class = "ssz-chart-buttons",
-      sszRadioGroupButtons(
-        inputId = "choice_year",
-        choices = c(2022, 2023, 2024)
-      )
+  class = "ssz-chart-buttons",
+  sszRadioGroupButtons(
+    inputId = "choice_year",
+    choices = c(2022, 2023, 2024)
     )
+  )
 ```
 
 #### Tooltip
 
-We provide also classes for tooltip styling (`tooltip-container`,
-`tooltip-title`, `tooltip-content`, `tooltip-row`). For an example
-usage, please see `inst/examples/tooltip/app.R`, though note that this
-only demonstrates the usage of the CSS classes but does not provide a
-graph that is styled according to the styling guidelines of the city of
-Zurich. For the latter, please consult the zueriplots documentation.
+`zuericssstyle` also provides CSS classes for tooltip styling
+(.`tooltip-container`, .`tooltip-title`, .`tooltip-content`,
+.`tooltip-row`). For an example, see `inst/examples/tooltip/app.R`. This
+example demonstrates how to use the CSS classes only; it does not
+provide graphs fully styled according to the corporate design of the
+City uf Zurich. For fully styled charts, refer to the
+[`zueriplots`](https://github.com/StatistikStadtZuerich/zueriplots)
+documentation.
 
-### CSS file for html
+### CSS File for HTML
 
-If you need the css file to e.g. style a html report, use
+If you need the CSS file to style an HTML report or other HTML outputs,
+use:
 
 ``` r
 get_generic_css()
 ```
 
-to get the css file written to your local folder. Alternatively, you can
-provide a full filepath (something like “C:/temp/mystyling.css” as a
-parameter.)
+This will write the needed CSS file to your local folder. You can also
+specify a full file path (e.g. `"C:/temp/mystyling.css"`) as a
+parameter.
 
-## Getting help
+## Getting Help
 
 If you encounter a bug, please open an issue or contact
 <statistik@zuerich.ch>.
@@ -375,4 +510,15 @@ Styled shiny widgets
   : sszSliderInput
 - [`sszTextInput()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszTextInput.md)
   : sszTextInput
+
+## HTML elements
+
+Styled HTML elements
+
+- [`sszContextBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszContextBox.md)
+  : sszContextBox
+- [`sszInfoBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszInfoBox.md)
+  : sszInfoBox
+- [`sszWarningBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszWarningBox.md)
+  : sszWarningBox
 

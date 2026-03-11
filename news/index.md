@@ -1,5 +1,15 @@
 # Changelog
 
+## zuericssstyle 2.0.0
+
+- Complete redesign of all previously used Shiny widgets
+- Full rewrite of the SCSS/CSS to align with the corporate design of the
+  City of Zurich
+- Some previous widget arguments or layouts may have changed; check the
+  updated README examples
+- New `sszContextBox`, `sszInfoBox`, and `sszWarningBox` functions for
+  contextual, informational, and warning messages
+
 ## zuericssstyle 1.1.1
 
 - new: css classes for tooltip styling and chart-button div
@@ -7,7 +17,7 @@
 
 ## zuericssstyle 1.1.0
 
-- new: minimal styling for bslib cards
+- new: minimal styling for `bslib` cards
 
 ## zuericssstyle 1.0.0
 
@@ -46,7 +56,7 @@
 ## zuericssstyle 0.1.0
 
 - add `ssz_page` and `add_zcss_deps` functions; the first to directly
-  create a fluid page with ssz styling, the latter to add the styling to
+  create a fluid page with SSZ styling, the latter to add the styling to
   any other kind of html/ui
 - create examples for all widgets under inst/examples
 - remove `sszActionButtonIcon`, as we did not use an action button with

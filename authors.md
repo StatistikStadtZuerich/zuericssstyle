@@ -13,14 +13,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/StatistikStadtZuerich/zuericssstyle/blob/main/DESCRIPTION)
 
-Hänzi S, Feller A (2025). *zuericssstyle: Statistik Stadt Zürich CSS
-styling for shiny apps and html*. R package version 1.1.1,
+Hänzi S, Feller A (2026). *zuericssstyle: Statistik Stadt Zürich CSS
+styling for shiny apps and html*. R package version 2.0.0,
 <https://statistikstadtzuerich.github.io/zuericssstyle/>.
 
     @Manual{,
       title = {zuericssstyle: Statistik Stadt Zürich CSS styling for shiny apps and html},
       author = {Sara Hänzi and Alessandro Feller},
-      year = {2025},
-      note = {R package version 1.1.1},
+      year = {2026},
+      note = {R package version 2.0.0},
       url = {https://statistikstadtzuerich.github.io/zuericssstyle/},
     }

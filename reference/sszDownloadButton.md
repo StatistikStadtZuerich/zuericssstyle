@@ -6,7 +6,13 @@ wraps around downloadButton
 ## Usage
 
 ``` r
-sszDownloadButton(outputId, label, image = NULL, icon = NULL, ...)
+sszDownloadButton(
+  outputId,
+  label = c("Download", "CSV", "XLSX"),
+  image = NULL,
+  icon = NULL,
+  ...
+)
 ```
 
 ## Arguments
@@ -17,7 +23,8 @@ sszDownloadButton(outputId, label, image = NULL, icon = NULL, ...)
 
 - label:
 
-  shiny label for the download button
+  character string specifying the button label. Must be one of
+  "Download", "CSV" or "XLSX", default is "Download"
 
 - image:
 
