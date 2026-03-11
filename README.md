@@ -58,7 +58,7 @@ card(
 
 ### Styled Shiny Widgets
 
-For the correct styling all `zuericssstyle` widgets require the package's CSS to be loaded. The required CSS is automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
+All widgets styled by `zuericssstyle` require the package's CSS to be loaded. The CSS is automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
 
 The recommended approach is to use ssz_page() as a styled drop-in replacement for `fluidPage()` from Shiny:
 
@@ -236,11 +236,11 @@ sszDateRange("DateRange", "Datum",
     min = "2001-01-01",
     max = "2012-12-21",
     separator = icons_ssz("calendar"),
-    weekstart = 6
+    weekstart = 1
   )
 ```
 
-![](images/clipboard-735283572.png)
+![](images/clipboard-2720832605.png)
 
 #### Date Selection with Air Datepicker
 
@@ -311,7 +311,7 @@ The `icon` argument allows an icon or image to be displayed before the text. The
 
 `sszWarningBox()` provides a styled warning box to alert users to potential issues, errors, or important considerations regarding the query or its results.
 
-The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes to ensure consistent styling. `sszInfoBox()` and `sszWanringBox()` use both the same CSS classes.
+The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes to ensure consistent styling. `sszInfoBox()` and `sszWarningBox()` use both the same CSS classes.
 
 The `icon` argument allows an icon or image to be displayed before the text. The default is `NULL`, meaning no icon is shown.
 
