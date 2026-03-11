@@ -46,7 +46,7 @@ When creating cards, we recommend using a heading element inside `card_header` t
 ``` r
 library(bslib)
 card(
-  card_header(h5("A raondum header")),
+  card_header(h5("A random header")),
   card_body(
     markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")
   ),
@@ -58,7 +58,7 @@ card(
 
 ### Styled Shiny Widgets
 
-All styled widgets by `zuericssstyle` require the package's CSS to be loaded. The required CSS is automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
+For the correct styling all `zuericssstyle` widgets require the package's CSS to be loaded. The required CSS is automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
 
 The recommended approach is to use ssz_page() as a styled drop-in replacement for `fluidPage()` from Shiny:
 
@@ -66,7 +66,7 @@ The recommended approach is to use ssz_page() as a styled drop-in replacement fo
 ui <- ssz_page(...)
 ```
 
-If your application uses a different page layout (e.g. f`ixedPage()`), you can instead wrap the UI definition with `add_zcss_deps()` to include the required CSS dependencies:
+If your application uses a different page layout (e.g. `fixedPage()`), you can instead wrap the UI definition with `add_zcss_deps()` to include the required CSS dependencies:
 
 ``` r
 ui <- add_zcss_deps(fixedPage(...))
@@ -76,7 +76,7 @@ This ensures that all `zuericssstyle` widgets are rendered with the correct styl
 
 #### Numeric Input
 
-`sszNumericInput()` provides a styled numeric input field based on `nuermicInput()` from Shiny.
+`sszNumericInput()` provides a styled numeric input field based on `numericInput()` from Shiny.
 
 ``` r
 sszNumericInput("number", "Zahl", 4)
@@ -145,7 +145,7 @@ sszRadioGroupButtons(
 sszTextInput("suchfeld", "Name:")
 ```
 
-![](images/clipboard-2780245489.png)
+![](images/clipboard-1341357100.png)
 
 #### Autocomplete
 
@@ -155,7 +155,7 @@ sszTextInput("suchfeld", "Name:")
 sszAutocompleteInput(
             "name",
             "Geben Sie einen Namen ein",
-            unique(data$Namen)
+            options = c("aoqiheu", "acdzvxp", "aqneluk", "aeloxch")
           )
 ```
 
@@ -244,7 +244,7 @@ sszDateRange("DateRange", "Datum",
 
 #### Date Selection with Air Datepicker
 
-`sszAirDatepickerInput()` provides a styled wrapper around `airDatepickerInput()` from [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike `dateRangeInput()`, it allows selecting years only or years and months, in addition to full dates. By default, the language is set to `"de"`, and the `dateFormat` to `"dd.mm.yyyy"`. Both parameters can be overridden by supplying something else.
+`sszAirDatepickerInput()` provides a styled wrapper around `airDatepickerInput()` from [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike `dateRangeInput()`, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is `dd.mm.yyyy`.
 
 You can optionally supply a custom calendar icon using an HTML image tag with `htmltools::tags$img(...)`.
 
