@@ -266,7 +266,7 @@ sszAirDatepickerInput(
 
 #### Tables
 
-`zuericssstyle` provides CSS classes to style`reactable`tables consistent with the corporate design. The styling includes borderless, minimal design with subtle striped background for readability. Key CSS classes include: `.ReacTable`, `.rt-thead`, `.rt-td-inner`, `.rt-th-inner`, `.rt-pagination` and `.rt-page-button`.
+`zuericssstyle` provides CSS classes to style `reactable` tables in a way that is consistent with the corporate design. The styling includes borderless, minimal design with subtle striped background for readability.
 
 ``` r
 reactable(iris,
@@ -284,9 +284,9 @@ reactable(iris,
 
 #### Context Box
 
-`sszContextBox()` provides a styled box for additional contextual information, such as definitions, explanations, or glossary entries. It is intended to give users background or context information without indication a warning (see `sszWarningBox()`).
+`sszContextBox()` provides a styled box for additional contextual information, such as definitions, explanations, or glossary entries. It is intended to give users background or context information without indicating a warning (see `sszWarningBox()`).
 
-The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes (`.content-box-div`, `.content-box-text`, `.sszContextBox`) to ensure consistent styling.
+The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes to ensure consistent styling.
 
 The `icon` argument allows an icon or image to be displayed before the text. The default is `NULL`, meaning no icon is shown.
 
@@ -311,7 +311,7 @@ The `icon` argument allows an icon or image to be displayed before the text. The
 
 `sszWarningBox()` provides a styled warning box to alert users to potential issues, errors, or important considerations regarding the query or its results.
 
-The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes (`.info-box-div`, `.info-box-content`, `.sszInfoBox`) to ensure consistent styling. `sszInfoBox()` and `sszWanringBox()` use both the same CSS classes.
+The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes to ensure consistent styling. `sszInfoBox()` and `sszWanringBox()` use both the same CSS classes.
 
 The `icon` argument allows an icon or image to be displayed before the text. The default is `NULL`, meaning no icon is shown.
 
@@ -351,7 +351,7 @@ div(
 
 `zuericssstyle` also provides CSS classes for tooltip styling (.`tooltip-container`, .`tooltip-title`, .`tooltip-content`, .`tooltip-row`). For an example, see `inst/examples/tooltip/app.R`. This example demonstrates how to use the CSS classes only; it does not provide graphs fully styled according to the corporate design of the City uf Zurich. For fully styled charts, refer to the [`zueriplots`](https://github.com/StatistikStadtZuerich/zueriplots) documentation.
 
-### CSS File for Html
+### CSS File for HTML
 
 If you need the CSS file to style an HTML report or other HTML outputs, use:
 
