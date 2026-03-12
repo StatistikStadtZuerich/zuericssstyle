@@ -44,30 +44,28 @@
  * Default / unchecked
  * Black border, no dot, label black
  * --------------------------------- */
-.radio {
-  position: relative;
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1.5em;
+.radio label,
+.radio-inline {
 
   span {
-    margin-left: 14px;
+    margin-left: 0.75rem;
   }
 
-  label {
-    font-family: $medium-font;
-    font-weight: 500;
-    color: $black;
-    display: flex;
-    align-items: center;
-  }
+  font-family: $medium-font;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $black;
 
-  /* Radio Buttons Input */
+  display: flex;
+  align-items: center;
+
   input[type="radio"] {
     appearance: none;
-    outline: none;          // remove default outline
-    -webkit-appearance: none; // Safari
-    -moz-appearance: none;    // Firefox
+    position: relative;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
     display: grid;
     place-content: center;
     margin-top: 0px;
@@ -87,10 +85,7 @@
       transform: scale(0);
     }
 
-    /* ---------------------------------
-     * Checked / Selected State
-     * Border, dot, and label become $zueriblau
-     * --------------------------------- */
+    /* Selected */
     &:checked {
       border-color: $zueriblau;
 
@@ -103,10 +98,6 @@
         color: $zueriblau;
       }
 
-      /* ---------------------------------
-       * Hover on Checked
-       * Border, dot, and label become $dark-blue
-       * --------------------------------- */
       &:hover {
         border-color: $dark-blue;
 
@@ -120,10 +111,7 @@
       }
     }
 
-    /* ---------------------------------
-     * Hover on Not Checked
-     * Border, dot, and label become $zueriblau
-     * --------------------------------- */
+    /* Hover (not selected) */
     &:not(:checked):hover {
       border-color: $zueriblau;
 
@@ -136,18 +124,27 @@
       }
     }
 
-    /* ---------------------------------
-     * Active State (Mouse Press)
-     * Only applies while mouse button is held down
-     * Border and dot remain $zueriblau
-     * --------------------------------- */
+    /* Active */
     &:active {
       border-color: $zueriblau;
     }
 
-    /* Keyboard focus */
     &:focus-visible {
       outline: none;
     }
   }
+}
+
+/* stacked radios */
+.radio {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
+/* inline radios */
+.radio-inline {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
 }
