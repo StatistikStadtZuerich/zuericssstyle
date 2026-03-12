@@ -54,7 +54,7 @@ card(
 )
 ```
 
-![](images/clipboard-2729486096.png)
+![](man/figures/bslib-card.png)
 
 ### Styled Shiny Widgets
 
@@ -82,7 +82,7 @@ This ensures that all `zuericssstyle` widgets are rendered with the correct styl
 sszNumericInput("number", "Zahl", 4)
 ```
 
-![](images/clipboard-4032079306.png)
+![](man/figures/numericInput.png)
 
 #### Select Input
 
@@ -104,7 +104,7 @@ sszSelectInput(
   )
 ```
 
-![](images/clipboard-2461214830.png)
+![]](man/figures/selectInput.png)
 
 #### Radio Buttons
 
@@ -121,7 +121,7 @@ sszRadioButtons(
    )
 ```
 
-![](images/clipboard-2593440718.png)
+![](man/figures/radioButtons.png)
 
 #### Radio Group Buttons
 
@@ -135,7 +135,7 @@ sszRadioGroupButtons(
   )
 ```
 
-![](images/clipboard-3615184813.png)
+![](man/figures/radioGroupButtons.png)
 
 #### Text Input
 
@@ -145,7 +145,7 @@ sszRadioGroupButtons(
 sszTextInput("suchfeld", "Name:")
 ```
 
-![](images/clipboard-1341357100.png)
+![](man/figures/textInput.png)
 
 #### Autocomplete
 
@@ -159,7 +159,7 @@ sszAutocompleteInput(
           )
 ```
 
-![](images/clipboard-3511585519.png)
+![](man/figures/autocomplete.png)
 
 #### Slider Input
 
@@ -181,7 +181,7 @@ sszSliderInput("choose_number",
   )
 ```
 
-![](images/clipboard-361065387.png)
+![](man/figures/sliderInput.png)
 
 #### Action Button
 
@@ -191,7 +191,7 @@ sszSliderInput("choose_number",
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 
-![](images/clipboard-3026723700.png)
+![](man/figures/actionButton.png)
 
 #### Download Buttons
 
@@ -217,7 +217,7 @@ sszOgdDownload("ogdDownload",
     )
 ```
 
-![](images/clipboard-78545742.png)
+![](man/figures/download.png)
 
 The `label` argument specifies the text displayed on the button. It must be one of `"Download"`, `"CSV"`, or `"XLSX"`. The default value is `"Download"`.
 
@@ -240,7 +240,7 @@ sszDateRange("DateRange", "Datum",
   )
 ```
 
-![](images/clipboard-2720832605.png)
+![](man/figures/dateRange.png)
 
 #### Date Selection with Air Datepicker
 
@@ -260,7 +260,7 @@ sszAirDatepickerInput(
         )
 ```
 
-![](images/clipboard-2174351199.png)
+![](man/figures/airdatepicker.png)
 
 ### Other Styling Options
 
@@ -280,7 +280,7 @@ reactable(iris,
   )
 ```
 
-![](images/clipboard-2656917351.png)
+![](man/figures/reactable.png)
 
 #### Context Box
 
@@ -303,7 +303,7 @@ The `icon` argument allows an icon or image to be displayed before the text. The
   )
 ```
 
-![](images/clipboard-247762437.png)
+![](man/figures/contextbox.png)
 
 #### Info and Warning Box
 
@@ -329,7 +329,7 @@ sszWarningBox(
   )
 ```
 
-![](images/clipboard-3299720732.png)
+![](man/figures/info_warning-box.png)
 
 #### Div for Chart Buttons
 
