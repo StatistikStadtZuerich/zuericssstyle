@@ -49,6 +49,7 @@
 
   span {
     margin-left: 0.75rem;
+    margin-top: 2px;
   }
 
   font-family: $medium-font;
@@ -145,6 +146,5 @@
 /* inline radios */
 .radio-inline {
   display: inline-flex;
-  align-items: center;
   margin-top: 2px;
 }

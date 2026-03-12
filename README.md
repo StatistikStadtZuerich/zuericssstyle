@@ -110,8 +110,6 @@ sszSelectInput(
 
 `sszRadioButtons()` provides a styled version of `radioButtons()` from Shiny.
 
-In the current version of `zuericssstyle`, horizontally aligned radio buttons (`inline = TRUE`) are not styled and will appear with the default Shiny styling.
-
 ``` r
 sszRadioButtons(
    inputId = "ButtonGroupLabel",
@@ -119,6 +117,14 @@ sszRadioButtons(
    choices = c("EWR", "JFK", "LGA"),
    selected = "JFK"
    )
+
+sszRadioButtons(
+    inputId = "ButtonGroupLabelHorizontal",
+    label = "Flughafen",
+    choices = c("HOU", "LAX", "JFK"),
+    selected = "JFK",
+    inline = TRUE
+  )
 ```
 
 ![](man/figures/radioButtons.png)
