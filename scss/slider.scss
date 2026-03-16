@@ -45,7 +45,6 @@
   background: $secondary-blue;
   top: 26px;
   height: 22px;
-  border: none;
   z-index: 2;
 }
 
@@ -61,7 +60,7 @@
 .irs--shiny .irs-line {
   height: 24px;
   background: none !important; /* removes background */
-  border: 1px solid $border-grey;
+  border: 0.125rem solid $border-grey;
   border-radius: 0px;
   overflow: visible;
   z-index: 1;
@@ -78,9 +77,11 @@
   top: 26px;
   width: 22px;
   height: 22px;
-  border: none !important; /* Disable ion.rangeSlider default border completely */
-  border-left: 1px solid $border-grey !important;
-  border-right: 1px solid $border-grey !important;
+  border: none !important;
+  border-top: 0.1rem solid #7c7c7c !important;
+  border-bottom: 0.1rem solid #7c7c7c !important;
+  border-right: 0.125rem solid #7c7c7c !important;
+  border-left: 0.125rem solid #7c7c7c !important;
   background-color: $secondary-dark-blue;
   box-shadow: none;
   border-radius: 0px;
