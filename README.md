@@ -104,7 +104,7 @@ sszSelectInput(
   )
 ```
 
-![]](man/figures/selectInput.png)
+![](man/figures/selectInput.png)
 
 #### Radio Buttons
 
