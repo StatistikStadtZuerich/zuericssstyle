@@ -1,6 +1,6 @@
 # zuericssstyle 2.0.1
 
--   Minor styling changes in for `sszInfoBox`, `bslib` cards and headings
+-   Minor styling changes for `sszInfoBox`, `bslib` cards and headings
 
 # zuericssstyle 2.0.0
 
