@@ -59,8 +59,13 @@
   * Hover or active highlight
   * --------------------------------- */
 .autocomplete-items div:hover,
-.autocomplete-items div.active {
+.autocomplete-items div:active {
   background-color: $selected-grey;
+  color: $black;
+}
+
+.autocomplete-active {
+  background-color: $selected-grey !important;
   color: $black;
 }
 
