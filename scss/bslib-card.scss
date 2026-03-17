@@ -17,7 +17,7 @@
  * --------------------------------- */
 .bslib-card {
   background-color: $bg-color-light;
-  padding: 24px;
+  padding: 16px 24px 16px 24px;
   height: auto;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@
  * Grid Layout (.bslib-grid)
  * --------------------------------- */
 .bslib-grid {
-  gap: 1rem;
+  gap: 2rem;
 }
 
 /* ---------------------------------
@@ -52,4 +52,5 @@
   font-family: $medium-font;
   color: $black;
   line-height: 1.5;
+  margin-top: 8px;
 }
