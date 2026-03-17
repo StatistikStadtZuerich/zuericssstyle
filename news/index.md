@@ -1,5 +1,10 @@
 # Changelog
 
+## zuericssstyle 2.0.1
+
+- Minor styling changes for `sszInfoBox`, `sszAutocompleteInput`,
+  `bslib` cards and headings
+
 ## zuericssstyle 2.0.0
 
 - Complete redesign of all previously used Shiny widgets
