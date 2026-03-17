@@ -185,7 +185,7 @@ button:active { background-color: #0F05A0; color: white; transition: 0.5s; }
 .bslib-card { background-color: #f4f4f4; padding: 16px 24px 16px 24px; height: auto; overflow: hidden; }
 
 /* --------------------------------- Grid Layout (.bslib-grid) --------------------------------- */
-.bslib-grid { gap: 1rem; }
+.bslib-grid { gap: 2rem; }
 
 /* --------------------------------- Card Header (.card-header) --------------------------------- */
 .card-header { font-size: 1.5rem; font-family: HelveticaNeueLTW05_85Heavy; line-height: 1.3; letter-spacing: -0.01em; }
