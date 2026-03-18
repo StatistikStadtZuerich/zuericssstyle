@@ -1,7 +1,7 @@
 library(shiny)
 # date range demo
 
-icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
+icons_ssz <- icons::icon_set(here::here("inst", "icons"))
 
 ui <- ssz_page(
   h1("Widget demo"),

@@ -1,7 +1,7 @@
 library(shiny)
 # action button demo
 
-icons_ssz <- icons::icon_set(here::here("inst", "examples", "icons"))
+icons_ssz <- icons::icon_set(here::here("inst", "icons"))
 
 ui <- ssz_page(
   sszInfoBox(
