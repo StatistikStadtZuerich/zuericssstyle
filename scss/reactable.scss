@@ -34,7 +34,8 @@
 /* ---------------------------------
  * Table Cells (.rt-td-inner, .rt-th-inner)
  * --------------------------------- */
-.rt-td-inner, .rt-th-inner {
+.rt-td-inner,
+.rt-th-inner {
   padding: 12px 16px;
   line-height: 1.5;
 }
@@ -134,17 +135,61 @@ button.rt-next-button.rt-page-button:disabled {
 /* ---------------------------------
  * Zebra Stripes (.rt-tr-group)
  * --------------------------------- */
-.ReactTable .rt-tbody .rt-tr-group:nth-child(even) {
+
+/* Striped mode: even rows use the $bg-color-light; odd rows remain white. Hover is disabled in this mode so rows don't change on hover. */
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(even) .rt-td,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(even) .rt-th {
   background-color: $bg-color-light;
 }
 
-.ReactTable .rt-tbody .rt-tr-group:nth-child(odd) {
-  background-color: white;
+/* Disable hover visual change in striped mode */
+.ReactTable.table-striped .rt-tbody .rt-tr-group:hover .rt-td,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:hover .rt-th {
+  /* Explicitly prevent any hover visual change in striped mode. Use !important to override reactable or inline hover styles. */
+  background-color: inherit !important;
+  background-image: none !important;
+  box-shadow: none !important;
 }
 
-/* ---------------------------------
- * Delete Row Select (.rt-td-select, .rt-th-select)
- * --------------------------------- */
-.rt-td-select, .rt-th-select {
-  display: none;
+/* Explicit strong rule: set explicit backgrounds for even/odd rows and ensure :hover keeps the same background.*/
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(even) .rt-td,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(even) .rt-th,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(even):hover .rt-td,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(even):hover .rt-th {
+  background-color: $bg-color-light !important;
+  background-image: none !important;
+}
+
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(odd) .rt-td,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(odd) .rt-th,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(odd):hover .rt-td,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:nth-child(odd):hover .rt-th {
+  background-color: white !important;
+  background-image: none !important;
+}
+
+/* Ensure inner cell wrappers don't show different backgrounds */
+.ReactTable.table-striped .rt-td-inner,
+.ReactTable.table-striped .rt-th-inner {
+  background-color: transparent !important;
+}
+
+/* Some reactable variants add hover styles on parent or inner elements*/
+.ReactTable.table-striped .rt-tbody .rt-tr-group:hover,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:hover .rt-tr,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:hover .rt-td .rt-td-inner,
+.ReactTable.table-striped .rt-tbody .rt-tr-group:hover .rt-th .rt-th-inner {
+  background-color: inherit !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+/* Hover-only mode: no visible stripes, but hovering highlights the row */
+.ReactTable.table-hover .rt-tbody .rt-tr-group:nth-child(odd) .rt-td,
+.ReactTable.table-hover .rt-tbody .rt-tr-group:nth-child(odd) .rt-th {
+  background-color: white;
+}
+.ReactTable.table-hover .rt-tbody .rt-tr-group:hover .rt-td,
+.ReactTable.table-hover .rt-tbody .rt-tr-group:hover .rt-th {
+  background-color: $bg-color-light;
 }
