@@ -1,3 +1,9 @@
+# zuericssstyle 2.0.2
+
+-   reactable behaviour made configurable via CSS classes — added `.ssz-striped` (even-row stripes; hover visuals disabled) and `.ssz-hover` (no stripes; hover highlights)
+-   icons shipped as package assets and included automatically by `add_zcss_deps()`, so helpers like `icons_ssz()` work out-of-the-box
+-   responsive layout for grouped download buttons — stacked, full-width and centered on small screens
+
 # zuericssstyle 2.0.1
 
 -   Minor styling changes for `sszInfoBox`, `sszAutocompleteInput`, `bslib` cards and headings
