@@ -36,6 +36,7 @@ gg <- penguins |>
       tooltip = tooltip
     )
   ) +
+  theme_bw() +
   geom_point_interactive(size = 2, hover_nearest = TRUE) +
   labs(
     title = "Scatterplot with tooltip",
