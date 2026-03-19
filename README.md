@@ -6,9 +6,9 @@
 
 # zuericssstyle <img src="man/figures/Hexagon_zuericssstyle.png" alt="Hexagon logo for zuericssstyle R package" align="right" height="138.5" width="138.5"/>
 
-`zuericssstyle` is an R package that provides CSS styles and styled [Shiny](https://shiny.posit.co/) components aligned with the corporate design of the City of Zurich. The package includes reusable styling utilities and widgets that enable the development of Shiny applications consistent with the visual identity guidelines of the City of Zurich.
+`zuericssstyle` is an R package that provides CSS styles and styled [Shiny](https://shiny.posit.co/) components aligned with the [corporate design](https://designsystem.stadt-zuerich.ch/current/?path=/story/docs-about--page) of the City of Zurich. The package includes reusable styling utilities and widgets that enable the development of Shiny applications consistent with the visual identity guidelines of the City of Zurich.
 
-The components included in this package are base on styling and widgets previously developed and used by [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html) for building Shiny applications.
+The components included in this package are based on styling and widgets previously developed and used by [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html) for building Shiny applications.
 
 ## Installation
 
@@ -39,7 +39,7 @@ packageVersion("zuericssstyle")
 
 ### Styled Shiny Widgets
 
-All widgets styled by `zuericssstyle` require the package's CSS (and the packaged icons) to be loaded. The CSS and icons are automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
+All widgets styled by `zuericssstyle` require the package's CSS to be loaded. The CSS is automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
 
 The recommended approach is to use `ssz_page()` as a styled drop-in replacement for `fluidPage()` from Shiny:
 
@@ -48,14 +48,14 @@ The recommended approach is to use `ssz_page()` as a styled drop-in replacement 
 ui <- ssz_page(...)
 ```
 
-If your application uses a different page layout (e.g. `fixedPage()`), you can instead wrap the UI definition with `add_zcss_deps()` to include the required CSS and icon dependencies:
+If your application uses a different page layout (e.g. `fixedPage()`), you can instead wrap the UI definition with `add_zcss_deps()` to include the required CSS dependencies:
 
 ``` r
 # alternative: include styling and icons around your UI
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
-This ensures that all `zuericssstyle` widgets are rendered with the correct styling and that the package's icon helpers (e.g. `icons_ssz()`) work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
+This ensures that all `zuericssstyle` widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
 
 #### Numeric Input
 
