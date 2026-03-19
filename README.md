@@ -299,6 +299,8 @@ A pair of CSS helper classes are provided for `reactable` usage:
 -   `table-striped` — applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping).
 -   `table-hover` — no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).
 
+When setting one of those classes, the `highlight` and `striped` arguments in reactable no longer influence the appearance of the table.
+
 Example:
 
 ``` r
