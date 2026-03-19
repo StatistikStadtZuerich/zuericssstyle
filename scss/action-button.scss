@@ -146,3 +146,8 @@ button {
     transition: 0.5s;
   }
 }
+
+.button-div {
+  display: flex;
+  justify-content: space-between;
+}

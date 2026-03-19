@@ -1,8 +1,14 @@
-#' add_zcss_deps
+#' Add zuericssstyle CSS dependencies to an HTML tag
 #'
-#' @param tag tag/tagList, e.g. a fluidPage
+#' Attach the package CSS (from `inst/css/`) as html dependencies to a tag or tagList. This
+#' ensures styles are available when rendering HTML,
+#' pkgdown sites, htmlwidgets, or Shiny apps.
 #'
-#' @return fluidPage/tag with ssz css dependencies added, including shiny widget stylings
+#' @param tag A htmltools tag or tagList (for example the UI returned by
+#'   `shiny::fluidPage()`). The returned value is a `tagList` that includes
+#'   the provided `tag` and the package dependencies.
+#'
+#' @return A `tagList` containing `tag` plus the CSS htmlDependencies.
 #' @export
 #'
 #' @examples

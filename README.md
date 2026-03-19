@@ -6,9 +6,9 @@
 
 # zuericssstyle <img src="man/figures/Hexagon_zuericssstyle.png" alt="Hexagon logo for zuericssstyle R package" align="right" height="138.5" width="138.5"/>
 
-`zuericssstyle` is an R package that provides CSS styles and styled [Shiny](https://shiny.posit.co/) components aligned with the corporate design of the City of Zurich. The package includes reusable styling utilities and widgets that enable the development of Shiny applications consistent with the visual identity guidelines of the City of Zurich.
+`zuericssstyle` is an R package that provides CSS styles and styled [Shiny](https://shiny.posit.co/) components aligned with the [corporate design](https://designsystem.stadt-zuerich.ch/current/?path=/story/docs-about--page) of the City of Zurich. The package includes reusable styling utilities and widgets that enable the development of Shiny applications consistent with the visual identity guidelines of the City of Zurich.
 
-The components included in this package are base on styling and widgets previously developed and used by [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html) for building Shiny applications.
+The components included in this package are based on styling and widgets previously developed and used by [Statistik Stadt Zürich](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html) for building Shiny applications.
 
 ## Installation
 
@@ -37,42 +37,25 @@ packageVersion("zuericssstyle")
 
 `zuericssstyle` provides a set of wrapper functions around widgets from Shiny to apply styling consistent with the corporate design of the City of Zurich. These wrapper functions extend the original widgets while allowing additional arguments to be passed through the underlying Shiny functions.
 
-### bslib cards
-
-Cards from [bslib](https://rstudio.github.io/bslib/articles/cards/index.html) can be used both in Shiny applications and in other HTML outputs. The CSS included in `zuericssstyle` (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.
-
-When creating cards, we recommend using a heading element inside `card_header` to ensure consistent typography and spacing.
-
-``` r
-library(bslib)
-card(
-  card_header(h5("A random header")),
-  card_body(
-    markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")
-  ),
-  card_footer("a footer")
-)
-```
-
-![](man/figures/bslib-card.png)
-
 ### Styled Shiny Widgets
 
 All widgets styled by `zuericssstyle` require the package's CSS to be loaded. The CSS is automatically included in the HTML dependency when using either `ssz_page()` or `add_zcss_deps()`.
 
-The recommended approach is to use ssz_page() as a styled drop-in replacement for `fluidPage()` from Shiny:
+The recommended approach is to use `ssz_page()` as a styled drop-in replacement for `fluidPage()` from Shiny:
 
 ``` r
+# preferred: styled page wrapper
 ui <- ssz_page(...)
 ```
 
 If your application uses a different page layout (e.g. `fixedPage()`), you can instead wrap the UI definition with `add_zcss_deps()` to include the required CSS dependencies:
 
 ``` r
+# alternative: include styling and icons around your UI
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
-This ensures that all `zuericssstyle` widgets are rendered with the correct styling. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
+This ensures that all `zuericssstyle` widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
 
 #### Numeric Input
 
@@ -208,7 +191,7 @@ sszDownloadButton("csvDownload",
       label = "CSV",
       image = icons_ssz("download")
     )
-    
+
 sszDownloadButton("excelDownload",
       label = "XLSX",
       image = icons_ssz("download")
@@ -227,9 +210,21 @@ sszOgdDownload("ogdDownload",
 
 The `label` argument specifies the text displayed on the button. It must be one of `"Download"`, `"CSV"`, or `"XLSX"`. The default value is `"Download"`.
 
-The `image` argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML `<i>` or `<img>` tag. The default is `NULL`, meaning no icon is shown.
+The `image` argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML `<i>` or `<img>` tag. The default is `NULL`, meaning no icon is shown. A button linking to an external resource can be createt using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter
 
-A button linking to an external resource can be createt using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter
+#### Button Layout Helper
+
+When you want several buttons displayed next to each other, wrap them in a container with the `button-div` CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for `.button-div` and `.downloadWrapperDiv`).
+
+Example:
+
+``` r
+div(
+  class = "button-div",
+  sszDownloadButton("csvDownload", label = "CSV"),
+  div(class = "downloadWrapperDiv", sszDownloadButton("excelDownload", label = "XLSX"))
+)
+```
 
 #### Date Range
 
@@ -270,6 +265,18 @@ sszAirDatepickerInput(
 
 ### Other Styling Options
 
+#### bslib cards
+
+Cards from [bslib](https://rstudio.github.io/bslib/articles/cards/index.html) can be used both in Shiny applications and in other HTML outputs. The CSS included in `zuericssstyle` (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.
+
+When creating cards, we recommend using a heading element inside `card_header` to ensure consistent typography and spacing.
+
+``` r
+library(bslib) card(   card_header(h5("A random header")),   card_body(     markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")   ),   card_footer("a footer") )
+```
+
+![](man/figures/bslib-card.png)
+
 #### Tables
 
 `zuericssstyle` provides CSS classes to style `reactable` tables in a way that is consistent with the corporate design. The styling includes borderless, minimal design with subtle striped background for readability.
@@ -277,6 +284,7 @@ sszAirDatepickerInput(
 ``` r
 reactable(iris,
     paginationType = "simple",
+    class = "table-striped"
     language = reactableLang(
       noData = "Keine Einträge gefunden",
       pageNumbers = "{page} von {pages}",
@@ -284,6 +292,20 @@ reactable(iris,
       pageNext = "\u276f"
     )
   )
+```
+
+A pair of CSS helper classes are provided for `reactable` usage:
+
+-   `table-striped` — applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping).
+-   `table-hover` — no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).
+
+When setting one of those classes, the `highlight` and `striped` arguments in reactable no longer influence the appearance of the table.
+
+Example:
+
+``` r
+reactable(iris, class = "ssz-striped")
+reactable(iris, class = "ssz-hover")
 ```
 
 ![](man/figures/reactable.png)
@@ -302,7 +324,7 @@ The `icon` argument allows an icon or image to be displayed before the text. The
     text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim.",
     icon = icons_ssz("info-help-filled")
   )
- 
+
   sszContextBox(
     title = "Informationen ohne Icon",
     text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim."

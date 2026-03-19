@@ -35,10 +35,9 @@
 @media (min-width: 768px) {
   .bslib-card {
     width: 100%;
-    margin-top: 20px;  /* Keep consistent top margin for larger screens */
+    margin-top: 20px; /* Keep consistent top margin for larger screens */
   }
 }
-
 
 /* For screens between 481px and 768px (larger phones and small tablets) */
 @media (min-width: 481px) and (max-width: 768px) {
@@ -49,6 +48,18 @@
 
   .bslib-grid {
     row-gap: 0rem;
+  }
+
+  .button-div {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .downloadWrapperDiv {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
   }
 }
 
@@ -62,5 +73,24 @@
   .bslib-grid {
     row-gap: 0rem;
   }
-}
 
+  .button-div {
+    flex-direction: column;
+  }
+
+  .button-div .downloadWrapperDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 8px;
+    margin-top: 8px;
+  }
+
+  .button-div .downloadWrapperDiv > * {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
