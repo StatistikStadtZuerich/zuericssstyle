@@ -1,3 +1,8 @@
+# zuericssstyle 2.0.3
+
+-   Fix: adjust reactable font size to 14px to avoid font-hinting artifacts on some platforms
+-   Fix: set paragraph font size to 16px at tablet breakpoint
+
 # zuericssstyle 2.0.2
 
 -   reactable behaviour made configurable via CSS classes — added `.ssz-striped` (even-row stripes; hover visuals disabled) and `.ssz-hover` (no stripes; hover highlights)
