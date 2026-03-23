@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">zuericssstyle</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,8 +51,8 @@
 <div class="section level1">
 <div class="page-header"><h1 id="zuericssstyle-">zuericssstyle <img src="reference/figures/Hexagon_zuericssstyle.png" alt="Hexagon logo for zuericssstyle R package" align="right" height="138.5" width="138.5"><a class="anchor" aria-label="anchor" href="#zuericssstyle-"></a>
 </h1></div>
-<p><code>zuericssstyle</code> is an R package that provides CSS styles and styled <a href="https://shiny.posit.co/" class="external-link">Shiny</a> components aligned with the corporate design of the City of Zurich. The package includes reusable styling utilities and widgets that enable the development of Shiny applications consistent with the visual identity guidelines of the City of Zurich.</p>
-<p>The components included in this package are base on styling and widgets previously developed and used by <a href="https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html" class="external-link">Statistik Stadt Zürich</a> for building Shiny applications.</p>
+<p><code>zuericssstyle</code> is an R package that provides CSS styles and styled <a href="https://shiny.posit.co/" class="external-link">Shiny</a> components aligned with the <a href="https://designsystem.stadt-zuerich.ch/current/?path=/story/docs-about--page" class="external-link">corporate design</a> of the City of Zurich. The package includes reusable styling utilities and widgets that enable the development of Shiny applications consistent with the visual identity guidelines of the City of Zurich.</p>
+<p>The components included in this package are based on styling and widgets previously developed and used by <a href="https://www.stadt-zuerich.ch/de/politik-und-verwaltung/stadtverwaltung/prd/ssz.html" class="external-link">Statistik Stadt Zürich</a> for building Shiny applications.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -76,37 +76,23 @@
 </h2>
 <p><code>zuericssstyle</code> provides a set of wrapper functions around widgets from Shiny to apply styling consistent with the corporate design of the City of Zurich. These wrapper functions extend the original widgets while allowing additional arguments to be passed through the underlying Shiny functions.</p>
 <div class="section level3">
-<h3 id="bslib-cards">bslib cards<a class="anchor" aria-label="anchor" href="#bslib-cards"></a>
-</h3>
-<p>Cards from <a href="https://rstudio.github.io/bslib/articles/cards/index.html" class="external-link">bslib</a> can be used both in Shiny applications and in other HTML outputs. The CSS included in <code>zuericssstyle</code> (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.</p>
-<p>When creating cards, we recommend using a heading element inside <code>card_header</code> to ensure consistent typography and spacing.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span><span class="fu">h5</span><span class="op">(</span><span class="st">"A random header"</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_body</a></span><span class="op">(</span></span>
-<span>    <span class="fu">markdown</span><span class="op">(</span><span class="st">"Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)"</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>,</span>
-<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_footer</a></span><span class="op">(</span><span class="st">"a footer"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/bslib-card.png"></p>
-</div>
-<div class="section level3">
 <h3 id="styled-shiny-widgets">Styled Shiny Widgets<a class="anchor" aria-label="anchor" href="#styled-shiny-widgets"></a>
 </h3>
 <p>All widgets styled by <code>zuericssstyle</code> require the package’s CSS to be loaded. The CSS is automatically included in the HTML dependency when using either <code><a href="reference/ssz_page.html">ssz_page()</a></code> or <code><a href="reference/add_zcss_deps.html">add_zcss_deps()</a></code>.</p>
-<p>The recommended approach is to use ssz_page() as a styled drop-in replacement for <code>fluidPage()</code> from Shiny:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ssz_page.html">ssz_page</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<p>The recommended approach is to use <code><a href="reference/ssz_page.html">ssz_page()</a></code> as a styled drop-in replacement for <code>fluidPage()</code> from Shiny:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># preferred: styled page wrapper</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ssz_page.html">ssz_page</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
 <p>If your application uses a different page layout (e.g. <code>fixedPage()</code>), you can instead wrap the UI definition with <code><a href="reference/add_zcss_deps.html">add_zcss_deps()</a></code> to include the required CSS dependencies:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/add_zcss_deps.html">add_zcss_deps</a></span><span class="op">(</span><span class="fu">fixedPage</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>This ensures that all <code>zuericssstyle</code> widgets are rendered with the correct styling. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding <code>ssz*</code> functions.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># alternative: include styling and icons around your UI</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/add_zcss_deps.html">add_zcss_deps</a></span><span class="op">(</span><span class="fu">fixedPage</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>This ensures that all <code>zuericssstyle</code> widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding <code>ssz*</code> functions.</p>
 <div class="section level4">
 <h4 id="numeric-input">Numeric Input<a class="anchor" aria-label="anchor" href="#numeric-input"></a>
 </h4>
 <p><code><a href="reference/sszNumericInput.html">sszNumericInput()</a></code> provides a styled numeric input field based on <code>numericInput()</code> from Shiny.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszNumericInput.html">sszNumericInput</a></span><span class="op">(</span><span class="st">"number"</span>, <span class="st">"Zahl"</span>, <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/numericInput.png"></p>
 </div>
@@ -114,7 +100,7 @@
 <h4 id="select-input">Select Input<a class="anchor" aria-label="anchor" href="#select-input"></a>
 </h4>
 <p><code><a href="reference/sszSelectInput.html">sszSelectInput()</a></code> provides a styled version of <code>selectInput()</code> from Shiny.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszSelectInput.html">sszSelectInput</a></span><span class="op">(</span></span>
 <span>    <span class="st">"select"</span>,</span>
 <span>    <span class="st">"Destination"</span>,</span>
@@ -134,7 +120,7 @@
 <h4 id="radio-buttons">Radio Buttons<a class="anchor" aria-label="anchor" href="#radio-buttons"></a>
 </h4>
 <p><code><a href="reference/sszRadioButtons.html">sszRadioButtons()</a></code> provides a styled version of <code>radioButtons()</code> from Shiny.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszRadioButtons.html">sszRadioButtons</a></span><span class="op">(</span></span>
 <span>   inputId <span class="op">=</span> <span class="st">"ButtonGroupLabel"</span>,</span>
 <span>   label <span class="op">=</span> <span class="st">"Flughafen:"</span>,</span>
@@ -155,7 +141,7 @@
 <h4 id="radio-group-buttons">Radio Group Buttons<a class="anchor" aria-label="anchor" href="#radio-group-buttons"></a>
 </h4>
 <p><code><a href="reference/sszRadioGroupButtons.html">sszRadioGroupButtons()</a></code> provides a styled version of <code>radioGroupButtons()</code> from <a href="https://dreamrs.github.io/shinyWidgets/" class="external-link"><code>shinyWidgets</code></a>.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszRadioGroupButtons.html">sszRadioGroupButtons</a></span><span class="op">(</span></span>
 <span>    inputId <span class="op">=</span> <span class="st">"years"</span>,</span>
 <span>    choices <span class="op">=</span> <span class="fl">2022</span><span class="op">:</span><span class="fl">2024</span>,</span>
@@ -167,7 +153,7 @@
 <h4 id="text-input">Text Input<a class="anchor" aria-label="anchor" href="#text-input"></a>
 </h4>
 <p><code><a href="reference/sszTextInput.html">sszTextInput()</a></code> provides a styled version of <code>textInput()</code> from Shiny.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszTextInput.html">sszTextInput</a></span><span class="op">(</span><span class="st">"suchfeld"</span>, <span class="st">"Name:"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/textInput.png"></p>
 </div>
@@ -175,7 +161,7 @@
 <h4 id="autocomplete">Autocomplete<a class="anchor" aria-label="anchor" href="#autocomplete"></a>
 </h4>
 <p><code><a href="reference/sszAutocompleteInput.html">sszAutocompleteInput()</a></code> provides an autocomplete-enabled text input based on <code>autocomplete_input()</code> from the <a href="https://github.com/daqana/dqshiny" class="external-link"><code>dqshiny</code></a> package.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszAutocompleteInput.html">sszAutocompleteInput</a></span><span class="op">(</span></span>
 <span>            <span class="st">"name"</span>,</span>
 <span>            <span class="st">"Geben Sie einen Namen ein"</span>,</span>
@@ -187,7 +173,7 @@
 <h4 id="slider-input">Slider Input<a class="anchor" aria-label="anchor" href="#slider-input"></a>
 </h4>
 <p><code><a href="reference/sszSliderInput.html">sszSliderInput()</a></code> provides a styled version of <code>sliderInput()</code> from Shiny. <em>Note</em>: As of 2024-10-16, the slider styling is not officially part of the corporate design guidelines. Therefore, the appearance of this widget may change in future versions of this package.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszSliderInput.html">sszSliderInput</a></span><span class="op">(</span><span class="st">"choose_numbers"</span>,</span>
 <span>    <span class="st">"Input"</span>,</span>
 <span>    value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>, <span class="fl">60</span><span class="op">)</span>,</span>
@@ -207,7 +193,7 @@
 <h4 id="action-button">Action Button<a class="anchor" aria-label="anchor" href="#action-button"></a>
 </h4>
 <p><code><a href="reference/sszActionButton.html">sszActionButton()</a></code> provides a styled version of <code>actionButton()</code> from Shiny.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszActionButton.html">sszActionButton</a></span><span class="op">(</span><span class="st">"ActionButtonId"</span>, <span class="st">"Abfrage starten"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/actionButton.png"></p>
 </div>
@@ -215,12 +201,12 @@
 <h4 id="download-buttons">Download Buttons<a class="anchor" aria-label="anchor" href="#download-buttons"></a>
 </h4>
 <p><code><a href="reference/sszDownloadButton.html">sszDownloadButton()</a></code> provides a styled download button based on <code>downloadButton()</code> from Shiny.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"csvDownload"</span>,</span>
 <span>      label <span class="op">=</span> <span class="st">"CSV"</span>,</span>
 <span>      image <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
-<span>    </span>
+<span></span>
 <span><span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"excelDownload"</span>,</span>
 <span>      label <span class="op">=</span> <span class="st">"XLSX"</span>,</span>
 <span>      image <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
@@ -235,8 +221,19 @@
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/download.png"></p>
 <p>The <code>label</code> argument specifies the text displayed on the button. It must be one of <code>"Download"</code>, <code>"CSV"</code>, or <code>"XLSX"</code>. The default value is <code>"Download"</code>.</p>
-<p>The <code>image</code> argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML <code>&lt;i&gt;</code> or <code>&lt;img&gt;</code> tag. The default is <code>NULL</code>, meaning no icon is shown.</p>
-<p>A button linking to an external resource can be createt using <code><a href="reference/sszOgdDownload.html">sszOgdDownload()</a></code>. Provide the appropriate link in the <code>href</code> parameter</p>
+<p>The <code>image</code> argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML <code>&lt;i&gt;</code> or <code>&lt;img&gt;</code> tag. The default is <code>NULL</code>, meaning no icon is shown. A button linking to an external resource can be createt using <code><a href="reference/sszOgdDownload.html">sszOgdDownload()</a></code>. Provide the appropriate link in the <code>href</code> parameter</p>
+</div>
+<div class="section level4">
+<h4 id="button-layout-helper">Button Layout Helper<a class="anchor" aria-label="anchor" href="#button-layout-helper"></a>
+</h4>
+<p>When you want several buttons displayed next to each other, wrap them in a container with the <code>button-div</code> CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for <code>.button-div</code> and <code>.downloadWrapperDiv</code>).</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">div</span><span class="op">(</span></span>
+<span>  class <span class="op">=</span> <span class="st">"button-div"</span>,</span>
+<span>  <span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"csvDownload"</span>, label <span class="op">=</span> <span class="st">"CSV"</span><span class="op">)</span>,</span>
+<span>  <span class="fu">div</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"downloadWrapperDiv"</span>, <span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"excelDownload"</span>, label <span class="op">=</span> <span class="st">"XLSX"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="date-range">Date Range<a class="anchor" aria-label="anchor" href="#date-range"></a>
@@ -275,19 +272,39 @@
 <h3 id="other-styling-options">Other Styling Options<a class="anchor" aria-label="anchor" href="#other-styling-options"></a>
 </h3>
 <div class="section level4">
+<h4 id="bslib-cards">bslib cards<a class="anchor" aria-label="anchor" href="#bslib-cards"></a>
+</h4>
+<p>Cards from <a href="https://rstudio.github.io/bslib/articles/cards/index.html" class="external-link">bslib</a> can be used both in Shiny applications and in other HTML outputs. The CSS included in <code>zuericssstyle</code> (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.</p>
+<p>When creating cards, we recommend using a heading element inside <code>card_header</code> to ensure consistent typography and spacing.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">library</span>(bslib) <span class="fu">card</span>(   <span class="fu">card_header</span>(<span class="fu">h5</span>(<span class="st">"A random header"</span>)),   <span class="fu">card_body</span>(     <span class="fu">markdown</span>(<span class="st">"Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)"</span>)   ),   <span class="fu">card_footer</span>(<span class="st">"a footer"</span>) )</span></code></pre></div>
+<p><img src="reference/figures/bslib-card.png"></p>
+</div>
+<div class="section level4">
 <h4 id="tables">Tables<a class="anchor" aria-label="anchor" href="#tables"></a>
 </h4>
 <p><code>zuericssstyle</code> provides CSS classes to style <code>reactable</code> tables in a way that is consistent with the corporate design. The styling includes borderless, minimal design with subtle striped background for readability.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">reactable</span><span class="op">(</span><span class="va">iris</span>,</span>
-<span>    paginationType <span class="op">=</span> <span class="st">"simple"</span>,</span>
-<span>    language <span class="op">=</span> <span class="fu">reactableLang</span><span class="op">(</span></span>
-<span>      noData <span class="op">=</span> <span class="st">"Keine Einträge gefunden"</span>,</span>
-<span>      pageNumbers <span class="op">=</span> <span class="st">"{page} von {pages}"</span>,</span>
-<span>      pagePrevious <span class="op">=</span> <span class="st">"\u276e"</span>,</span>
-<span>      pageNext <span class="op">=</span> <span class="st">"\u276f"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">reactable</span>(iris,</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>    <span class="at">paginationType =</span> <span class="st">"simple"</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>    <span class="at">class =</span> <span class="st">"table-striped"</span></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>    <span class="at">language =</span> <span class="fu">reactableLang</span>(</span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>      <span class="at">noData =</span> <span class="st">"Keine Einträge gefunden"</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a>      <span class="at">pageNumbers =</span> <span class="st">"{page} von {pages}"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>      <span class="at">pagePrevious =</span> <span class="st">"\u276e"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>      <span class="at">pageNext =</span> <span class="st">"\u276f"</span></span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>    )</span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a>  )</span></code></pre></div>
+<p>A pair of CSS helper classes are provided for <code>reactable</code> usage:</p>
+<ul>
+<li>
+<code>table-striped</code> — applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping).</li>
+<li>
+<code>table-hover</code> — no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).</li>
+</ul>
+<p>When setting one of those classes, the <code>highlight</code> and <code>striped</code> arguments in reactable no longer influence the appearance of the table.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">reactable</span><span class="op">(</span><span class="va">iris</span>, class <span class="op">=</span> <span class="st">"ssz-striped"</span><span class="op">)</span></span>
+<span><span class="fu">reactable</span><span class="op">(</span><span class="va">iris</span>, class <span class="op">=</span> <span class="st">"ssz-hover"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/reactable.png"></p>
 </div>
 <div class="section level4">
@@ -296,13 +313,13 @@
 <p><code><a href="reference/sszContextBox.html">sszContextBox()</a></code> provides a styled box for additional contextual information, such as definitions, explanations, or glossary entries. It is intended to give users background or context information without indicating a warning (see <code><a href="reference/sszWarningBox.html">sszWarningBox()</a></code>).</p>
 <p>The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes to ensure consistent styling.</p>
 <p>The <code>icon</code> argument allows an icon or image to be displayed before the text. The default is <code>NULL</code>, meaning no icon is shown.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> <span class="fu"><a href="reference/sszContextBox.html">sszContextBox</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Information mit Icon"</span>,</span>
 <span>    text <span class="op">=</span> <span class="st">"Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim."</span>,</span>
 <span>    icon <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"info-help-filled"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span> </span>
+<span></span>
 <span>  <span class="fu"><a href="reference/sszContextBox.html">sszContextBox</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"Informationen ohne Icon"</span>,</span>
 <span>    text <span class="op">=</span> <span class="st">"Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim."</span></span>
@@ -316,7 +333,7 @@
 <p><code><a href="reference/sszWarningBox.html">sszWarningBox()</a></code> provides a styled warning box to alert users to potential issues, errors, or important considerations regarding the query or its results.</p>
 <p>The layout uses a flexible container to align the icon and text, and applies package-specific CSS classes to ensure consistent styling. <code><a href="reference/sszInfoBox.html">sszInfoBox()</a></code> and <code><a href="reference/sszWarningBox.html">sszWarningBox()</a></code> use both the same CSS classes.</p>
 <p>The <code>icon</code> argument allows an icon or image to be displayed before the text. The default is <code>NULL</code>, meaning no icon is shown.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszInfoBox.html">sszInfoBox</a></span><span class="op">(</span></span>
 <span>    title <span class="op">=</span> <span class="st">"A message with the wrong sender will not be answered and will be deleted."</span>,</span>
 <span>    text <span class="op">=</span> <span class="st">"Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim."</span>,</span>
@@ -335,7 +352,7 @@
 </h4>
 <p>The <code>.ssz-chart-buttons</code> CSS class can be applied to a <code>&lt;div&gt;</code> to create a flexible layout with centered content and a buttom margin, suitable for grouping chart-related buttons.</p>
 <p>Example usage:</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">div</span><span class="op">(</span></span>
 <span>  class <span class="op">=</span> <span class="st">"ssz-chart-buttons"</span>,</span>
 <span>  <span class="fu"><a href="reference/sszRadioGroupButtons.html">sszRadioGroupButtons</a></span><span class="op">(</span></span>
@@ -354,7 +371,7 @@
 <h3 id="css-file-for-html">CSS File for HTML<a class="anchor" aria-label="anchor" href="#css-file-for-html"></a>
 </h3>
 <p>If you need the CSS file to style an HTML report or other HTML outputs, use:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/get_generic_css.html">get_generic_css</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This will write the needed CSS file to your local folder. You can also specify a full file path (e.g. <code>"C:/temp/mystyling.css"</code>) as a parameter.</p>
 </div>
