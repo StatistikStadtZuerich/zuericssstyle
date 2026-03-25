@@ -4,8 +4,16 @@
     font-size: 1rem;
     margin: 0px 0px 8px;
   }
+  a {
+    font-size: 1rem;
+    margin: 0px 0px 8px;
+  }
   ol {
-    font-size: 14px;
+    font-size: 1rem;
+    line-height: 23px;
+  }
+  li {
+    font-size: 1rem;
     line-height: 23px;
   }
   h1 {
@@ -28,6 +36,9 @@
     margin-top: 12px;
     margin-bottom: 16px;
   }
+  li::marker {
+    font-size: 1rem;
+  }
 }
 
 /* bslib specific */
@@ -45,25 +56,25 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-
   .bslib-grid {
     row-gap: 0rem;
   }
-
   .button-div {
     align-items: flex-start;
     flex-direction: column;
   }
-
   .downloadWrapperDiv {
     margin-top: 16px;
     display: flex;
     flex-direction: row;
     column-gap: 8px;
   }
-
-  p {
+  p, a {
     font-size: 1rem;
+  }
+  ul > li::before,
+  ol > li::before {
+    font-size: 1em;
   }
 }
 
@@ -73,15 +84,12 @@
     padding-left: 15px;
     padding-right: 15px;
   }
-
   .bslib-grid {
     row-gap: 0rem;
   }
-
   .button-div {
     flex-direction: column;
   }
-
   .button-div .downloadWrapperDiv {
     display: flex;
     flex-direction: column;
@@ -89,12 +97,15 @@
     row-gap: 8px;
     margin-top: 8px;
   }
-
   .button-div .downloadWrapperDiv > * {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+  ul > li::before,
+  ol > li::before {
+    font-size: 1em;
   }
 }

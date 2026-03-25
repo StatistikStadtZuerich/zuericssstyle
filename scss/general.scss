@@ -19,7 +19,7 @@ html {
 /* Ruler */
 hr {
   height: 0.2px;
-  background-color: #DEDEDE;
+  background-color: #dedede;
   border: none;
   margin-top: 16px;
   margin-bottom: 25px;
@@ -75,44 +75,71 @@ p {
 
 /* Bold Text */
 .bold-text {
-  font-family: HelveticaNeueLTW05_85Heavy;
-}
-
-/* Text Output */
-.shiny-text-output, .shiny-bound-output {
-  font-size: 1.125rem;
-  font-family: $medium-font;
-  color: $black;
-  line-height: 1.5;
+  font-family: $title-font;
 }
 
 /* Lists */
+ol,
+ul {
+  font-family: $medium-font;
+  font-size: 1.125rem;
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  list-style: none; /* remove native markers so custom ::before markers don't duplicate */
+}
+
+/* Counter-based ordered list and dash-based unordered list. The marker
+   column is 1.25rem wide with a 0.5rem gap to the text. */
 ol {
-  font-family: $medium-font;
-  color: $black;
-  font-size: 18px;
+  counter-reset: zss-ol;
 }
 
-li::marker {
-  font-family: $medium-font;
-  color: $black;
-  font-size: 18px;
+ol > li,
+ul > li {
+  position: relative;
+  padding-left: 1.75rem; /* marker (1.25rem) + gap (0.5rem) */
+  line-height: 1.5;
 }
 
-/* Code */
-code {
-  background-color: $bg-color-light;
-  color: $zueriblau;
-  font-size: 18px;
+ol > li::before {
+  counter-increment: zss-ol;
+  content: counter(zss-ol) '.';
+  position: absolute;
+  left: 0;
+  width: 1.25rem;
+  text-align: right;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+ul > li::before {
+  content: '\2013'; /* en dash */
+  position: absolute;
+  left: 0;
+  width: 1.25rem;
+  text-align: right;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+/* Keep a special dashed list variant (no default marker) */
+ul.dashed-list {
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 /* Links */
 a {
   text-decoration: underline;
   color: $zueriblau;
+  font-family: $medium-font;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 0px 0px 12px;
 
   &:hover {
-    color: $dark-blue;
+    color: $light-blue;
     transition: 0.5s;
   }
 }
