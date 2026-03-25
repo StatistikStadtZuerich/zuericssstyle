@@ -2,18 +2,22 @@
 % Please edit documentation in R/add_zcss_deps.R
 \name{add_zcss_deps}
 \alias{add_zcss_deps}
-\title{add_zcss_deps}
+\title{Add zuericssstyle CSS dependencies to an HTML tag}
 \usage{
 add_zcss_deps(tag)
 }
 \arguments{
-\item{tag}{tag/tagList, e.g. a fluidPage}
+\item{tag}{A htmltools tag or tagList (for example the UI returned by
+\code{shiny::fluidPage()}). The returned value is a \code{tagList} that includes
+the provided \code{tag} and the package dependencies.}
 }
 \value{
-fluidPage/tag with ssz css dependencies added, including shiny widget stylings
+A \code{tagList} containing \code{tag} plus the CSS htmlDependencies.
 }
 \description{
-add_zcss_deps
+Attach the package CSS (from \verb{inst/css/}) as html dependencies to a tag or tagList. This
+ensures styles are available when rendering HTML,
+pkgdown sites, htmlwidgets, or Shiny apps.
 }
 \examples{
 \dontrun{
