@@ -180,7 +180,7 @@ sszSliderInput("choose_number",
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 
-![](man/figures/actionButton.png)
+![](man/figures/actionbutton.png)
 
 #### Download Buttons
 
@@ -358,6 +358,26 @@ sszWarningBox(
 ```
 
 ![](man/figures/info_warning-box.png)
+
+#### Text
+
+Normal paragraph text uses the proprietary display font (`HelveticaNeueLTPro`) and is sized at `18px`. You can override this locally, but the package defaults provide consistent, readable body text across pages and apps. There is two text-specific utility classes in `zuericssstyle`
+
+-   `.bold-text`: apply this class to inline elements (links, spans, strong) to render them with the package's title/font family.
+
+-   `.dashed-list`: a special list variant that removes the native marker and padding (useful for compact dashed-style lists). The package also provides counter-based `ol` and custom `ul` markers so markers align consistently across breakpoints.
+
+``` r
+p("This text will be ",
+   strong(class = "bold-text", "bold"),
+   "."
+  )
+
+tags$ul(class = "dashed-list",
+  tags$li("First item"),
+  tags$li("Second item")
+)
+```
 
 #### Div for Chart Buttons
 
