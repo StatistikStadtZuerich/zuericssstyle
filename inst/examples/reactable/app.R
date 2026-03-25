@@ -1,6 +1,5 @@
 library(shiny)
 library(reactable)
-# text input demo
 
 ui <- ssz_page(
   h1("Widget demo"),
