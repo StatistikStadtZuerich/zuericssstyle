@@ -57,6 +57,8 @@ ui <- add_zcss_deps(fixedPage(...))
 
 This ensures that all `zuericssstyle` widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
 
+Example applications in [examples](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) demonstrate and allow you to test every widget included in this package.
+
 #### Numeric Input
 
 `sszNumericInput()` provides a styled numeric input field based on `numericInput()` from Shiny.
@@ -74,14 +76,14 @@ sszNumericInput("number", "Zahl", 4)
 ``` r
 sszSelectInput(
     "select",
-    "Destination",
+    "Flughafen",
     choices = c("HOU", "LAX", "JFK", "SEA"),
     selected = "LAX"
   )
 
 sszSelectInput(
     "selectmultiple",
-    "Destination (Multiple)",
+    "Flughafen (mehrere)",
     choices = c("HOU", "LAX", "JFK", "SEA"),
     multiple = TRUE
   )
@@ -235,7 +237,7 @@ div(
 `sszDateRange()` provides a styled version of `dateRangeInput()` from Shiny. By default, the language is German and the date format is `dd.mm.yyyy`. This and additional parameters to Shiny's `dateRangeInput` can be passed as parameters.
 
 ``` r
-sszDateRange("DateRange", "Datum",
+sszDateRange("DateRange", "Datum auswählen",
     start = "2001-01-01",
     end = "2010-12-31",
     min = "2001-01-01",
@@ -256,7 +258,7 @@ You can optionally supply a custom calendar icon using an HTML image tag with `h
 ``` r
 sszAirDatepickerInput(
           inputId = "airMonthStart2",
-          label = "Basis Datum",
+          label = "Datum auswählen",
           dateFormat = "MM-yyyy",
           view = "years",
           minView = "months",
