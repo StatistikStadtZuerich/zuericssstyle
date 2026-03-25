@@ -9,7 +9,6 @@ ui <- ssz_page(
     choices = c("HOU", "LAX", "JFK"),
     selected = "JFK"
   ),
-  br(),
   sszRadioButtons(
     inputId = "ButtonGroupLabelHorizontal",
     label = "Flughafen",
@@ -17,15 +16,16 @@ ui <- ssz_page(
     selected = "JFK",
     inline = TRUE
   ),
-  h1("Selected"),
-  textOutput("choice"),
-  textOutput("choice_horizontal")
+  br(),
+  h2("Action"),
+  uiOutput("choice"),
+  uiOutput("choice_horizontal")
 )
 
 server <- function(input, output, session) {
   # Our dataset
-  output$choice <- renderText(input$ButtonGroupLabel)
-  output$choice_horizontal <- renderText(input$ButtonGroupLabelHorizontal)
+  output$choice <- renderUI(p(input$ButtonGroupLabel))
+  output$choice_horizontal <- renderUI(p(input$ButtonGroupLabelHorizontal))
 }
 
 shinyApp(ui, server)

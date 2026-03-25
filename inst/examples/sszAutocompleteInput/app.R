@@ -11,13 +11,13 @@ ui <- ssz_page(
     opts
   ),
   br(),
-  h1("Selected"),
-  textOutput("choice")
+  h2("Action"),
+  uiOutput("choice")
 )
 
 server <- function(input, output, session) {
   # Our dataset
-  output$choice <- renderText(input$select)
+  output$choice <- renderUI(p(input$select))
 }
 
 shinyApp(ui, server)

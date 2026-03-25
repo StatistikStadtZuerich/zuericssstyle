@@ -5,20 +5,20 @@ ui <- ssz_page(
   tagList(
     h2("Paragraph"),
     p("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."),
-    h2("Geordnete Liste"),
+    h2("Ordered List"),
     tags$ol(
       tags$li("Erster Punkt"),
       tags$li("Zweiter Punkt")
     ),
-    h2("Ungeordnete Liste"),
+    h2("Unordered List"),
     tags$ul(
       class = "dashed-list",
       tags$li("Erster Punkt"),
       tags$li("Zweiter Punkt")
     ),
-    h2("Hyperlinks"),
+    h2("Hyperlink"),
     tags$a(href = "https://stadt-zuerich.ch/", "Statistik"),
-    h2("Text mit Hyperlinks und Passagen in bold"),
+    h2("Paragraph with Hyperlink and bold Strings"),
     p(
       "Lorem ipsum dolor sit ",
       strong(class = "bold-text", "amet, consetetur sadipscing elitr,"),

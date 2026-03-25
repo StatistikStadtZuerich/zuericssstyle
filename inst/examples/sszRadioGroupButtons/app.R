@@ -9,13 +9,13 @@ ui <- ssz_page(
     selected = 2022 # default value
   ),
   br(),
-  h1("Selected"),
-  textOutput("choice")
+  h2("Action"),
+  uiOutput("choice")
 )
 
 server <- function(input, output, session) {
   # Our dataset
-  output$choice <- renderText(input$years)
+  output$choice <- renderUI(p(input$years))
 }
 
 shinyApp(ui, server)

@@ -4,7 +4,7 @@ library(reactable)
 ui <- ssz_page(
   h1("Widget demo"),
   tagList(
-    h2("Statische Tabelle"),
+    h2("Static Table"),
     reactable::reactable(
       iris,
       paginationType = "simple",
@@ -16,7 +16,7 @@ ui <- ssz_page(
         pageNext = "\u276f"
       )
     ),
-    h2("Interaktive Tabelle"),
+    h2("Interactive Table"),
     reactable::reactable(
       iris,
       paginationType = "simple",
