@@ -187,6 +187,10 @@ sszActionButton("ActionButtonId", "Abfrage starten")
 `sszDownloadButton()` provides a styled download button based on `downloadButton()` from Shiny.
 
 ``` r
+icons_ssz <- function() {
+  icons::icon_set(system.file("icons", package = "zuericssstyle"))
+}
+
 sszDownloadButton("csvDownload",
       label = "CSV",
       image = icons_ssz("download")
