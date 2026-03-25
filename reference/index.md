@@ -19,7 +19,7 @@ dependency for any html object
 - [`ssz_page_without_bootstrap()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/ssz_page_without_bootstrap.md)
   : ssz_page_without_bootstrap
 - [`add_zcss_deps()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/add_zcss_deps.md)
-  : add_zcss_deps
+  : Add zuericssstyle CSS dependencies to an HTML tag
 
 ## Shiny widgets
 
