@@ -2,7 +2,8 @@ library(shiny)
 library(shinyWidgets)
 # airdatepicker demo
 
-icons_ssz <- icons::icon_set(here::here("inst", "icons"))
+# icons_ssz <- icons::icon_set(here::here("inst", "icons"))
+icon <- icons_ssz()
 
 ui <- ssz_page(
   h1("Widget demo"),
@@ -14,16 +15,16 @@ ui <- ssz_page(
     view = "days",
     minView = "days",
     autoClose = TRUE,
-    ssz_icon = icons_ssz("calendar")
+    ssz_icon = icon("calendar")
   ),
   br(),
-  textOutput("choice")
+  uiOutput("choice")
 )
 
 server <- function(input, output, session) {
   # Our dataset
   observeEvent(input$airMonth, {
-    output$choice <- renderText(format(input$airMonth, "%d-%m-%Y"))
+    output$choice <- renderUI(p(format(input$airMonth, "%d-%m-%Y")))
   })
 }
 
