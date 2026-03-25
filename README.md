@@ -57,7 +57,7 @@ ui <- add_zcss_deps(fixedPage(...))
 
 This ensures that all `zuericssstyle` widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
 
-Example applications in [examples](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) demonstrate and allow you to test every widget included in this package.
+Example applications in the `inst/example` folder demonstrate and allow you to test every widget included in this package.
 
 #### Numeric Input
 
@@ -189,26 +189,23 @@ sszActionButton("ActionButtonId", "Abfrage starten")
 `sszDownloadButton()` provides a styled download button based on `downloadButton()` from Shiny.
 
 ``` r
-icons_ssz <- function() {
-  icons::icon_set(system.file("icons", package = "zuericssstyle"))
-}
-
 sszDownloadButton("csvDownload",
       label = "CSV",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     )
 
 sszDownloadButton("excelDownload",
       label = "XLSX",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     )
 
 sszDownloadButton("downloadDownload",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     )
 
 sszOgdDownload("ogdDownload",
-      href = "https://data.stadt-zuerich.ch/"
+      href = "https://data.stadt-zuerich.ch/",
+      image = icons_stzh()("external-link")
     )
 ```
 
@@ -216,7 +213,9 @@ sszOgdDownload("ogdDownload",
 
 The `label` argument specifies the text displayed on the button. It must be one of `"Download"`, `"CSV"`, or `"XLSX"`. The default value is `"Download"`.
 
-The `image` argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML `<i>` or `<img>` tag. The default is `NULL`, meaning no icon is shown. A button linking to an external resource can be createt using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter
+The `image` argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML `<i>` or `<img>` tag. The default is `NULL`, meaning no icon is shown. A button linking to an external resource can be createt using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter.
+
+The package provides a set of SVG icons shipped in the `inst/icons` folder and exposes a convenience helper, `icons_stzh()`, to retrieve them as an `icons::icon_set()` object. Use `icons_stzh()` to embed icons in buttons and other widgets.
 
 #### Button Layout Helper
 
@@ -242,18 +241,14 @@ sszDateRange("DateRange", "Datum auswählen",
     end = "2010-12-31",
     min = "2001-01-01",
     max = "2012-12-21",
-    separator = icons_ssz("calendar"),
+    separator = icons_stzh()("calendar"),
     weekstart = 1
   )
 ```
 
-![](man/figures/dateRange.png)
-
 #### Date Selection with Air Datepicker
 
-`sszAirDatepickerInput()` provides a styled wrapper around `airDatepickerInput()` from [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike `dateRangeInput()`, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is `dd.mm.yyyy`.
-
-You can optionally supply a custom calendar icon using an HTML image tag with `htmltools::tags$img(...)`.
+`sszAirDatepickerInput()` provides a styled wrapper around `airDatepickerInput()` from [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike `dateRangeInput()`, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is `dd.mm.yyyy`.
 
 ``` r
 sszAirDatepickerInput(
@@ -263,7 +258,7 @@ sszAirDatepickerInput(
           view = "years",
           minView = "months",
           autoClose = TRUE,
-          ssz_icon = img(icons_ssz("calendar"))
+          ssz_icon = icons_stzh()("calendar")
         )
 ```
 

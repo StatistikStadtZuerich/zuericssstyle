@@ -3,6 +3,7 @@
 -   Fix: adjust reactable font size to 14px to avoid font-hinting artifacts on some platforms
 -   Fix: set paragraph font size to 16px at tablet breakpoint
 -   Fix: adjust font size in ordered and unordered lists
+-   New `icons_stzh` function that provides icons supported by the corporate design of the City of Zurich
 
 # zuericssstyle 2.0.2
 
