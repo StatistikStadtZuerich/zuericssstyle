@@ -27,7 +27,6 @@ Imports:
     dqshiny (>= 0.0.5),
     here,
     htmltools,
-    icons (>= 0.2.0),
     shiny,
     shinyWidgets,
     utils
@@ -35,6 +34,7 @@ Remotes:
     github::daqana/dqshiny,
     github::mitchelloharawild/icons
 Suggests: 
+    icons (>= 0.2.0),
     devtools,
     pkgdown,
     sass,
