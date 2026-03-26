@@ -2,13 +2,13 @@
 #'
 #' Convenience helper that returns an icon set pointing to the package's
 #' bundled `inst/icons/` directory. This saves callers from writing the
-#' `icons::icon_set(system.file(...))` boilerplate.
+#' `icons::icon_set(system.file(...))`.
 #'
 #' @return An object produced by [icons::icon_set()]. Use it in places
-#'   that expect an icon-producing function, e.g. `image = icons_stzh("name")`.
+#'   that expect an icon-producing function, e.g. `image = icons_stzh()("name")`.
 #' @examples
 #' if (requireNamespace("icons", quietly = TRUE)) {
-#'   icons_ssz()
+#'   icons_stzh()
 #' }
 #' @export
 icons_stzh <- function() {
