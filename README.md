@@ -55,9 +55,9 @@ If your application uses a different page layout (e.g. `fixedPage()`), you can i
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
-This ensures that all `zuericssstyle` widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
+This ensures that all `zuericssstyle` widgets are rendered with the correct styling without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
 
-Example applications in the `inst/example` folder demonstrate and allow you to test every widget included in this package.
+Example applications in the `inst/example` folder demonstrate and allow you to test every widget included in this package. The following sections introduce all styled widgets.
 
 #### Numeric Input
 
@@ -213,13 +213,13 @@ sszOgdDownload("ogdDownload",
 
 The `label` argument specifies the text displayed on the button. It must be one of `"Download"`, `"CSV"`, or `"XLSX"`. The default value is `"Download"`.
 
-The `image` argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML `<i>` or `<img>` tag. The default is `NULL`, meaning no icon is shown. A button linking to an external resource can be createt using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter.
+The `image` argument allows an icon or image to be displayed before the button text. The default is `NULL`, meaning no icon is shown. `zuericssstyle` provides a set of SVG icons shipped in the `inst/icons` folder and exposes a convenience helper, `icons_stzh()`, to retrieve them as an `icons::icon_set()` object. Use `icons_stzh()` to embed icons in buttons and other widgets.
 
-The package provides a set of SVG icons shipped in the `inst/icons` folder and exposes a convenience helper, `icons_stzh()`, to retrieve them as an `icons::icon_set()` object. Use `icons_stzh()` to embed icons in buttons and other widgets.
+A button linking to an external resource can be created using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter.
 
 #### Button Layout Helper
 
-When you want several buttons displayed next to each other, wrap them in a container with the `button-div` CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for `.button-div` and `.downloadWrapperDiv`).
+When you want several buttons displayed next to each other horizontally, wrap them in a container with the `button-div` CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for `.button-div` and `.downloadWrapperDiv`).
 
 Example:
 
@@ -227,7 +227,12 @@ Example:
 div(
   class = "button-div",
   sszDownloadButton("csvDownload", label = "CSV"),
-  div(class = "downloadWrapperDiv", sszDownloadButton("excelDownload", label = "XLSX"))
+  div(class = "downloadWrapperDiv", 
+      sszDownloadButton("excelDownload", label = "XLSX"),
+      sszOgdDownload("ogdDownload",
+                     href = "https://data.stadt-zuerich.ch/"
+                     )
+      )
 )
 ```
 
@@ -268,12 +273,22 @@ sszAirDatepickerInput(
 
 #### bslib cards
 
-Cards from [bslib](https://rstudio.github.io/bslib/articles/cards/index.html) can be used both in Shiny applications and in other HTML outputs. The CSS included in `zuericssstyle` (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.
+Cards from [`bslib`](https://rstudio.github.io/bslib/articles/cards/index.html) can be used both in Shiny applications and in other HTML outputs. The CSS included in `zuericssstyle` (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.
 
 When creating cards, we recommend using a heading element inside `card_header` to ensure consistent typography and spacing.
 
 ``` r
-library(bslib) card(   card_header(h5("A random header")),   card_body(     markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")   ),   card_footer("a footer") )
+library(bslib) 
+
+card(
+  card_header(
+    h5("A random header")
+    ),
+  card_body(
+    markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")
+    ),
+  card_footer("a footer")
+  )
 ```
 
 ![](man/figures/bslib-card.png)
@@ -297,10 +312,10 @@ reactable(iris,
 
 A pair of CSS helper classes are provided for `reactable` usage:
 
--   `table-striped` — applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping).
--   `table-hover` — no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).
+-   `table-striped`: applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping). Best used for static tables.
+-   `table-hover`: no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).
 
-When setting one of those classes, the `highlight` and `striped` arguments in reactable no longer influence the appearance of the table.
+When setting one of those classes, the `highlight` and `striped` arguments in `reactable` no longer influence the appearance of the table.
 
 Example:
 
@@ -362,7 +377,7 @@ sszWarningBox(
 
 #### Text
 
-Normal paragraph text uses the proprietary display font (`HelveticaNeueLTPro`) and is sized at `18px`. You can override this locally, but the package defaults provide consistent, readable body text across pages and apps. There is two text-specific utility classes in `zuericssstyle`
+Normal paragraph text uses the proprietary display font (`HelveticaNeueLTPro`) and is sized at `18px`. You can override this locally, but the package defaults provide consistent, readable body text. There is two text-specific utility classes in `zuericssstyle` :
 
 -   `.bold-text`: apply this class to inline elements (links, spans, strong) to render them with the package's title/font family.
 
@@ -382,7 +397,7 @@ tags$ul(class = "dashed-list",
 
 #### Div for Chart Buttons
 
-The `.ssz-chart-buttons` CSS class can be applied to a `<div>` to create a flexible layout with centered content and a buttom margin, suitable for grouping chart-related buttons.
+The `.ssz-chart-buttons` CSS class can be applied to a `<div>` to create a flexible layout with centered content and a bottom margin, suitable for grouping chart-related buttons.
 
 Example usage:
 
