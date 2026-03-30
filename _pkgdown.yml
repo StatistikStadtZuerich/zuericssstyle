@@ -21,7 +21,8 @@ reference:
   desc: "Styled HTML elements"
   contents:
   - has_concept("html_elements")
- - title: "Icons"
-   desc: "Helpers for packaged SVG icons"
-   contents:
-   - "icons_stzh"
+- title: "Icons"
+  desc: "Helpers for packaged SVG icons"
+  contents:
+  - starts_with("icons_stzh")
+  - "icons_stzh"
