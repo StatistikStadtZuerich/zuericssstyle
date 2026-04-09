@@ -55,7 +55,9 @@ If your application uses a different page layout (e.g. `fixedPage()`), you can i
 ui <- add_zcss_deps(fixedPage(...))
 ```
 
-This ensures that all `zuericssstyle` widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
+This ensures that all `zuericssstyle` widgets are rendered with the correct styling without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding `ssz*` functions.
+
+Example applications in the `inst/example` folder demonstrate and allow you to test every widget included in this package. The following sections introduce all styled widgets.
 
 #### Numeric Input
 
@@ -74,14 +76,14 @@ sszNumericInput("number", "Zahl", 4)
 ``` r
 sszSelectInput(
     "select",
-    "Destination",
+    "Flughafen",
     choices = c("HOU", "LAX", "JFK", "SEA"),
     selected = "LAX"
   )
 
 sszSelectInput(
     "selectmultiple",
-    "Destination (Multiple)",
+    "Flughafen (mehrere)",
     choices = c("HOU", "LAX", "JFK", "SEA"),
     multiple = TRUE
   )
@@ -180,7 +182,7 @@ sszSliderInput("choose_number",
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 
-![](man/figures/actionButton.png)
+![](man/figures/actionbutton.png)
 
 #### Download Buttons
 
@@ -189,20 +191,21 @@ sszActionButton("ActionButtonId", "Abfrage starten")
 ``` r
 sszDownloadButton("csvDownload",
       label = "CSV",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     )
 
 sszDownloadButton("excelDownload",
       label = "XLSX",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     )
 
 sszDownloadButton("downloadDownload",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     )
 
 sszOgdDownload("ogdDownload",
-      href = "https://data.stadt-zuerich.ch/"
+      href = "https://data.stadt-zuerich.ch/",
+      image = icons_stzh()("external-link")
     )
 ```
 
@@ -210,11 +213,13 @@ sszOgdDownload("ogdDownload",
 
 The `label` argument specifies the text displayed on the button. It must be one of `"Download"`, `"CSV"`, or `"XLSX"`. The default value is `"Download"`.
 
-The `image` argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML `<i>` or `<img>` tag. The default is `NULL`, meaning no icon is shown. A button linking to an external resource can be createt using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter
+The `image` argument allows an icon or image to be displayed before the button text. The default is `NULL`, meaning no icon is shown. `zuericssstyle` provides a set of SVG icons shipped in the `inst/icons` folder and exposes a convenience helper, `icons_stzh()`, to retrieve them as an `icons::icon_set()` object. Use `icons_stzh()` to embed icons in buttons and other widgets.
+
+A button linking to an external resource can be created using `sszOgdDownload()`. Provide the appropriate link in the `href` parameter.
 
 #### Button Layout Helper
 
-When you want several buttons displayed next to each other, wrap them in a container with the `button-div` CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for `.button-div` and `.downloadWrapperDiv`).
+When you want several buttons displayed next to each other horizontally, wrap them in a container with the `button-div` CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for `.button-div` and `.downloadWrapperDiv`).
 
 Example:
 
@@ -222,7 +227,12 @@ Example:
 div(
   class = "button-div",
   sszDownloadButton("csvDownload", label = "CSV"),
-  div(class = "downloadWrapperDiv", sszDownloadButton("excelDownload", label = "XLSX"))
+  div(class = "downloadWrapperDiv", 
+      sszDownloadButton("excelDownload", label = "XLSX"),
+      sszOgdDownload("ogdDownload",
+                     href = "https://data.stadt-zuerich.ch/"
+                     )
+      )
 )
 ```
 
@@ -231,33 +241,29 @@ div(
 `sszDateRange()` provides a styled version of `dateRangeInput()` from Shiny. By default, the language is German and the date format is `dd.mm.yyyy`. This and additional parameters to Shiny's `dateRangeInput` can be passed as parameters.
 
 ``` r
-sszDateRange("DateRange", "Datum",
+sszDateRange("DateRange", "Datum auswählen",
     start = "2001-01-01",
     end = "2010-12-31",
     min = "2001-01-01",
     max = "2012-12-21",
-    separator = icons_ssz("calendar"),
+    separator = icons_stzh()("calendar"),
     weekstart = 1
   )
 ```
 
-![](man/figures/dateRange.png)
-
 #### Date Selection with Air Datepicker
 
-`sszAirDatepickerInput()` provides a styled wrapper around `airDatepickerInput()` from [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike `dateRangeInput()`, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is `dd.mm.yyyy`.
-
-You can optionally supply a custom calendar icon using an HTML image tag with `htmltools::tags$img(...)`.
+`sszAirDatepickerInput()` provides a styled wrapper around `airDatepickerInput()` from [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/). Unlike `dateRangeInput()`, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is `dd.mm.yyyy`.
 
 ``` r
 sszAirDatepickerInput(
           inputId = "airMonthStart2",
-          label = "Basis Datum",
+          label = "Datum auswählen",
           dateFormat = "MM-yyyy",
           view = "years",
           minView = "months",
           autoClose = TRUE,
-          ssz_icon = img(icons_ssz("calendar"))
+          ssz_icon = icons_stzh()("calendar")
         )
 ```
 
@@ -267,12 +273,22 @@ sszAirDatepickerInput(
 
 #### bslib cards
 
-Cards from [bslib](https://rstudio.github.io/bslib/articles/cards/index.html) can be used both in Shiny applications and in other HTML outputs. The CSS included in `zuericssstyle` (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.
+Cards from [`bslib`](https://rstudio.github.io/bslib/articles/cards/index.html) can be used both in Shiny applications and in other HTML outputs. The CSS included in `zuericssstyle` (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.
 
 When creating cards, we recommend using a heading element inside `card_header` to ensure consistent typography and spacing.
 
 ``` r
-library(bslib) card(   card_header(h5("A random header")),   card_body(     markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")   ),   card_footer("a footer") )
+library(bslib) 
+
+card(
+  card_header(
+    h5("A random header")
+    ),
+  card_body(
+    markdown("Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)")
+    ),
+  card_footer("a footer")
+  )
 ```
 
 ![](man/figures/bslib-card.png)
@@ -296,10 +312,10 @@ reactable(iris,
 
 A pair of CSS helper classes are provided for `reactable` usage:
 
--   `table-striped` — applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping).
--   `table-hover` — no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).
+-   `table-striped`: applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping). Best used for static tables.
+-   `table-hover`: no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).
 
-When setting one of those classes, the `highlight` and `striped` arguments in reactable no longer influence the appearance of the table.
+When setting one of those classes, the `highlight` and `striped` arguments in `reactable` no longer influence the appearance of the table.
 
 Example:
 
@@ -359,9 +375,29 @@ sszWarningBox(
 
 ![](man/figures/info_warning-box.png)
 
+#### Text
+
+Normal paragraph text uses the proprietary display font (`HelveticaNeueLTPro`) and is sized at `18px`. You can override this locally, but the package defaults provide consistent, readable body text. There is two text-specific utility classes in `zuericssstyle` :
+
+-   `.bold-text`: apply this class to inline elements (links, spans, strong) to render them with the package's title/font family.
+
+-   `.dashed-list`: a special list variant that removes the native marker and padding (useful for compact dashed-style lists). The package also provides counter-based `ol` and custom `ul` markers so markers align consistently across breakpoints.
+
+``` r
+p("This text will be ",
+   strong(class = "bold-text", "bold"),
+   "."
+  )
+
+tags$ul(class = "dashed-list",
+  tags$li("First item"),
+  tags$li("Second item")
+)
+```
+
 #### Div for Chart Buttons
 
-The `.ssz-chart-buttons` CSS class can be applied to a `<div>` to create a flexible layout with centered content and a buttom margin, suitable for grouping chart-related buttons.
+The `.ssz-chart-buttons` CSS class can be applied to a `<div>` to create a flexible layout with centered content and a bottom margin, suitable for grouping chart-related buttons.
 
 Example usage:
 

@@ -9,13 +9,13 @@ ui <- ssz_page(
     4
   ),
   br(),
-  h1("Input"),
-  textOutput("input")
+  h2("Action"),
+  uiOutput("input")
 )
 
 server <- function(input, output, session) {
   # Our dataset
-  output$input <- renderText(input$number)
+  output$input <- renderUI(p(input$number))
 }
 
 shinyApp(ui, server)

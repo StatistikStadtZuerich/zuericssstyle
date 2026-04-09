@@ -1,8 +1,6 @@
 library(shiny)
 # OGD button demo
 
-icons_ssz <- icons::icon_set(here::here("inst", "icons"))
-
 ui <- ssz_page(
   h1("Widget demo"),
   tags$div(
@@ -12,7 +10,7 @@ ui <- ssz_page(
       outputId = "ogdDown",
       label = "OGD",
       href = "https://data.stadt-zuerich.ch/",
-      image = img(icons_ssz("external-link"))
+      image = icons_stzh()("external-link")
     )
   )
 )

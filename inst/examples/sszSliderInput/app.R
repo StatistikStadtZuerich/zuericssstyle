@@ -16,15 +16,23 @@ ui <- ssz_page(
     max = 100
   ),
   br(),
-  h1("Input"),
-  textOutput("input"),
-  textOutput("inputsingle")
+  h2("Action"),
+  uiOutput("input"),
+  uiOutput("inputsingle")
 )
 
 server <- function(input, output, session) {
   # Our dataset
-  output$input <- renderText(input$choose_numbers)
-  output$inputsingle <- renderText(input$choose_number)
+  output$input <- renderUI({
+    vals <- input$choose_numbers
+    tagList(
+      tags$p(vals[1], " bis ", vals[2])
+    )
+  })
+
+  output$inputsingle <- renderUI({
+    tags$p(input$choose_number)
+  })
 }
 
 shinyApp(ui, server)

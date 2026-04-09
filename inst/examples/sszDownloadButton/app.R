@@ -2,26 +2,25 @@ library(shiny)
 library(openxlsx)
 # download demo
 
-icons_ssz <- icons::icon_set(here::here("inst", "icons"))
-
 ui <- ssz_page(
   h1("Widget demo"),
   tags$div(
-    id = "downloadWrapperId",
-    class = "downloadWrapperDiv",
+    id = "button-div",
+    class = "button-div",
     sszDownloadButton("csvDownload",
       label = "CSV",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     ),
     sszDownloadButton("excelDownload",
       label = "XLSX",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     ),
     sszDownloadButton("downloadDownload",
-      image = icons_ssz("download")
+      image = icons_stzh()("download")
     ),
     sszOgdDownload("ogdDownload",
-      href = "https://data.stadt-zuerich.ch/"
+      href = "https://data.stadt-zuerich.ch/",
+      image = icons_stzh()("external-link")
     )
   )
 )

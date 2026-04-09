@@ -5,7 +5,7 @@
 #' @param outputId outputId parameter
 #' @param label label parameter (i.e. text to be shown), default is "OGD"
 #' @param href link to be opened
-#' @param image optional image/icon in the form of a html-i Tag, default is icons_ssz("external-link")
+#' @param image optional image/icon in the form of a html-i Tag, default is NULL
 #'
 #' @return tags$a
 #'
@@ -16,7 +16,7 @@
 #' \dontrun{
 #' inst / examples / sszOgdDownload / app.r
 #' }
-sszOgdDownload <- function(outputId, href, label = "OGD", image = icons_ssz("external-link")) {
+sszOgdDownload <- function(outputId, href, label = "OGD", image = NULL) {
   tags$a(
     id = outputId,
     href = href,

@@ -4,12 +4,7 @@
 \alias{sszOgdDownload}
 \title{sszOgdDownload}
 \usage{
-sszOgdDownload(
-  outputId,
-  href,
-  label = "OGD",
-  image = icons_ssz("external-link")
-)
+sszOgdDownload(outputId, href, label = "OGD", image = NULL)
 }
 \arguments{
 \item{outputId}{outputId parameter}
@@ -18,7 +13,7 @@ sszOgdDownload(
 
 \item{label}{label parameter (i.e. text to be shown), default is "OGD"}
 
-\item{image}{optional image/icon in the form of a html-i Tag, default is icons_ssz("external-link")}
+\item{image}{optional image/icon in the form of a html-i Tag, default is NULL}
 }
 \value{
 tags$a

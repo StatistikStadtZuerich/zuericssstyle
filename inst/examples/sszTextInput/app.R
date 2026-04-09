@@ -8,13 +8,13 @@ ui <- ssz_page(
     "Name"
   ),
   br(),
-  h1("Input"),
-  textOutput("input")
+  h1("Action"),
+  uiOutput("input")
 )
 
 server <- function(input, output, session) {
   # Our dataset
-  output$input <- renderText(input$suchfeld)
+  output$input <- renderUI(p(input$suchfeld))
 }
 
 shinyApp(ui, server)

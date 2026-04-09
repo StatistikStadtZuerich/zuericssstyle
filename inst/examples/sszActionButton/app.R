@@ -9,14 +9,14 @@ ui <- ssz_page(
   ),
   br(),
   h2("Action"),
-  textOutput("action")
+  uiOutput("action")
 )
 
 server <- function(input, output, session) {
   # Observe the action button press
   observeEvent(input$action, {
-    output$action <- renderText({
-      "Abfrage gestartet"
+    output$action <- renderUI({
+      p("Abfrage gestartet")
     })
   })
 }
