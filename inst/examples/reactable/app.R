@@ -5,11 +5,11 @@ ui <- ssz_page(
   h1("Widget demo"),
   tagList(
     h2("Static Table"),
-    reactable::reactable(
+    reactable(
       iris,
       paginationType = "simple",
       class = "table-striped",
-      language = reactable::reactableLang(
+      language = reactableLang(
         noData = "Keine Einträge gefunden",
         pageNumbers = "{page} von {pages}",
         pagePrevious = "\u276e",
@@ -17,11 +17,11 @@ ui <- ssz_page(
       )
     ),
     h2("Interactive Table"),
-    reactable::reactable(
+    reactable(
       iris,
       paginationType = "simple",
       class = "table-hover",
-      language = reactable::reactableLang(
+      language = reactableLang(
         noData = "Keine Einträge gefunden",
         pageNumbers = "{page} von {pages}",
         pagePrevious = "\u276e",
