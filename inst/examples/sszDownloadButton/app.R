@@ -5,8 +5,8 @@ library(openxlsx)
 ui <- ssz_page(
   h1("Widget demo"),
   tags$div(
-    id = "downloadWrapperId",
-    class = "downloadWrapperDiv",
+    id = "button-div",
+    class = "button-div",
     sszDownloadButton("csvDownload",
       label = "CSV",
       image = icons_stzh()("download")
