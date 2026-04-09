@@ -60,3 +60,10 @@ Styled HTML elements
   : sszInfoBox
 - [`sszWarningBox()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/sszWarningBox.md)
   : sszWarningBox
+
+## Icons
+
+Helpers for packaged SVG icons
+
+- [`icons_stzh()`](https://statistikstadtzuerich.github.io/zuericssstyle/reference/icons_stzh.md)
+  : Package icons for zuericssstyle

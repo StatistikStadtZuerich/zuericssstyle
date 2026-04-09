@@ -87,7 +87,8 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># alternative: include styling and icons around your UI</span></span>
 <span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/add_zcss_deps.html">add_zcss_deps</a></span><span class="op">(</span><span class="fu">fixedPage</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>This ensures that all <code>zuericssstyle</code> widgets are rendered with the correct styling work without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding <code>ssz*</code> functions.</p>
+<p>This ensures that all <code>zuericssstyle</code> widgets are rendered with the correct styling without additional setup. All additional arguments supported by the underlying Shiny functions can be passed to the corresponding <code>ssz*</code> functions.</p>
+<p>Example applications in the <code>inst/example</code> folder demonstrate and allow you to test every widget included in this package. The following sections introduce all styled widgets.</p>
 <div class="section level4">
 <h4 id="numeric-input">Numeric Input<a class="anchor" aria-label="anchor" href="#numeric-input"></a>
 </h4>
@@ -103,14 +104,14 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszSelectInput.html">sszSelectInput</a></span><span class="op">(</span></span>
 <span>    <span class="st">"select"</span>,</span>
-<span>    <span class="st">"Destination"</span>,</span>
+<span>    <span class="st">"Flughafen"</span>,</span>
 <span>    choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HOU"</span>, <span class="st">"LAX"</span>, <span class="st">"JFK"</span>, <span class="st">"SEA"</span><span class="op">)</span>,</span>
 <span>    selected <span class="op">=</span> <span class="st">"LAX"</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/sszSelectInput.html">sszSelectInput</a></span><span class="op">(</span></span>
 <span>    <span class="st">"selectmultiple"</span>,</span>
-<span>    <span class="st">"Destination (Multiple)"</span>,</span>
+<span>    <span class="st">"Flughafen (mehrere)"</span>,</span>
 <span>    choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"HOU"</span>, <span class="st">"LAX"</span>, <span class="st">"JFK"</span>, <span class="st">"SEA"</span><span class="op">)</span>,</span>
 <span>    multiple <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
@@ -195,7 +196,7 @@
 <p><code><a href="reference/sszActionButton.html">sszActionButton()</a></code> provides a styled version of <code>actionButton()</code> from Shiny.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszActionButton.html">sszActionButton</a></span><span class="op">(</span><span class="st">"ActionButtonId"</span>, <span class="st">"Abfrage starten"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/actionButton.png"></p>
+<p><img src="reference/figures/actionbutton.png"></p>
 </div>
 <div class="section level4">
 <h4 id="download-buttons">Download Buttons<a class="anchor" aria-label="anchor" href="#download-buttons"></a>
@@ -204,35 +205,42 @@
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"csvDownload"</span>,</span>
 <span>      label <span class="op">=</span> <span class="st">"CSV"</span>,</span>
-<span>      image <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
+<span>      image <span class="op">=</span> <span class="fu"><a href="reference/icons_stzh.html">icons_stzh</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"excelDownload"</span>,</span>
 <span>      label <span class="op">=</span> <span class="st">"XLSX"</span>,</span>
-<span>      image <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
+<span>      image <span class="op">=</span> <span class="fu"><a href="reference/icons_stzh.html">icons_stzh</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"downloadDownload"</span>,</span>
-<span>      image <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
+<span>      image <span class="op">=</span> <span class="fu"><a href="reference/icons_stzh.html">icons_stzh</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="st">"download"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="reference/sszOgdDownload.html">sszOgdDownload</a></span><span class="op">(</span><span class="st">"ogdDownload"</span>,</span>
-<span>      href <span class="op">=</span> <span class="st">"https://data.stadt-zuerich.ch/"</span></span>
+<span>      href <span class="op">=</span> <span class="st">"https://data.stadt-zuerich.ch/"</span>,</span>
+<span>      image <span class="op">=</span> <span class="fu"><a href="reference/icons_stzh.html">icons_stzh</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="st">"external-link"</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/download.png"></p>
 <p>The <code>label</code> argument specifies the text displayed on the button. It must be one of <code>"Download"</code>, <code>"CSV"</code>, or <code>"XLSX"</code>. The default value is <code>"Download"</code>.</p>
-<p>The <code>image</code> argument allows an icon or image to be displayed before the button text. It should be supplied as an HTML <code>&lt;i&gt;</code> or <code>&lt;img&gt;</code> tag. The default is <code>NULL</code>, meaning no icon is shown. A button linking to an external resource can be createt using <code><a href="reference/sszOgdDownload.html">sszOgdDownload()</a></code>. Provide the appropriate link in the <code>href</code> parameter</p>
+<p>The <code>image</code> argument allows an icon or image to be displayed before the button text. The default is <code>NULL</code>, meaning no icon is shown. <code>zuericssstyle</code> provides a set of SVG icons shipped in the <code>inst/icons</code> folder and exposes a convenience helper, <code><a href="reference/icons_stzh.html">icons_stzh()</a></code>, to retrieve them as an <code><a href="https://pkg.mitchelloharawild.com/icon/reference/icon_set.html" class="external-link">icons::icon_set()</a></code> object. Use <code><a href="reference/icons_stzh.html">icons_stzh()</a></code> to embed icons in buttons and other widgets.</p>
+<p>A button linking to an external resource can be created using <code><a href="reference/sszOgdDownload.html">sszOgdDownload()</a></code>. Provide the appropriate link in the <code>href</code> parameter.</p>
 </div>
 <div class="section level4">
 <h4 id="button-layout-helper">Button Layout Helper<a class="anchor" aria-label="anchor" href="#button-layout-helper"></a>
 </h4>
-<p>When you want several buttons displayed next to each other, wrap them in a container with the <code>button-div</code> CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for <code>.button-div</code> and <code>.downloadWrapperDiv</code>).</p>
+<p>When you want several buttons displayed next to each other horizontally, wrap them in a container with the <code>button-div</code> CSS class. It applies a horizontal flex layout with space between items on wide screens and switches to a stacked column layout on small screens (see the responsive rules for <code>.button-div</code> and <code>.downloadWrapperDiv</code>).</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">div</span><span class="op">(</span></span>
 <span>  class <span class="op">=</span> <span class="st">"button-div"</span>,</span>
 <span>  <span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"csvDownload"</span>, label <span class="op">=</span> <span class="st">"CSV"</span><span class="op">)</span>,</span>
-<span>  <span class="fu">div</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"downloadWrapperDiv"</span>, <span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"excelDownload"</span>, label <span class="op">=</span> <span class="st">"XLSX"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">div</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"downloadWrapperDiv"</span>, </span>
+<span>      <span class="fu"><a href="reference/sszDownloadButton.html">sszDownloadButton</a></span><span class="op">(</span><span class="st">"excelDownload"</span>, label <span class="op">=</span> <span class="st">"XLSX"</span><span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="reference/sszOgdDownload.html">sszOgdDownload</a></span><span class="op">(</span><span class="st">"ogdDownload"</span>,</span>
+<span>                     href <span class="op">=</span> <span class="st">"https://data.stadt-zuerich.ch/"</span></span>
+<span>                     <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
@@ -240,30 +248,28 @@
 </h4>
 <p><code><a href="reference/sszDateRange.html">sszDateRange()</a></code> provides a styled version of <code>dateRangeInput()</code> from Shiny. By default, the language is German and the date format is <code>dd.mm.yyyy</code>. This and additional parameters to Shiny’s <code>dateRangeInput</code> can be passed as parameters.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/sszDateRange.html">sszDateRange</a></span><span class="op">(</span><span class="st">"DateRange"</span>, <span class="st">"Datum"</span>,</span>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/sszDateRange.html">sszDateRange</a></span><span class="op">(</span><span class="st">"DateRange"</span>, <span class="st">"Datum auswählen"</span>,</span>
 <span>    start <span class="op">=</span> <span class="st">"2001-01-01"</span>,</span>
 <span>    end <span class="op">=</span> <span class="st">"2010-12-31"</span>,</span>
 <span>    min <span class="op">=</span> <span class="st">"2001-01-01"</span>,</span>
 <span>    max <span class="op">=</span> <span class="st">"2012-12-21"</span>,</span>
-<span>    separator <span class="op">=</span> <span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"calendar"</span><span class="op">)</span>,</span>
+<span>    separator <span class="op">=</span> <span class="fu"><a href="reference/icons_stzh.html">icons_stzh</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="st">"calendar"</span><span class="op">)</span>,</span>
 <span>    weekstart <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/dateRange.png"></p>
 </div>
 <div class="section level4">
 <h4 id="date-selection-with-air-datepicker">Date Selection with Air Datepicker<a class="anchor" aria-label="anchor" href="#date-selection-with-air-datepicker"></a>
 </h4>
-<p><code><a href="reference/sszAirDatepickerInput.html">sszAirDatepickerInput()</a></code> provides a styled wrapper around <code>airDatepickerInput()</code> from <a href="https://dreamrs.github.io/shinyWidgets/" class="external-link"><code>shinyWidgets</code></a>. Unlike <code>dateRangeInput()</code>, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is <code>dd.mm.yyyy</code>.</p>
-<p>You can optionally supply a custom calendar icon using an HTML image tag with <code>htmltools::tags$img(...)</code>.</p>
+<p><code><a href="reference/sszAirDatepickerInput.html">sszAirDatepickerInput()</a></code> provides a styled wrapper around <code>airDatepickerInput()</code> from <a href="https://dreamrs.github.io/shinyWidgets/" class="external-link"><code>shinyWidgets</code></a>. Unlike <code>dateRangeInput()</code>, it allows selecting years only or years and months, in addition to full dates. By default, the language is German and the date format is <code>dd.mm.yyyy</code>.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/sszAirDatepickerInput.html">sszAirDatepickerInput</a></span><span class="op">(</span></span>
 <span>          inputId <span class="op">=</span> <span class="st">"airMonthStart2"</span>,</span>
-<span>          label <span class="op">=</span> <span class="st">"Basis Datum"</span>,</span>
+<span>          label <span class="op">=</span> <span class="st">"Datum auswählen"</span>,</span>
 <span>          dateFormat <span class="op">=</span> <span class="st">"MM-yyyy"</span>,</span>
 <span>          view <span class="op">=</span> <span class="st">"years"</span>,</span>
 <span>          minView <span class="op">=</span> <span class="st">"months"</span>,</span>
 <span>          autoClose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>          ssz_icon <span class="op">=</span> <span class="fu">img</span><span class="op">(</span><span class="fu">icons_ssz</span><span class="op">(</span><span class="st">"calendar"</span><span class="op">)</span><span class="op">)</span></span>
+<span>          ssz_icon <span class="op">=</span> <span class="fu"><a href="reference/icons_stzh.html">icons_stzh</a></span><span class="op">(</span><span class="op">)</span><span class="op">(</span><span class="st">"calendar"</span><span class="op">)</span></span>
 <span>        <span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/airdatepicker.png"></p>
 </div>
@@ -274,9 +280,20 @@
 <div class="section level4">
 <h4 id="bslib-cards">bslib cards<a class="anchor" aria-label="anchor" href="#bslib-cards"></a>
 </h4>
-<p>Cards from <a href="https://rstudio.github.io/bslib/articles/cards/index.html" class="external-link">bslib</a> can be used both in Shiny applications and in other HTML outputs. The CSS included in <code>zuericssstyle</code> (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.</p>
+<p>Cards from <a href="https://rstudio.github.io/bslib/articles/cards/index.html" class="external-link"><code>bslib</code></a> can be used both in Shiny applications and in other HTML outputs. The CSS included in <code>zuericssstyle</code> (both the general CSS and the Shiny-specific CSS, see below) provides styling for these card components.</p>
 <p>When creating cards, we recommend using a heading element inside <code>card_header</code> to ensure consistent typography and spacing.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">library</span>(bslib) <span class="fu">card</span>(   <span class="fu">card_header</span>(<span class="fu">h5</span>(<span class="st">"A random header"</span>)),   <span class="fu">card_body</span>(     <span class="fu">markdown</span>(<span class="st">"Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)"</span>)   ),   <span class="fu">card_footer</span>(<span class="st">"a footer"</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rstudio.github.io/bslib/" class="external-link">bslib</a></span><span class="op">)</span> </span>
+<span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/card.html" class="external-link">card</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_header</a></span><span class="op">(</span></span>
+<span>    <span class="fu">h5</span><span class="op">(</span><span class="st">"A random header"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_body</a></span><span class="op">(</span></span>
+<span>    <span class="fu">markdown</span><span class="op">(</span><span class="st">"Some text with a [link](https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten.html)"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/bslib/reference/card_body.html" class="external-link">card_footer</a></span><span class="op">(</span><span class="st">"a footer"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/bslib-card.png"></p>
 </div>
 <div class="section level4">
@@ -296,11 +313,11 @@
 <p>A pair of CSS helper classes are provided for <code>reactable</code> usage:</p>
 <ul>
 <li>
-<code>table-striped</code> — applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping).</li>
+<code>table-striped</code>: applies a subtle stripe to even rows and disables hover highlighting (use when you want persistent row striping). Best used for static tables.</li>
 <li>
-<code>table-hover</code> — no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).</li>
+<code>table-hover</code>: no persistent stripes; rows highlight on hover (use when you prefer interactive hover feedback).</li>
 </ul>
-<p>When setting one of those classes, the <code>highlight</code> and <code>striped</code> arguments in reactable no longer influence the appearance of the table.</p>
+<p>When setting one of those classes, the <code>highlight</code> and <code>striped</code> arguments in <code>reactable</code> no longer influence the appearance of the table.</p>
 <p>Example:</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">reactable</span><span class="op">(</span><span class="va">iris</span>, class <span class="op">=</span> <span class="st">"ssz-striped"</span><span class="op">)</span></span>
@@ -348,11 +365,30 @@
 <p><img src="reference/figures/info_warning-box.png"></p>
 </div>
 <div class="section level4">
+<h4 id="text">Text<a class="anchor" aria-label="anchor" href="#text"></a>
+</h4>
+<p>Normal paragraph text uses the proprietary display font (<code>HelveticaNeueLTPro</code>) and is sized at <code>18px</code>. You can override this locally, but the package defaults provide consistent, readable body text. There is two text-specific utility classes in <code>zuericssstyle</code> :</p>
+<ul>
+<li><p><code>.bold-text</code>: apply this class to inline elements (links, spans, strong) to render them with the package’s title/font family.</p></li>
+<li><p><code>.dashed-list</code>: a special list variant that removes the native marker and padding (useful for compact dashed-style lists). The package also provides counter-based <code>ol</code> and custom <code>ul</code> markers so markers align consistently across breakpoints.</p></li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">p</span><span class="op">(</span><span class="st">"This text will be "</span>,</span>
+<span>   <span class="fu">strong</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"bold-text"</span>, <span class="st">"bold"</span><span class="op">)</span>,</span>
+<span>   <span class="st">"."</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"dashed-list"</span>,</span>
+<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"First item"</span><span class="op">)</span>,</span>
+<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="st">"Second item"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
 <h4 id="div-for-chart-buttons">Div for Chart Buttons<a class="anchor" aria-label="anchor" href="#div-for-chart-buttons"></a>
 </h4>
-<p>The <code>.ssz-chart-buttons</code> CSS class can be applied to a <code>&lt;div&gt;</code> to create a flexible layout with centered content and a buttom margin, suitable for grouping chart-related buttons.</p>
+<p>The <code>.ssz-chart-buttons</code> CSS class can be applied to a <code>&lt;div&gt;</code> to create a flexible layout with centered content and a bottom margin, suitable for grouping chart-related buttons.</p>
 <p>Example usage:</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">div</span><span class="op">(</span></span>
 <span>  class <span class="op">=</span> <span class="st">"ssz-chart-buttons"</span>,</span>
 <span>  <span class="fu"><a href="reference/sszRadioGroupButtons.html">sszRadioGroupButtons</a></span><span class="op">(</span></span>
@@ -371,7 +407,7 @@
 <h3 id="css-file-for-html">CSS File for HTML<a class="anchor" aria-label="anchor" href="#css-file-for-html"></a>
 </h3>
 <p>If you need the CSS file to style an HTML report or other HTML outputs, use:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/get_generic_css.html">get_generic_css</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>This will write the needed CSS file to your local folder. You can also specify a full file path (e.g. <code>"C:/temp/mystyling.css"</code>) as a parameter.</p>
 </div>

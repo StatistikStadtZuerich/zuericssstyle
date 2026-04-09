@@ -5,12 +5,7 @@ function to generate an ssz-themed ogd download button
 ## Usage
 
 ``` r
-sszOgdDownload(
-  outputId,
-  href,
-  label = "OGD",
-  image = icons_ssz("external-link")
-)
+sszOgdDownload(outputId, href, label = "OGD", image = NULL)
 ```
 
 ## Arguments
@@ -29,8 +24,7 @@ sszOgdDownload(
 
 - image:
 
-  optional image/icon in the form of a html-i Tag, default is
-  icons_ssz("external-link")
+  optional image/icon in the form of a html-i Tag, default is NULL
 
 ## Value
 
