@@ -1,6 +1,6 @@
 # zuericssstyle 2.0.4
 
--   Fix: ajdust media queries for Download Buttons
+-   Fix: adjust media queries for Download Buttons
 
 # zuericssstyle 2.0.3
 
