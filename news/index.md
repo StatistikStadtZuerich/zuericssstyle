@@ -1,5 +1,9 @@
 # Changelog
 
+## zuericssstyle 2.0.4
+
+- Fix: adjust media queries for Download Buttons
+
 ## zuericssstyle 2.0.3
 
 - Fix: adjust reactable font size to 14px to avoid font-hinting
