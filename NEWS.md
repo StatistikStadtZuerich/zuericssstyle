@@ -1,3 +1,5 @@
+# zuericssstyle 2.0.4
+
 # zuericssstyle 2.0.3
 
 -   Fix: adjust reactable font size to 14px to avoid font-hinting artifacts
