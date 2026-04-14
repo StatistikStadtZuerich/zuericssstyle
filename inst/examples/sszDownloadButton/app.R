@@ -7,20 +7,28 @@ ui <- ssz_page(
   tags$div(
     id = "button-div",
     class = "button-div",
-    sszDownloadButton("csvDownload",
-      label = "CSV",
-      image = icons_stzh()("download")
+    sszActionButton(
+      "action",
+      "Abfrage starten",
     ),
-    sszDownloadButton("excelDownload",
-      label = "XLSX",
-      image = icons_stzh()("download")
-    ),
-    sszDownloadButton("downloadDownload",
-      image = icons_stzh()("download")
-    ),
-    sszOgdDownload("ogdDownload",
-      href = "https://data.stadt-zuerich.ch/",
-      image = icons_stzh()("external-link")
+    tags$div(
+      id = "downloadWrapperId",
+      class = "downloadWrapperDiv",
+      sszDownloadButton("csvDownload",
+        label = "CSV",
+        image = icons_stzh()("download")
+      ),
+      sszDownloadButton("excelDownload",
+        label = "XLSX",
+        image = icons_stzh()("download")
+      ),
+      sszDownloadButton("downloadDownload",
+        image = icons_stzh()("download")
+      ),
+      sszOgdDownload("ogdDownload",
+        href = "https://data.stadt-zuerich.ch/",
+        image = icons_stzh()("external-link")
+      )
     )
   )
 )
