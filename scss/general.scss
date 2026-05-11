@@ -138,9 +138,17 @@ a {
   line-height: 1.5;
   margin: 0px 0px 12px;
 
+  &:visited {
+    color: $zueriblau;
+  }
+
   &:hover {
     color: $light-blue;
     transition: 0.5s;
+  }
+
+  &:active {
+    color: $light-blue;
   }
 }
 

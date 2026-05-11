@@ -1,3 +1,8 @@
+# zuericssstyle 2.0.5
+
+-   Fix: adjust floating of inline radio buttons
+-   Fix: adjust link color for active and visited state
+
 # zuericssstyle 2.0.4
 
 -   Fix: adjust media queries for Download Buttons
