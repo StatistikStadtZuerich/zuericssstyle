@@ -18,6 +18,7 @@ You can install the latest version of `zuericssstyle` directly from this
 repository:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("StatistikStadtZuerich/zuericssstyle")
 ```
@@ -27,6 +28,7 @@ extracting the files to a local directory (e.g. your Desktop), install
 the package using:
 
 ``` r
+
 remotes::install_local("<path_to_location>/zuericssstyle-main")
 ```
 
@@ -35,6 +37,7 @@ remotes::install_local("<path_to_location>/zuericssstyle-main")
 To check the currently installed version of `zuericssstyle`, run:
 
 ``` r
+
 packageVersion("zuericssstyle")
 ```
 
@@ -60,6 +63,7 @@ The recommended approach is to use
 as a styled drop-in replacement for `fluidPage()` from Shiny:
 
 ``` r
+
 # preferred: styled page wrapper
 ui <- ssz_page(...)
 ```
@@ -70,6 +74,7 @@ you can instead wrap the UI definition with
 to include the required CSS dependencies:
 
 ``` r
+
 # alternative: include styling and icons around your UI
 ui <- add_zcss_deps(fixedPage(...))
 ```
@@ -90,6 +95,7 @@ provides a styled numeric input field based on `numericInput()` from
 Shiny.
 
 ``` r
+
 sszNumericInput("number", "Zahl", 4)
 ```
 
@@ -101,6 +107,7 @@ sszNumericInput("number", "Zahl", 4)
 provides a styled version of `selectInput()` from Shiny.
 
 ``` r
+
 sszSelectInput(
     "select",
     "Flughafen",
@@ -124,6 +131,7 @@ sszSelectInput(
 provides a styled version of `radioButtons()` from Shiny.
 
 ``` r
+
 sszRadioButtons(
    inputId = "ButtonGroupLabel",
    label = "Flughafen:",
@@ -149,6 +157,7 @@ provides a styled version of `radioGroupButtons()` from
 [`shinyWidgets`](https://dreamrs.github.io/shinyWidgets/).
 
 ``` r
+
 sszRadioGroupButtons(
     inputId = "years",
     choices = 2022:2024,
@@ -164,6 +173,7 @@ sszRadioGroupButtons(
 provides a styled version of `textInput()` from Shiny.
 
 ``` r
+
 sszTextInput("suchfeld", "Name:")
 ```
 
@@ -177,6 +187,7 @@ provides an autocomplete-enabled text input based on
 [`dqshiny`](https://github.com/daqana/dqshiny) package.
 
 ``` r
+
 sszAutocompleteInput(
             "name",
             "Geben Sie einen Namen ein",
@@ -195,6 +206,7 @@ design guidelines. Therefore, the appearance of this widget may change
 in future versions of this package.
 
 ``` r
+
 sszSliderInput("choose_numbers",
     "Input",
     value = c(30, 60),
@@ -218,6 +230,7 @@ sszSliderInput("choose_number",
 provides a styled version of `actionButton()` from Shiny.
 
 ``` r
+
 sszActionButton("ActionButtonId", "Abfrage starten")
 ```
 
@@ -230,6 +243,7 @@ provides a styled download button based on `downloadButton()` from
 Shiny.
 
 ``` r
+
 sszDownloadButton("csvDownload",
       label = "CSV",
       image = icons_stzh()("download")
@@ -281,6 +295,7 @@ rules for `.button-div` and `.downloadWrapperDiv`).
 Example:
 
 ``` r
+
 div(
   class = "button-div",
   sszDownloadButton("csvDownload", label = "CSV"),
@@ -302,6 +317,7 @@ additional parameters to Shiny’s `dateRangeInput` can be passed as
 parameters.
 
 ``` r
+
 sszDateRange("DateRange", "Datum auswählen",
     start = "2001-01-01",
     end = "2010-12-31",
@@ -322,6 +338,7 @@ months, in addition to full dates. By default, the language is German
 and the date format is `dd.mm.yyyy`.
 
 ``` r
+
 sszAirDatepickerInput(
           inputId = "airMonthStart2",
           label = "Datum auswählen",
@@ -349,6 +366,7 @@ When creating cards, we recommend using a heading element inside
 `card_header` to ensure consistent typography and spacing.
 
 ``` r
+
 library(bslib) 
 
 card(
@@ -399,6 +417,7 @@ table.
 Example:
 
 ``` r
+
 reactable(iris, class = "ssz-striped")
 reactable(iris, class = "ssz-hover")
 ```
@@ -421,6 +440,7 @@ The `icon` argument allows an icon or image to be displayed before the
 text. The default is `NULL`, meaning no icon is shown.
 
 ``` r
+
  sszContextBox(
     title = "Information mit Icon",
     text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim.",
@@ -458,6 +478,7 @@ The `icon` argument allows an icon or image to be displayed before the
 text. The default is `NULL`, meaning no icon is shown.
 
 ``` r
+
 sszInfoBox(
     title = "A message with the wrong sender will not be answered and will be deleted.",
     text = "Laboris laborum aute id laboris culpa esse aliquip nisi anim velit. Minim sunt eiusmod do laborum amet ut magna. Labore dolore id nostrud enim Lorem pariatur ad dolore id eiusmod adipisicing laboris laborum minim.",
@@ -489,6 +510,7 @@ text. There is two text-specific utility classes in `zuericssstyle` :
   consistently across breakpoints.
 
 ``` r
+
 p("This text will be ",
    strong(class = "bold-text", "bold"),
    "."
@@ -509,6 +531,7 @@ for grouping chart-related buttons.
 Example usage:
 
 ``` r
+
 div(
   class = "ssz-chart-buttons",
   sszRadioGroupButtons(
@@ -535,6 +558,7 @@ If you need the CSS file to style an HTML report or other HTML outputs,
 use:
 
 ``` r
+
 get_generic_css()
 ```
 
